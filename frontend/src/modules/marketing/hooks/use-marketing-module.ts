@@ -58,6 +58,7 @@ export function useMarketingModule(): MarketingModuleState {
     currentPage,
     setCurrentPage: setStoreCurrentPage,
     setSidebarActiveItem,
+    sidebarActiveItem,
     trackPageVisit,
     isHydrated,
   } = useMarketingStore();
@@ -126,7 +127,7 @@ export function useMarketingModule(): MarketingModuleState {
       setCurrentPage: setStoreCurrentPage,
       navigate,
       search,
-      activeItemId: useMarketingStore.getState().sidebarActiveItem,
+      activeItemId: sidebarActiveItem,
       setActiveItemId: setSidebarActiveItem,
       products: MARKETING_CONFIG.products,
       navSections,

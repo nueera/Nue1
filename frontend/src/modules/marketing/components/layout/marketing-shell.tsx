@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
 import { MarketingSidebar } from './marketing-sidebar';
 import { MarketingHeader } from './marketing-header';
 import { useMarketingStore } from '../../stores/marketing-store';
@@ -11,98 +10,81 @@ import { cn } from '@/lib/utils';
 
 function MarketingLayoutInner({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const { trackPageVisit, getScrollPosition, setScrollPosition } = useMarketingStore();
   const { isMaximized, state: workspaceState } = useWorkspace();
 
-  useEffect(() => {
-    const slug = pathname?.split('/marketing/')[1] || 'campaigns/dashboard';
-    trackPageVisit(slug);
-  }, [pathname, trackPageVisit]);
+  // Derive the page slug from pathname
+  const getSlug = useCallback(() => {
+    return pathname?.split('/marketing/')[1] || 'campaigns/dashboard';
+  }, [pathname]);
 
+  // Track page visit on navigation
   useEffect(() => {
-    const slug = pathname?.split('/marketing/')[1] || 'campaigns/dashboard';
-    const mainEl = document.querySelector('.marketing-main-scroll');
-    if (mainEl) {
-      const saved = getScrollPosition(slug);
-      if (saved > 0) {
-        requestAnimationFrame(() => { mainEl.scrollTop = saved; });
-      }
+    trackPageVisit(getSlug());
+  }, [pathname, trackPageVisit, getSlug]);
+
+  // Restore scroll position on navigation (using ref instead of DOM query)
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const saved = getScrollPosition(getSlug());
+    if (saved > 0) {
+      requestAnimationFrame(() => { el.scrollTop = saved; });
     }
-  }, [pathname, getScrollPosition]);
+  }, [pathname, getScrollPosition, getSlug]);
 
+  // Debounced scroll position saving (using ref instead of DOM query)
   useEffect(() => {
-    const mainEl = document.querySelector('.marketing-main-scroll');
-    if (!mainEl) return;
-
-    const handleScroll = () => {
-      const slug = pathname?.split('/marketing/')[1] || 'campaigns/dashboard';
-      setScrollPosition(slug, mainEl.scrollTop);
-    };
+    const el = scrollContainerRef.current;
+    if (!el) return;
 
     let timeout: NodeJS.Timeout;
-    const debouncedScroll = () => {
+    const handleScroll = () => {
       clearTimeout(timeout);
-      timeout = setTimeout(handleScroll, 150);
+      timeout = setTimeout(() => {
+        setScrollPosition(getSlug(), el.scrollTop);
+      }, 150);
     };
 
-    mainEl.addEventListener('scroll', debouncedScroll, { passive: true });
+    el.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
-      mainEl.removeEventListener('scroll', debouncedScroll);
+      el.removeEventListener('scroll', handleScroll);
       clearTimeout(timeout);
     };
-  }, [pathname, setScrollPosition]);
+  }, [pathname, setScrollPosition, getSlug]);
 
   return (
     <>
-      {/* Focus mode overlay when maximized */}
-      <AnimatePresence>
-        {isMaximized && (
-          <motion.div
-            key="focus-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.24 }}
-            className="workspace-focus-overlay"
-          />
+      {/* Focus mode overlay when maximized — plain CSS transition, no framer-motion */}
+      <div
+        className={cn(
+          'workspace-focus-overlay transition-opacity duration-200',
+          isMaximized ? 'opacity-100' : 'opacity-0 pointer-events-none'
         )}
-      </AnimatePresence>
+        aria-hidden={!isMaximized}
+      />
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="flex h-screen overflow-hidden bg-background workspace-enter"
-      >
-        <motion.div
-          initial={{ opacity: 0, x: -8 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.18, delay: 0.02, ease: [0.25, 0.46, 0.45, 0.94] }}
+      <div className="flex h-screen overflow-hidden bg-background workspace-enter">
+        {/* Sidebar — no entrance animation needed, it's always present */}
+        <div
           className={cn(
             'flex flex-col h-full shrink-0',
             isMaximized && 'w-16'
           )}
         >
           <MarketingSidebar />
-        </motion.div>
+        </div>
         <div className="flex flex-col flex-1 min-w-0">
-          <motion.div
-            initial={{ opacity: 0, y: -4 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.16, delay: 0.04, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <MarketingHeader />
-          </motion.div>
-          <motion.main
-            initial={{ opacity: 0, y: 3 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.18, delay: 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
+          <MarketingHeader />
+          <main
+            ref={scrollContainerRef}
             className="flex-1 overflow-y-auto custom-scrollbar smooth-scroll marketing-main-scroll"
           >
             {children}
-          </motion.main>
+          </main>
         </div>
-      </motion.div>
+      </div>
     </>
   );
 }
