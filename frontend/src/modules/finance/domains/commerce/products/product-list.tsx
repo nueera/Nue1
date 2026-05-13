@@ -70,11 +70,11 @@ export function ProductList({ data, isLoading, onRowClick, onEdit, onDelete, onC
 
   return (
     <div className="space-y-3">
-      <div className="flex items-center justify-between gap-2">
-        <div className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border bg-card flex-1 max-w-md">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <div className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border bg-card flex-1 w-full sm:max-w-md">
           <input type="text" value={globalFilter} onChange={e => setGlobalFilter(e.target.value)} placeholder="Search products..." className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground/60 outline-none text-sm" />
         </div>
-        {onCreateNew && <Button onClick={onCreateNew}><Plus className="h-4 w-4 mr-1" />New Product</Button>}
+        {onCreateNew && <Button onClick={onCreateNew} className="w-full sm:w-auto"><Plus className="h-4 w-4 mr-1" />New Product</Button>}
       </div>
       <div className="rounded-xl border overflow-hidden">
         <div className="overflow-x-auto">
@@ -105,7 +105,7 @@ export function ProductList({ data, isLoading, onRowClick, onEdit, onDelete, onC
         </div>
       </div>
       {!isLoading && table.getPageCount() > 0 && (
-        <div className="border rounded-lg px-3 py-2.5 flex items-center justify-between gap-4">
+        <div className="border rounded-lg px-3 py-2.5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}</p>
           <div className="flex items-center gap-1">
             <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}><ChevronLeft className="h-4 w-4" /></Button>
