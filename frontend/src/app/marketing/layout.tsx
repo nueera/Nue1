@@ -1,8 +1,8 @@
 'use client';
 
 import { type ReactNode } from 'react';
-import { MarketingShell } from '@/modules/marketing/components/layout/marketing-shell';
+import { MarketingProvider } from '@/modules/marketing/providers/marketing-provider';
 
 export default function MarketingLayout({ children }: { children: ReactNode }) {
-  return <MarketingShell>{children}</MarketingShell>;
+  return <MarketingProvider>{children}</MarketingProvider>;
 }
