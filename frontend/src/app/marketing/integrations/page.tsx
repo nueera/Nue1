@@ -2,7 +2,7 @@
 
 import { Plug } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { IntegrationMarketplace } from '@/modules/marketing/components/integrations';
+import { IntegrationMarketplace } from '@/modules/marketing/components/integrations/integration-marketplace';
 
 export default function IntegrationsPage() {
   return (

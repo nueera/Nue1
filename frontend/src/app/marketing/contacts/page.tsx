@@ -2,7 +2,7 @@
 
 import { Contact } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { ContactList } from '@/modules/marketing/components/contacts';
+import { ContactList } from '@/modules/marketing/components/contacts/contact-list';
 
 export default function ContactsPage() {
   return (

@@ -2,7 +2,7 @@
 
 import { FlaskConical } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { ABTestReport } from '@/modules/marketing/components/analytics';
+import { ABTestReport } from '@/modules/marketing/components/analytics/ab-test-report';
 
 export default function ABTestingPage() {
   return (

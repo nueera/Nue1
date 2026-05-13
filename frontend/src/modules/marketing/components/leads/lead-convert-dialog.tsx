@@ -21,7 +21,7 @@ import {
 } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { useConvertLead } from '@/modules/marketing/hooks';
+import { useConvertLead } from '@/modules/marketing/hooks/use-leads';
 import type { Lead } from '@/modules/marketing/types';
 import { ArrowRight, User, Building2, Mail, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';

@@ -12,7 +12,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { useMergeLeads } from '@/modules/marketing/hooks';
+import { useMergeLeads } from '@/modules/marketing/hooks/use-leads';
 import type { Lead } from '@/modules/marketing/types';
 import { ArrowRight, Check, ToggleLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';

@@ -2,7 +2,7 @@
 
 import { Zap } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { WorkflowList } from '@/modules/marketing/components/workflows';
+import { WorkflowList } from '@/modules/marketing/components/workflows/workflow-list';
 
 export default function AutomationOverviewPage() {
   return (

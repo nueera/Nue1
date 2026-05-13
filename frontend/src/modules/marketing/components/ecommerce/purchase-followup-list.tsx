@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/select';
 import { FollowUp, Search, Plus, Mail, Star, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { usePurchaseFollowups } from '@/modules/marketing/hooks';
+import { usePurchaseFollowups } from '@/modules/marketing/hooks/use-ecommerce';
 import type { PurchaseFollowup } from '@/modules/marketing/types';
 
 const TRIGGER_LABELS: Record<string, string> = {

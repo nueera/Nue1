@@ -2,7 +2,7 @@
 
 import { Layers } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { StagePipeline } from '@/modules/marketing/components/stages';
+import { StagePipeline } from '@/modules/marketing/components/stages/stage-pipeline';
 
 export default function LeadStagesPage() {
   return (

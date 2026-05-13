@@ -12,8 +12,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { MetricCard } from '@/modules/marketing/components/shared';
-import { useScoringRules } from '@/modules/marketing/hooks';
+import { MetricCard } from '@/modules/marketing/components/shared/metric-card';
+import { useScoringRules } from '@/modules/marketing/hooks/use-lead-scoring';
 import type { ScoringRule, ScoringCriteria } from '@/modules/marketing/types';
 import {
   Search,

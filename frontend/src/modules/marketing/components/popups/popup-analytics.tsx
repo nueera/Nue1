@@ -1,8 +1,8 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MetricCard } from '@/modules/marketing/components/shared';
-import { usePopupAnalytics } from '@/modules/marketing/hooks';
+import { MetricCard } from '@/modules/marketing/components/shared/metric-card';
+import { usePopupAnalytics } from '@/modules/marketing/hooks/use-popups';
 import {
   Eye,
   MousePointerClick,

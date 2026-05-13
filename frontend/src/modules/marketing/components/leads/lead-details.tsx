@@ -12,7 +12,7 @@ import { LeadStageBadge } from '../shared/lead-stage-badge';
 import { LeadStageFlow } from './lead-stage-flow';
 import { LeadScoreDisplay } from './lead-score-display';
 import { LeadTimeline } from './lead-timeline';
-import { useLead } from '@/modules/marketing/hooks';
+import { useLead } from '@/modules/marketing/hooks/use-leads';
 import { LEAD_SOURCE_CONFIG } from '@/modules/marketing/constants/lead-constants';
 import type { Lead } from '@/modules/marketing/types';
 import {

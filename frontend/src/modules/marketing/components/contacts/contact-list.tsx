@@ -39,9 +39,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { useContacts } from '@/modules/marketing/hooks';
+import { useContacts } from '@/modules/marketing/hooks/use-contacts';
 import type { MarketingContact } from '@/modules/marketing/types';
-import { motion } from 'framer-motion';
 
 interface ContactListProps {
   data?: MarketingContact[];

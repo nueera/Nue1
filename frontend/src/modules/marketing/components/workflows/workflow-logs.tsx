@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/select';
 import { History, Search, CheckCircle2, XCircle, SkipForward, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useWorkflowLogs } from '@/modules/marketing/hooks';
+import { useWorkflowLogs } from '@/modules/marketing/hooks/use-workflows';
 import type { WorkflowLog } from '@/modules/marketing/types';
 
 interface WorkflowLogsProps {

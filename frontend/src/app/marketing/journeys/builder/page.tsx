@@ -1,8 +1,13 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { GitBranchPlus } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { JourneyBuilder } from '@/modules/marketing/components/journeys';
+
+const JourneyBuilder = dynamic(
+  () => import('@/modules/marketing/components/journeys/journey-builder').then(m => ({ default: m.JourneyBuilder })),
+  { ssr: false, loading: () => <div className="flex items-center justify-center h-64 text-muted-foreground text-sm">Loading Journey Builder...</div> }
+);
 
 export default function JourneyBuilderPage() {
   return (

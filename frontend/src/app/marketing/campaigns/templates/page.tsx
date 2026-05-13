@@ -2,7 +2,7 @@
 
 import { FileText } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { TemplateGallery } from '@/modules/marketing/components/email-templates';
+import { TemplateGallery } from '@/modules/marketing/components/email-templates/template-gallery';
 
 export default function EmailTemplatesPage() {
   return (

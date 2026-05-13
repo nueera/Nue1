@@ -2,7 +2,7 @@
 
 import { Split } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { SegmentList } from '@/modules/marketing/components/segments';
+import { SegmentList } from '@/modules/marketing/components/segments/segment-list';
 
 export default function SegmentsPage() {
   return (

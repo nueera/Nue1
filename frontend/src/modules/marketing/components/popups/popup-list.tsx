@@ -18,8 +18,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { MetricCard } from '@/modules/marketing/components/shared';
-import { usePopups } from '@/modules/marketing/hooks';
+import { MetricCard } from '@/modules/marketing/components/shared/metric-card';
+import { usePopups } from '@/modules/marketing/hooks/use-popups';
 import type { Popup } from '@/modules/marketing/types';
 import {
   Search,
@@ -34,7 +34,6 @@ import {
   LayoutGrid,
   List,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 interface PopupListProps {
   data?: Popup[];
@@ -148,7 +147,7 @@ export function PopupList({
       {viewMode === 'cards' ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredData.map((popup, index) => (
-            <motion.div key={popup.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2, delay: index * 0.03 }}>
+            <div key={popup.id} className="animate-in fade-in slide-in-from-bottom-2 duration-200" style={{ animationDelay: `${index * 30}ms`, animationFillMode: 'both' }}>
               <Card className="hover:shadow-md transition-all duration-200 cursor-pointer border-border/50" onClick={() => onPopupClick?.(popup)}>
                 <CardContent className="p-4">
                   <div className="flex items-start justify-between gap-2 mb-3">
@@ -188,7 +187,7 @@ export function PopupList({
                   </div>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       ) : (

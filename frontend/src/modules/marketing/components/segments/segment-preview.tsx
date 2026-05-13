@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import type { SegmentRule } from '@/modules/marketing/types';
-import { useSegmentPreview } from '@/modules/marketing/hooks';
+import { useSegmentPreview } from '@/modules/marketing/hooks/use-segments';
 import { Users, RefreshCw } from 'lucide-react';
 import { motion } from 'framer-motion';
 

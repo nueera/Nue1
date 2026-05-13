@@ -3,7 +3,7 @@
 import { use } from 'react';
 import { Users } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { AudienceDetails } from '@/modules/marketing/components/audiences';
+import { AudienceDetails } from '@/modules/marketing/components/audiences/audience-details';
 
 export default function AudienceDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);

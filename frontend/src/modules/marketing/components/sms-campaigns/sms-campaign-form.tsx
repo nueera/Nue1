@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { SmsComposer } from './sms-composer';
 import { SmsRecipientPicker } from './sms-recipient-picker';
 import { SchedulePicker, type ScheduleConfig } from '../shared/schedule-picker';
-import { useCreateCampaign, useUpdateCampaign } from '@/modules/marketing/hooks';
+import { useCreateCampaign, useUpdateCampaign } from '@/modules/marketing/hooks/use-campaigns';
 import type { Campaign } from '@/modules/marketing/types';
 import { X } from 'lucide-react';
 

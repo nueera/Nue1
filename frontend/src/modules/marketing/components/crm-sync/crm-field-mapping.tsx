@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/select';
 import { ArrowRightLeft, Plus, Trash2, Save } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useFieldMappings } from '@/modules/marketing/hooks';
+import { useFieldMappings } from '@/modules/marketing/hooks/use-crm-sync';
 import type { FieldMapping } from '@/modules/marketing/types';
 
 interface MappingRow {

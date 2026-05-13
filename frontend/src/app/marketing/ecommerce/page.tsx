@@ -2,7 +2,7 @@
 
 import { ShoppingCart } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { EcommerceDashboard } from '@/modules/marketing/components/ecommerce';
+import { EcommerceDashboard } from '@/modules/marketing/components/ecommerce/ecommerce-dashboard';
 
 export default function EcommerceDashboardPage() {
   return (

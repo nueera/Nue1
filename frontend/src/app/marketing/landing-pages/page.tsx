@@ -2,7 +2,7 @@
 
 import { Globe } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { LandingPageList } from '@/modules/marketing/components/landing-pages';
+import { LandingPageList } from '@/modules/marketing/components/landing-pages/landing-page-list';
 
 export default function LandingPagesPage() {
   return (

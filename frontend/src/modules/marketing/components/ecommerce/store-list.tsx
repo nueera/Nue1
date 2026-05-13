@@ -10,7 +10,7 @@ import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { motion } from 'framer-motion';
-import { useStores } from '@/modules/marketing/hooks';
+import { useStores } from '@/modules/marketing/hooks/use-ecommerce';
 import type { EcommerceStore } from '@/modules/marketing/types';
 
 interface StoreListProps {

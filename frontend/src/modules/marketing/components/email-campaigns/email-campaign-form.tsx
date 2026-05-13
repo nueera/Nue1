@@ -19,7 +19,7 @@ import { EmailComposer } from './email-composer';
 import { EmailRecipientPicker } from './email-recipient-picker';
 import { EmailSchedule } from './email-schedule';
 import { EmailABTest } from './email-ab-test';
-import { useCreateCampaign, useUpdateCampaign } from '@/modules/marketing/hooks';
+import { useCreateCampaign, useUpdateCampaign } from '@/modules/marketing/hooks/use-campaigns';
 import type { Campaign } from '@/modules/marketing/types';
 import { X } from 'lucide-react';
 

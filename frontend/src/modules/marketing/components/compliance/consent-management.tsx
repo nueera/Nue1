@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/select';
 import { Shield, Search, Check, X, Mail, MessageSquare, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useConsents, useUpdateConsent } from '@/modules/marketing/hooks';
+import { useConsents, useUpdateConsent } from '@/modules/marketing/hooks/use-compliance';
 import type { ConsentRecord } from '@/modules/marketing/types';
 
 const TYPE_ICONS: Record<string, typeof Mail> = { email: Mail, sms: MessageSquare, whatsapp: MessageSquare, phone: Phone, tracking: Shield, marketing: Mail };

@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
-import { cn } from '@/lib/utils';
+import React, { useState, useRef, useCallback } from 'react';
 import type { JourneyNode, JourneyEdge } from '@/modules/marketing/types';
 import { JourneyTriggerNode } from './journey-trigger-node';
 import { JourneyEmailNode } from './journey-email-node';
@@ -24,14 +23,20 @@ interface JourneyCanvasProps {
   onNodeMove: (nodeId: string, position: { x: number; y: number }) => void;
 }
 
-export function JourneyCanvas({ nodes, edges, selectedNodeId, onNodeSelect, onNodeMove }: JourneyCanvasProps) {
+export const JourneyCanvas = React.memo(function JourneyCanvas({ nodes, edges, selectedNodeId, onNodeSelect, onNodeMove }: JourneyCanvasProps) {
   const canvasRef = useRef<HTMLDivElement>(null);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
-  const [isPanning, setIsPanning] = useState(false);
-  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
-  const [draggingNodeId, setDraggingNodeId] = useState<string | null>(null);
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const isPanningRef = useRef(false);
+  const dragStartRef = useRef({ x: 0, y: 0 });
+  const draggingNodeIdRef = useRef<string | null>(null);
+  const dragOffsetRef = useRef({ x: 0, y: 0 });
+  const panRef = useRef(pan);
+  const zoomRef = useRef(zoom);
+
+  // Keep refs in sync
+  panRef.current = pan;
+  zoomRef.current = zoom;
 
   const handleWheel = useCallback((e: React.WheelEvent) => {
     e.preventDefault();
@@ -41,43 +46,43 @@ export function JourneyCanvas({ nodes, edges, selectedNodeId, onNodeSelect, onNo
 
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     if (e.target === canvasRef.current || (e.target as HTMLElement).classList.contains('canvas-bg')) {
-      setIsPanning(true);
-      setDragStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
+      isPanningRef.current = true;
+      dragStartRef.current = { x: e.clientX - panRef.current.x, y: e.clientY - panRef.current.y };
       onNodeSelect(null);
     }
-  }, [pan, onNodeSelect]);
+  }, [onNodeSelect]);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (isPanning) {
-      setPan({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
+    if (isPanningRef.current) {
+      setPan({ x: e.clientX - dragStartRef.current.x, y: e.clientY - dragStartRef.current.y });
     }
-    if (draggingNodeId) {
+    if (draggingNodeIdRef.current) {
       const rect = canvasRef.current?.getBoundingClientRect();
       if (!rect) return;
-      const x = (e.clientX - rect.left - pan.x) / zoom - dragOffset.x;
-      const y = (e.clientY - rect.top - pan.y) / zoom - dragOffset.y;
-      onNodeMove(draggingNodeId, { x: Math.max(0, x), y: Math.max(0, y) });
+      const x = (e.clientX - rect.left - panRef.current.x) / zoomRef.current - dragOffsetRef.current.x;
+      const y = (e.clientY - rect.top - panRef.current.y) / zoomRef.current - dragOffsetRef.current.y;
+      onNodeMove(draggingNodeIdRef.current, { x: Math.max(0, x), y: Math.max(0, y) });
     }
-  }, [isPanning, dragStart, draggingNodeId, dragOffset, pan, zoom, onNodeMove]);
+  }, [onNodeMove]);
 
   const handleMouseUp = useCallback(() => {
-    setIsPanning(false);
-    setDraggingNodeId(null);
+    isPanningRef.current = false;
+    draggingNodeIdRef.current = null;
   }, []);
 
   const handleNodeMouseDown = useCallback((nodeId: string, e: React.MouseEvent) => {
     e.stopPropagation();
     const node = nodes.find((n) => n.id === nodeId);
     if (!node) return;
-    setDraggingNodeId(nodeId);
+    draggingNodeIdRef.current = nodeId;
     const rect = canvasRef.current?.getBoundingClientRect();
     if (!rect) return;
-    setDragOffset({
-      x: (e.clientX - rect.left - pan.x) / zoom - node.position.x,
-      y: (e.clientY - rect.top - pan.y) / zoom - node.position.y,
-    });
+    dragOffsetRef.current = {
+      x: (e.clientX - rect.left - panRef.current.x) / zoomRef.current - node.position.x,
+      y: (e.clientY - rect.top - panRef.current.y) / zoomRef.current - node.position.y,
+    };
     onNodeSelect(nodeId);
-  }, [nodes, pan, zoom, onNodeSelect]);
+  }, [nodes, onNodeSelect]);
 
   const renderNode = (node: JourneyNode) => {
     const isSelected = selectedNodeId === node.id;
@@ -136,14 +141,15 @@ export function JourneyCanvas({ nodes, edges, selectedNodeId, onNodeSelect, onNo
           style={{
             transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
             transformOrigin: '0 0',
+            willChange: 'transform',
           }}
         >
-          {/* Grid */}
+          {/* Grid - reduced from 4000x4000 to viewport-relative */}
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle, hsl(var(--border)) 1px, transparent 1px)',
             backgroundSize: '24px 24px',
-            width: '4000px',
-            height: '4000px',
+            width: '2000px',
+            height: '2000px',
             opacity: 0.3,
           }} />
 
@@ -164,4 +170,4 @@ export function JourneyCanvas({ nodes, edges, selectedNodeId, onNodeSelect, onNo
       </div>
     </div>
   );
-}
+});

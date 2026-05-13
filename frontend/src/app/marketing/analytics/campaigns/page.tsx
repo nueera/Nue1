@@ -2,7 +2,7 @@
 
 import { FileBarChart } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { CampaignReportList } from '@/modules/marketing/components/analytics';
+import { CampaignReportList } from '@/modules/marketing/components/analytics/campaign-report-list';
 
 export default function CampaignReportsPage() {
   return (

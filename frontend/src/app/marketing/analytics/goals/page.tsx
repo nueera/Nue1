@@ -2,7 +2,7 @@
 
 import { Flag } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { GoalList } from '@/modules/marketing/components/web-tracking';
+import { GoalList } from '@/modules/marketing/components/web-tracking/goal-list';
 
 export default function GoalTrackingPage() {
   return (

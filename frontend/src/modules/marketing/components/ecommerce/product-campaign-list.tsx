@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/select';
 import { Search, Plus, Tag, Megaphone } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useProductCampaigns } from '@/modules/marketing/hooks';
+import { useProductCampaigns } from '@/modules/marketing/hooks/use-ecommerce';
 import type { ProductCampaign } from '@/modules/marketing/types';
 
 const TYPE_LABELS: Record<string, string> = {

@@ -30,7 +30,7 @@ import {
   DollarSign,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { usePlans, useDeletePlan } from '@/modules/marketing/hooks';
+import { usePlans, useDeletePlan } from '@/modules/marketing/hooks/use-planner';
 import type { MarketingPlan } from '@/modules/marketing/types';
 import { cn } from '@/lib/utils';
 

@@ -2,7 +2,7 @@
 
 import { Users } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { AudienceList } from '@/modules/marketing/components/audiences';
+import { AudienceList } from '@/modules/marketing/components/audiences/audience-list';
 
 export default function AudiencesPage() {
   return (

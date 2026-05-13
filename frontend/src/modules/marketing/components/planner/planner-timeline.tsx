@@ -11,8 +11,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { GanttChart, ZoomIn, ZoomOut, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { usePlans } from '@/modules/marketing/hooks';
+import { usePlans } from '@/modules/marketing/hooks/use-planner';
 import type { MarketingPlan } from '@/modules/marketing/types';
 import { cn } from '@/lib/utils';
 
@@ -135,12 +134,10 @@ export function PlannerTimeline({ plans: externalPlans, onPlanClick }: PlannerTi
                   {plans.map((plan, idx) => {
                     const { left, width } = getBarPosition(plan);
                     return (
-                      <motion.div
+                      <div
                         key={plan.id}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: idx * 0.05 }}
-                        className="flex items-center gap-3 group"
+                        className="animate-in fade-in slide-in-from-left-2 duration-200 flex items-center gap-3 group"
+                        style={{ animationDelay: `${idx * 50}ms`, animationFillMode: 'both' }}
                       >
                         <div className="w-40 shrink-0 truncate">
                           <p className="text-sm font-medium truncate">{plan.name}</p>
@@ -177,7 +174,7 @@ export function PlannerTimeline({ plans: externalPlans, onPlanClick }: PlannerTi
                             </TooltipContent>
                           </Tooltip>
                         </div>
-                      </motion.div>
+                      </div>
                     );
                   })}
                 </div>

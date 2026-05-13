@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Search, Plus, Link2, ExternalLink, BarChart3, MousePointerClick } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useSmartUrls } from '@/modules/marketing/hooks';
+import { useSmartUrls } from '@/modules/marketing/hooks/use-web-tracking';
 import type { SmartUrl } from '@/modules/marketing/types';
 
 interface SmartUrlListProps {

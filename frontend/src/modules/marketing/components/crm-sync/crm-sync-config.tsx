@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/select';
 import { RefreshCw, Database, Save } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useCrmSyncConfig, useUpdateCrmSyncConfig } from '@/modules/marketing/hooks';
+import { useCrmSyncConfig, useUpdateCrmSyncConfig } from '@/modules/marketing/hooks/use-crm-sync';
 import type { CrmSyncConfig } from '@/modules/marketing/types';
 
 const CRM_TYPES = [

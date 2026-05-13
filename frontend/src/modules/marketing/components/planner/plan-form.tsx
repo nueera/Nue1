@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/select';
 import { X, Save } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useCreatePlan, useUpdatePlan } from '@/modules/marketing/hooks';
+import { useCreatePlan, useUpdatePlan } from '@/modules/marketing/hooks/use-planner';
 import type { MarketingPlan } from '@/modules/marketing/types';
 
 interface PlanFormProps {

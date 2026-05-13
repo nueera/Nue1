@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { CampaignStatusBadge } from '../shared/campaign-status-badge';
 import { ChannelIcon } from '../shared/channel-icon';
 import { MetricCard } from '../shared/metric-card';
-import { useCampaign, useCampaignAnalytics } from '@/modules/marketing/hooks';
+import { useCampaign, useCampaignAnalytics } from '@/modules/marketing/hooks/use-campaigns';
 import type { Campaign } from '@/modules/marketing/types';
 import {
   Send,

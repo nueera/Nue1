@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { ContactTimeline } from './contact-timeline';
 import { ContactPreferences } from './contact-preferences';
-import { useContact } from '@/modules/marketing/hooks';
+import { useContact } from '@/modules/marketing/hooks/use-contacts';
 import type { MarketingContact } from '@/modules/marketing/types';
 import { Mail, Phone, Building2, Calendar, Edit } from 'lucide-react';
 import { motion } from 'framer-motion';

@@ -2,7 +2,7 @@
 
 import { Share2 } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { SocialCampaignList } from '@/modules/marketing/components/social-campaigns';
+import { SocialCampaignList } from '@/modules/marketing/components/social-campaigns/social-campaign-list';
 
 export default function SocialCampaignsPage() {
   return (

@@ -12,8 +12,7 @@ import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Search, Plus, Zap, MoreHorizontal, Edit3, Trash2, Play, Pause, Clock } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { useWorkflows, useDeleteWorkflow, useActivateWorkflow } from '@/modules/marketing/hooks';
+import { useWorkflows, useDeleteWorkflow, useActivateWorkflow } from '@/modules/marketing/hooks/use-workflows';
 import type { Workflow } from '@/modules/marketing/types';
 
 interface WorkflowListProps {
@@ -82,8 +81,7 @@ export function WorkflowList({ onCreateWorkflow, onEditWorkflow, onViewLogs }: W
       ) : (
         <div className="space-y-2">
           {filtered.map((workflow, idx) => (
-            <motion.div key={workflow.id} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.03 }}
-              className="flex items-center gap-3 p-3 rounded-lg border border-border/50 hover:bg-muted/30 cursor-pointer transition-colors"
+            <div key={workflow.id} className="animate-in fade-in slide-in-from-bottom-1 duration-200 flex items-center gap-3 p-3 rounded-lg border border-border/50 hover:bg-muted/30 cursor-pointer transition-colors" style={{ animationDelay: `${idx * 30}ms`, animationFillMode: 'both' }}
               onClick={() => onEditWorkflow?.(workflow)}
             >
               <div className="flex items-center justify-center h-9 w-9 rounded-lg bg-amber-50 dark:bg-amber-950/30">
@@ -111,7 +109,7 @@ export function WorkflowList({ onCreateWorkflow, onEditWorkflow, onViewLogs }: W
                   <DropdownMenuItem className="text-destructive"><Trash2 className="h-4 w-4 mr-2" />Delete</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-            </motion.div>
+            </div>
           ))}
         </div>
       )}

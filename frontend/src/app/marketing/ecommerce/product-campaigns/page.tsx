@@ -2,7 +2,7 @@
 
 import { Package } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { ProductCampaignList } from '@/modules/marketing/components/ecommerce';
+import { ProductCampaignList } from '@/modules/marketing/components/ecommerce/product-campaign-list';
 
 export default function ProductCampaignsPage() {
   return (

@@ -2,7 +2,7 @@
 
 import { CalendarDays } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { PlanList } from '@/modules/marketing/components/planner';
+import { PlanList } from '@/modules/marketing/components/planner/plan-list';
 
 export default function PlannerPage() {
   return (

@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/select';
 import { Store, Link2, Loader2, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useConnectStore } from '@/modules/marketing/hooks';
+import { useConnectStore } from '@/modules/marketing/hooks/use-ecommerce';
 
 const PLATFORMS = [
   { value: 'shopify', label: 'Shopify' },

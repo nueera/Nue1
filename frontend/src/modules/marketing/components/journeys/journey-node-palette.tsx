@@ -14,7 +14,6 @@ import {
   LogOut,
   GripVertical,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 interface JourneyNodePaletteProps {
   onAddNode?: (type: JourneyNodeType) => void;
@@ -43,11 +42,10 @@ export function JourneyNodePalette({ onAddNode }: JourneyNodePaletteProps) {
       <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Node Types</h3>
       <div className="space-y-1.5">
         {nodeTypes.map((nt, index) => (
-          <motion.div
+          <div
             key={nt.type}
-            initial={{ opacity: 0, x: -8 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.15, delay: index * 0.02 }}
+            className="animate-in fade-in slide-in-from-left-2 duration-150"
+            style={{ animationDelay: `${index * 20}ms`, animationFillMode: 'both' }}
           >
             <Card
               className="cursor-grab hover:shadow-sm transition-all border-border/50 active:cursor-grabbing"
@@ -67,7 +65,7 @@ export function JourneyNodePalette({ onAddNode }: JourneyNodePaletteProps) {
                 <span className="text-xs font-medium text-foreground">{nt.label}</span>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

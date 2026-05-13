@@ -2,7 +2,7 @@
 
 import { Megaphone } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { EmailCampaignList } from '@/modules/marketing/components/email-campaigns';
+import { EmailCampaignList } from '@/modules/marketing/components/email-campaigns/email-campaign-list';
 
 export default function CampaignsListPage() {
   return (

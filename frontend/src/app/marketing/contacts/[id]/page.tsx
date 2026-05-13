@@ -3,7 +3,7 @@
 import { use } from 'react';
 import { Contact } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { ContactDetails } from '@/modules/marketing/components/contacts';
+import { ContactDetails } from '@/modules/marketing/components/contacts/contact-details';
 
 export default function ContactDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);

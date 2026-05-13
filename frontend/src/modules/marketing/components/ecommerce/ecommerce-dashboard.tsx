@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { useStores, useAbandonedCarts } from '@/modules/marketing/hooks';
+import { useStores, useAbandonedCarts } from '@/modules/marketing/hooks/use-ecommerce';
 import { cn } from '@/lib/utils';
 
 interface EcommerceDashboardProps {

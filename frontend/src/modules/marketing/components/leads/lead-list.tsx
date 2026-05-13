@@ -55,10 +55,9 @@ import {
 import { LeadScoreBadge } from '../shared/lead-score-badge';
 import { LeadStageBadge } from '../shared/lead-stage-badge';
 import { ChannelIcon } from '../shared/channel-icon';
-import { useLeads } from '@/modules/marketing/hooks';
+import { useLeads } from '@/modules/marketing/hooks/use-leads';
 import { LEAD_SOURCE_CONFIG } from '@/modules/marketing/constants/lead-constants';
 import type { Lead, LeadSource, LeadStage } from '@/modules/marketing/types';
-import { motion } from 'framer-motion';
 
 interface LeadListProps {
   data?: Lead[];
@@ -325,10 +324,8 @@ export function LeadList({
 
       {/* Bulk Actions */}
       {selectedCount > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800"
+        <div
+          className="animate-in fade-in slide-in-from-top-2 duration-200 flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800"
         >
           <span className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
             {selectedCount} selected
@@ -383,7 +380,7 @@ export function LeadList({
               </SelectContent>
             </Select>
           </div>
-        </motion.div>
+        </div>
       )}
 
       {/* Table */}

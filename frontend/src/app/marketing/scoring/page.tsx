@@ -2,7 +2,7 @@
 
 import { Target } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { ScoringRuleList } from '@/modules/marketing/components/scoring';
+import { ScoringRuleList } from '@/modules/marketing/components/scoring/scoring-rule-list';
 
 export default function LeadScoringPage() {
   return (

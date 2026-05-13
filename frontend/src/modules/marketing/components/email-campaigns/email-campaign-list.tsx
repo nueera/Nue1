@@ -16,7 +16,7 @@ import {
 import { CampaignStatusBadge } from '../shared/campaign-status-badge';
 import { ChannelIcon } from '../shared/channel-icon';
 import { MetricCard } from '../shared/metric-card';
-import { useCampaigns } from '@/modules/marketing/hooks';
+import { useCampaigns } from '@/modules/marketing/hooks/use-campaigns';
 import { CAMPAIGN_TYPE_CONFIG, CAMPAIGN_STATUS_CONFIG } from '@/modules/marketing/constants/campaign-constants';
 import type { Campaign, CampaignType, CampaignStatus } from '@/modules/marketing/types';
 import {
@@ -36,7 +36,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { motion } from 'framer-motion';
 
 interface EmailCampaignListProps {
   data?: Campaign[];
@@ -191,11 +190,10 @@ export function EmailCampaignList({
       {viewMode === 'cards' ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredData.map((campaign, index) => (
-            <motion.div
+            <div
               key={campaign.id}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.2, delay: index * 0.03 }}
+              className="animate-in fade-in slide-in-from-bottom-2 duration-200"
+              style={{ animationDelay: `${index * 30}ms`, animationFillMode: 'both' }}
             >
               <Card
                 className="hover:shadow-md transition-all duration-200 cursor-pointer border-border/50"
@@ -250,7 +248,7 @@ export function EmailCampaignList({
                   </div>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       ) : (

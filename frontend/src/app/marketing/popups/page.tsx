@@ -2,7 +2,7 @@
 
 import { Bell } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { PopupList } from '@/modules/marketing/components/popups';
+import { PopupList } from '@/modules/marketing/components/popups/popup-list';
 
 export default function PopupsPage() {
   return (

@@ -2,7 +2,7 @@
 
 import { MessageSquare } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { SmsCampaignList } from '@/modules/marketing/components/sms-campaigns';
+import { SmsCampaignList } from '@/modules/marketing/components/sms-campaigns/sms-campaign-list';
 
 export default function SmsCampaignsPage() {
   return (

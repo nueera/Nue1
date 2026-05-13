@@ -16,7 +16,6 @@ import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
 import type { JourneyNode, JourneyNodeType, JourneyTrigger } from '@/modules/marketing/types';
 import { Trash2 } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 interface JourneyNodeConfigProps {
   node: JourneyNode;
@@ -211,7 +210,7 @@ export function JourneyNodeConfig({ node, onUpdate, onRemove }: JourneyNodeConfi
   };
 
   return (
-    <motion.div initial={{ opacity: 0, x: 8 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.15 }} className="space-y-4">
+    <div className="animate-in fade-in slide-in-from-right-2 duration-150 space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-semibold text-foreground">
           {node.type.charAt(0).toUpperCase() + node.type.slice(1)} Node
@@ -224,6 +223,6 @@ export function JourneyNodeConfig({ node, onUpdate, onRemove }: JourneyNodeConfi
       </div>
       <Separator />
       <div className="space-y-3">{renderConfig()}</div>
-    </motion.div>
+    </div>
   );
 }

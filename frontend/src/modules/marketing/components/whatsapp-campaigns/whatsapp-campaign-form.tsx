@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { WhatsappComposer } from './whatsapp-composer';
 import { SchedulePicker, type ScheduleConfig } from '../shared/schedule-picker';
-import { useCreateCampaign, useUpdateCampaign } from '@/modules/marketing/hooks';
+import { useCreateCampaign, useUpdateCampaign } from '@/modules/marketing/hooks/use-campaigns';
 import type { Campaign } from '@/modules/marketing/types';
 import { X } from 'lucide-react';
 

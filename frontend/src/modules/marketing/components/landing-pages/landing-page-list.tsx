@@ -18,8 +18,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { MetricCard } from '@/modules/marketing/components/shared';
-import { useLandingPages } from '@/modules/marketing/hooks';
+import { MetricCard } from '@/modules/marketing/components/shared/metric-card';
+import { useLandingPages } from '@/modules/marketing/hooks/use-landing-pages';
 import type { LandingPage } from '@/modules/marketing/types';
 import {
   Search,

@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/select';
 import { ShoppingCart, Search, Mail, MessageSquare, AlertTriangle, CheckCircle2, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useAbandonedCarts } from '@/modules/marketing/hooks';
+import { useAbandonedCarts } from '@/modules/marketing/hooks/use-ecommerce';
 import type { AbandonedCart } from '@/modules/marketing/types';
 
 const STATUS_CONFIG: Record<string, { variant: 'default' | 'secondary' | 'destructive'; icon: typeof AlertTriangle }> = {

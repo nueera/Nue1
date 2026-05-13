@@ -4,7 +4,8 @@ import { cn } from '@/lib/utils';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
-import { useAudiences, useSegments } from '@/modules/marketing/hooks';
+import { useAudiences } from '@/modules/marketing/hooks/use-audiences';
+import { useSegments } from '@/modules/marketing/hooks/use-segments';
 import { Users, Filter, Phone } from 'lucide-react';
 
 interface SmsRecipientPickerProps {

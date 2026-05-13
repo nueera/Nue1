@@ -22,8 +22,8 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { MetricCard } from '@/modules/marketing/components/shared';
-import { useFormSubmissions } from '@/modules/marketing/hooks';
+import { MetricCard } from '@/modules/marketing/components/shared/metric-card';
+import { useFormSubmissions } from '@/modules/marketing/hooks/use-signup-forms';
 import type { FormSubmission } from '@/modules/marketing/types';
 import {
   Search,

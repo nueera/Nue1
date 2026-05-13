@@ -11,7 +11,7 @@ import {
   Plus,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { usePlans } from '@/modules/marketing/hooks';
+import { usePlans } from '@/modules/marketing/hooks/use-planner';
 import type { MarketingPlan, PlanActivity } from '@/modules/marketing/types';
 import { cn } from '@/lib/utils';
 

@@ -2,7 +2,7 @@
 
 import { RefreshCw } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { PurchaseFollowupList } from '@/modules/marketing/components/ecommerce';
+import { PurchaseFollowupList } from '@/modules/marketing/components/ecommerce/purchase-followup-list';
 
 export default function PurchaseFollowupsPage() {
   return (

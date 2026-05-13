@@ -2,7 +2,7 @@
 
 import { ShoppingCart } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { AbandonedCartList } from '@/modules/marketing/components/ecommerce';
+import { AbandonedCartList } from '@/modules/marketing/components/ecommerce/abandoned-cart-list';
 
 export default function AbandonedCartsPage() {
   return (

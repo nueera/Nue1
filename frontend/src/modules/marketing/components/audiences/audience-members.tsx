@@ -15,7 +15,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { useAudienceMembers } from '@/modules/marketing/hooks';
+import { useAudienceMembers } from '@/modules/marketing/hooks/use-audiences';
 import type { AudienceMember } from '@/modules/marketing/types';
 import {
   Search,

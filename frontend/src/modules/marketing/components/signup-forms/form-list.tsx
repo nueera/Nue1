@@ -19,8 +19,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { MetricCard } from '@/modules/marketing/components/shared';
-import { useSignupForms } from '@/modules/marketing/hooks';
+import { MetricCard } from '@/modules/marketing/components/shared/metric-card';
+import { useSignupForms } from '@/modules/marketing/hooks/use-signup-forms';
 import type { SignupForm } from '@/modules/marketing/types';
 import {
   Search,

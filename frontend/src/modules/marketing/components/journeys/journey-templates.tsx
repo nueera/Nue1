@@ -5,7 +5,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import type { JourneyNode, JourneyEdge } from '@/modules/marketing/types';
 import { Mail, MessageSquare, Clock, GitBranch, Zap } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 interface JourneyTemplatesProps {
   onSelectTemplate?: (nodes: JourneyNode[], edges: JourneyEdge[]) => void;
@@ -106,11 +105,10 @@ export function JourneyTemplates({ onSelectTemplate }: JourneyTemplatesProps) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {templates.map((template, index) => (
-          <motion.div
+          <div
             key={template.id}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2, delay: index * 0.05 }}
+            className="animate-in fade-in slide-in-from-bottom-2 duration-200"
+            style={{ animationDelay: `${index * 50}ms`, animationFillMode: 'both' }}
           >
             <Card className="hover:shadow-md transition-all border-border/50 cursor-pointer" onClick={() => onSelectTemplate?.(template.nodes, template.edges)}>
               <CardContent className="p-4">
@@ -131,7 +129,7 @@ export function JourneyTemplates({ onSelectTemplate }: JourneyTemplatesProps) {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { cn } from '@/lib/utils';
 import type { JourneyNode } from '@/modules/marketing/types';
 
@@ -26,7 +27,7 @@ const nodeColors: Record<string, string> = {
   notification: 'bg-gray-400',
 };
 
-export function JourneyMiniMap({ nodes, zoom, pan }: JourneyMiniMapProps) {
+export const JourneyMiniMap = React.memo(function JourneyMiniMap({ nodes, zoom, pan }: JourneyMiniMapProps) {
   const scale = 0.08;
   const mapWidth = 160;
   const mapHeight = 100;
@@ -62,4 +63,4 @@ export function JourneyMiniMap({ nodes, zoom, pan }: JourneyMiniMapProps) {
       ))}
     </div>
   );
-}
+});

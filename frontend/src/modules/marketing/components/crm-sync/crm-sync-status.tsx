@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Activity, CheckCircle2, XCircle, Clock, RefreshCw } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useCrmSyncConfig } from '@/modules/marketing/hooks';
+import { useCrmSyncConfig } from '@/modules/marketing/hooks/use-crm-sync';
 
 export function CrmSyncStatus() {
   const { data: configData } = useCrmSyncConfig();

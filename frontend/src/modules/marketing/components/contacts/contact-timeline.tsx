@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useContactTimeline } from '@/modules/marketing/hooks';
+import { useContactTimeline } from '@/modules/marketing/hooks/use-contacts';
 import type { ContactTimeline as ContactTimelineType } from '@/modules/marketing/types';
 import {
   Mail,

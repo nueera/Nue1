@@ -11,8 +11,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { MetricCard } from '@/modules/marketing/components/shared';
-import { useAudiences } from '@/modules/marketing/hooks';
+import { MetricCard } from '@/modules/marketing/components/shared/metric-card';
+import { useAudiences } from '@/modules/marketing/hooks/use-audiences';
 import type { Audience } from '@/modules/marketing/types';
 import {
   Search,
@@ -26,7 +26,6 @@ import {
   LayoutGrid,
   List,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 interface AudienceListProps {
   data?: Audience[];
@@ -104,7 +103,7 @@ export function AudienceList({
       {viewMode === 'cards' ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredData.map((audience, index) => (
-            <motion.div key={audience.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2, delay: index * 0.03 }}>
+            <div key={audience.id} className="animate-in fade-in slide-in-from-bottom-2 duration-200" style={{ animationDelay: `${index * 30}ms`, animationFillMode: 'both' }}>
               <Card className="hover:shadow-md transition-all duration-200 cursor-pointer border-border/50" onClick={() => onAudienceClick?.(audience)}>
                 <CardContent className="p-4">
                   <div className="flex items-start justify-between gap-2 mb-3">
@@ -148,7 +147,7 @@ export function AudienceList({
                   )}
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       ) : (

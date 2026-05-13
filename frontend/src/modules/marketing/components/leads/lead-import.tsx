@@ -20,7 +20,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { useImportLeads } from '@/modules/marketing/hooks';
+import { useImportLeads } from '@/modules/marketing/hooks/use-leads';
 import type { ImportLeadInput } from '@/modules/marketing/schemas/lead.schema';
 import {
   Upload,

@@ -2,7 +2,7 @@
 
 import { FileText } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { FormList } from '@/modules/marketing/components/signup-forms';
+import { FormList } from '@/modules/marketing/components/signup-forms/form-list';
 
 export default function SignupFormsPage() {
   return (

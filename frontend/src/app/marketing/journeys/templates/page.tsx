@@ -2,7 +2,7 @@
 
 import { ListTree } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { JourneyTemplates } from '@/modules/marketing/components/journeys';
+import { JourneyTemplates } from '@/modules/marketing/components/journeys/journey-templates';
 
 export default function JourneyTemplatesPage() {
   return (

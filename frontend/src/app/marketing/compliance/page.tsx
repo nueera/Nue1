@@ -2,7 +2,7 @@
 
 import { Shield } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { ComplianceDashboard } from '@/modules/marketing/components/compliance';
+import { ComplianceDashboard } from '@/modules/marketing/components/compliance/compliance-dashboard';
 
 export default function CompliancePage() {
   return (

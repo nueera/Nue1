@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Search, UserMinus, Mail, MessageSquare, Ban } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { useUnsubscribes } from '@/modules/marketing/hooks';
+import { useUnsubscribes } from '@/modules/marketing/hooks/use-compliance';
 import type { UnsubscribeEntry } from '@/modules/marketing/types';
 
 const CHANNEL_ICONS: Record<string, typeof Mail> = { email: Mail, sms: MessageSquare, whatsapp: MessageSquare, all: Ban };

@@ -9,12 +9,11 @@ import {
   BarChart3, TrendingUp, Users, Mail, Target, DollarSign,
   ArrowUpRight, ArrowDownRight, Download,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
 import {
   AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer, PieChart, Pie, Cell,
 } from 'recharts';
-import { useAnalyticsOverview } from '@/modules/marketing/hooks';
+import { useAnalyticsOverview } from '@/modules/marketing/hooks/use-analytics';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
@@ -86,7 +85,7 @@ export function AnalyticsOverview({ onExport }: AnalyticsOverviewProps) {
         {metrics.map((m, idx) => {
           const isPositive = m.change >= 0;
           return (
-            <motion.div key={m.label} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.05 }}>
+            <div key={m.label} className="animate-in fade-in slide-in-from-bottom-2 duration-200" style={{ animationDelay: `${idx * 50}ms`, animationFillMode: 'both' }}>
               <Card className="border-border/50">
                 <CardContent className="p-4">
                   <div className="flex items-start justify-between">
@@ -102,7 +101,7 @@ export function AnalyticsOverview({ onExport }: AnalyticsOverviewProps) {
                   <p className="text-sm text-muted-foreground">{m.label}</p>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           );
         })}
       </div>

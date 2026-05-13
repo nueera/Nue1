@@ -6,12 +6,11 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { CampaignStatusBadge } from '../shared/campaign-status-badge';
-import { useCampaigns } from '@/modules/marketing/hooks';
+import { useCampaigns } from '@/modules/marketing/hooks/use-campaigns';
 import type { Campaign, SocialCampaign } from '@/modules/marketing/types';
 import { Search, Plus, Share2, MoreHorizontal, Eye, Heart, MessageSquare, Repeat2 } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { motion } from 'framer-motion';
 
 interface SocialCampaignListProps {
   data?: Campaign[];
@@ -65,7 +64,7 @@ export function SocialCampaignList({ data: externalData, isLoading: externalLoad
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredData.map((campaign, index) => (
-          <motion.div key={campaign.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2, delay: index * 0.03 }}>
+          <div key={campaign.id} className="animate-in fade-in slide-in-from-bottom-2 duration-200" style={{ animationDelay: `${index * 30}ms`, animationFillMode: 'both' }}>
             <Card className="hover:shadow-md transition-all duration-200 cursor-pointer border-border/50" onClick={() => onCampaignClick?.(campaign)}>
               <CardContent className="p-4">
                 <div className="flex items-start justify-between mb-2">
@@ -95,7 +94,7 @@ export function SocialCampaignList({ data: externalData, isLoading: externalLoad
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         ))}
       </div>
 

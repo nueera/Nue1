@@ -2,7 +2,7 @@
 
 import { UserPlus } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { LeadForm } from '@/modules/marketing/components/leads';
+import { LeadForm } from '@/modules/marketing/components/leads/lead-form';
 
 export default function LeadFormPage() {
   return (

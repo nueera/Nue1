@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CampaignStatusBadge } from '../shared/campaign-status-badge';
 import { MetricCard } from '../shared/metric-card';
-import { useCampaign } from '@/modules/marketing/hooks';
+import { useCampaign } from '@/modules/marketing/hooks/use-campaigns';
 import type { Campaign } from '@/modules/marketing/types';
 import { Send, CheckCheck, MousePointerClick, AlertTriangle, ArrowLeft, MessageSquare } from 'lucide-react';
 import {

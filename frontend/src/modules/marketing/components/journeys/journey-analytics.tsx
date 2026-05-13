@@ -1,8 +1,8 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MetricCard } from '@/modules/marketing/components/shared';
-import { useJourneyAnalytics } from '@/modules/marketing/hooks';
+import { MetricCard } from '@/modules/marketing/components/shared/metric-card';
+import { useJourneyAnalytics } from '@/modules/marketing/hooks/use-journeys';
 import type { JourneyNode, JourneyEdge } from '@/modules/marketing/types';
 import {
   Users,
@@ -20,7 +20,6 @@ import {
   CartesianGrid,
   Tooltip,
 } from 'recharts';
-import { motion } from 'framer-motion';
 
 interface JourneyAnalyticsProps {
   journeyId: string;
@@ -62,7 +61,7 @@ export function JourneyAnalytics({ journeyId }: JourneyAnalyticsProps) {
       </div>
 
       {/* Daily Flow Chart */}
-      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2, delay: 0.1 }}>
+      <div className="animate-in fade-in slide-in-from-bottom-2 duration-200" style={{ animationDelay: '100ms', animationFillMode: 'both' }}>
         <Card className="border-border/50">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Daily Flow</CardTitle>
@@ -82,10 +81,10 @@ export function JourneyAnalytics({ journeyId }: JourneyAnalyticsProps) {
             </div>
           </CardContent>
         </Card>
-      </motion.div>
+      </div>
 
       {/* Path Statistics */}
-      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2, delay: 0.15 }}>
+      <div className="animate-in fade-in slide-in-from-bottom-2 duration-200" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
         <Card className="border-border/50">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm flex items-center gap-2">
@@ -116,7 +115,7 @@ export function JourneyAnalytics({ journeyId }: JourneyAnalyticsProps) {
             ))}
           </CardContent>
         </Card>
-      </motion.div>
+      </div>
     </div>
   );
 }

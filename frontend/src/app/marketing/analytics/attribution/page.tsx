@@ -2,7 +2,7 @@
 
 import { PieChart } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { AttributionReport } from '@/modules/marketing/components/analytics';
+import { AttributionReport } from '@/modules/marketing/components/analytics/attribution-report';
 
 export default function AttributionPage() {
   return (

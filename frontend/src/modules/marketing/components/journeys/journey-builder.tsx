@@ -21,7 +21,7 @@ import {
   LayoutTemplate,
   BarChart3,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
+// framer-motion removed - no motion used in this component
 
 interface JourneyBuilderProps {
   journey?: Journey;

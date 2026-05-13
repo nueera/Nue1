@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import type { JourneyNode, JourneyEdge } from '@/modules/marketing/types';
 
 interface JourneyEdgesProps {
@@ -7,11 +8,11 @@ interface JourneyEdgesProps {
   edges: JourneyEdge[];
 }
 
-export function JourneyEdges({ nodes, edges }: JourneyEdgesProps) {
+export const JourneyEdges = React.memo(function JourneyEdges({ nodes, edges }: JourneyEdgesProps) {
   const nodeMap = new Map(nodes.map((n) => [n.id, n]));
 
   return (
-    <svg className="absolute inset-0 pointer-events-none" style={{ width: '4000px', height: '4000px' }}>
+    <svg className="absolute inset-0 pointer-events-none" style={{ width: '2000px', height: '2000px' }}>
       <defs>
         <marker
           id="arrowhead"
@@ -62,4 +63,4 @@ export function JourneyEdges({ nodes, edges }: JourneyEdgesProps) {
       })}
     </svg>
   );
-}
+});

@@ -3,7 +3,7 @@
 import { use } from 'react';
 import { UserPlus } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { LeadDetails } from '@/modules/marketing/components/leads';
+import { LeadDetails } from '@/modules/marketing/components/leads/lead-details';
 
 export default function LeadDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);

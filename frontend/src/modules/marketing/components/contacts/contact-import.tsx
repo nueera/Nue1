@@ -19,7 +19,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { useImportContacts } from '@/modules/marketing/hooks';
+import { useImportContacts } from '@/modules/marketing/hooks/use-contacts';
 import type { CreateContactInput } from '@/modules/marketing/schemas/contact.schema';
 import {
   Upload,

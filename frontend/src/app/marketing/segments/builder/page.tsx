@@ -1,8 +1,13 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { Split } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { SegmentBuilder } from '@/modules/marketing/components/segments';
+
+const SegmentBuilder = dynamic(
+  () => import('@/modules/marketing/components/segments/segment-builder').then(m => ({ default: m.SegmentBuilder })),
+  { ssr: false, loading: () => <div className="flex items-center justify-center h-64 text-muted-foreground text-sm">Loading Segment Builder...</div> }
+);
 
 export default function SegmentBuilderPage() {
   return (

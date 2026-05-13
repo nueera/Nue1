@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/select';
 import { Search, FileText, Eye, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useCampaignReport } from '@/modules/marketing/hooks';
+import { useCampaignReport } from '@/modules/marketing/hooks/use-analytics';
 
 interface CampaignReportListProps {
   onViewReport?: (campaignId: string) => void;

@@ -1,8 +1,13 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { Workflow } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { WorkflowBuilder } from '@/modules/marketing/components/workflows';
+
+const WorkflowBuilder = dynamic(
+  () => import('@/modules/marketing/components/workflows/workflow-builder').then(m => ({ default: m.WorkflowBuilder })),
+  { ssr: false, loading: () => <div className="flex items-center justify-center h-64 text-muted-foreground text-sm">Loading Workflow Builder...</div> }
+);
 
 export default function WorkflowBuilderPage() {
   return (

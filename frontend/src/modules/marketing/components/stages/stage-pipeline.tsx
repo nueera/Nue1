@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { useStages } from '@/modules/marketing/hooks';
+import { useStages } from '@/modules/marketing/hooks/use-lead-stages';
 import type { LeadStageDefinition, Lead } from '@/modules/marketing/types';
 import {
   Plus,

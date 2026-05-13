@@ -2,7 +2,7 @@
 
 import { Phone } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { WhatsappCampaignList } from '@/modules/marketing/components/whatsapp-campaigns';
+import { WhatsappCampaignList } from '@/modules/marketing/components/whatsapp-campaigns/whatsapp-campaign-list';
 
 export default function WhatsappCampaignsPage() {
   return (

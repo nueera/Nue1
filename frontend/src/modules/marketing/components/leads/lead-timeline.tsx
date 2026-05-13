@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { useLeadTimeline } from '@/modules/marketing/hooks';
+import { useLeadTimeline } from '@/modules/marketing/hooks/use-leads';
 import { LEAD_ACTIVITY_TYPES } from '@/modules/marketing/constants/lead-constants';
 import type { LeadActivity } from '@/modules/marketing/types';
 import {

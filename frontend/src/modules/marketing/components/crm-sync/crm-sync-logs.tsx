@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/select';
 import { History, Search, CheckCircle2, XCircle, AlertTriangle } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useSyncLogs } from '@/modules/marketing/hooks';
+import { useSyncLogs } from '@/modules/marketing/hooks/use-crm-sync';
 import type { SyncLog } from '@/modules/marketing/types';
 
 const STATUS_CONFIG: Record<string, { icon: typeof CheckCircle2; color: string; variant: 'default' | 'secondary' | 'destructive' }> = {

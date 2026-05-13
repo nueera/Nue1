@@ -2,7 +2,7 @@
 
 import { UserPlus } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { LeadList } from '@/modules/marketing/components/leads';
+import { LeadList } from '@/modules/marketing/components/leads/lead-list';
 
 export default function LeadsPage() {
   return (

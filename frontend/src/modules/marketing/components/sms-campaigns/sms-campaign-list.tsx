@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { CampaignStatusBadge } from '../shared/campaign-status-badge';
 import { MetricCard } from '../shared/metric-card';
-import { useCampaigns } from '@/modules/marketing/hooks';
+import { useCampaigns } from '@/modules/marketing/hooks/use-campaigns';
 import type { Campaign } from '@/modules/marketing/types';
 import { SMS_LIMITS } from '@/modules/marketing/constants/campaign-constants';
 import {
@@ -32,7 +32,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { motion } from 'framer-motion';
 
 interface SmsCampaignListProps {
   data?: Campaign[];
@@ -136,11 +135,10 @@ export function SmsCampaignList({
       {/* Campaign Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredData.map((campaign, index) => (
-          <motion.div
+          <div
             key={campaign.id}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2, delay: index * 0.03 }}
+            className="animate-in fade-in slide-in-from-bottom-2 duration-200"
+            style={{ animationDelay: `${index * 30}ms`, animationFillMode: 'both' }}
           >
             <Card
               className="hover:shadow-md transition-all duration-200 cursor-pointer border-border/50"
@@ -181,7 +179,7 @@ export function SmsCampaignList({
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         ))}
       </div>
 

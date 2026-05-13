@@ -2,7 +2,7 @@
 
 import { RefreshCw } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { CrmSyncConfig } from '@/modules/marketing/components/crm-sync';
+import { CrmSyncConfig } from '@/modules/marketing/components/crm-sync/crm-sync-config';
 
 export default function CrmSyncPage() {
   return (

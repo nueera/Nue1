@@ -14,7 +14,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { useScoreLeaderboard } from '@/modules/marketing/hooks';
+import { useScoreLeaderboard } from '@/modules/marketing/hooks/use-lead-scoring';
 import { Trophy, Medal, Award, Mail, Phone, Company } from 'lucide-react';
 import { motion } from 'framer-motion';
 

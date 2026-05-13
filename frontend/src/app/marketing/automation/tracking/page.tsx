@@ -2,7 +2,7 @@
 
 import { Eye } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { SmartUrlList } from '@/modules/marketing/components/web-tracking';
+import { SmartUrlList } from '@/modules/marketing/components/web-tracking/smart-url-list';
 
 export default function WebTrackingPage() {
   return (

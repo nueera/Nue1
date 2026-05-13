@@ -8,7 +8,6 @@ import {
   Zap, Plus, ArrowRight, Play, Save, Trash2, GripVertical,
   Mail, MessageSquare, Tag, UserPlus, Globe, Webhook,
 } from 'lucide-react';
-import { motion, Reorder } from 'framer-motion';
 import type { Workflow, WorkflowTrigger, WorkflowAction } from '@/modules/marketing/types';
 
 const TRIGGER_ICONS: Record<string, typeof Zap> = { form_submitted: Zap, link_clicked: Globe, tag_added: Tag };
@@ -118,8 +117,7 @@ export function WorkflowBuilder({ workflow, onSave }: WorkflowBuilderProps) {
               {actions.map((action, idx) => {
                 const ActionIcon = ACTION_ICONS[action.type] ?? Play;
                 return (
-                  <motion.div key={idx} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-2 p-2 rounded-lg border border-emerald-200 dark:border-emerald-800 bg-emerald-50/50 dark:bg-emerald-950/20"
+                  <div key={idx} className="animate-in fade-in slide-in-from-bottom-1 duration-150 flex items-center gap-2 p-2 rounded-lg border border-emerald-200 dark:border-emerald-800 bg-emerald-50/50 dark:bg-emerald-950/20"
                   >
                     <GripVertical className="h-4 w-4 text-muted-foreground cursor-grab" />
                     <ActionIcon className="h-4 w-4 text-emerald-600" />
@@ -128,14 +126,14 @@ export function WorkflowBuilder({ workflow, onSave }: WorkflowBuilderProps) {
                     <Button variant="ghost" size="icon" className="h-6 w-6 ml-auto" onClick={() => removeAction(idx)}>
                       <Trash2 className="h-3 w-3" />
                     </Button>
-                  </motion.div>
+                  </div>
                 );
               })}
               {actions.length === 0 && (
                 <p className="text-xs text-muted-foreground p-2">No actions added yet.</p>
               )}
               {showActionForm && (
-                <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="flex flex-wrap gap-2 p-2 rounded-lg bg-muted/30">
+                <div className="animate-in fade-in duration-150 flex flex-wrap gap-2 p-2 rounded-lg bg-muted/30">
                   {(['send_email', 'send_sms', 'add_tag', 'add_to_list', 'webhook'] as WorkflowAction[]).map((type) => {
                     const Icon = ACTION_ICONS[type] ?? Play;
                     return (
@@ -144,7 +142,7 @@ export function WorkflowBuilder({ workflow, onSave }: WorkflowBuilderProps) {
                       </Button>
                     );
                   })}
-                </motion.div>
+                </div>
               )}
             </div>
           </div>

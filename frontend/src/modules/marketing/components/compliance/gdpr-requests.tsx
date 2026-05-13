@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/select';
 import { Shield, Clock, CheckCircle2, Loader2, XCircle, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useGdprRequests, useHandleGdprRequest } from '@/modules/marketing/hooks';
+import { useGdprRequests, useHandleGdprRequest } from '@/modules/marketing/hooks/use-compliance';
 import type { GdprRequest } from '@/modules/marketing/types';
 
 const STATUS_CONFIG: Record<string, { icon: typeof CheckCircle2; color: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' }> = {

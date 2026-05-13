@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Target, Plus, CheckCircle2, Circle, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useGoals } from '@/modules/marketing/hooks';
+import { useGoals } from '@/modules/marketing/hooks/use-web-tracking';
 import type { TrackingGoal } from '@/modules/marketing/types';
 
 interface GoalListProps {

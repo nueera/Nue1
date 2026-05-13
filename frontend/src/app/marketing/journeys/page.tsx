@@ -2,7 +2,7 @@
 
 import { GitBranchPlus } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { JourneyList } from '@/modules/marketing/components/journeys';
+import { JourneyList } from '@/modules/marketing/components/journeys/journey-list';
 
 export default function JourneysPage() {
   return (

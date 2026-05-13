@@ -2,7 +2,7 @@
 
 import { Globe } from 'lucide-react';
 import { MarketingPageShell } from '@/modules/marketing/components/shared/marketing-page-shell';
-import { WebAnalyticsDashboard } from '@/modules/marketing/components/analytics';
+import { WebAnalyticsDashboard } from '@/modules/marketing/components/analytics/web-analytics-dashboard';
 
 export default function WebAnalyticsPage() {
   return (
