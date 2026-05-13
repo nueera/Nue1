@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import {
   CalendarDays,
   DollarSign,
@@ -86,21 +85,14 @@ export function PlannerDashboard() {
   return (
     <div className="space-y-6 p-4 sm:p-6">
       {/* Page Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -4 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.2 }}
-      >
+      <div className="animate-in fade-in slide-in-from-top-1 duration-200">
         <h1 className="text-2xl font-bold text-foreground tracking-tight">Planner Dashboard</h1>
         <p className="text-sm text-muted-foreground mt-1">Marketing plans, budgets, and milestones</p>
-      </motion.div>
+      </div>
 
       {/* KPI Cards */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.05 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+      <div
+        className="animate-in fade-in duration-200 delay-75 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
       >
         <MetricCard
           icon={CalendarDays}
@@ -142,17 +134,12 @@ export function PlannerDashboard() {
           accentColor="text-teal-600"
           accentBg="bg-teal-50 dark:bg-teal-950/30"
         />
-      </motion.div>
+      </div>
 
       {/* Active Plans + Budget Overview */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Active Plans */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-          className="lg:col-span-2"
-        >
+        <div className="animate-in fade-in slide-in-from-bottom-2 duration-200 delay-100 lg:col-span-2">
           <Card className="border-border/50">
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
@@ -211,14 +198,10 @@ export function PlannerDashboard() {
               </div>
             </CardContent>
           </Card>
-        </motion.div>
+        </div>
 
         {/* Budget Utilization Overview */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.15 }}
-        >
+        <div className="animate-in fade-in slide-in-from-bottom-2 duration-200 delay-150">
           <Card className="border-border/50 h-full">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-semibold">Budget Overview</CardTitle>
@@ -262,17 +245,13 @@ export function PlannerDashboard() {
               </div>
             </CardContent>
           </Card>
-        </motion.div>
+        </div>
       </div>
 
       {/* Upcoming Activities + Milestone Progress */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Upcoming Activities Timeline */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.2 }}
-        >
+        <div className="animate-in fade-in slide-in-from-bottom-2 duration-200 delay-200">
           <Card className="border-border/50">
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
@@ -307,14 +286,10 @@ export function PlannerDashboard() {
               </div>
             </CardContent>
           </Card>
-        </motion.div>
+        </div>
 
         {/* Milestone Progress */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.25 }}
-        >
+        <div className="animate-in fade-in slide-in-from-bottom-2 duration-200 delay-[250ms]">
           <Card className="border-border/50">
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
@@ -372,7 +347,7 @@ export function PlannerDashboard() {
               </div>
             </CardContent>
           </Card>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

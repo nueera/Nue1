@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import {
   DollarSign,
   ShoppingCart,
@@ -71,21 +70,14 @@ export function EcommerceDashboard() {
   return (
     <div className="space-y-6 p-4 sm:p-6">
       {/* Page Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -4 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.2 }}
-      >
+      <div className="animate-in fade-in slide-in-from-top-1 duration-200">
         <h1 className="text-2xl font-bold text-foreground tracking-tight">E-Commerce Dashboard</h1>
         <p className="text-sm text-muted-foreground mt-1">Revenue, cart recovery, and product performance</p>
-      </motion.div>
+      </div>
 
       {/* KPI Cards */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.05 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+      <div
+        className="animate-in fade-in duration-200 delay-75 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
       >
         <MetricCard
           icon={DollarSign}
@@ -127,16 +119,12 @@ export function EcommerceDashboard() {
           accentColor="text-amber-600"
           accentBg="bg-amber-50 dark:bg-amber-950/30"
         />
-      </motion.div>
+      </div>
 
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Revenue Trend */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-        >
+        <div className="animate-in fade-in slide-in-from-bottom-2 duration-200 delay-100">
           <Card className="border-border/50">
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
@@ -163,14 +151,10 @@ export function EcommerceDashboard() {
               </ResponsiveContainer>
             </CardContent>
           </Card>
-        </motion.div>
+        </div>
 
         {/* Cart Abandonment Rate */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.15 }}
-        >
+        <div className="animate-in fade-in slide-in-from-bottom-2 duration-200 delay-150">
           <Card className="border-border/50">
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
@@ -193,15 +177,11 @@ export function EcommerceDashboard() {
               </ResponsiveContainer>
             </CardContent>
           </Card>
-        </motion.div>
+        </div>
       </div>
 
       {/* Top Products by Revenue */}
-      <motion.div
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, delay: 0.2 }}
-      >
+      <div className="animate-in fade-in slide-in-from-bottom-2 duration-200 delay-200">
         <Card className="border-border/50">
           <CardHeader className="pb-3">
             <div className="flex items-center justify-between">
@@ -245,7 +225,7 @@ export function EcommerceDashboard() {
             </div>
           </CardContent>
         </Card>
-      </motion.div>
+      </div>
     </div>
   );
 }

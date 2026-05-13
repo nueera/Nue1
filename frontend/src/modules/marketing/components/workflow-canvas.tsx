@@ -15,7 +15,7 @@ import {
   UserPlus,
   ArrowRight,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
+// framer-motion removed — using CSS transitions for better performance
 
 export interface WorkflowNode {
   id: string;
@@ -92,11 +92,7 @@ const DEFAULT_NODES: WorkflowNode[] = [
 
 export function WorkflowCanvas({ name, nodes = DEFAULT_NODES, className }: WorkflowCanvasProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-    >
+    <div className="animate-in fade-in duration-300">
       <Card className={cn('border-border/50', className)}>
         {name && (
           <CardHeader className="pb-2">
@@ -112,15 +108,13 @@ export function WorkflowCanvas({ name, nodes = DEFAULT_NODES, className }: Workf
 
               return (
                 <React.Fragment key={node.id}>
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.25, delay: index * 0.1 }}
+                  <div
                     className={cn(
-                      'w-full max-w-xs rounded-xl border px-4 py-3',
+                      'w-full max-w-xs rounded-xl border px-4 py-3 animate-in fade-in duration-200',
                       config.bg,
                       config.border
                     )}
+                    style={{ animationDelay: `${index * 50}ms` }}
                   >
                     <div className="flex items-center gap-3">
                       <div
@@ -147,7 +141,7 @@ export function WorkflowCanvas({ name, nodes = DEFAULT_NODES, className }: Workf
                         )}
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
 
                   {!isLast && (
                     <div className="flex flex-col items-center py-1">
@@ -160,6 +154,6 @@ export function WorkflowCanvas({ name, nodes = DEFAULT_NODES, className }: Workf
           </div>
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   );
 }

@@ -9,6 +9,7 @@ import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAppStore } from '@/stores/useAppStore';
 import { useWorkspaceStore } from '@/stores/useWorkspaceStore';
+import { useShallow } from 'zustand/react/shallow';
 import { useMounted } from '@/hooks/use-mounted';
 import { useStoreHydrated } from '@/hooks/use-store-hydrated';
 
@@ -62,8 +63,20 @@ export default function ModuleTile({ module, index, isLoading = false, isDisable
   const mounted = useMounted();
   const hydrated = useStoreHydrated();
   const { recordModuleClick, moduleUsage, recentModules, toggleModulePin } = useAppStore();
-  const isModuleActive = useWorkspaceStore((s) => s.isModuleActive);
-  const workspaces = useWorkspaceStore((s) => s.workspaces);
+  // Select only this module's workspace state — avoids re-rendering when OTHER modules'
+  // workspaces change. The previous approach subscribed to the entire `workspaces`
+  // object, causing ALL ModuleTiles to re-render on every workspace state change.
+  // We extract only the fields we need with useShallow for stable references.
+  const { workspaceState, workspaceId } = useWorkspaceStore(
+    useShallow((s) => {
+      const ws = Object.values(s.workspaces).find(w => w.moduleId === module.id);
+      return {
+        workspaceState: ws?.state ?? null,
+        workspaceId: ws?.id ?? null,
+        currentPath: ws?.currentPath ?? null,
+      };
+    })
+  );
 
   // Transition state for OS-like "app opening" effect
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -75,11 +88,8 @@ export default function ModuleTile({ module, index, isLoading = false, isDisable
   const isPinned = hydrated ? (moduleUsage[module.id]?.pinned ?? false) : false;
   const isRecent = hydrated ? recentModules.includes(module.id) : false;
   // Check if module has an active workspace (running/minimized)
-  const moduleIsActive = hydrated ? isModuleActive(module.id) : false;
-  const moduleWorkspace = hydrated
-    ? Object.values(workspaces).find(w => w.moduleId === module.id)
-    : null;
-  const isMinimized = moduleWorkspace?.state === 'minimized';
+  const moduleIsActive = hydrated ? workspaceState !== null : false;
+  const isMinimized = workspaceState === 'minimized';
   const activities = liveTileData[module.id];
   const isAnalytics = module.id === 'analytics';
 
@@ -97,17 +107,21 @@ export default function ModuleTile({ module, index, isLoading = false, isDisable
     const route = moduleRoutes[module.id];
     if (route) {
       // If module is already active (minimized), restore it
-      if (moduleWorkspace && isMinimized) {
+      if (workspaceId && isMinimized) {
         const { restoreWorkspace, getModuleRoute } = useWorkspaceStore.getState();
-        restoreWorkspace(moduleWorkspace.id);
-        const targetPath = moduleWorkspace.currentPath || getModuleRoute(module.id);
+        restoreWorkspace(workspaceId);
+        const storeState = useWorkspaceStore.getState();
+        const ws = storeState.workspaces[workspaceId];
+        const targetPath = ws?.currentPath || getModuleRoute(module.id);
         router.push(targetPath);
         return;
       }
       // If module is already active (not minimized), just navigate
-      if (moduleWorkspace && !isMinimized) {
+      if (workspaceId && !isMinimized) {
         const { getModuleRoute } = useWorkspaceStore.getState();
-        const targetPath = moduleWorkspace.currentPath || getModuleRoute(module.id);
+        const storeState = useWorkspaceStore.getState();
+        const ws = storeState.workspaces[workspaceId];
+        const targetPath = ws?.currentPath || getModuleRoute(module.id);
         router.push(targetPath);
         return;
       }
@@ -117,7 +131,7 @@ export default function ModuleTile({ module, index, isLoading = false, isDisable
         router.push(route);
       }, 400);
     }
-  }, [isDisabled, isLoading, recordModuleClick, module.id, router, moduleWorkspace, isMinimized]);
+  }, [isDisabled, isLoading, recordModuleClick, module.id, router, workspaceId, isMinimized]);
 
   const handlePinToggle = (e: React.MouseEvent) => {
     e.stopPropagation();
