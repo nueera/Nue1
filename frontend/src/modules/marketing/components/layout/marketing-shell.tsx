@@ -12,7 +12,7 @@ function MarketingLayoutInner({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const { trackPageVisit, getScrollPosition, setScrollPosition } = useMarketingStore();
-  const { isMaximized, state: workspaceState } = useWorkspace();
+  const { state: workspaceState } = useWorkspace();
 
   // Derive the page slug from pathname
   const getSlug = useCallback(() => {
@@ -56,23 +56,10 @@ function MarketingLayoutInner({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {/* Focus mode overlay when maximized — plain CSS transition, no framer-motion */}
-      <div
-        className={cn(
-          'workspace-focus-overlay transition-opacity duration-200',
-          isMaximized ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        )}
-        aria-hidden={!isMaximized}
-      />
-
+      {/* Focus mode overlay removed - maximize feature disabled globally */}
       <div className="flex h-screen overflow-hidden bg-background workspace-enter">
         {/* Sidebar — no entrance animation needed, it's always present */}
-        <div
-          className={cn(
-            'flex flex-col h-full shrink-0',
-            isMaximized && 'w-16'
-          )}
-        >
+        <div className="flex flex-col h-full shrink-0">
           <MarketingSidebar />
         </div>
         <div className="flex flex-col flex-1 min-w-0">
