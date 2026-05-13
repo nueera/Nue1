@@ -52,7 +52,8 @@ interface ProductSwitcherProps {
 }
 
 export function ProductSwitcher({ collapsed = false, className }: ProductSwitcherProps) {
-  const { activeProduct, setActiveProduct } = useMarketingStore();
+  const activeProduct = useMarketingStore((s) => s.activeProduct);
+  const setActiveProduct = useMarketingStore((s) => s.setActiveProduct);
   const currentMeta = PRODUCT_ITEMS.find((p) => p.product === activeProduct) ?? PRODUCT_ITEMS[0];
   const CurrentIcon = currentMeta.icon;
 

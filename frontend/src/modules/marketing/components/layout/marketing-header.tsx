@@ -41,8 +41,8 @@ export function MarketingHeader() {
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useMounted();
   const hydrated = useStoreHydrated();
-  const { user } = useAuthStore();
-  const { setMobileSidebarOpen } = useMarketingStore();
+  const user = useAuthStore((s) => s.user);
+  const setMobileSidebarOpen = useMarketingStore((s) => s.setMobileSidebarOpen);
   const isMobile = useIsMobile();
   const workspace = useWorkspace();
 
@@ -84,8 +84,8 @@ export function MarketingHeader() {
   return (
     <>
       <motion.header
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="sticky top-0 z-40 flex items-center justify-between h-12 px-4 sm:px-6 border-b border-glass-border surface-topbar backdrop-blur-xl"
       >

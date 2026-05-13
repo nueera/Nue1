@@ -37,8 +37,13 @@ import { useAuthStore } from '../../../erp/core/store/auth.store';
 function SidebarContent({ collapsed, onNavigate }: { collapsed: boolean; onNavigate?: () => void }) {
   const pathname = usePathname();
   const router = useRouter();
-  const { activeProduct, setSidebarActiveItem, toggleSidebar, isRecentlyUsed } = useMarketingStore();
-  const { user } = useAuthStore();
+  // Select only the specific state/actions we need — avoids re-rendering when
+  // unrelated store slices change (e.g. scrollPositions, mobileSidebarOpen, recentModules)
+  const activeProduct = useMarketingStore((s) => s.activeProduct);
+  const setSidebarActiveItem = useMarketingStore((s) => s.setSidebarActiveItem);
+  const toggleSidebar = useMarketingStore((s) => s.toggleSidebar);
+  const isRecentlyUsed = useMarketingStore((s) => s.isRecentlyUsed);
+  const user = useAuthStore((s) => s.user);
   const hydrated = useStoreHydrated();
 
   // Get navigation sections for the active product
@@ -205,7 +210,9 @@ function SidebarContent({ collapsed, onNavigate }: { collapsed: boolean; onNavig
 }
 
 export function MarketingSidebar() {
-  const { sidebarCollapsed, mobileSidebarOpen, setMobileSidebarOpen } = useMarketingStore();
+  const sidebarCollapsed = useMarketingStore((s) => s.sidebarCollapsed);
+  const mobileSidebarOpen = useMarketingStore((s) => s.mobileSidebarOpen);
+  const setMobileSidebarOpen = useMarketingStore((s) => s.setMobileSidebarOpen);
   const hydrated = useStoreHydrated();
   const isMobile = useIsMobile();
   const collapsed = hydrated ? sidebarCollapsed : false;
@@ -213,7 +220,7 @@ export function MarketingSidebar() {
   if (isMobile) {
     return (
       <Sheet open={mobileSidebarOpen} onOpenChange={setMobileSidebarOpen}>
-        <SheetContent side="left" className="w-72 p-0 surface-sidebar glass-surface-strong border-r border-glass-border">
+        <SheetContent side="left" className="w-72 p-0 surface-sidebar border-r border-glass-border">
           <SheetTitle className="sr-only">Marketing Navigation</SheetTitle>
           <SidebarContent collapsed={false} onNavigate={() => setMobileSidebarOpen(false)} />
         </SheetContent>
@@ -224,7 +231,7 @@ export function MarketingSidebar() {
   return (
     <aside
       className={cn(
-        'hidden md:flex flex-col h-full shrink-0 border-r border-glass-border surface-sidebar glass-surface-strong',
+        'hidden md:flex flex-col h-full shrink-0 border-r border-glass-border surface-sidebar',
         'transition-all duration-[var(--motion-slow)] ease-[var(--motion-ease-in-out)]'
       )}
       style={{ width: collapsed ? '64px' : '220px' }}

@@ -263,9 +263,9 @@ export function MultiPanel({ workspaceId, children, className }: MultiPanelProps
                 isVerticalStack ? 'min-h-0' : 'min-w-0'
               )}
               style={{ flex: `${flexBasis} 0 0` }}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{
                 duration: 0.18,
                 ease: [0.25, 0.46, 0.45, 0.94],

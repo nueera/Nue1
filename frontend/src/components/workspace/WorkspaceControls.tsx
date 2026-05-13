@@ -63,8 +63,8 @@ function ControlButton({ icon, label, onClick, className, visible = true, varian
                 className,
               )}
               style={{ backgroundColor: color || 'var(--muted)' }}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.12 }}
               aria-label={label}
             >
@@ -96,9 +96,9 @@ function ControlButton({ icon, label, onClick, className, visible = true, varian
               'focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-interactive-focus',
               className,
             )}
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.85 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
             aria-label={label}
           >

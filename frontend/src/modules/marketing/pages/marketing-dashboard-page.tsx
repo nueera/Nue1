@@ -1,14 +1,26 @@
 'use client';
 
+import { lazy, Suspense } from 'react';
 import { useMarketingStore } from '@/modules/marketing/stores/marketing-store';
-import {
-  MarketingOverview,
-  CampaignDashboard,
-  LeadDashboard,
-  EcommerceDashboard,
-  PlannerDashboard,
-} from '@/modules/marketing/components/dashboards';
 import type { MarketingProduct } from '@/modules/marketing/types';
+
+// Lazy-load dashboard components — only the active product's dashboard is loaded,
+// reducing initial bundle size by ~80% (5 dashboards → 1 on first load).
+const MarketingOverview = lazy(() =>
+  import('../components/dashboards/marketing-overview').then(m => ({ default: m.MarketingOverview }))
+);
+const CampaignDashboard = lazy(() =>
+  import('../components/dashboards/campaign-dashboard').then(m => ({ default: m.CampaignDashboard }))
+);
+const LeadDashboard = lazy(() =>
+  import('../components/dashboards/lead-dashboard').then(m => ({ default: m.LeadDashboard }))
+);
+const EcommerceDashboard = lazy(() =>
+  import('../components/dashboards/ecommerce-dashboard').then(m => ({ default: m.EcommerceDashboard }))
+);
+const PlannerDashboard = lazy(() =>
+  import('../components/dashboards/planner-dashboard').then(m => ({ default: m.PlannerDashboard }))
+);
 
 const dashboardMap: Record<MarketingProduct, React.ComponentType> = {
   campaigns: CampaignDashboard,
@@ -20,17 +32,27 @@ const dashboardMap: Record<MarketingProduct, React.ComponentType> = {
   automation: PlannerDashboard,
 };
 
+function DashboardSkeleton() {
+  return (
+    <div className="flex items-center justify-center h-full min-h-[400px]">
+      <div className="animate-pulse text-muted-foreground text-sm">Loading dashboard...</div>
+    </div>
+  );
+}
+
 export function MarketingDashboardPage() {
-  const { activeProduct, isHydrated } = useMarketingStore();
+  const activeProduct = useMarketingStore((s) => s.activeProduct);
+  const isHydrated = useMarketingStore((s) => s.isHydrated);
 
   if (!isHydrated) {
-    return (
-      <div className="flex items-center justify-center h-full min-h-[400px]">
-        <div className="animate-pulse text-muted-foreground text-sm">Loading dashboard...</div>
-      </div>
-    );
+    return <DashboardSkeleton />;
   }
 
   const DashboardComponent = dashboardMap[activeProduct] || MarketingOverview;
-  return <DashboardComponent />;
+
+  return (
+    <Suspense fallback={<DashboardSkeleton />}>
+      <DashboardComponent />
+    </Suspense>
+  );
 }

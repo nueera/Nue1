@@ -93,8 +93,8 @@ const DEFAULT_NODES: WorkflowNode[] = [
 export function WorkflowCanvas({ name, nodes = DEFAULT_NODES, className }: WorkflowCanvasProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
       <Card className={cn('border-border/50', className)}>
@@ -113,8 +113,8 @@ export function WorkflowCanvas({ name, nodes = DEFAULT_NODES, className }: Workf
               return (
                 <React.Fragment key={node.id}>
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration: 0.25, delay: index * 0.1 }}
                     className={cn(
                       'w-full max-w-xs rounded-xl border px-4 py-3',

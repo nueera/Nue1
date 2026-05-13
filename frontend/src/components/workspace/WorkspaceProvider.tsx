@@ -125,15 +125,23 @@ export function WorkspaceProvider({
     useWorkspaceStore.getState().setActiveWorkspace(id);
   }, [workspaceId, moduleId, title, icon]);
 
-  const workspaces = useWorkspaceStore((s) => s.workspaces);
+  // Select ONLY this workspace from the store — avoids re-rendering when OTHER
+  // workspaces change (e.g. switching modules). The previous approach subscribed
+  // to the entire `workspaces` object, causing cascading re-renders across all
+  // WorkspaceProvider instances on every workspace state change.
+  const workspace = useWorkspaceStore(
+    (s) => (workspaceId ? s.workspaces[workspaceId] : null) ?? null,
+    // Shallow-compare by reference: the workspace object is replaced on every
+    // mutation (immutable updates), so reference equality is sufficient.
+  );
+  const currentState: WorkspaceState = workspace?.state ?? 'expanded';
+
+  // Action selectors — these are stable references (Zustand guarantees it)
   const expandWorkspace = useWorkspaceStore((s) => s.expandWorkspace);
   const collapseWorkspace = useWorkspaceStore((s) => s.collapseWorkspace);
   const toggleWorkspacePin = useWorkspaceStore((s) => s.toggleWorkspacePin);
   const saveWorkspaceMemory = useWorkspaceStore((s) => s.saveWorkspaceMemory);
   const updateWorkspacePath = useWorkspaceStore((s) => s.updateWorkspacePath);
-
-  const workspace = workspaceId ? workspaces[workspaceId] : null;
-  const currentState: WorkspaceState = workspace?.state ?? 'expanded';
 
   // Track current path for workspace (for restore navigation)
   useEffect(() => {

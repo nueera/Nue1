@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Plus, Search, Filter } from 'lucide-react';
@@ -8,6 +7,8 @@ import { Input } from '@/components/ui/input';
 
 // ---------------------------------------------------------------------------
 // Reusable Marketing Page Shell
+// Uses CSS animations instead of framer-motion for lighter runtime overhead.
+// The @keyframes are defined in globals.css under "workspace-enter".
 // ---------------------------------------------------------------------------
 
 interface MarketingPageShellProps {
@@ -21,11 +22,9 @@ interface MarketingPageShellProps {
 export function MarketingPageShell({ title, description, icon, addLabel, children }: MarketingPageShellProps) {
   return (
     <div className="space-y-6 p-4 sm:p-6">
-      <motion.div
-        initial={{ opacity: 0, y: -4 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.2 }}
-        className="flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+      {/* Header — CSS fade-in */}
+      <div
+        className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 animate-in fade-in slide-in-from-top-1 duration-200"
       >
         <div className="flex items-center gap-3">
           {icon}
@@ -38,14 +37,11 @@ export function MarketingPageShell({ title, description, icon, addLabel, childre
           <Plus className="h-4 w-4 mr-2" />
           {addLabel}
         </Button>
-      </motion.div>
+      </div>
 
-      {/* Search & Filters Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 4 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.2, delay: 0.05 }}
-        className="flex items-center gap-3"
+      {/* Search & Filters Bar — CSS fade-in with slight delay */}
+      <div
+        className="flex items-center gap-3 animate-in fade-in slide-in-from-bottom-1 duration-200 delay-50"
       >
         <div className="relative flex-1 max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -55,15 +51,11 @@ export function MarketingPageShell({ title, description, icon, addLabel, childre
           <Filter className="h-4 w-4 mr-2" />
           Filters
         </Button>
-      </motion.div>
+      </div>
 
-      {/* Content area */}
+      {/* Content area — CSS fade-in with slightly more delay */}
       {children || (
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-        >
+        <div className="animate-in fade-in slide-in-from-bottom-2 duration-300 delay-100">
           <Card className="border-border/50">
             <CardContent className="flex flex-col items-center justify-center py-16 text-center">
               <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center mb-4">
@@ -79,7 +71,7 @@ export function MarketingPageShell({ title, description, icon, addLabel, childre
               </Button>
             </CardContent>
           </Card>
-        </motion.div>
+        </div>
       )}
     </div>
   );

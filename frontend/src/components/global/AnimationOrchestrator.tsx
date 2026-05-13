@@ -83,15 +83,13 @@ function getPageVariantSet(
 
     case 'scale':
       return {
-        initial: { opacity: 0, scale: 0.98 },
+        initial: { opacity: 0 },
         animate: {
           opacity: 1,
-          scale: 1,
           transition: { duration, delay, ease: easing },
         },
         exit: {
           opacity: 0,
-          scale: 0.98,
           transition: { duration: duration * 0.6, ease: easing },
         },
       };

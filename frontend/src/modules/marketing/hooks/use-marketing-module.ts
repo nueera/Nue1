@@ -52,16 +52,16 @@ interface MarketingModuleState {
 }
 
 export function useMarketingModule(): MarketingModuleState {
-  const {
-    activeProduct,
-    setActiveProduct,
-    currentPage,
-    setCurrentPage: setStoreCurrentPage,
-    setSidebarActiveItem,
-    sidebarActiveItem,
-    trackPageVisit,
-    isHydrated,
-  } = useMarketingStore();
+  // Select only the specific state/actions we need — avoids re-rendering when
+  // unrelated store slices change (e.g. scrollPositions, mobileSidebarOpen)
+  const activeProduct = useMarketingStore((s) => s.activeProduct);
+  const setActiveProduct = useMarketingStore((s) => s.setActiveProduct);
+  const currentPage = useMarketingStore((s) => s.currentPage);
+  const setStoreCurrentPage = useMarketingStore((s) => s.setCurrentPage);
+  const setSidebarActiveItem = useMarketingStore((s) => s.setSidebarActiveItem);
+  const sidebarActiveItem = useMarketingStore((s) => s.sidebarActiveItem);
+  const trackPageVisit = useMarketingStore((s) => s.trackPageVisit);
+  const isHydrated = useMarketingStore((s) => s.isHydrated);
 
   const switchProduct = useCallback(
     (product: MarketingProduct) => {

@@ -11,7 +11,11 @@ import { cn } from '@/lib/utils';
 function MarketingLayoutInner({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const { trackPageVisit, getScrollPosition, setScrollPosition } = useMarketingStore();
+  // Select only the specific actions we need — avoids re-rendering when unrelated
+  // store slices change (e.g. sidebarCollapsed, mobileSidebarOpen, recentModules)
+  const trackPageVisit = useMarketingStore((s) => s.trackPageVisit);
+  const getScrollPosition = useMarketingStore((s) => s.getScrollPosition);
+  const setScrollPosition = useMarketingStore((s) => s.setScrollPosition);
   const { state: workspaceState } = useWorkspace();
 
   // Derive the page slug from pathname
