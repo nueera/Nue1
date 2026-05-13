@@ -26,7 +26,9 @@ interface WorkspaceContextValue {
     collapse: () => void;
     togglePin: () => void;
   };
+  isMaximized: boolean;
   isCompact: boolean;
+  isMinimized: boolean;
 }
 
 interface WorkspaceProviderProps {
@@ -59,7 +61,9 @@ export function useWorkspace(): WorkspaceContextValue {
         collapse: () => {},
         togglePin: () => {},
       },
+      isMaximized: false,
       isCompact: false,
+      isMinimized: false,
     };
   }
   return ctx;
@@ -192,7 +196,9 @@ export function WorkspaceProvider({
       state: currentState,
       moduleId,
       controls,
+      isMaximized: false,  // Always false - maximize feature removed globally
       isCompact: currentState === 'compact',
+      isMinimized: false,  // Always false - minimize feature removed globally
     }),
     [workspaceId, currentState, moduleId, controls]
   );
