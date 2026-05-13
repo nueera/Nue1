@@ -1,0 +1,11 @@
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { contactService } from "./service"; import { contactKeys } from "./query-keys"; import type { ContactMergeData } from "./types";
+export function useContacts(params?: Record<string, string | number | boolean | undefined>) { return useQuery({ queryKey: contactKeys.list(params || {}), queryFn: () => contactService.getAll(params) }); }
+export function useContact(id: string) { return useQuery({ queryKey: contactKeys.detail(id), queryFn: () => contactService.getById(id), enabled: !!id }); }
+export function useCreateContact() { const qc = useQueryClient(); return useMutation({ mutationFn: contactService.create, onSuccess: () => { qc.invalidateQueries({ queryKey: contactKeys.all }); } }); }
+export function useUpdateContact() { const qc = useQueryClient(); return useMutation({ mutationFn: ({ id, data }: { id: string; data: Partial<import("./types").Contact> }) => contactService.update(id, data), onSuccess: () => { qc.invalidateQueries({ queryKey: contactKeys.all }); } }); }
+export function useDeleteContact() { const qc = useQueryClient(); return useMutation({ mutationFn: contactService.delete, onSuccess: () => { qc.invalidateQueries({ queryKey: contactKeys.all }); } }); }
+export function useMergeContacts() { const qc = useQueryClient(); return useMutation({ mutationFn: (data: ContactMergeData) => contactService.mergeContacts(data), onSuccess: () => { qc.invalidateQueries({ queryKey: contactKeys.all }); } }); }
+export function useContactHierarchy(id: string) { return useQuery({ queryKey: contactKeys.hierarchy(id), queryFn: () => contactService.getHierarchy(id), enabled: !!id }); }
+export function useContactDuplicates(email: string) { return useQuery({ queryKey: contactKeys.duplicates(), queryFn: () => contactService.duplicateCheck(email), enabled: !!email }); }
+export function useMassUpdateContacts() { const qc = useQueryClient(); return useMutation({ mutationFn: ({ ids, data }: { ids: string[]; data: Partial<import("./types").Contact> }) => contactService.massUpdate(ids, data), onSuccess: () => { qc.invalidateQueries({ queryKey: contactKeys.all }); } }); }

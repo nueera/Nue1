@@ -1,0 +1,14 @@
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { dealService } from "./service"; import { dealKeys } from "./query-keys"; import type { DealProductLine } from "./types";
+export function useDeals(params?: Record<string, string | number | boolean | undefined>) { return useQuery({ queryKey: dealKeys.list(params || {}), queryFn: () => dealService.getAll(params) }); }
+export function useDeal(id: string) { return useQuery({ queryKey: dealKeys.detail(id), queryFn: () => dealService.getById(id), enabled: !!id }); }
+export function useCreateDeal() { const qc = useQueryClient(); return useMutation({ mutationFn: dealService.create, onSuccess: () => { qc.invalidateQueries({ queryKey: dealKeys.all }); } }); }
+export function useUpdateDeal() { const qc = useQueryClient(); return useMutation({ mutationFn: ({ id, data }: { id: string; data: Partial<import("./types").Deal> }) => dealService.update(id, data), onSuccess: () => { qc.invalidateQueries({ queryKey: dealKeys.all }); } }); }
+export function useDeleteDeal() { const qc = useQueryClient(); return useMutation({ mutationFn: dealService.delete, onSuccess: () => { qc.invalidateQueries({ queryKey: dealKeys.all }); } }); }
+export function useDealPipeline(pipelineId?: string) { return useQuery({ queryKey: dealKeys.pipeline(), queryFn: () => dealService.getAll({ pipelineId }) }); }
+export function useMoveDealStage() { const qc = useQueryClient(); return useMutation({ mutationFn: ({ id, stage, pipelineId }: { id: string; stage: string; pipelineId?: string }) => dealService.moveStage(id, stage, pipelineId), onSuccess: () => { qc.invalidateQueries({ queryKey: dealKeys.all }); } }); }
+export function useCloseDeal() { const qc = useQueryClient(); return useMutation({ mutationFn: ({ id, isWon, lossReason, lossDescription, actualAmount }: { id: string; isWon: boolean; lossReason?: string; lossDescription?: string; actualAmount?: number }) => isWon ? dealService.closeWon(id, actualAmount) : dealService.closeLost(id, lossReason, lossDescription), onSuccess: () => { qc.invalidateQueries({ queryKey: dealKeys.all }); } }); }
+export function useDealStats(pipelineId?: string) { return useQuery({ queryKey: dealKeys.stats(), queryFn: () => dealService.getPipelineStats(pipelineId) }); }
+export function useDealForecast(period?: string) { return useQuery({ queryKey: dealKeys.forecast(), queryFn: () => dealService.getForecast(period) }); }
+export function useDealProducts(id: string) { return useQuery({ queryKey: dealKeys.products(id), queryFn: () => dealService.getById(id), enabled: !!id, select: (data) => data.data?.productLineItems ?? [] }); }
+export function useMassUpdateDeals() { const qc = useQueryClient(); return useMutation({ mutationFn: ({ ids, data }: { ids: string[]; data: Partial<import("./types").Deal> }) => dealService.update(ids[0], data), onSuccess: () => { qc.invalidateQueries({ queryKey: dealKeys.all }); } }); }

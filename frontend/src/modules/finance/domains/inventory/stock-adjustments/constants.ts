@@ -1,0 +1,2 @@
+// StockAdjustments Constants — Zoho Inventory
+

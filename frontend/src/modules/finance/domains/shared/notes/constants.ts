@@ -1,0 +1,2 @@
+// Notes Constants — Cross-product
+

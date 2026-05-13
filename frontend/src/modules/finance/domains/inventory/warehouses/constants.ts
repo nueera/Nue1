@@ -1,0 +1,2 @@
+// Warehouses Constants — Zoho Inventory
+

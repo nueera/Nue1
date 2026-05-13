@@ -1,0 +1,9 @@
+// Recurring Utils — Zoho Invoice
+
+export function formatRecurringNumber(num: string, prefix: string): string {
+  return `${prefix}-${num}`;
+}
+
+export function getRecurringStatusLabel(status: string): string {
+  return status.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}

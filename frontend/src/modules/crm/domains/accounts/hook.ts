@@ -1,0 +1,11 @@
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { accountService } from "./service"; import { accountKeys } from "./query-keys";
+export function useAccounts(params?: Record<string, string | number | boolean | undefined>) { return useQuery({ queryKey: accountKeys.list(params || {}), queryFn: () => accountService.getAll(params) }); }
+export function useAccount(id: string) { return useQuery({ queryKey: accountKeys.detail(id), queryFn: () => accountService.getById(id), enabled: !!id }); }
+export function useCreateAccount() { const qc = useQueryClient(); return useMutation({ mutationFn: accountService.create, onSuccess: () => { qc.invalidateQueries({ queryKey: accountKeys.all }); } }); }
+export function useUpdateAccount() { const qc = useQueryClient(); return useMutation({ mutationFn: ({ id, data }: { id: string; data: Partial<import("./types").Account> }) => accountService.update(id, data), onSuccess: () => { qc.invalidateQueries({ queryKey: accountKeys.all }); } }); }
+export function useDeleteAccount() { const qc = useQueryClient(); return useMutation({ mutationFn: accountService.delete, onSuccess: () => { qc.invalidateQueries({ queryKey: accountKeys.all }); } }); }
+export function useMergeAccounts() { const qc = useQueryClient(); return useMutation({ mutationFn: accountService.mergeAccounts, onSuccess: () => { qc.invalidateQueries({ queryKey: accountKeys.all }); } }); }
+export function useAccountHierarchy(id: string) { return useQuery({ queryKey: accountKeys.hierarchy(id), queryFn: () => accountService.getHierarchy(id), enabled: !!id }); }
+export function useAccountStats() { return useQuery({ queryKey: accountKeys.stats(), queryFn: () => accountService.getStats() }); }
+export function useMassUpdateAccounts() { const qc = useQueryClient(); return useMutation({ mutationFn: ({ ids, data }: { ids: string[]; data: Partial<import("./types").Account> }) => accountService.massUpdate(ids, data), onSuccess: () => { qc.invalidateQueries({ queryKey: accountKeys.all }); } }); }

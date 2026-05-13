@@ -1,0 +1,1626 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* NueOne Module Accent Colors */
+  --color-module-erp: var(--module-erp);
+  --color-module-crm: var(--module-crm);
+  --color-module-finance: var(--module-finance);
+  --color-module-marketing: var(--module-marketing);
+  --color-module-analytics: var(--module-analytics);
+  --color-module-automation: var(--module-automation);
+  --color-module-retention: var(--module-retention);
+  --color-module-settings: var(--module-settings);
+
+  /* NueOne Glass Surface Colors */
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --color-glass-hover: var(--glass-hover);
+
+  /* NueOne Semantic Status Colors */
+  --color-status-success: var(--status-success);
+  --color-status-warning: var(--status-warning);
+  --color-status-danger: var(--status-danger);
+  --color-status-info: var(--status-info);
+  --color-status-neutral: var(--status-neutral);
+  --color-status-accent: var(--status-accent);
+  --color-status-attention: var(--status-attention);
+  --color-status-elevated: var(--status-elevated);
+
+  /* NueOne Global Surface Tokens (unified — no more module-specific sidebar/topbar) */
+  --color-surface-sidebar: var(--surface-sidebar);
+  --color-surface-topbar: var(--surface-topbar);
+  --color-surface-dialog: var(--surface-dialog);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-surface-overlay: var(--surface-overlay);
+
+  /* NueOne Interactive State Colors */
+  --color-interactive-focus: var(--interactive-focus);
+  --color-interactive-pressed: var(--interactive-pressed);
+  --color-interactive-hover: var(--interactive-hover);
+  --color-interactive-disabled: var(--interactive-disabled);
+
+  /* NueOne Skeleton / Loading Colors */
+  --color-skeleton-bg: var(--skeleton-bg);
+  --color-skeleton-shine: var(--skeleton-shine);
+
+  /* NueOne Glow Colors */
+  --color-glow-primary: var(--glow-primary);
+  --color-glow-secondary: var(--glow-secondary);
+  --color-glow-primary-hover: var(--glow-primary-hover);
+  --color-glow-secondary-hover: var(--glow-secondary-hover);
+
+  /* NueOne 8pt Spacing Scale */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --color-nueone-spacing-1: var(--spacing-1);
+  --color-nueone-spacing-2: var(--spacing-2);
+  --color-nueone-spacing-3: var(--spacing-3);
+  --color-nueone-spacing-4: var(--spacing-4);
+  --color-nueone-spacing-5: var(--spacing-5);
+  --color-nueone-spacing-6: var(--spacing-6);
+  --color-nueone-spacing-8: var(--spacing-8);
+  --color-nueone-spacing-10: var(--spacing-10);
+
+  /* NueOne Breakpoint Colors (for Tailwind utility generation) */
+  --color-breakpoint-xs: var(--breakpoint-xs);
+  --color-breakpoint-sm: var(--breakpoint-sm);
+  --color-breakpoint-md: var(--breakpoint-md);
+  --color-breakpoint-lg: var(--breakpoint-lg);
+  --color-breakpoint-xl: var(--breakpoint-xl);
+  --color-breakpoint-2xl: var(--breakpoint-2xl);
+
+  /* NueOne Progress Bar Colors */
+  --color-progress-bar: var(--progress-bar-color);
+
+  /* NueOne Notification Colors */
+  --color-notification-toast-width: var(--notification-toast-width);
+  --color-notification-drawer-width: var(--notification-drawer-width);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.98 0.002 250);
+  --foreground: oklch(0.15 0.01 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.01 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.01 260);
+  --primary: oklch(0.45 0.18 260);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.005 260);
+  --secondary-foreground: oklch(0.2 0.01 260);
+  --muted: oklch(0.95 0.005 260);
+  --muted-foreground: oklch(0.5 0.01 260);
+  --accent: oklch(0.95 0.01 260);
+  --accent-foreground: oklch(0.2 0.01 260);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.91 0.005 260);
+  --input: oklch(0.91 0.005 260);
+  --ring: oklch(0.45 0.18 260);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0.002 260);
+  --sidebar-foreground: oklch(0.15 0.01 260);
+  --sidebar-primary: oklch(0.45 0.18 260);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.95 0.01 260);
+  --sidebar-accent-foreground: oklch(0.2 0.01 260);
+  --sidebar-border: oklch(0.91 0.005 260);
+  --sidebar-ring: oklch(0.45 0.18 260);
+
+  /* NueOne Module Accents - Light
+     ALL modules share the same hue (260 = blue) by default.
+     AccentPicker/AccentSync overrides these at runtime with the
+     user-selected hue, so every module follows the global accent. */
+  --module-erp: oklch(0.55 0.2 260);
+  --module-crm: oklch(0.6 0.2 260);
+  --module-finance: oklch(0.58 0.18 260);
+  --module-marketing: oklch(0.55 0.2 260);
+  --module-analytics: oklch(0.58 0.15 260);
+  --module-automation: oklch(0.65 0.18 260);
+  --module-retention: oklch(0.58 0.2 260);
+  --module-settings: oklch(0.55 0.01 260);
+
+  /* Glass - Light */
+  --glass-bg: oklch(1 0 0 / 65%);
+  --glass-border: oklch(0.85 0.005 260 / 50%);
+  --glass-hover: oklch(0.98 0.005 260 / 80%);
+
+  /* Glow - Light — unified with global accent hue */
+  --glow-primary: oklch(0.55 0.2 260 / 8%);
+  --glow-secondary: oklch(0.6 0.2 260 / 8%);
+  --glow-primary-hover: oklch(0.55 0.2 260 / 18%);
+  --glow-secondary-hover: oklch(0.6 0.2 260 / 18%);
+
+  /* Global Surface Tokens - Light (unified, used by ALL modules) */
+  --surface-sidebar: oklch(0.97 0.005 260 / 90%);
+  --surface-topbar: oklch(1 0 0 / 60%);
+  --surface-dialog: oklch(1 0 0 / 95%);
+  --surface-elevated: oklch(1 0 0 / 80%);
+  --surface-sunken: oklch(0.96 0.005 260 / 60%);
+  --surface-overlay: oklch(0.5 0.01 260 / 40%);
+
+  /* Interactive State Tokens - Light */
+  --interactive-focus: oklch(0.45 0.18 260 / 40%);
+  --interactive-pressed: oklch(0.85 0.01 260 / 50%);
+  --interactive-hover: oklch(0.95 0.01 260 / 60%);
+  --interactive-disabled: oklch(0.7 0.01 260 / 40%);
+
+  /* Skeleton / Loading - Light */
+  --skeleton-bg: oklch(0.94 0.005 260);
+  --skeleton-shine: oklch(1 0 0 / 60%);
+
+  /* Semantic Status Colors - Light */
+  --status-success: oklch(0.55 0.17 155);
+  --status-warning: oklch(0.72 0.17 70);
+  --status-danger: oklch(0.58 0.22 25);
+  --status-info: oklch(0.55 0.18 250);
+  --status-neutral: oklch(0.55 0.02 260);
+  --status-accent: oklch(0.55 0.2 300);
+  --status-attention: oklch(0.65 0.15 195);
+  --status-elevated: oklch(0.65 0.18 60);
+
+  /* NueOne Motion Tokens */
+  --motion-fast: 80ms;
+  --motion-base: 220ms;
+  --motion-slow: 340ms;
+  --motion-theme: 420ms;
+  --motion-tile-hover: 100ms;
+  --motion-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --motion-ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+  --motion-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* NueOne Typography Tokens */
+  --text-xs: 0.6875rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --tracking-tight: -0.025em;
+  --tracking-normal: -0.01em;
+  --tracking-wide: 0.025em;
+  --leading-tight: 1.35;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.65;
+
+  /* NueOne Responsive Breakpoint Tokens */
+  --breakpoint-xs: 0px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* NueOne Progress Bar Tokens */
+  --progress-bar-height: 2px;
+  --progress-bar-z-index: 9999;
+  --progress-bar-color: var(--module-erp);
+  --progress-bar-speed-start: 300ms;
+  --progress-bar-speed-progress: 2s;
+  --progress-bar-speed-complete: 200ms;
+
+  /* NueOne Notification Tokens */
+  --notification-toast-width: 360px;
+  --notification-toast-duration: 4s;
+  --notification-drawer-width: 380px;
+  --notification-badge-min-size: 18px;
+
+  /* NueOne Breadcrumb Tokens */
+  --breadcrumb-height: 36px;
+  --breadcrumb-gap: 6px;
+  --breadcrumb-separator-size: 12px;
+
+  /* NueOne Search Modal Tokens */
+  --search-modal-max-width: 560px;
+  --search-modal-z-index: 9990;
+  --search-input-height: 48px;
+  --search-result-height: 56px;
+  --search-debounce: 200ms;
+
+  /* NueOne Undo/Redo Tokens */
+  --undo-fab-size: 48px;
+  --undo-fab-bottom: 24px;
+  --undo-fab-left: 24px;
+  --undo-long-press-duration: 500ms;
+
+  /* NueOne Animation Orchestration Tokens */
+  --stagger-default-delay: 50ms;
+  --stagger-mobile-multiplier: 0.5;
+  --page-transition-duration: 280ms;
+  --page-transition-offset: 12px;
+
+  /* NueOne Keyboard Shortcut Tokens */
+  --shortcut-hint-opacity: 0.5;
+  --shortcut-hint-font-size: 10px;
+
+  /* Legacy aliases (backward compat — map to unified tokens) */
+  --erp-sidebar-bg: var(--surface-sidebar);
+  --erp-topbar-bg: var(--surface-topbar);
+  --crm-sidebar-bg: var(--surface-sidebar);
+  --crm-topbar-bg: var(--surface-topbar);
+  --crm-dialog-bg: var(--surface-dialog);
+}
+
+.dark {
+  --background: oklch(0.1 0.015 270);
+  --foreground: oklch(0.95 0.005 260);
+  --card: oklch(0.16 0.015 270);
+  --card-foreground: oklch(0.95 0.005 260);
+  --popover: oklch(0.16 0.015 270);
+  --popover-foreground: oklch(0.95 0.005 260);
+  --primary: oklch(0.65 0.2 260);
+  --primary-foreground: oklch(0.12 0.015 270);
+  --secondary: oklch(0.22 0.015 270);
+  --secondary-foreground: oklch(0.95 0.005 260);
+  --muted: oklch(0.22 0.015 270);
+  --muted-foreground: oklch(0.65 0.01 260);
+  --accent: oklch(0.22 0.02 270);
+  --accent-foreground: oklch(0.95 0.005 260);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.65 0.2 260);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.16 0.015 270);
+  --sidebar-foreground: oklch(0.95 0.005 260);
+  --sidebar-primary: oklch(0.65 0.2 260);
+  --sidebar-primary-foreground: oklch(0.95 0.005 260);
+  --sidebar-accent: oklch(0.22 0.02 270);
+  --sidebar-accent-foreground: oklch(0.95 0.005 260);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.65 0.2 260);
+
+  /* NueOne Module Accents - Dark (more vibrant)
+     ALL modules share the same hue (260 = blue) by default.
+     AccentSync overrides these at runtime when the user changes accent. */
+  --module-erp: oklch(0.6 0.22 260);
+  --module-crm: oklch(0.65 0.22 260);
+  --module-finance: oklch(0.63 0.2 260);
+  --module-marketing: oklch(0.6 0.22 260);
+  --module-analytics: oklch(0.63 0.17 260);
+  --module-automation: oklch(0.7 0.2 260);
+  --module-retention: oklch(0.63 0.22 260);
+  --module-settings: oklch(0.6 0.01 260);
+
+  /* Glass - Dark */
+  --glass-bg: oklch(0.18 0.015 270 / 55%);
+  --glass-border: oklch(1 0 0 / 8%);
+  --glass-hover: oklch(0.24 0.02 270 / 70%);
+
+  /* Glow - Dark (stronger) — unified with global accent hue */
+  --glow-primary: oklch(0.6 0.22 260 / 14%);
+  --glow-secondary: oklch(0.65 0.22 260 / 14%);
+  --glow-primary-hover: oklch(0.6 0.22 260 / 28%);
+  --glow-secondary-hover: oklch(0.65 0.22 260 / 28%);
+
+  /* Global Surface Tokens - Dark (unified, used by ALL modules) */
+  --surface-sidebar: oklch(0.12 0.02 270 / 85%);
+  --surface-topbar: oklch(0.14 0.015 270 / 60%);
+  --surface-dialog: oklch(0.14 0.015 270 / 95%);
+  --surface-elevated: oklch(0.2 0.02 270 / 70%);
+  --surface-sunken: oklch(0.08 0.01 270 / 50%);
+  --surface-overlay: oklch(0 0 0 / 60%);
+
+  /* Interactive State Tokens - Dark */
+  --interactive-focus: oklch(0.65 0.2 260 / 50%);
+  --interactive-pressed: oklch(1 0 0 / 8%);
+  --interactive-hover: oklch(1 0 0 / 6%);
+  --interactive-disabled: oklch(0.4 0.01 260 / 50%);
+
+  /* Skeleton / Loading - Dark */
+  --skeleton-bg: oklch(0.2 0.015 270);
+  --skeleton-shine: oklch(1 0 0 / 6%);
+
+  /* Semantic Status Colors - Dark (brighter for contrast) */
+  --status-success: oklch(0.72 0.2 155);
+  --status-warning: oklch(0.78 0.17 70);
+  --status-danger: oklch(0.7 0.2 25);
+  --status-info: oklch(0.7 0.2 250);
+  --status-neutral: oklch(0.65 0.02 260);
+  --status-accent: oklch(0.7 0.22 300);
+  --status-attention: oklch(0.75 0.17 195);
+  --status-elevated: oklch(0.75 0.2 60);
+
+  /* Legacy aliases (backward compat — map to unified tokens) */
+  --erp-sidebar-bg: var(--surface-sidebar);
+  --erp-topbar-bg: var(--surface-topbar);
+  --crm-sidebar-bg: var(--surface-sidebar);
+  --crm-topbar-bg: var(--surface-topbar);
+  --crm-dialog-bg: var(--surface-dialog);
+}
+
+/* ============================================================
+   THEME PRESETS — Beyond light/dark
+   Apply a preset by adding a data-theme attribute to <html>
+   e.g. <html class="dark" data-theme="warm">
+   ============================================================ */
+
+/* Warm preset: amber-tinted surfaces, softer contrast */
+[data-theme="warm"] {
+  --background: oklch(0.98 0.008 60);
+  --foreground: oklch(0.18 0.02 50);
+  --card: oklch(1 0.005 60);
+  --muted: oklch(0.95 0.01 60);
+  --muted-foreground: oklch(0.5 0.02 50);
+  --surface-sidebar: oklch(0.97 0.012 60 / 90%);
+  --surface-topbar: oklch(1 0.005 60 / 60%);
+  --glass-bg: oklch(1 0.008 60 / 65%);
+  --glass-border: oklch(0.85 0.015 60 / 50%);
+  --glass-hover: oklch(0.98 0.01 60 / 80%);
+}
+[data-theme="warm"].dark {
+  --background: oklch(0.1 0.02 50);
+  --foreground: oklch(0.95 0.01 60);
+  --card: oklch(0.16 0.02 50);
+  --muted: oklch(0.22 0.02 50);
+  --muted-foreground: oklch(0.65 0.015 60);
+  --surface-sidebar: oklch(0.12 0.025 50 / 85%);
+  --surface-topbar: oklch(0.14 0.02 50 / 60%);
+  --glass-bg: oklch(0.18 0.02 50 / 55%);
+  --glass-border: oklch(1 0 0 / 8%);
+  --glass-hover: oklch(0.24 0.025 50 / 70%);
+}
+
+/* Cool preset: blue-tinted surfaces, crisp contrast */
+[data-theme="cool"] {
+  --background: oklch(0.98 0.008 240);
+  --foreground: oklch(0.15 0.015 240);
+  --card: oklch(1 0.005 240);
+  --muted: oklch(0.95 0.01 240);
+  --muted-foreground: oklch(0.5 0.015 240);
+  --surface-sidebar: oklch(0.97 0.012 240 / 90%);
+  --surface-topbar: oklch(1 0.005 240 / 60%);
+  --glass-bg: oklch(1 0.008 240 / 65%);
+  --glass-border: oklch(0.85 0.015 240 / 50%);
+  --glass-hover: oklch(0.98 0.01 240 / 80%);
+}
+[data-theme="cool"].dark {
+  --background: oklch(0.1 0.02 240);
+  --foreground: oklch(0.95 0.01 240);
+  --card: oklch(0.16 0.02 240);
+  --muted: oklch(0.22 0.02 240);
+  --muted-foreground: oklch(0.65 0.015 240);
+  --surface-sidebar: oklch(0.12 0.025 240 / 85%);
+  --surface-topbar: oklch(0.14 0.02 240 / 60%);
+  --glass-bg: oklch(0.18 0.02 240 / 55%);
+  --glass-border: oklch(1 0 0 / 8%);
+  --glass-hover: oklch(0.24 0.025 240 / 70%);
+}
+
+/* High-contrast preset: maximum legibility for accessibility */
+[data-theme="high-contrast"] {
+  --foreground: oklch(0 0 0);
+  --muted-foreground: oklch(0.35 0.01 260);
+  --border: oklch(0.75 0.005 260);
+  --glass-border: oklch(0.7 0.005 260 / 70%);
+  --status-success: oklch(0.45 0.2 155);
+  --status-danger: oklch(0.5 0.25 25);
+  --status-warning: oklch(0.6 0.2 70);
+}
+[data-theme="high-contrast"].dark {
+  --foreground: oklch(1 0 0);
+  --muted-foreground: oklch(0.8 0.01 260);
+  --border: oklch(1 0 0 / 25%);
+  --glass-border: oklch(1 0 0 / 20%);
+  --status-success: oklch(0.8 0.22 155);
+  --status-danger: oklch(0.75 0.24 25);
+  --status-warning: oklch(0.85 0.19 70);
+}
+
+/* ============================================================
+   BASE LAYER
+   ============================================================ */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    transition:
+      background-color var(--motion-theme) ease,
+      color var(--motion-theme) ease,
+      border-color var(--motion-theme) ease;
+  }
+  /* Smooth theme transition for all surfaces */
+  .glass-surface,
+  .glass-surface-strong,
+  .surface-sidebar,
+  .surface-topbar,
+  .surface-dialog {
+    transition:
+      background-color var(--motion-theme) ease,
+      border-color var(--motion-theme) ease,
+      box-shadow var(--motion-theme) ease,
+      backdrop-filter var(--motion-theme) ease;
+  }
+}
+
+/* ============================================================
+   NUEONE CUSTOM UTILITIES
+   ============================================================ */
+
+@layer utilities {
+  /* Glass Surfaces — theme-transition-aware */
+  .glass-surface {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px) saturate(160%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+    box-shadow: inset 0 1px 0 oklch(1 0 0 / 6%);
+    transition:
+      background-color var(--motion-theme) ease,
+      border-color var(--motion-theme) ease;
+  }
+
+  .glass-surface-strong {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(14px) saturate(170%);
+    -webkit-backdrop-filter: blur(14px) saturate(170%);
+    box-shadow: inset 0 1px 0 oklch(1 0 0 / 8%);
+    transition:
+      background-color var(--motion-theme) ease,
+      border-color var(--motion-theme) ease;
+  }
+
+  .dark .glass-surface {
+    box-shadow: inset 0 1px 0 oklch(1 0 0 / 4%);
+  }
+  .dark .glass-surface-strong {
+    box-shadow: inset 0 1px 0 oklch(1 0 0 / 5%);
+  }
+
+  /* Global Surface Utilities (unified — used by ALL modules) */
+  .surface-sidebar { background: var(--surface-sidebar); transition: background-color var(--motion-theme) ease; }
+  .surface-topbar { background: var(--surface-topbar); transition: background-color var(--motion-theme) ease; }
+  .surface-dialog { background: var(--surface-dialog); transition: background-color var(--motion-theme) ease; }
+  .surface-elevated { background: var(--surface-elevated); transition: background-color var(--motion-theme) ease; }
+  .surface-sunken { background: var(--surface-sunken); transition: background-color var(--motion-theme) ease; }
+  .surface-overlay { background: var(--surface-overlay); transition: background-color var(--motion-theme) ease; }
+
+  /* Legacy surface utilities (backward compat — now delegate to unified tokens) */
+  .erp-sidebar-bg { background: var(--surface-sidebar); transition: background-color var(--motion-theme) ease; }
+  .erp-topbar-bg { background: var(--surface-topbar); transition: background-color var(--motion-theme) ease; }
+  .crm-sidebar-bg { background: var(--surface-sidebar); transition: background-color var(--motion-theme) ease; }
+  .crm-topbar-bg { background: var(--surface-topbar); transition: background-color var(--motion-theme) ease; }
+  .crm-dialog-bg { background: var(--surface-dialog); transition: background-color var(--motion-theme) ease; }
+
+  /* Interactive State Utilities */
+  .focus-ring {
+    outline: 2px solid var(--interactive-focus);
+    outline-offset: 2px;
+  }
+  .pressed-state {
+    background: var(--interactive-pressed);
+  }
+  .disabled-state {
+    color: var(--interactive-disabled);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* Skeleton Loading Utility */
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--skeleton-bg) 0%,
+      var(--skeleton-shine) 50%,
+      var(--skeleton-bg) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  /* Nueone Glow */
+  .nueone-glow {
+    box-shadow: 0 0 16px var(--glow-primary);
+    transition: box-shadow var(--motion-theme) ease;
+  }
+
+  .nueone-text-glow {
+    text-shadow: 0 0 20px var(--glow-primary);
+  }
+
+  /* NueOne Typography Utility Classes */
+  .text-nueone-xs {
+    font-size: var(--text-xs);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-wide);
+  }
+  .text-nueone-sm {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
+  }
+  .text-nueone-base {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
+  }
+  .text-nueone-lg {
+    font-size: var(--text-lg);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+  }
+  .text-nueone-xl {
+    font-size: var(--text-xl);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+  }
+  .text-nueone-2xl {
+    font-size: var(--text-2xl);
+    line-height: 1.1;
+    letter-spacing: var(--tracking-tight);
+  }
+
+  /* Module glow — ONLY on interaction, not static — uses var() so global accent propagates */
+  .module-glow-erp { box-shadow: 0 0 24px color-mix(in oklch, var(--module-erp) 12%, transparent); transition: box-shadow var(--motion-theme) ease; }
+  .module-glow-crm { box-shadow: 0 0 24px color-mix(in oklch, var(--module-crm) 12%, transparent); transition: box-shadow var(--motion-theme) ease; }
+  .module-glow-finance { box-shadow: 0 0 24px color-mix(in oklch, var(--module-finance) 12%, transparent); transition: box-shadow var(--motion-theme) ease; }
+  .module-glow-marketing { box-shadow: 0 0 24px color-mix(in oklch, var(--module-marketing) 12%, transparent); transition: box-shadow var(--motion-theme) ease; }
+  .module-glow-analytics { box-shadow: 0 0 24px color-mix(in oklch, var(--module-analytics) 12%, transparent); transition: box-shadow var(--motion-theme) ease; }
+  .module-glow-automation { box-shadow: 0 0 24px color-mix(in oklch, var(--module-automation) 12%, transparent); transition: box-shadow var(--motion-theme) ease; }
+  .module-glow-retention { box-shadow: 0 0 24px color-mix(in oklch, var(--module-retention) 12%, transparent); transition: box-shadow var(--motion-theme) ease; }
+  .module-glow-settings { box-shadow: 0 0 24px color-mix(in oklch, var(--module-settings) 8%, transparent); transition: box-shadow var(--motion-theme) ease; }
+
+  /* Elite Micro-Perception Utilities */
+  .press-scale {
+    transition: transform 60ms var(--motion-ease-out), opacity 60ms var(--motion-ease-out);
+  }
+  .press-scale:active {
+    transform: scale(0.97);
+    opacity: 0.92;
+  }
+
+  .hover-lift {
+    transition: transform var(--motion-fast) var(--motion-ease-out),
+                box-shadow var(--motion-fast) var(--motion-ease-out);
+  }
+  .hover-lift:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px oklch(0 0 0 / 6%);
+  }
+  .dark .hover-lift:hover {
+    box-shadow: 0 2px 8px oklch(0 0 0 / 12%);
+  }
+
+  .row-hover-elevate {
+    transition: background-color 60ms var(--motion-ease-out),
+                box-shadow 60ms var(--motion-ease-out);
+  }
+  .row-hover-elevate:hover {
+    box-shadow: 0 1px 3px oklch(0 0 0 / 4%);
+  }
+  .dark .row-hover-elevate:hover {
+    box-shadow: 0 1px 4px oklch(0 0 0 / 10%);
+  }
+
+  /* Tab underline transition — module-aware via CSS custom property */
+  .tab-underline {
+    position: relative;
+  }
+  .tab-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--module-erp);
+    border-radius: 1px;
+    transform: scaleX(0);
+    transition: transform 150ms var(--motion-ease-out);
+  }
+  .tab-underline[data-state="active"]::after {
+    transform: scaleX(1);
+  }
+  /* CRM-specific tab underline — set via data-module attribute */
+  .tab-underline[data-module="crm"]::after {
+    background: var(--module-crm);
+  }
+  .tab-underline[data-module="finance"]::after {
+    background: var(--module-finance);
+  }
+  .tab-underline[data-module="marketing"]::after {
+    background: var(--module-marketing);
+  }
+  .tab-underline[data-module="analytics"]::after {
+    background: var(--module-analytics);
+  }
+  .tab-underline[data-module="automation"]::after {
+    background: var(--module-automation);
+  }
+  .tab-underline[data-module="retention"]::after {
+    background: var(--module-retention);
+  }
+  .tab-underline[data-module="settings"]::after {
+    background: var(--module-settings);
+  }
+
+  /* Count-up animation for numbers */
+  @keyframes count-up {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .count-up {
+    animation: count-up 300ms var(--motion-ease-out) both;
+  }
+
+  /* Sort arrow rotation */
+  .sort-arrow {
+    transition: transform 150ms var(--motion-ease-out), opacity 100ms var(--motion-ease-out);
+  }
+  .sort-arrow-asc {
+    transform: rotate(0deg);
+  }
+  .sort-arrow-desc {
+    transform: rotate(180deg);
+  }
+
+  /* Fade-in for tab content */
+  @keyframes tab-content-in {
+    from { opacity: 0; transform: translateY(2px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .tab-content-fade {
+    animation: tab-content-in 180ms var(--motion-ease-out) both;
+  }
+
+  /* Smart table sticky header */
+  .smart-table-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background-color var(--motion-theme) ease;
+  }
+
+  /* Sidebar recently used indicator — module-aware via data-module */
+  .sidebar-recent {
+    position: relative;
+  }
+  .sidebar-recent::before {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--module-erp);
+    opacity: 0.5;
+    transition: background-color var(--motion-theme) ease;
+  }
+  /* CRM and other module sidebar recent dots */
+  [data-module="crm"] .sidebar-recent::before {
+    background: var(--module-crm);
+  }
+  [data-module="finance"] .sidebar-recent::before {
+    background: var(--module-finance);
+  }
+  [data-module="marketing"] .sidebar-recent::before {
+    background: var(--module-marketing);
+  }
+  [data-module="analytics"] .sidebar-recent::before {
+    background: var(--module-analytics);
+  }
+  [data-module="automation"] .sidebar-recent::before {
+    background: var(--module-automation);
+  }
+  [data-module="retention"] .sidebar-recent::before {
+    background: var(--module-retention);
+  }
+  [data-module="settings"] .sidebar-recent::before {
+    background: var(--module-settings);
+  }
+
+  /* ============================================================
+     SIDEBAR FLASH — Unified with CSS variables
+     Uses --flash-accent so the color follows global theme accent.
+     Each [data-module] sets its own --flash-accent from the
+     corresponding --module-{name} variable, which AccentPicker
+     updates at runtime. No more hardcoded oklch values.
+     ============================================================ */
+
+  /* Default flash accent — inherits module color from context */
+  .sidebar-item-flash {
+    --flash-accent: var(--module-erp); /* fallback for no data-module */
+    animation: sidebar-flash 300ms var(--motion-ease-out) both;
+  }
+  [data-module="erp"] .sidebar-item-flash { --flash-accent: var(--module-erp); }
+  [data-module="crm"] .sidebar-item-flash { --flash-accent: var(--module-crm); }
+  [data-module="finance"] .sidebar-item-flash { --flash-accent: var(--module-finance); }
+  [data-module="marketing"] .sidebar-item-flash { --flash-accent: var(--module-marketing); }
+  [data-module="analytics"] .sidebar-item-flash { --flash-accent: var(--module-analytics); }
+  [data-module="automation"] .sidebar-item-flash { --flash-accent: var(--module-automation); }
+  [data-module="retention"] .sidebar-item-flash { --flash-accent: var(--module-retention); }
+  [data-module="settings"] .sidebar-item-flash { --flash-accent: var(--module-settings); }
+
+  /* Single unified keyframe — reads --flash-accent at runtime */
+  @keyframes sidebar-flash {
+    0% { background-color: color-mix(in oklch, var(--flash-accent) 20%, transparent); }
+    100% { background-color: color-mix(in oklch, var(--flash-accent) 8%, transparent); }
+  }
+  .dark .sidebar-item-flash {
+    --flash-accent: var(--module-erp);
+    animation: sidebar-flash-dark 300ms var(--motion-ease-out) both;
+  }
+  .dark [data-module="erp"] .sidebar-item-flash { --flash-accent: var(--module-erp); }
+  .dark [data-module="crm"] .sidebar-item-flash { --flash-accent: var(--module-crm); }
+  .dark [data-module="finance"] .sidebar-item-flash { --flash-accent: var(--module-finance); }
+  .dark [data-module="marketing"] .sidebar-item-flash { --flash-accent: var(--module-marketing); }
+  .dark [data-module="analytics"] .sidebar-item-flash { --flash-accent: var(--module-analytics); }
+  .dark [data-module="automation"] .sidebar-item-flash { --flash-accent: var(--module-automation); }
+  .dark [data-module="retention"] .sidebar-item-flash { --flash-accent: var(--module-retention); }
+  .dark [data-module="settings"] .sidebar-item-flash { --flash-accent: var(--module-settings); }
+  @keyframes sidebar-flash-dark {
+    0% { background-color: color-mix(in oklch, var(--flash-accent) 25%, transparent); }
+    100% { background-color: color-mix(in oklch, var(--flash-accent) 8%, transparent); }
+  }
+
+  /* ============================================================
+     SEARCH GLOW — Unified with CSS variables
+     Uses --glow-accent so the color follows global theme accent.
+     No more hardcoded oklch values.
+     ============================================================ */
+
+  .search-glow {
+    --glow-accent: var(--module-erp); /* fallback */
+  }
+  [data-module="erp"] .search-glow { --glow-accent: var(--module-erp); }
+  [data-module="crm"] .search-glow { --glow-accent: var(--module-crm); }
+  [data-module="finance"] .search-glow { --glow-accent: var(--module-finance); }
+  [data-module="marketing"] .search-glow { --glow-accent: var(--module-marketing); }
+  [data-module="analytics"] .search-glow { --glow-accent: var(--module-analytics); }
+  [data-module="automation"] .search-glow { --glow-accent: var(--module-automation); }
+  [data-module="retention"] .search-glow { --glow-accent: var(--module-retention); }
+  [data-module="settings"] .search-glow { --glow-accent: var(--module-settings); }
+
+  .search-glow:focus-within {
+    box-shadow: 0 0 0 1.5px color-mix(in oklch, var(--glow-accent) 20%, transparent),
+                0 0 12px color-mix(in oklch, var(--glow-accent) 8%, transparent);
+    transition: box-shadow 160ms var(--motion-ease-out);
+  }
+  .dark .search-glow:focus-within {
+    box-shadow: 0 0 0 1.5px color-mix(in oklch, var(--glow-accent) 25%, transparent),
+                0 0 16px color-mix(in oklch, var(--glow-accent) 12%, transparent);
+  }
+
+  /* Smooth scroll */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Badge color transition */
+  .badge-transition {
+    transition: background-color 200ms var(--motion-ease-out),
+                color 200ms var(--motion-ease-out),
+                border-color 200ms var(--motion-ease-out);
+  }
+
+  /* Theme-adaptive shadows */
+  .shadow-theme-sm {
+    box-shadow: 0 1px 2px oklch(0 0 0 / 4%);
+    transition: box-shadow var(--motion-theme) ease;
+  }
+  .dark .shadow-theme-sm {
+    box-shadow: 0 1px 3px oklch(0 0 0 / 10%);
+  }
+  .shadow-theme-md {
+    box-shadow: 0 2px 8px oklch(0 0 0 / 6%);
+    transition: box-shadow var(--motion-theme) ease;
+  }
+  .dark .shadow-theme-md {
+    box-shadow: 0 2px 12px oklch(0 0 0 / 15%);
+  }
+  .shadow-theme-lg {
+    box-shadow: 0 4px 16px oklch(0 0 0 / 8%);
+    transition: box-shadow var(--motion-theme) ease;
+  }
+  .dark .shadow-theme-lg {
+    box-shadow: 0 4px 20px oklch(0 0 0 / 20%);
+  }
+}
+
+/* ============================================================
+   TABLE PERCEPTION — Unified for all modules
+   ============================================================ */
+
+/* Global table perception: rows lighter than container, headers dimmer */
+.table-container thead tr,
+.erp-table-container thead tr,
+.crm-table-container thead tr {
+  background: oklch(0 0 0 / 2%);
+  transition: background-color var(--motion-theme) ease;
+}
+.dark .table-container thead tr,
+.dark .erp-table-container thead tr,
+.dark .crm-table-container thead tr {
+  background: oklch(1 0 0 / 3%);
+}
+.table-container tbody tr,
+.erp-table-container tbody tr,
+.crm-table-container tbody tr {
+  background: transparent;
+}
+.table-container tbody tr:nth-child(even),
+.erp-table-container tbody tr:nth-child(even),
+.crm-table-container tbody tr:nth-child(even) {
+  background: oklch(0 0 0 / 1.5%);
+  transition: background-color var(--motion-theme) ease;
+}
+.dark .table-container tbody tr:nth-child(even),
+.dark .erp-table-container tbody tr:nth-child(even),
+.dark .crm-table-container tbody tr:nth-child(even) {
+  background: oklch(1 0 0 / 2%);
+}
+
+/* ============================================================
+   BACKGROUND PATTERNS
+   ============================================================ */
+
+/* Dot Grid Pattern */
+.dot-grid {
+  background-image: radial-gradient(circle, oklch(0.7 0.005 260 / 4%) 1px, transparent 1px);
+  background-size: 24px 24px;
+  transition: background-image var(--motion-theme) ease;
+}
+
+.dark .dot-grid {
+  background-image: radial-gradient(circle, oklch(0.4 0.005 260 / 6%) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Animated Gradient Orbs for Dark Mode */
+@keyframes orb-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(12px, -16px) scale(1.02); }
+  50% { transform: translate(-8px, -32px) scale(0.98); }
+  75% { transform: translate(16px, -12px) scale(1.01); }
+}
+
+@keyframes orb-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-16px, 12px) scale(0.99); }
+  50% { transform: translate(12px, 20px) scale(1.02); }
+  75% { transform: translate(-8px, 8px) scale(1); }
+}
+
+@keyframes orb-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(20px, 8px) scale(1.01); }
+  50% { transform: translate(-12px, -16px) scale(0.99); }
+  75% { transform: translate(8px, 24px) scale(1); }
+}
+
+.orb-1 {
+  animation: orb-float-1 80s ease-in-out infinite;
+}
+.orb-2 {
+  animation: orb-float-2 90s ease-in-out infinite;
+}
+.orb-3 {
+  animation: orb-float-3 85s ease-in-out infinite;
+}
+
+/* ============================================================
+   TILE STATES
+   ============================================================ */
+
+/* Tile shimmer (loading state) */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.tile-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.tile-loading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(1 0 0 / 8%) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+  z-index: 20;
+}
+
+.dark .tile-loading::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(1 0 0 / 12%) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Tile disabled state */
+.tile-disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  filter: grayscale(0.5);
+}
+
+/* Tile active (pressed) state */
+.tile-active {
+  transform: scale(0.98);
+  box-shadow: inset 0 2px 8px oklch(0 0 0 / 10%);
+}
+
+/* Subtle shimmer on tiles (alive feel) */
+@keyframes tile-alive {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.tile-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(1 0 0 / 2%) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: tile-alive 14s ease-in-out infinite;
+}
+
+.dark .tile-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(1 0 0 / 3%) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: tile-alive 14s ease-in-out infinite;
+}
+
+/* Breathing animation */
+@keyframes breathe {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.tile-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+/* Custom scrollbar — theme-aware */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 3px;
+  transition: background-color var(--motion-theme) ease;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* ============================================================
+   RIPPLE & INTERACTION EFFECTS
+   ============================================================ */
+
+/* Ripple effect */
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+.tile-ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, oklch(1 0 0 / 30%) 0%, transparent 70%);
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tile-ripple:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+/* ============================================================
+   COMMAND PALETTE & OVERLAYS
+   ============================================================ */
+
+/* Command palette backdrop */
+@keyframes backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes palette-in {
+  from { opacity: 0; transform: scale(0.96) translateY(-8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.command-backdrop {
+  animation: backdrop-in var(--motion-base) var(--motion-ease-out);
+}
+
+.command-palette {
+  animation: palette-in var(--motion-base) cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Fullscreen transition */
+.fullscreen-enter {
+  animation: fullscreen-zoom var(--motion-slow) var(--motion-ease-in-out);
+}
+
+@keyframes fullscreen-zoom {
+  from { transform: scale(0.98); opacity: 0.9; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Live tile chart animation */
+@keyframes chart-draw {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+
+.live-chart-line {
+  stroke-dasharray: 100;
+  animation: chart-draw 1.5s ease-out forwards;
+}
+
+/* Pin indicator pulse */
+@keyframes pin-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.pin-indicator {
+  animation: pin-pulse 2.5s ease-in-out infinite;
+}
+
+/* Recently used highlight — module-aware */
+.recent-highlight {
+  position: relative;
+}
+.recent-highlight::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--module-erp);
+  opacity: 0.6;
+  transition: background-color var(--motion-theme) ease;
+}
+[data-module="crm"] .recent-highlight::after {
+  background: var(--module-crm);
+}
+[data-module="finance"] .recent-highlight::after {
+  background: var(--module-finance);
+}
+[data-module="marketing"] .recent-highlight::after {
+  background: var(--module-marketing);
+}
+[data-module="analytics"] .recent-highlight::after {
+  background: var(--module-analytics);
+}
+[data-module="automation"] .recent-highlight::after {
+  background: var(--module-automation);
+}
+[data-module="retention"] .recent-highlight::after {
+  background: var(--module-retention);
+}
+
+/* ============================================================
+   PAGE TRANSITION ANIMATION
+   ============================================================ */
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-transition-enter {
+  animation: page-enter 280ms var(--motion-ease-out) both;
+}
+
+/* ============================================================
+   FOCUS-VISIBLE GLOBAL STYLE (accessibility)
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--interactive-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Remove focus ring for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ============================================================
+   WORKSPACE SYSTEM — Global OS-like workspace management
+   ============================================================ */
+
+/* Workspace shell transitions */
+.workspace-shell {
+  transition:
+    width var(--motion-slow) var(--motion-ease-in-out),
+    height var(--motion-slow) var(--motion-ease-in-out),
+    opacity 200ms var(--motion-ease-out);
+}
+
+/* Compact mode — minimal collapsed workspace */
+[data-workspace="compact"] .workspace-content {
+  max-height: 48px;
+  overflow: hidden;
+  transition: max-height 160ms var(--motion-ease-in-out);
+}
+[data-workspace="compact"] .workspace-body {
+  display: none;
+}
+
+/* Expanded mode — default working state */
+[data-workspace="expanded"] .workspace-content {
+  max-height: none;
+  transition: max-height 220ms var(--motion-ease-in-out);
+}
+[data-workspace="expanded"] .workspace-body {
+  display: block;
+}
+
+/* Maximized mode — full focus */
+[data-workspace="maximized"] {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--background);
+  animation: workspace-maximize 280ms var(--motion-ease-out) both;
+}
+@keyframes workspace-maximize {
+  from {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+[data-workspace="maximized"] .workspace-sidebar {
+  width: 64px !important;
+  transition: width 240ms var(--motion-ease-in-out);
+}
+[data-workspace="maximized"] .workspace-sidebar-label {
+  display: none;
+}
+[data-workspace="maximized"] .workspace-topbar {
+  backdrop-filter: blur(16px) saturate(180%);
+}
+
+/* Focus mode overlay — dimming background */
+.workspace-focus-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  background: oklch(0 0 0 / 20%);
+  backdrop-filter: blur(2px);
+  animation: focus-overlay-in 240ms var(--motion-ease-out) both;
+}
+.dark .workspace-focus-overlay {
+  background: oklch(0 0 0 / 40%);
+}
+@keyframes focus-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Minimized workspace — dock item */
+.workspace-dock-item {
+  transition:
+    transform 160ms var(--motion-ease-out),
+    box-shadow 160ms var(--motion-ease-out),
+    background-color 120ms var(--motion-ease-out);
+}
+.workspace-dock-item:hover {
+  transform: translateY(-2px);
+}
+.workspace-dock-item:active {
+  transform: scale(0.96);
+}
+
+/* Workspace dock bar */
+.workspace-dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  height: 44px;
+  background: var(--glass-bg);
+  border-top: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px) saturate(170%);
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  transition:
+    transform 220ms var(--motion-ease-in-out),
+    opacity 220ms var(--motion-ease-out);
+}
+.workspace-dock.hidden-dock {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Multi-panel workspace */
+.workspace-panels {
+  display: flex;
+  height: 100%;
+  gap: 1px;
+  background: var(--glass-border);
+}
+.workspace-panel {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--background);
+  transition: flex 220ms var(--motion-ease-in-out);
+}
+
+/* Panel resize handle */
+.panel-resize-handle {
+  width: 4px;
+  cursor: col-resize;
+  background: transparent;
+  transition: background-color 120ms var(--motion-ease-out);
+  position: relative;
+  z-index: 5;
+  flex-shrink: 0;
+}
+.panel-resize-handle:hover {
+  background: color-mix(in oklch, var(--primary) 30%, transparent);
+}
+.panel-resize-handle:active {
+  background: color-mix(in oklch, var(--primary) 50%, transparent);
+}
+.panel-resize-handle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -4px;
+  right: -4px;
+}
+
+/* Workspace control buttons */
+.workspace-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  transition:
+    background-color 120ms var(--motion-ease-out),
+    color 120ms var(--motion-ease-out),
+    transform 80ms var(--motion-ease-out);
+  color: var(--muted-foreground);
+}
+.workspace-control:hover {
+  background: var(--glass-hover);
+  color: var(--foreground);
+}
+.workspace-control:active {
+  transform: scale(0.92);
+}
+
+/* Workspace state badge */
+.workspace-state-badge {
+  font-size: var(--text-xs);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  transition:
+    background-color var(--motion-theme) ease,
+    color var(--motion-theme) ease;
+}
+
+/* Compact view item */
+.workspace-compact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 80ms var(--motion-ease-out);
+  cursor: pointer;
+}
+.workspace-compact-item:hover {
+  background: var(--glass-hover);
+}
+
+/* Workspace entering animation */
+@keyframes workspace-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.workspace-enter {
+  animation: workspace-enter 280ms var(--motion-ease-out) both;
+}
+
+/* Workspace exiting animation */
+@keyframes workspace-exit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+.workspace-exit {
+  animation: workspace-exit 160ms var(--motion-ease-out) both;
+}
+
+/* Panel tab bar for multi-panel */
+.workspace-panel-tabs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 8px;
+  height: 32px;
+  border-bottom: 1px solid var(--glass-border);
+  background: var(--surface-sunken);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.workspace-panel-tabs::-webkit-scrollbar {
+  display: none;
+}
+.workspace-panel-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px 6px 0 0;
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-normal);
+  color: var(--muted-foreground);
+  transition:
+    background-color 120ms var(--motion-ease-out),
+    color 120ms var(--motion-ease-out);
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+}
+.workspace-panel-tab:hover {
+  background: var(--glass-hover);
+  color: var(--foreground);
+}
+.workspace-panel-tab.active {
+  background: var(--background);
+  color: var(--foreground);
+}
+.workspace-panel-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 1px 1px 0 0;
+}
+.workspace-panel-tab .tab-close {
+  opacity: 0;
+  transition: opacity 80ms var(--motion-ease-out);
+}
+.workspace-panel-tab:hover .tab-close {
+  opacity: 1;
+}
+
+/* Pinned workspace indicator */
+.workspace-pinned-indicator {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: pin-pulse 2.5s ease-in-out infinite;
+}
+
+/* ============================================================
+   COLLAPSIBLE SIDEBAR SECTIONS — ▼/▶ expand/collapse
+   Applied globally across ALL modules (ERP, CRM, Finance, etc.)
+   ============================================================ */
+
+/* Section header toggle button */
+.sidebar-section-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 12px;
+  margin-bottom: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition:
+    background-color 120ms var(--motion-ease-out),
+    color 120ms var(--motion-ease-out);
+}
+.sidebar-section-header:hover {
+  background: var(--glass-hover);
+}
+.sidebar-section-header:focus-visible {
+  outline: 2px solid var(--interactive-focus);
+  outline-offset: 1px;
+}
+
+/* Chevron rotation */
+.sidebar-section-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-right: 6px;
+  transition: transform 160ms var(--motion-ease-out);
+}
+.sidebar-section-chevron.expanded {
+  transform: rotate(90deg);
+}
+.sidebar-section-chevron.collapsed {
+  transform: rotate(0deg);
+}
+
+/* Section title text */
+.sidebar-section-title {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  font-size: var(--text-xs);
+  color: color-mix(in oklch, var(--muted-foreground) 50%, transparent);
+  user-select: none;
+}
+
+/* Collapsed item count indicator */
+.sidebar-section-count {
+  margin-left: auto;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: color-mix(in oklch, var(--muted-foreground) 30%, transparent);
+}
+
+/* Expand hint when collapsed */
+.sidebar-section-expand-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 8px;
+  margin: 0 12px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: var(--text-xs);
+  color: color-mix(in oklch, var(--muted-foreground) 30%, transparent);
+  transition:
+    color 120ms var(--motion-ease-out),
+    background-color 120ms var(--motion-ease-out);
+}
+.sidebar-section-expand-hint:hover {
+  color: color-mix(in oklch, var(--muted-foreground) 60%, transparent);
+  background: var(--glass-hover);
+}
+.sidebar-section-expand-hint:focus-visible {
+  outline: 2px solid var(--interactive-focus);
+  outline-offset: 1px;
+}
+
+/* Dotted indicator for collapsed sections */
+.sidebar-section-collapsed-line {
+  display: flex;
+  gap: 3px;
+  padding: 4px 12px 4px 28px;
+}
+.sidebar-section-collapsed-line .dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: color-mix(in oklch, var(--muted-foreground) 15%, transparent);
+}
