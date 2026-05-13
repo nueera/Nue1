@@ -97,33 +97,39 @@ export function WorkspaceProvider({
 
   // Resolve workspace ID without triggering store mutations that cause
   // "Cannot update a component while rendering a different component" errors.
-  // We use findWorkspaceByModule (pure read) and createWorkspaceSilent (creates
-  // the workspace but does NOT set it as active). The setActiveWorkspace call
-  // is deferred to useEffect below.
-  const [workspaceId] = useState(() => {
-    const store = useWorkspaceStore.getState();
-    // First, try to find an existing workspace for this module (read-only)
-    const existing = store.findWorkspaceByModule(moduleId);
-    if (existing) {
-      return existing.id;
-    }
-    // No existing workspace — create one silently (no activeWorkspaceId mutation)
-    return store.createWorkspaceSilent(moduleId, title, icon);
-  });
+  //
+  // We first try a pure read (findWorkspaceByModule). If found, we use that ID
+  // immediately. If NOT found, we defer workspace creation to useEffect to
+  // avoid mutating the Zustand store during the render phase — which would
+  // trigger re-renders in other components that subscribe to the store
+  // (e.g. ModuleTile subscribing to `workspaces`).
+  const existingWorkspace = useWorkspaceStore.getState().findWorkspaceByModule(moduleId);
+  const [workspaceId, setWorkspaceId] = useState<string | null>(
+    existingWorkspace?.id ?? null
+  );
 
   // Track whether we've registered this workspace as active
   const didSetActive = useRef(false);
 
-  // Set this workspace as active AFTER mount — this avoids the
-  // "setState during render of another component" React error.
-  // The useState initializer only creates/reads the workspace;
-  // the activeWorkspaceId + recentWorkupdates happen here.
+  // If no existing workspace was found during render, create one in useEffect
+  // to avoid the "Cannot update a component while rendering a different component"
+  // React error. All store mutations must happen outside the render phase.
   useEffect(() => {
-    if (!didSetActive.current && workspaceId) {
-      didSetActive.current = true;
-      useWorkspaceStore.getState().setActiveWorkspace(workspaceId);
+    if (workspaceId) {
+      // Workspace already exists — just ensure it's set as active
+      if (!didSetActive.current) {
+        didSetActive.current = true;
+        useWorkspaceStore.getState().setActiveWorkspace(workspaceId);
+      }
+      return;
     }
-  }, [workspaceId]);
+    // No workspace yet — create one silently and set it as active
+    const store = useWorkspaceStore.getState();
+    const id = store.createWorkspaceSilent(moduleId, title, icon);
+    setWorkspaceId(id);
+    didSetActive.current = true;
+    useWorkspaceStore.getState().setActiveWorkspace(id);
+  }, [workspaceId, moduleId, title, icon]);
 
   const workspaces = useWorkspaceStore((s) => s.workspaces);
   const expandWorkspace = useWorkspaceStore((s) => s.expandWorkspace);
@@ -153,15 +159,15 @@ export function WorkspaceProvider({
     router.push('/');
   }, [workspaceId, minimizeWorkspace, router]);
 
-  // Controls
+  // Controls — only used when workspace exists (guarded by if(!workspace) below)
   const controls = useMemo(
     () => ({
-      expand: () => expandWorkspace(workspaceId),
-      collapse: () => collapseWorkspace(workspaceId),
+      expand: () => { if (workspaceId) expandWorkspace(workspaceId); },
+      collapse: () => { if (workspaceId) collapseWorkspace(workspaceId); },
       minimize: handleMinimize,
-      maximize: () => maximizeWorkspace(workspaceId),
-      restore: () => restoreWorkspace(workspaceId),
-      togglePin: () => toggleWorkspacePin(workspaceId),
+      maximize: () => { if (workspaceId) maximizeWorkspace(workspaceId); },
+      restore: () => { if (workspaceId) restoreWorkspace(workspaceId); },
+      togglePin: () => { if (workspaceId) toggleWorkspacePin(workspaceId); },
     }),
     [workspaceId, expandWorkspace, collapseWorkspace, handleMinimize, maximizeWorkspace, restoreWorkspace, toggleWorkspacePin]
   );
@@ -206,7 +212,7 @@ export function WorkspaceProvider({
 
   const contextValue = useMemo<WorkspaceContextValue>(
     () => ({
-      workspaceId,
+      workspaceId: workspaceId!,  // Non-null when workspace exists (we guard with if(!workspace) below)
       state: currentState,
       moduleId,
       controls,
@@ -217,8 +223,17 @@ export function WorkspaceProvider({
     [workspaceId, currentState, moduleId, controls]
   );
 
+  // If workspace hasn't been created yet (first render before useEffect fires),
+  // return a minimal placeholder to avoid a blank flash while the workspace
+  // is being created in the useEffect above.
   if (!workspace) {
-    return null;
+    return (
+      <div className="workspace-shell relative flex flex-col h-full" data-module={moduleId}>
+        <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
+          Loading workspace…
+        </div>
+      </div>
+    );
   }
 
   return (
