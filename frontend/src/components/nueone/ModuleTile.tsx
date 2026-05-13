@@ -88,6 +88,7 @@ export default function ModuleTile({ module, index, isLoading = false, isDisable
     erp: '/erp',
     crm: '/crm',
     finance: '/finance',
+    marketing: '/marketing',
   };
 
   const handleClick = useCallback(() => {
