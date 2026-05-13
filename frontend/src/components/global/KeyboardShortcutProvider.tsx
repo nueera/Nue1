@@ -29,8 +29,6 @@ const CUSTOM_EVENTS = {
   'toggle-sidebar': 'nueone:toggle-sidebar',
   'global-search': 'nueone:global-search',
   'toggle-split-panel': 'nueone:toggle-split-panel',
-  'minimize-workspace': 'nueone:minimize-workspace',
-  'maximize-workspace': 'nueone:maximize-workspace',
 } as const;
 
 interface KeyboardShortcutProviderProps {
@@ -47,8 +45,6 @@ interface KeyboardShortcutProviderProps {
  * - `global-search`: Dispatches `nueone:global-search` custom event
  * - `toggle-split-panel`: Dispatches `nueone:toggle-split-panel` custom event
  * - `switch-module-N`: Routes to the corresponding module using Next.js router
- * - `minimize-workspace`: Minimizes the active workspace and navigates to home
- * - `maximize-workspace`: Toggles maximize on the active workspace
  */
 export function KeyboardShortcutProvider({ children }: KeyboardShortcutProviderProps) {
   const router = useRouter();
@@ -85,31 +81,6 @@ export function KeyboardShortcutProvider({ children }: KeyboardShortcutProviderP
     window.dispatchEvent(new CustomEvent('nueone:redo'));
   }, []);
 
-  // Minimize workspace action
-  const handleMinimizeWorkspace = useCallback(() => {
-    const { activeWorkspaceId, workspaces, minimizeWorkspace } = useWorkspaceStore.getState();
-    if (activeWorkspaceId && workspaces[activeWorkspaceId]) {
-      const workspace = workspaces[activeWorkspaceId];
-      if (workspace.state !== 'minimized') {
-        minimizeWorkspace(activeWorkspaceId);
-        router.push('/');
-      }
-    }
-  }, [router]);
-
-  // Maximize workspace action
-  const handleMaximizeWorkspace = useCallback(() => {
-    const { activeWorkspaceId, workspaces, maximizeWorkspace, restoreWorkspace } = useWorkspaceStore.getState();
-    if (activeWorkspaceId && workspaces[activeWorkspaceId]) {
-      const workspace = workspaces[activeWorkspaceId];
-      if (workspace.state === 'maximized') {
-        restoreWorkspace(activeWorkspaceId);
-      } else if (workspace.state !== 'minimized') {
-        maximizeWorkspace(activeWorkspaceId);
-      }
-    }
-  }, []);
-
   // Module switch actions - create a single handler that routes based on action ID
   const handleSwitchModule = useCallback(
     (actionId: string) => {
@@ -127,8 +98,6 @@ export function KeyboardShortcutProvider({ children }: KeyboardShortcutProviderP
     registerAction('toggle-sidebar', handleToggleSidebar);
     registerAction('global-search', handleGlobalSearch);
     registerAction('toggle-split-panel', handleToggleSplitPanel);
-    registerAction('minimize-workspace', handleMinimizeWorkspace);
-    registerAction('maximize-workspace', handleMaximizeWorkspace);
     registerAction('undo', handleUndo);
     registerAction('redo', handleRedo);
 
@@ -148,8 +117,6 @@ export function KeyboardShortcutProvider({ children }: KeyboardShortcutProviderP
       unregisterAction('toggle-sidebar');
       unregisterAction('global-search');
       unregisterAction('toggle-split-panel');
-      unregisterAction('minimize-workspace');
-      unregisterAction('maximize-workspace');
       unregisterAction('undo');
       unregisterAction('redo');
 
@@ -164,8 +131,6 @@ export function KeyboardShortcutProvider({ children }: KeyboardShortcutProviderP
     handleToggleSidebar,
     handleGlobalSearch,
     handleToggleSplitPanel,
-    handleMinimizeWorkspace,
-    handleMaximizeWorkspace,
     handleUndo,
     handleRedo,
     handleSwitchModule,

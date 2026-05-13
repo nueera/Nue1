@@ -24,14 +24,9 @@ interface WorkspaceContextValue {
   controls: {
     expand: () => void;
     collapse: () => void;
-    minimize: () => void;
-    maximize: () => void;
-    restore: () => void;
     togglePin: () => void;
   };
-  isMaximized: boolean;
   isCompact: boolean;
-  isMinimized: boolean;
 }
 
 interface WorkspaceProviderProps {
@@ -62,14 +57,9 @@ export function useWorkspace(): WorkspaceContextValue {
       controls: {
         expand: () => {},
         collapse: () => {},
-        minimize: () => {},
-        maximize: () => {},
-        restore: () => {},
         togglePin: () => {},
       },
-      isMaximized: false,
       isCompact: false,
-      isMinimized: false,
     };
   }
   return ctx;
@@ -134,9 +124,6 @@ export function WorkspaceProvider({
   const workspaces = useWorkspaceStore((s) => s.workspaces);
   const expandWorkspace = useWorkspaceStore((s) => s.expandWorkspace);
   const collapseWorkspace = useWorkspaceStore((s) => s.collapseWorkspace);
-  const minimizeWorkspace = useWorkspaceStore((s) => s.minimizeWorkspace);
-  const maximizeWorkspace = useWorkspaceStore((s) => s.maximizeWorkspace);
-  const restoreWorkspace = useWorkspaceStore((s) => s.restoreWorkspace);
   const toggleWorkspacePin = useWorkspaceStore((s) => s.toggleWorkspacePin);
   const saveWorkspaceMemory = useWorkspaceStore((s) => s.saveWorkspaceMemory);
   const updateWorkspacePath = useWorkspaceStore((s) => s.updateWorkspacePath);
@@ -151,25 +138,14 @@ export function WorkspaceProvider({
     }
   }, [workspaceId, pathname, updateWorkspacePath]);
 
-  // Handle minimize with navigation to home
-  const handleMinimize = useCallback(() => {
-    if (!workspaceId) return;
-    minimizeWorkspace(workspaceId);
-    // Navigate to home so user can start another module
-    router.push('/');
-  }, [workspaceId, minimizeWorkspace, router]);
-
   // Controls — only used when workspace exists (guarded by if(!workspace) below)
   const controls = useMemo(
     () => ({
       expand: () => { if (workspaceId) expandWorkspace(workspaceId); },
       collapse: () => { if (workspaceId) collapseWorkspace(workspaceId); },
-      minimize: handleMinimize,
-      maximize: () => { if (workspaceId) maximizeWorkspace(workspaceId); },
-      restore: () => { if (workspaceId) restoreWorkspace(workspaceId); },
       togglePin: () => { if (workspaceId) toggleWorkspacePin(workspaceId); },
     }),
-    [workspaceId, expandWorkspace, collapseWorkspace, handleMinimize, maximizeWorkspace, restoreWorkspace, toggleWorkspacePin]
+    [workspaceId, expandWorkspace, collapseWorkspace, toggleWorkspacePin]
   );
 
   // Note: If moduleId changes dynamically, the parent should key this provider
@@ -216,9 +192,7 @@ export function WorkspaceProvider({
       state: currentState,
       moduleId,
       controls,
-      isMaximized: currentState === 'maximized',
       isCompact: currentState === 'compact',
-      isMinimized: currentState === 'minimized',
     }),
     [workspaceId, currentState, moduleId, controls]
   );

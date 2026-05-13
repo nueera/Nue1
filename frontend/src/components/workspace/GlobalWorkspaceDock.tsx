@@ -15,8 +15,6 @@ import {
   Pin,
   PinOff,
   X,
-  Maximize2,
-  Minus,
   type LucideProps,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -76,7 +74,6 @@ interface DockItemProps {
   onClick: () => void;
   onTogglePin: () => void;
   onClose: () => void;
-  onMaximize: () => void;
 }
 
 function DockItem({
@@ -86,7 +83,6 @@ function DockItem({
   onClick,
   onTogglePin,
   onClose,
-  onMaximize,
 }: DockItemProps) {
   const isMinimized = item.state === 'minimized';
 
@@ -179,17 +175,6 @@ function DockItem({
         </TooltipProvider>
       </ContextMenuTrigger>
       <ContextMenuContent className="w-48">
-        {isMinimized ? (
-          <ContextMenuItem onClick={onClick}>
-            <Maximize2 className="size-3.5 mr-2" />
-            Restore
-          </ContextMenuItem>
-        ) : (
-          <ContextMenuItem onClick={onMaximize}>
-            <Maximize2 className="size-3.5 mr-2" />
-            Maximize
-          </ContextMenuItem>
-        )}
         <ContextMenuItem onClick={onTogglePin}>
           {item.pinned ? (
             <>
@@ -227,7 +212,6 @@ export function GlobalWorkspaceDock({ className }: { className?: string }) {
   const setActiveWorkspace = useWorkspaceStore((s) => s.setActiveWorkspace);
   const toggleWorkspacePin = useWorkspaceStore((s) => s.toggleWorkspacePin);
   const removeWorkspace = useWorkspaceStore((s) => s.removeWorkspace);
-  const maximizeWorkspace = useWorkspaceStore((s) => s.maximizeWorkspace);
   const getModuleRoute = useWorkspaceStore((s) => s.getModuleRoute);
 
   // Determine current module from pathname
@@ -322,12 +306,6 @@ export function GlobalWorkspaceDock({ className }: { className?: string }) {
     [removeWorkspace],
   );
 
-  const handleMaximize = useCallback(
-    (item: WorkspaceDockItem) => {
-      maximizeWorkspace(item.workspaceId);
-    },
-    [maximizeWorkspace],
-  );
 
   if (isHidden) return null;
 
@@ -356,7 +334,6 @@ export function GlobalWorkspaceDock({ className }: { className?: string }) {
             onClick={() => handleClick(item)}
             onTogglePin={() => handleTogglePin(item)}
             onClose={() => handleClose(item)}
-            onMaximize={() => handleMaximize(item)}
           />
         ))}
       </AnimatePresence>

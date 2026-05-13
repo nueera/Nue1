@@ -3,10 +3,6 @@
 import { useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Minus,
-  Square,
-  Maximize2,
-  Minimize2,
   ChevronsDown,
   ChevronsUp,
 } from 'lucide-react';
@@ -128,19 +124,8 @@ export function WorkspaceControls({
   variant = 'default',
 }: WorkspaceControlsProps) {
   const hasWorkspace = useHasWorkspace();
-  const minimizeWorkspace = useWorkspaceStore((s) => s.minimizeWorkspace);
-  const maximizeWorkspace = useWorkspaceStore((s) => s.maximizeWorkspace);
   const expandWorkspace = useWorkspaceStore((s) => s.expandWorkspace);
   const collapseWorkspace = useWorkspaceStore((s) => s.collapseWorkspace);
-  const restoreWorkspace = useWorkspaceStore((s) => s.restoreWorkspace);
-
-  const handleMinimize = useCallback(() => {
-    minimizeWorkspace(workspaceId);
-  }, [workspaceId, minimizeWorkspace]);
-
-  const handleMaximize = useCallback(() => {
-    maximizeWorkspace(workspaceId);
-  }, [workspaceId, maximizeWorkspace]);
 
   const handleExpand = useCallback(() => {
     expandWorkspace(workspaceId);
@@ -150,44 +135,15 @@ export function WorkspaceControls({
     collapseWorkspace(workspaceId);
   }, [workspaceId, collapseWorkspace]);
 
-  const handleRestore = useCallback(() => {
-    restoreWorkspace(workspaceId);
-  }, [workspaceId, restoreWorkspace]);
-
   const isCompact = currentState === 'compact';
   const isExpanded = currentState === 'expanded';
-  const isMaximized = currentState === 'maximized';
-  const isMinimized = currentState === 'minimized';
 
   // Don't render if not inside a WorkspaceProvider
   if (!hasWorkspace || !workspaceId) return null;
 
   if (variant === 'window') {
-    // macOS-style window controls
-    return (
-      <div
-        className={cn('flex items-center gap-1.5', className)}
-        role="toolbar"
-        aria-label="Window controls"
-      >
-        <ControlButton
-          icon={<Minus className="size-2.5" />}
-          label="Minimize"
-          onClick={handleMinimize}
-          visible={!isMinimized}
-          variant="window"
-          color="#F59E0B"
-        />
-        <ControlButton
-          icon={<Square className="size-2" />}
-          label={isMaximized ? 'Restore' : 'Maximize'}
-          onClick={isMaximized ? handleRestore : handleMaximize}
-          visible={!isMinimized}
-          variant="window"
-          color="#10B981"
-        />
-      </div>
-    );
+    // Window controls disabled - minimize/maximize removed globally
+    return null;
   }
 
   return (
@@ -196,42 +152,6 @@ export function WorkspaceControls({
       role="toolbar"
       aria-label="Workspace controls"
     >
-      {/* Minimize — available when not already minimized */}
-      <AnimatePresence>
-        {!isMinimized && (
-          <ControlButton
-            icon={<Minus className="size-3.5" />}
-            label="Minimize (⌘M)"
-            onClick={handleMinimize}
-            visible
-          />
-        )}
-      </AnimatePresence>
-
-      {/* Maximize — available when expanded or compact */}
-      <AnimatePresence>
-        {(isExpanded || isCompact) && (
-          <ControlButton
-            icon={<Square className="size-3" />}
-            label="Maximize"
-            onClick={handleMaximize}
-            visible
-          />
-        )}
-      </AnimatePresence>
-
-      {/* Restore — available when maximized */}
-      <AnimatePresence>
-        {isMaximized && (
-          <ControlButton
-            icon={<Minimize2 className="size-3.5" />}
-            label="Restore"
-            onClick={handleRestore}
-            visible
-          />
-        )}
-      </AnimatePresence>
-
       {/* Collapse to compact — available when expanded */}
       <AnimatePresence>
         {isExpanded && (
