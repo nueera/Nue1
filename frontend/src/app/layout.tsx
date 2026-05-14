@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { AccentSync } from "@/components/nueone/AccentSync";
 import { KeyboardShortcutProvider } from "@/components/global/KeyboardShortcutProvider";
 import { GlobalLoadingProvider } from "@/components/global/GlobalLoadingProvider";
-import { NotificationDrawer, NotificationToast, CrossModuleSearch } from "@/components/global";
+import { NotificationDrawer, NotificationToast, CrossModuleSearch, SkipToContent } from "@/components/global";
 import { GlobalWorkspaceDock } from "@/components/workspace/GlobalWorkspaceDock";
 import { QueryProvider } from "@/components/providers/query-provider";
 
@@ -47,10 +47,13 @@ export default function RootLayout({
           disableTransitionOnChange={false}
         >
           <QueryProvider>
+            <SkipToContent />
             <AccentSync />
             <KeyboardShortcutProvider>
               <GlobalLoadingProvider>
-                {children}
+                <main id="main-content">
+                  {children}
+                </main>
                 <CrossModuleSearch />
                 <GlobalWorkspaceDock />
                 <Toaster />

@@ -2,6 +2,9 @@
    NUEONE GLOBAL COMPONENTS — Barrel Export
    ============================================================ */
 
+// Accessibility
+export { SkipToContent } from './SkipToContent';
+
 // Keyboard Shortcuts
 export { KeyboardShortcutProvider } from './KeyboardShortcutProvider';
 
