@@ -9,6 +9,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   LineChart, Line,
 } from 'recharts';
+import { cn } from '@/lib/utils';
 
 interface CampaignReportDetailProps {
   campaignId: string;
@@ -109,6 +110,3 @@ export function CampaignReportDetail({ campaignId, onBack }: CampaignReportDetai
   );
 }
 
-function cn(...inputs: any[]) {
-  return inputs.filter(Boolean).join(' ');
-}

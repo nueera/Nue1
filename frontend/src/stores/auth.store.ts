@@ -28,8 +28,8 @@ const DEFAULT_USER: User = {
 export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
-      user: DEFAULT_USER,
-      isAuthenticated: true,
+      user: null,
+      isAuthenticated: false,
 
       setUser: (user) =>
         set({ user, isAuthenticated: !!user }),

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { leads, getLeadsByStatus } from '@/modules/crm/data/mock';
 import { LeadList } from '@/modules/crm/domains/leads/components/lead-list';
@@ -9,6 +10,7 @@ import { LEAD_STATUS_FILTERS, LEAD_SOURCE_FILTERS, LEAD_RATING_FILTERS } from '@
 import type { Lead } from '@/modules/crm/domains/leads/types';
 
 export default function LeadsPage() {
+  const router = useRouter();
   const [statusFilter, setStatusFilter] = useState('All');
   const [sourceFilter, setSourceFilter] = useState('All');
   const [ratingFilter, setRatingFilter] = useState('All');
@@ -54,7 +56,7 @@ export default function LeadsPage() {
           { label: 'Qualified', value: stats.qualified, color: 'text-status-accent' },
           { label: 'Converted', value: stats.converted, color: 'text-status-success' },
         ].map((stat, i) => (
-          <div key={i} className="glass-surface rounded-xl p-4 border border-glass-border">
+          <div key={stat.label} className="glass-surface rounded-xl p-4 border border-glass-border">
             <p
               className="text-xs text-muted-foreground uppercase tracking-wider"
               style={{ letterSpacing: 'var(--tracking-wide)' }}
@@ -73,7 +75,7 @@ export default function LeadsPage() {
       </motion.div>
 
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-        <LeadList data={filteredLeads} onRowClick={(lead) => console.log('Navigate to lead:', lead.id)} />
+        <LeadList data={filteredLeads} onRowClick={(lead) => router.push(`/crm/leads/${lead.id}`)} />
       </motion.div>
     </div>
   );

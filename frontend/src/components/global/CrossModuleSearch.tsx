@@ -303,6 +303,7 @@ function SearchModal() {
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const runningIndexRef = useRef(0);
 
   // Flatten results for keyboard navigation
   const flatResults = useMemo(() => {
@@ -440,7 +441,7 @@ function SearchModal() {
   );
 
   // Compute flat index tracker for rendering groups
-  let runningIndex = 0;
+  runningIndexRef.current = 0;
 
   return (
     <AnimatePresence>
@@ -628,7 +629,7 @@ function SearchModal() {
                       {/* Category Results */}
                       {category.results.map((result) => {
                         const ResultIcon = getResultIcon(result.icon);
-                        const currentIndex = runningIndex++;
+                        const currentIndex = runningIndexRef.current++;
                         const isSelected =
                           currentIndex === selectedIndex;
 

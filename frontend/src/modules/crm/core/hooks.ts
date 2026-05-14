@@ -4,7 +4,7 @@
 
 'use client';
 
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import type { CrmModuleName } from './types';
 import { crmKeys } from './query-keys';
@@ -187,11 +187,13 @@ export function useCrmRecord<T>(
   });
 
   // Track as recent when data loads
-  if (query.data && typeof query.data === 'object' && 'id' in (query.data as object)) {
-    const record = query.data as { id: string; name?: string; firstName?: string; lastName?: string };
-    const recordName = record.name || `${record.firstName ?? ''} ${record.lastName ?? ''}`.trim() || record.id;
-    addRecent({ id: record.id, name: recordName, module });
-  }
+  useEffect(() => {
+    if (query.data && typeof query.data === 'object' && 'id' in (query.data as object)) {
+      const record = query.data as { id: string; name?: string; firstName?: string; lastName?: string };
+      const recordName = record.name || `${record.firstName ?? ''} ${record.lastName ?? ''}`.trim() || record.id;
+      addRecent({ id: record.id, name: recordName, module });
+    }
+  }, [query.data, module, addRecent]);
 
   return query;
 }

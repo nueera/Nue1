@@ -10,11 +10,11 @@ import {
   Search,
   Menu,
 } from 'lucide-react';
-import { useMounted } from '../../../erp/core/hooks/use-mounted';
-import { useStoreHydrated } from '../../../erp/core/hooks/use-store-hydrated';
-import { useAuthStore } from '../../../erp/core/store/auth.store';
+import { useMounted } from '@/hooks/use-mounted';
+import { useStoreHydrated } from '@/hooks/use-store-hydrated';
+import { useAuthStore } from '@/stores/auth.store';
 import { useMarketingStore } from '../../stores/marketing-store';
-import { useIsMobile } from '../../../erp/core/hooks/use-mobile';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { pageTitles } from '../../constants/navigation';
 import { Button } from '@/components/ui/button';
 import { WorkspaceControls } from '@/components/workspace/WorkspaceControls';
@@ -176,9 +176,9 @@ export function MarketingHeader() {
             {!mounted ? (
               <div className="h-4 w-4" />
             ) : isDark ? (
-              <Sun className="h-4 w-4 strokeWidth={1.8} transition-transform duration-200 rotate-0" />
+              <Sun className="h-4 w-4 transition-transform duration-200 rotate-0" strokeWidth={1.8} />
             ) : (
-              <Moon className="h-4 w-4 strokeWidth={1.8} transition-transform duration-200 rotate-0" />
+              <Moon className="h-4 w-4 transition-transform duration-200 rotate-0" strokeWidth={1.8} />
             )}
           </Button>
 

@@ -1,12 +1,14 @@
 'use client';
 
 import { useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { accounts } from '@/modules/crm/data/mock';
 import { AccountList } from '@/modules/crm/domains/accounts/components/account-list';
 import { formatCurrency } from '@/modules/crm/core/utils';
 
 export default function AccountsPage() {
+  const router = useRouter();
   const stats = useMemo(() => ({
     total: accounts.length,
     customers: accounts.filter(a => a.type === 'customer').length,
@@ -38,7 +40,7 @@ export default function AccountsPage() {
           { label: 'Enterprise', value: stats.enterprise, color: 'text-status-accent' },
           { label: 'Total Revenue', value: formatCurrency(stats.totalRevenue), color: 'text-status-warning' },
         ].map((stat, i) => (
-          <div key={i} className="glass-surface rounded-xl p-4 border border-glass-border">
+          <div key={stat.label} className="glass-surface rounded-xl p-4 border border-glass-border">
             <p
               className="text-xs text-muted-foreground uppercase tracking-wider"
               style={{ letterSpacing: 'var(--tracking-wide)' }}
@@ -53,7 +55,7 @@ export default function AccountsPage() {
       </motion.div>
 
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-        <AccountList data={accounts} onRowClick={(account) => console.log('Navigate to account:', account.id)} />
+        <AccountList data={accounts} onRowClick={(account) => router.push(`/crm/accounts/${account.id}`)} />
       </motion.div>
     </div>
   );

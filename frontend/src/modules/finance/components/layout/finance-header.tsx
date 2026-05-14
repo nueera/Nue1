@@ -12,11 +12,11 @@ import {
   Menu,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useMounted } from '../../../erp/core/hooks/use-mounted';
-import { useStoreHydrated } from '../../../erp/core/hooks/use-store-hydrated';
-import { useAuthStore } from '../../../erp/core/store/auth.store';
+import { useMounted } from '@/hooks/use-mounted';
+import { useStoreHydrated } from '@/hooks/use-store-hydrated';
+import { useAuthStore } from '@/stores/auth.store';
 import { useFinanceStore } from '../../stores/finance-store';
-import { useIsMobile } from '../../../erp/core/hooks/use-mobile';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { pageTitles } from '../../constants/navigation';
 import { Button } from '@/components/ui/button';
 import { WorkspaceControls } from '@/components/workspace/WorkspaceControls';

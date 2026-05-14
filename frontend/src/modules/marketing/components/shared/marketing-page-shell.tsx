@@ -21,7 +21,7 @@ interface MarketingPageShellProps {
 
 export function MarketingPageShell({ title, description, icon, addLabel, children }: MarketingPageShellProps) {
   return (
-    <div className="space-y-6 p-4 sm:p-6">
+    <div className="space-y-6 p-4 sm:p-6 lg:p-8">
       {/* Header — CSS fade-in */}
       <div
         className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 animate-in fade-in slide-in-from-top-1 duration-200"

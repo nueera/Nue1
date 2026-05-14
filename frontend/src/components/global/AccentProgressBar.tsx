@@ -63,6 +63,9 @@ export function AccentProgressBar({ visible, moduleId }: AccentProgressBarProps)
 
   // Phase machine
   useEffect(() => {
+    let completeTimer: ReturnType<typeof setTimeout>;
+    let hideTimer: ReturnType<typeof setTimeout>;
+
     if (!visible) {
       // If we were showing, jump to complete then hide
       if (phase !== 'hidden' && phase !== 'idle') {
@@ -70,20 +73,21 @@ export function AccentProgressBar({ visible, moduleId }: AccentProgressBarProps)
         setWidth(80);
         phaseStartRef.current = Date.now();
 
-        const completeTimer = setTimeout(() => {
+        completeTimer = setTimeout(() => {
           setWidth(100);
-          const hideTimer = setTimeout(() => {
+          hideTimer = setTimeout(() => {
             setPhase('hidden');
             setWidth(0);
           }, 300);
-          return () => clearTimeout(hideTimer);
         }, PHASE_DURATIONS.complete);
-
-        return () => clearTimeout(completeTimer);
+      } else {
+        setPhase('hidden');
+        setWidth(0);
       }
-      setPhase('hidden');
-      setWidth(0);
-      return;
+      return () => {
+        clearTimeout(completeTimer);
+        clearTimeout(hideTimer);
+      };
     }
 
     // Start the progress sequence
@@ -124,8 +128,9 @@ export function AccentProgressBar({ visible, moduleId }: AccentProgressBarProps)
 
     return () => {
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+      clearTimeout(completeTimer);
+      clearTimeout(hideTimer);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
   if (phase === 'hidden' && width === 0) return null;

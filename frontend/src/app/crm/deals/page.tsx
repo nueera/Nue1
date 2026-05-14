@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { LayoutGrid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,6 +12,7 @@ import { formatCurrency } from '@/modules/crm/core/utils';
 import { DEAL_STAGES } from '@/modules/crm/domains/deals/constants';
 
 export default function DealsPage() {
+  const router = useRouter();
   const [viewMode, setViewMode] = useState<'list' | 'pipeline'>('pipeline');
 
   const stats = useMemo(() => ({
@@ -52,7 +54,7 @@ export default function DealsPage() {
           { label: 'Weighted', value: formatCurrency(stats.weightedPipeline), color: 'text-status-warning' },
           { label: 'Win Rate', value: `${stats.total > 0 ? Math.round((stats.won / stats.total) * 100) : 0}%`, color: 'text-status-attention' },
         ].map((stat, i) => (
-          <div key={i} className="glass-surface rounded-xl p-4 border border-glass-border">
+          <div key={stat.label} className="glass-surface rounded-xl p-4 border border-glass-border">
             <p
               className="text-xs text-muted-foreground uppercase tracking-wider"
               style={{ letterSpacing: 'var(--tracking-wide)' }}
@@ -70,7 +72,7 @@ export default function DealsPage() {
         {viewMode === 'pipeline' ? (
           <DealPipelineBoard deals={deals} />
         ) : (
-          <DealList data={deals} onRowClick={(deal) => console.log('Navigate to deal:', deal.id)} />
+          <DealList data={deals} onRowClick={(deal) => router.push(`/crm/deals/${deal.id}`)} />
         )}
       </motion.div>
     </div>

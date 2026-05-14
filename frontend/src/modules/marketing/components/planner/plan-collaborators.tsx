@@ -19,6 +19,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
 import type { MarketingPlan } from '@/modules/marketing/types';
 
 interface PlanCollaboratorsProps {
@@ -115,6 +116,3 @@ export function PlanCollaborators({ plan, onAddCollaborator, onRemoveCollaborato
   );
 }
 
-function cn(...inputs: any[]) {
-  return inputs.filter(Boolean).join(' ');
-}
