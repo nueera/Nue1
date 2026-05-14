@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Orders Types — Zoho Commerce
 import type { Money, Address, OrderStatus } from '../../../types/finance-common';

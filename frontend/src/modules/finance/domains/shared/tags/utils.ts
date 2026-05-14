@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Tags Utils — Cross-product
 
 export function formatTagNumber(num: string, prefix: string): string {

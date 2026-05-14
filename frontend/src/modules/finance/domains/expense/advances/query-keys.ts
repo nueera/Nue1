@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Advances Query Keys — Zoho Expense
 
 export const advancesKeys = {

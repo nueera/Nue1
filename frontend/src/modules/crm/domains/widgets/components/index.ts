@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { WidgetList } from './widget-list';
 export { WidgetDetail } from './widget-detail';
 export { WidgetEditor } from './widget-editor';

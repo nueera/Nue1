@@ -127,10 +127,10 @@ function injectFieldProps(
  * Merges new props onto an existing React element.
  */
 function cloneElementWithProps(
-  element: React.ReactElement<Record<string, unknown>>,
+  element: React.ReactElement,
   newProps: Record<string, unknown>
-): React.ReactElement<Record<string, unknown>> {
+): React.ReactElement {
   // Use React's internal clone or spread approach
-  const merged = { ...element.props, ...newProps };
-  return { ...element, props: merged } as React.ReactElement<Record<string, unknown>>;
+  const merged = { ...(element.props as Record<string, unknown>), ...newProps };
+  return { ...element, props: merged } as React.ReactElement;
 }

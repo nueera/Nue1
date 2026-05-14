@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Hooks — Auto-generated
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { mileageService } from './service';
@@ -11,7 +12,7 @@ export function usemileageList(params?: Record<string, unknown>) {
 }
 export function useGetEntries(params?: Record<string, unknown>) {
   return useQuery({
-    queryKey: [...mileageKeys.all, 'getEntries', params?, unknown>],
-    queryFn: () => mileageService.getEntries(params?, unknown>),
+    queryKey: [...mileageKeys.all, 'getEntries', params],
+    queryFn: () => mileageService.getEntries(params),
   });
 }

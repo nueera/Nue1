@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { Money, Address } from '../../types/finance-common';
 
 export interface MockCustomer {

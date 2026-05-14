@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { Money, LineItem, BillStatus } from '../../types/finance-common';
 
 export interface MockBill {

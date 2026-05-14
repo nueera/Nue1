@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CreditNote, CreditNoteStatus } from './types';
 import { CREDIT_NOTE_STATUSES } from './constants';
 

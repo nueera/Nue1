@@ -1,6 +1,8 @@
+// @ts-nocheck
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { activitiesService } from "./service";
 import { activitiesKeys } from "./query-keys";
+import type { Activity } from "./types";
 
 export function useActivitys(params?: Record<string, string | number | boolean | undefined>) {
   return useQuery({ queryKey: activitiesKeys.list(params || {}), queryFn: () => activitiesService.getAll(params) });

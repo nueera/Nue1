@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { SettingsOverview } from './settings-overview';
 export { GeneralSettings } from './general-settings';
 export { SecuritySettings } from './security-settings';

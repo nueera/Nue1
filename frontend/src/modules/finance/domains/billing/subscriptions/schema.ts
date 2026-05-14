@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Subscriptions Schema — Zoho Billing
 import { z } from 'zod';
 

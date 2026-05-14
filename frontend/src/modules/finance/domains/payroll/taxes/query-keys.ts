@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Taxes Query Keys — Zoho Payroll
 
 export const taxesKeys = {

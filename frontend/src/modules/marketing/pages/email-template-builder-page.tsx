@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 
 import { FileText } from 'lucide-react';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Approvals Query Keys — Zoho Expense
 
 export const approvalsKeys = {

@@ -112,7 +112,7 @@ export default function LeavesPage() {
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6"
       >
         <div>
@@ -150,7 +150,7 @@ export default function LeavesPage() {
       <motion.div
         initial={{ opacity: 0, y: -4 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.24, delay: 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.24, delay: 0.05, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         className="flex flex-wrap items-center gap-3 mb-6"
       >
         <Select value={statusFilter} onValueChange={setStatusFilter}>
@@ -171,10 +171,10 @@ export default function LeavesPage() {
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
       >
         <SmartTable
-          data={filteredRecords as unknown as Record<string, unknown>[]}
+          data={filteredRecords}
           columns={columns}
           searchable
           searchPlaceholder="Search leave requests..."

@@ -82,7 +82,7 @@ function DockItem({ item, isActive, onClick, onTogglePin, onClose }: DockItemPro
           )}
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.96 }}
-          transition={{ duration: 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.12, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           aria-label={`${item.title}${item.state === 'minimized' ? ' (minimized)' : ''}${item.pinned ? ' (pinned)' : ''}`}
         >
           <ModuleIcon

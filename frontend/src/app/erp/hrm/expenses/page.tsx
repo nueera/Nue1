@@ -113,7 +113,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
@@ -140,7 +140,7 @@ export default function ExpensesPage() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6"
         >
           <div>
@@ -204,7 +204,7 @@ export default function ExpensesPage() {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6"
         >
           {quickLinks.map((link) => {
@@ -230,7 +230,7 @@ export default function ExpensesPage() {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.3, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         >
           <h2
             className="font-semibold text-foreground mb-4"
@@ -239,7 +239,7 @@ export default function ExpensesPage() {
             Recent Claims
           </h2>
           <SmartTable
-            data={expenseClaims as unknown as Record<string, unknown>[]}
+            data={expenseClaims}
             columns={columns}
             searchable
             searchPlaceholder="Search expense claims..."

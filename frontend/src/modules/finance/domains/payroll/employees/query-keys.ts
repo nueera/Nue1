@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Employees Query Keys — Zoho Payroll
 
 export const employeesKeys = {

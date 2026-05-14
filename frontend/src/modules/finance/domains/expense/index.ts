@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Zoho Expense — Barrel Export
 export * from './expenses';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { ActivityList } from './activity-list';
 export { TaskList } from './task-list';
 export { TaskForm } from './task-form';

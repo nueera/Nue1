@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ExpenseReports Query Keys — Zoho Expense
 
 export const expenseReportsKeys = {

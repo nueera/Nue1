@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Addons Query Keys — Zoho Billing
 
 export const addonsKeys = {

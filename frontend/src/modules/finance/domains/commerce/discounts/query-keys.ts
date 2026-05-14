@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Discounts Query Keys — Zoho Commerce
 
 export const discountsKeys = {

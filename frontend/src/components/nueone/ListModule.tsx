@@ -46,9 +46,9 @@ export default function ListModule({ module, index }: ListModuleProps) {
       transition={{
         duration: 0.28,
         delay: index * 0.04,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       }}
-      whileHover={{ x: 4, transition: { duration: 0.14, ease: [0.25, 0.46, 0.45, 0.94] } }}
+      whileHover={{ x: 4, transition: { duration: 0.14, ease: [0.25, 0.46, 0.45, 0.94] as const } }}
       whileTap={{ scale: 0.99 }}
       onClick={handleClick}
       onKeyDown={handleKeyDown}

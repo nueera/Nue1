@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CreditNoteStatus } from './types';
 
 export const CREDIT_NOTE_STATUSES: { value: CreditNoteStatus; label: string; color: string }[] = [

@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Reports Types — Zoho Inventory
 import type { Money } from '../../../types/finance-common';

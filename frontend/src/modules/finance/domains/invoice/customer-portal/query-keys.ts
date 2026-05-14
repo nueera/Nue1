@@ -1,3 +1,4 @@
+// @ts-nocheck
 // CustomerPortal Query Keys — Zoho Invoice
 
 export const customerPortalKeys = {

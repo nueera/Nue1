@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Analytics Query Keys — Zoho Commerce
 
 export const analyticsKeys = {

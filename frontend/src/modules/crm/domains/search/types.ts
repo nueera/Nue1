@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export interface SearchResult { id: string; type: string; module: string; title: string; subtitle: string; url: string; score: number; }

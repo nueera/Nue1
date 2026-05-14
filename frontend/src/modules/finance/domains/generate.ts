@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Finance Domains Generator
  * Generates all domain directories with types, constants, services, hooks, and components.

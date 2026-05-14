@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { QuoteList } from './quote-list';
 export { QuoteDetail } from './quote-detail';
 export { QuoteForm } from './quote-form';

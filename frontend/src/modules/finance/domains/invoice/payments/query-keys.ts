@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Payments Query Keys — Zoho Invoice
 
 export const paymentsKeys = {

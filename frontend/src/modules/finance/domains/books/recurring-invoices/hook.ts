@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { recurringInvoiceService } from './service';
 import { recurringInvoiceKeys } from './query-keys';

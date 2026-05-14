@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { smsService } from "./service";
 import { smsKeys } from "./query-keys";

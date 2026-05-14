@@ -11,7 +11,7 @@ export default function ReportsPage() {
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         className="mb-6"
       >
         <h1
@@ -39,7 +39,7 @@ export default function ReportsPage() {
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         className="border border-glass-border/30 rounded-lg bg-glass-bg/20 p-12 flex flex-col items-center justify-center"
       >
         <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-module-erp/10 text-module-erp mb-4">

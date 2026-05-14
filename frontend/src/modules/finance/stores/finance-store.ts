@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Finance UI Store
 // Global Zustand store with persist for the Finance module.

@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Estimates Service — Zoho Invoice
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';

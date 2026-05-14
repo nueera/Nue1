@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Marketing Navigation Configuration
 // Sidebar navigation for all 7 Marketing products

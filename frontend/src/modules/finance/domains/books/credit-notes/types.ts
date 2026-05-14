@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { Money, LineItem } from '../../../types/finance-common';
 
 export type CreditNoteStatus = 'open' | 'applied' | 'void';

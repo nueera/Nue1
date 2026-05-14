@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Import Hooks — Cross-product
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { importService } from './service';

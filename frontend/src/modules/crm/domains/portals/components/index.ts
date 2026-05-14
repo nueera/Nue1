@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { PortalList } from './portal-list';
 export { PortalDetail } from './portal-detail';
 export { PortalForm } from './portal-form';

@@ -47,7 +47,7 @@ function SortIcon({ column }: { column: { getIsSorted: () => false | 'asc' | 'de
   return <ArrowUpDown className="h-3 w-3 ml-1 opacity-30 sort-arrow" />;
 }
 
-export default function SmartTable<T extends Record<string, unknown>>({
+export default function SmartTable<T>({
   data,
   columns,
   searchable = true,

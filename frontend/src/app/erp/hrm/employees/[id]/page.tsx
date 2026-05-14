@@ -218,7 +218,7 @@ export default function EmployeeDetailPage({ params }: { params: Promise<{ id: s
       <motion.button
         initial={{ opacity: 0, x: -8 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         onClick={() => router.push('/erp/hrm/employees')}
         className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-[var(--motion-fast)] mb-6 press-scale"
       >
@@ -232,7 +232,7 @@ export default function EmployeeDetailPage({ params }: { params: Promise<{ id: s
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         className="border border-glass-border/40 bg-glass-bg/20 rounded-xl p-6 sm:p-8 mb-6"
       >
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -273,7 +273,7 @@ export default function EmployeeDetailPage({ params }: { params: Promise<{ id: s
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
       >
         <Tabs defaultValue="overview" className="space-y-6">
           <TabsList>
@@ -312,7 +312,7 @@ export default function EmployeeDetailPage({ params }: { params: Promise<{ id: s
 
           <TabsContent value="attendance" className="tab-content-fade">
             <SmartTable
-              data={attendance as unknown as Record<string, unknown>[]}
+              data={attendance}
               columns={attendanceColumns}
               searchable={false}
               emptyMessage="No attendance records found"
@@ -322,7 +322,7 @@ export default function EmployeeDetailPage({ params }: { params: Promise<{ id: s
 
           <TabsContent value="leaves" className="tab-content-fade">
             <SmartTable
-              data={leaves as unknown as Record<string, unknown>[]}
+              data={leaves}
               columns={leaveColumns}
               searchable={false}
               emptyMessage="No leave requests found"
@@ -332,7 +332,7 @@ export default function EmployeeDetailPage({ params }: { params: Promise<{ id: s
 
           <TabsContent value="payroll" className="tab-content-fade">
             <SmartTable
-              data={payroll as unknown as Record<string, unknown>[]}
+              data={payroll}
               columns={payrollColumns}
               searchable={false}
               emptyMessage="No payroll records found"

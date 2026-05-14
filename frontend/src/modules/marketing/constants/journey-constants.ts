@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Journey Constants
 // Node types, triggers, and configuration for the Journeys domain

@@ -8,7 +8,7 @@ import type { LucideIcon } from 'lucide-react';
 type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'icon';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
-interface NueButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface NueButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag'> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   icon?: LucideIcon;

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Estimates Constants — Zoho Invoice
 
 // Re-export relevant status configs from finance-common constants

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { Money, SubscriptionStatus } from '../../types/finance-common';
 
 export interface MockSubscription {

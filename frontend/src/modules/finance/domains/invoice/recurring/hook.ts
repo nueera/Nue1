@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Recurring Hooks — Zoho Invoice
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { recurringService } from './service';

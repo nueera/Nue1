@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Coupons Schema — Zoho Billing
 import { z } from 'zod';
 

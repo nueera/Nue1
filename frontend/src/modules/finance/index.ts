@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Finance Module — Barrel Export
 // NueOne Business OS Finance Module

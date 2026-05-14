@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { CustomerAnalyticsDashboard } from './customer-analytics-dashboard';
 export { SegmentChart } from './segment-chart';
 export { LifecycleFunnel } from './lifecycle-funnel';

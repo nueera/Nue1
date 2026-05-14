@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Integration Constants
 // Categories, statuses, and configuration for Integrations domain

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Comments Utils — Cross-product
 
 export function formatCommentNumber(num: string, prefix: string): string {

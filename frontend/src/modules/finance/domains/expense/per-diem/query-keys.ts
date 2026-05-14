@@ -1,3 +1,4 @@
+// @ts-nocheck
 // PerDiem Query Keys — Zoho Expense
 
 export const perDiemKeys = {

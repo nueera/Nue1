@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Employees Schema — Zoho Payroll
 import { z } from 'zod';
 

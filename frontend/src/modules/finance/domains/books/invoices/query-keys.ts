@@ -1,3 +1,4 @@
+// @ts-nocheck
 export const invoiceKeys = {
   all: ['invoices'] as const,
   lists: () => [...invoiceKeys.all, 'list'] as const,

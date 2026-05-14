@@ -12,7 +12,10 @@ export default function ContactFormPage() {
       icon={<Contact className="h-6 w-6 text-blue-600" />}
       addLabel="Save Contact"
     >
-      <ContactForm />
+      <ContactForm
+        onSubmit={() => {}}
+        onCancel={() => {}}
+      />
     </MarketingPageShell>
   );
 }

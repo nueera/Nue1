@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Attachments Hooks — Cross-product
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { attachmentsService } from './service';

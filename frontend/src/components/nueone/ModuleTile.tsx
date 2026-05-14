@@ -147,11 +147,11 @@ export default function ModuleTile({ module, index, isLoading = false, isDisable
       transition={{
         duration: 0.35,
         delay: index * 0.05,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       }}
       whileHover={{
         scale: 1.01,
-        transition: { duration: 0.19, ease: [0.25, 0.46, 0.45, 0.94] },
+        transition: { duration: 0.19, ease: [0.25, 0.46, 0.45, 0.94] as const },
       }}
       whileTap={{ scale: 0.98 }}
       onClick={handleClick}
@@ -386,7 +386,7 @@ export default function ModuleTile({ module, index, isLoading = false, isDisable
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{
               duration: 0.38,
-              ease: [0.25, 0.46, 0.45, 0.94],
+              ease: [0.25, 0.46, 0.45, 0.94] as const,
             }}
             className="fixed inset-0 z-[100]"
             style={{

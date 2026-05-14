@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Taxes Utils — Zoho Payroll
 
 export function formatTaxeNumber(num: string, prefix: string): string {

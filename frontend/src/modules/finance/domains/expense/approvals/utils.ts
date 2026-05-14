@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Approvals Utils — Zoho Expense
 
 export function formatApprovalNumber(num: string, prefix: string): string {

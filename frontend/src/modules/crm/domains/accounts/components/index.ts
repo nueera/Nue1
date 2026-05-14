@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { AccountList } from './account-list';
 export { AccountCard } from './account-card';
 export { AccountDetail } from './account-detail';

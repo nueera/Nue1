@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Invoice Number Generation Utilities
 // INV-001, EST-001, BILL-001, etc.

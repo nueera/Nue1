@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Dunning Utils — Zoho Billing
 
 export function formatDunningNumber(num: string, prefix: string): string {

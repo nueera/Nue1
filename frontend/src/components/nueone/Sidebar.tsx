@@ -54,7 +54,7 @@ export default function Sidebar() {
     <motion.aside
       initial={{ opacity: 0, x: -16 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.38, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.38, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
       className="hidden md:flex lg:hidden flex-col shrink-0 h-fit"
       style={{ width }}
     >
@@ -117,7 +117,7 @@ export default function Sidebar() {
                       initial={{ opacity: 0, width: 0 }}
                       animate={{ opacity: 1, width: 'auto' }}
                       exit={{ opacity: 0, width: 0 }}
-                      transition={{ duration: 0.14, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      transition={{ duration: 0.14, ease: [0.25, 0.46, 0.45, 0.94] as const }}
                       className="text-sm font-medium whitespace-nowrap overflow-hidden"
                       style={{ letterSpacing: 'var(--tracking-normal)' }}
                     >

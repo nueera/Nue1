@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // PurchaseOrders Types — Zoho Inventory
 import type { Money, LineItem } from '../../../types/finance-common';

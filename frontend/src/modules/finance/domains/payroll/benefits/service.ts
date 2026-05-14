@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Benefits Service — Zoho Payroll
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';

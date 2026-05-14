@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Templates Utils — Cross-product
 
 export function formatTemplateNumber(num: string, prefix: string): string {

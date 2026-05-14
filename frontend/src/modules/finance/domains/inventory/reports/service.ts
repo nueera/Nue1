@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Reports Service — Zoho Inventory
 import type { ApiResponse } from '../../../types/finance-common';

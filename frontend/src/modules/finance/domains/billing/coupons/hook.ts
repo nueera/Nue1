@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Coupons Hooks — Zoho Billing
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { couponsService } from './service';

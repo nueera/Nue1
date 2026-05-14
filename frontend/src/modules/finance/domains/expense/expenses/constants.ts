@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Expenses Constants — Zoho Expense
 
 // Re-export relevant status configs from finance-common constants

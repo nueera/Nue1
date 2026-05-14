@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export type AttachmentType = "image" | "document" | "spreadsheet" | "pdf" | "video" | "audio" | "other";

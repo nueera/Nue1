@@ -27,7 +27,7 @@ export default function BirthdaysPage() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="mb-6"
         >
           <div className="flex items-center gap-3 mb-2">
@@ -53,7 +53,7 @@ export default function BirthdaysPage() {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.3, delay: 0.05, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="mb-6"
         >
           <h2
@@ -91,7 +91,7 @@ export default function BirthdaysPage() {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         >
           <h2
             className="font-semibold text-foreground mb-4"

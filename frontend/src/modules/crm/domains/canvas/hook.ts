@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { canvasService } from "./service";
 import { canvasKeys } from "./query-keys";

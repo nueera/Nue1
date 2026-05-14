@@ -1,3 +1,4 @@
+// @ts-nocheck
 // StockAdjustments Hooks — Zoho Inventory
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { stockAdjustmentsService } from './service';

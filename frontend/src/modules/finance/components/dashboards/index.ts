@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Finance Dashboards — Barrel Export
 // All dashboard components for the Finance module

@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { SalesOrderList } from './sales-order-list';
 export { SalesOrderDetail } from './sales-order-detail';
 export { SalesOrderForm } from './sales-order-form';

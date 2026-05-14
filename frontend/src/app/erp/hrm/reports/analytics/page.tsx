@@ -50,7 +50,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
@@ -62,7 +62,7 @@ export default function EmployeeAnalyticsPage() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="mb-6"
         >
           <h1
@@ -128,7 +128,7 @@ export default function EmployeeAnalyticsPage() {
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
             className="border border-glass-border/40 bg-glass-bg/20 rounded-xl p-6"
           >
             <h2
@@ -147,7 +147,7 @@ export default function EmployeeAnalyticsPage() {
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: `${dept.percentage}%` }}
-                      transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
                       className="h-full bg-module-erp/60 rounded-full"
                     />
                   </div>
@@ -169,7 +169,7 @@ export default function EmployeeAnalyticsPage() {
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.3, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] as const }}
             className="border border-glass-border/40 bg-glass-bg/20 rounded-xl p-6"
           >
             <h2
@@ -189,7 +189,7 @@ export default function EmployeeAnalyticsPage() {
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: `${item.percentage}%` }}
-                      transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as const }}
                       className="h-full bg-module-erp/50 rounded-full"
                     />
                   </div>
@@ -211,7 +211,7 @@ export default function EmployeeAnalyticsPage() {
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: `${item.percentage}%` }}
-                      transition={{ duration: 0.6, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      transition={{ duration: 0.6, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] as const }}
                       className="h-full bg-module-erp/40 rounded-full"
                     />
                   </div>

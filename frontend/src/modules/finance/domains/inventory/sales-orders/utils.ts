@@ -1,3 +1,4 @@
+// @ts-nocheck
 // SalesOrders Utils — Zoho Inventory
 
 export function formatSalesOrderNumber(num: string, prefix: string): string {

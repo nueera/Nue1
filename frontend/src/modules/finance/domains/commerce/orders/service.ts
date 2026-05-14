@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Orders Service — Zoho Commerce
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';

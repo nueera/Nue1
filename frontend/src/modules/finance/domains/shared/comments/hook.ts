@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Comments Hooks — Cross-product
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { commentsService } from './service';

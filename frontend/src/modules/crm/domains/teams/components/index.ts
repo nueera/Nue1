@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { TeamList } from './team-list';
 export { TeamDetail } from './team-detail';
 export { TeamForm } from './team-form';

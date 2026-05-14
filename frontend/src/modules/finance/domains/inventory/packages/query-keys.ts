@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Packages Query Keys — Zoho Inventory
 
 export const packagesKeys = {

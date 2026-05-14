@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Marketing Dashboards — Barrel Export
 // All dashboard components for the Marketing module

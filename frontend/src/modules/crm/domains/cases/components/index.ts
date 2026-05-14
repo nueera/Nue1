@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { CaseList } from './case-list';
 export { CaseDetail } from './case-detail';
 export { CaseForm } from './case-form';

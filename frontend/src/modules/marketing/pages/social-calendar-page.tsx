@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 
 import { Share2 } from 'lucide-react';

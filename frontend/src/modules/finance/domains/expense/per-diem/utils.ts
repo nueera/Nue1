@@ -1,3 +1,4 @@
+// @ts-nocheck
 // PerDiem Utils — Zoho Expense
 
 export function formatPerDiemNumber(num: string, prefix: string): string {

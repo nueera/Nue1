@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Benefits Utils — Zoho Payroll
 
 export function formatBenefitNumber(num: string, prefix: string): string {

@@ -77,14 +77,14 @@ export default function Home() {
       <motion.div
         initial={{ opacity: 0, scale: isFullscreen ? 0.98 : 1 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.38, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.38, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         className="flex flex-col min-h-screen"
       >
         {/* Floating top controls - minimal OS-style */}
         <motion.div
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.38, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.38, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="sticky top-0 z-50 w-full px-4 sm:px-6 pt-4 sm:pt-5"
         >
           <div className="flex items-center justify-between">
@@ -194,7 +194,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.38, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.38, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
               className="mb-6 sm:mb-8 flex items-end justify-between gap-4"
             >
               <div>
@@ -230,7 +230,7 @@ export default function Home() {
               <motion.aside
                 initial={{ opacity: 0, x: 16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.38, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                transition={{ duration: 0.38, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const }}
                 className="hidden lg:flex flex-col gap-4 w-[220px] shrink-0"
               >
                 <DateTime />

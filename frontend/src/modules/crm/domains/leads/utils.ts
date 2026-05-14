@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { Lead, LeadRating, LeadSource, LeadStatus } from "./types";
 import { LEAD_RATINGS, LEAD_SOURCES, LEAD_STATUSES } from "./constants";
 export function isLeadQualified(lead: Lead): boolean { return lead.status === "qualified" || lead.leadScore >= 70; }

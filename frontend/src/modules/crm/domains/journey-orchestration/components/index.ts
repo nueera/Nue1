@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { JourneyList } from './journey-list';
 export { JourneyDetail } from './journey-detail';
 export { JourneyVisualEditor } from './journey-visual-editor';

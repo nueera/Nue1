@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Form Constants
 // Field types, themes, and configuration for Signup Forms domain

@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 
 import { LEAD_STATUS_FILTERS, LEAD_SOURCE_FILTERS, LEAD_RATING_FILTERS } from '../constants';

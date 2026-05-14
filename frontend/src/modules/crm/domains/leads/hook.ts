@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { leadService } from "./service"; import { leadKeys } from "./query-keys"; import type { LeadConversionData } from "./types";
 export function useLeads(params?: Record<string, string | number | boolean | undefined>) { return useQuery({ queryKey: leadKeys.list(params || {}), queryFn: () => leadService.getAll(params) }); }

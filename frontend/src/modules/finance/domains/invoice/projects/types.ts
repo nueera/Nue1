@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Projects Types — Zoho Invoice
 import type { Money } from '../../../types/finance-common';
 

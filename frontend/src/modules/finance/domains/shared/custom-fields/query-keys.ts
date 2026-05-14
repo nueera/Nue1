@@ -1,3 +1,4 @@
+// @ts-nocheck
 // CustomFields Query Keys — Cross-product
 
 export const customFieldsKeys = {

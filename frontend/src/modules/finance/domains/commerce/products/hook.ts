@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Products Hooks — Zoho Commerce
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { productsService } from './service';

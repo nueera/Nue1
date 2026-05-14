@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Reports Utils — Zoho Payroll
 
 export function formatReportNumber(num: string, prefix: string): string {

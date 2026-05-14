@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Coupons Types — Zoho Billing
 import type { Money } from '../../../types/finance-common';

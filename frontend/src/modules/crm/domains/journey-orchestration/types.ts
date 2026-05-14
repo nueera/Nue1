@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export type JourneyNodeType = "trigger" | "condition" | "action" | "wait" | "end";

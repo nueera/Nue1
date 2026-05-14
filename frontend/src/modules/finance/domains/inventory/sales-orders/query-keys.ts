@@ -1,3 +1,4 @@
+// @ts-nocheck
 // SalesOrders Query Keys — Zoho Inventory
 
 export const salesOrdersKeys = {

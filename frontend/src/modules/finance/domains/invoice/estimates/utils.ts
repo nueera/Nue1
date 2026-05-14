@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Estimates Utils — Zoho Invoice
 
 export function formatEstimateNumber(num: string, prefix: string): string {

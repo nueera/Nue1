@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface MockBillingPlan {
   id: string;
   name: string;

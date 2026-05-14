@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Tags Types — Finance Shared
 

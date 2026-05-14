@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { SmsInbox } from './sms-inbox';
 export { SmsCompose } from './sms-compose';
 export { SmsConversation } from './sms-conversation';

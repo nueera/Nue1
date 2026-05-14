@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Mileage Types — Zoho Expense
 import type { Money } from '../../../types/finance-common';

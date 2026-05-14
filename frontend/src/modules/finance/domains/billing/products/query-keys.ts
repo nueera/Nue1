@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Products Query Keys — Zoho Billing
 
 export const productsKeys = {

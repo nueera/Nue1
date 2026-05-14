@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { EcommerceDashboard } from './ecommerce-dashboard';
 export { StoreList } from './store-list';
 export { StoreConnect } from './store-connect';

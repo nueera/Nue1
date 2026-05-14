@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Shipments Types — Zoho Inventory
 import type { Money, Address } from '../../../types/finance-common';

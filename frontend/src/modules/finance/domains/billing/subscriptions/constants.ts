@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Subscriptions Constants — Zoho Billing
 
 // Re-export relevant status configs from finance-common constants

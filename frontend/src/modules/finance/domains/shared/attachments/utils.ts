@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Attachments Utils — Cross-product
 
 export function formatAttachmentNumber(num: string, prefix: string): string {

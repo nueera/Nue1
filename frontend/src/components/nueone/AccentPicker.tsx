@@ -61,7 +61,7 @@ export default function AccentPicker() {
               initial={{ opacity: 0, scale: 0.95, y: -4 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -4 }}
-              transition={{ duration: 0.19, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.19, ease: [0.25, 0.46, 0.45, 0.94] as const }}
               className="absolute right-0 top-full mt-2 z-50 glass-surface rounded-xl p-3 min-w-[200px] shadow-lg"
             >
               <h4

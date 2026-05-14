@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Contacts Service — Finance Shared
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';

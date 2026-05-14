@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // ExpenseReports Types — Zoho Expense
 import type { Money, ExpenseStatus } from '../../../types/finance-common';

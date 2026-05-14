@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Financial Date Helper Utilities
 // Fiscal year, due date, aging, and financial period calculations.

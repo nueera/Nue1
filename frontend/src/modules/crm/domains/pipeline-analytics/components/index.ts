@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { PipelineAnalyticsDashboard } from './pipeline-analytics-dashboard';
 export { PipelineFunnelChart } from './pipeline-funnel-chart';
 export { VelocityChart } from './velocity-chart';

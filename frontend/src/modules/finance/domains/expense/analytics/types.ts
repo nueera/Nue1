@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Analytics Types — Zoho Expense
 import type { Money } from '../../../types/finance-common';

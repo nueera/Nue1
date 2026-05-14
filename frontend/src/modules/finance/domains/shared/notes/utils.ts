@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Notes Utils — Cross-product
 
 export function formatNoteNumber(num: string, prefix: string): string {

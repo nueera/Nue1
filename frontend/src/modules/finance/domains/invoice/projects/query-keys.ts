@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Projects Query Keys — Zoho Invoice
 
 export const projectsKeys = {

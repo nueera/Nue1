@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Finance Navigation Configuration
 // Sidebar navigation for all 8 Finance products

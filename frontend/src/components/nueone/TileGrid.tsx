@@ -133,7 +133,7 @@ export default function TileGrid({ searchQuery = '' }: TileGridProps) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"
         >
           {filteredModules.map((mod, i) => (
@@ -148,7 +148,7 @@ export default function TileGrid({ searchQuery = '' }: TileGridProps) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex flex-col gap-2 max-w-2xl mx-auto"
         >
           {filteredModules.map((mod, i) => (
@@ -163,7 +163,7 @@ export default function TileGrid({ searchQuery = '' }: TileGridProps) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2"
         >
           {filteredModules.map((mod, i) => (

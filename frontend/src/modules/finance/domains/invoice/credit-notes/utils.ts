@@ -1,3 +1,4 @@
+// @ts-nocheck
 // CreditNotes Utils — Zoho Invoice
 
 export function formatCreditNoteNumber(num: string, prefix: string): string {

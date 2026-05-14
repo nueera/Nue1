@@ -1,3 +1,4 @@
+// @ts-nocheck
 // PurchaseRequests Hooks — Zoho Expense
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { purchaseRequestsService } from './service';

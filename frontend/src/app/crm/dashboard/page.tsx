@@ -41,7 +41,7 @@ export default function CrmDashboardPage() {
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] as const }}
       >
         <h1
           className="text-xl font-bold text-foreground"
@@ -66,7 +66,7 @@ export default function CrmDashboardPage() {
               key={stat.label}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.18, delay: i * 0.04, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.18, delay: i * 0.04, ease: [0.25, 0.46, 0.45, 0.94] as const }}
               className="glass-surface rounded-xl p-4 border border-glass-border"
             >
               <div className="flex items-center justify-between mb-3">
@@ -101,7 +101,7 @@ export default function CrmDashboardPage() {
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.18, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.18, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="glass-surface rounded-xl p-5 border border-glass-border"
         >
           <div className="flex items-center gap-2 mb-4">
@@ -140,7 +140,7 @@ export default function CrmDashboardPage() {
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.18, delay: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.18, delay: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="glass-surface rounded-xl p-5 border border-glass-border"
         >
           <div className="flex items-center gap-2 mb-4">

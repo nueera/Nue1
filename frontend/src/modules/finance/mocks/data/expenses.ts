@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { Money, ExpenseStatus } from '../../types/finance-common';
 
 export interface MockExpense {

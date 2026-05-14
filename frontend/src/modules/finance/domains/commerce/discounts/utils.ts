@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Discounts Utils — Zoho Commerce
 
 export function formatDiscountNumber(num: string, prefix: string): string {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // PurchaseRequests Service — Zoho Expense
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';

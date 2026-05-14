@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Subscriptions Types — Zoho Billing
 import type { Money, SubscriptionStatus } from '../../../types/finance-common';

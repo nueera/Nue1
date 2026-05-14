@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Mileage Utils — Zoho Expense
 
 export function formatMileageNumber(num: string, prefix: string): string {

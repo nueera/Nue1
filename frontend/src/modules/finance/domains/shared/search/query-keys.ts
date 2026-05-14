@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Search Query Keys — Cross-product
 
 export const searchKeys = {

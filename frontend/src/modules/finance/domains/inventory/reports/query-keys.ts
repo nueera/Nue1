@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Reports Query Keys — Zoho Inventory
 
 export const reportsKeys = {

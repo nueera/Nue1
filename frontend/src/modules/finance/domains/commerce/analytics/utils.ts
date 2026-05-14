@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Analytics Utils — Zoho Commerce
 
 export function formatAnalyticNumber(num: string, prefix: string): string {

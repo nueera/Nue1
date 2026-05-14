@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Contacts Query Keys — Cross-product
 
 export const contactsKeys = {

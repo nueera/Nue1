@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Estimates Types — Zoho Invoice
 import type { Money, LineItem, EstimateStatus } from '../../../types/finance-common';

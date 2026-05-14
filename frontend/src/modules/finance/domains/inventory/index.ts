@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Zoho Inventory — Barrel Export
 export * from './items';

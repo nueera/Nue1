@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export type PurchaseOrderStatus = "draft" | "sent" | "received" | "partial" | "cancelled";

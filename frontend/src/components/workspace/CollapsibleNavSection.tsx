@@ -143,7 +143,7 @@ export function CollapsibleNavSection({
         {/* ▼ / ▶ Chevron */}
         <motion.span
           animate={{ rotate: effectiveCollapsed ? 0 : 90 }}
-          transition={{ duration: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.15, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex items-center justify-center w-4 h-4 shrink-0 mr-1.5"
         >
           <ChevronRight
@@ -189,8 +189,8 @@ export function CollapsibleNavSection({
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{
-              height: { duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] },
-              opacity: { duration: 0.12, ease: [0.25, 0.46, 0.45, 0.94] },
+              height: { duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] as const },
+              opacity: { duration: 0.12, ease: [0.25, 0.46, 0.45, 0.94] as const },
             }}
             className="overflow-hidden"
           >

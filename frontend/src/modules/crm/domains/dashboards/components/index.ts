@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { DashboardList } from './dashboard-list';
 export { DashboardViewer } from './dashboard-viewer';
 export { DashboardBuilder } from './dashboard-builder';

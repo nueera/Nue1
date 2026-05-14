@@ -16,7 +16,7 @@ export default function AttendanceDetailPage({ params }: { params: Promise<{ id:
         <motion.button
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           onClick={() => router.push('/erp/hrm/attendance')}
           className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-[var(--motion-fast)] mb-6 press-scale"
         >

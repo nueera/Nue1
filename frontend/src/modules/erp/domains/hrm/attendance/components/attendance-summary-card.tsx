@@ -66,7 +66,7 @@ export function AttendanceSummaryCard({
           key={stat.label}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: idx * 0.04, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.2, delay: idx * 0.04, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-4 hover:bg-white/10 transition-colors duration-200"
         >
           <div className={cn('flex items-center justify-center w-9 h-9 rounded-xl mb-3', stat.bgColor, stat.color)}>

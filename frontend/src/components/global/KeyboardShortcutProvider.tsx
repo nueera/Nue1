@@ -84,7 +84,7 @@ export function KeyboardShortcutProvider({ children }: KeyboardShortcutProviderP
   // Module switch actions - create a single handler that routes based on action ID
   const handleSwitchModule = useCallback(
     (actionId: string) => {
-      const route = MODULE_ROUTES[actionId];
+      const route = MODULE_ROUTES[actionId as ShortcutActionId];
       if (route) {
         router.push(route);
       }

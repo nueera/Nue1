@@ -118,7 +118,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
@@ -132,8 +132,7 @@ export default function TrainingPage() {
     { label: 'Completed', value: trainingPrograms.filter(p => p.status === 'completed').length, icon: CheckCircle2, color: 'text-green-500' },
   ];
 
-  const handleRowClick = (row: Record<string, unknown>) => {
-    const program = row as unknown as TrainingProgram;
+  const handleRowClick = (program: TrainingProgram) => {
     router.push(`/erp/hrm/training/${program.id}`);
   };
 
@@ -144,7 +143,7 @@ export default function TrainingPage() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="mb-6"
         >
           <h1
@@ -198,10 +197,10 @@ export default function TrainingPage() {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         >
           <SmartTable
-            data={trainingPrograms as unknown as Record<string, unknown>[]}
+            data={trainingPrograms}
             columns={columns}
             searchable
             searchPlaceholder="Search training programs..."

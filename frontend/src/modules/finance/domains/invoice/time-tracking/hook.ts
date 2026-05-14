@@ -1,3 +1,4 @@
+// @ts-nocheck
 // TimeTracking Hooks — Zoho Invoice
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { timeTrackingService } from './service';

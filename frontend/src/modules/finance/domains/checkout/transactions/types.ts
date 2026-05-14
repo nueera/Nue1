@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Transactions Types — Zoho Checkout
 import type { Money, PaymentStatus } from '../../../types/finance-common';

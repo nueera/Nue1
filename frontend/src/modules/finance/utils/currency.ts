@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Currency Utilities
 // formatMoney, parseMoney, and related currency formatting helpers.

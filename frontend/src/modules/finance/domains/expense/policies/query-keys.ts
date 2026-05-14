@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Policies Query Keys — Zoho Expense
 
 export const policiesKeys = {

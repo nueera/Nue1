@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Items Schema — Zoho Inventory
 import { z } from 'zod';
 

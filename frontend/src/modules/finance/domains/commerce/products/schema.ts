@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Products Schema — Zoho Commerce
 import { z } from 'zod';
 

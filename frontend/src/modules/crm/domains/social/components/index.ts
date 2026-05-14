@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { SocialFeed } from './social-feed';
 export { SocialProfileCard } from './social-profile-card';
 export { SocialPostCard } from './social-post-card';

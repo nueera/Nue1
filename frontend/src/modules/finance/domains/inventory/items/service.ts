@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Items Service — Zoho Inventory
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';

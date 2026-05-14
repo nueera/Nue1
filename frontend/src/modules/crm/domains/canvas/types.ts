@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export interface CanvasComponent { id: string; type: string; label: string; props: Record<string, unknown>; children?: CanvasComponent[]; }

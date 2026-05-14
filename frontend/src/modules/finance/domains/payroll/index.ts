@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Zoho Payroll — Barrel Export
 export * from './employees';

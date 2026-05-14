@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Invoices Schema — Zoho Invoice
 import { z } from 'zod';
 

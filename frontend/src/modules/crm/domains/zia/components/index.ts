@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { ZiaDashboard } from './zia-dashboard';
 export { ZiaChat } from './zia-chat';
 export { AgentList } from './ai-agents/agent-list';

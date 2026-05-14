@@ -12,7 +12,10 @@ export default function LeadFormPage() {
       icon={<UserPlus className="h-6 w-6 text-violet-600" />}
       addLabel="Save Lead"
     >
-      <LeadForm />
+      <LeadForm
+        onSubmit={() => {}}
+        onCancel={() => {}}
+      />
     </MarketingPageShell>
   );
 }

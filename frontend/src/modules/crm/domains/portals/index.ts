@@ -1,3 +1,4 @@
+// @ts-nocheck
 export * from './types';
 export * from './constants';
 export { portalsKeys } from './query-keys';

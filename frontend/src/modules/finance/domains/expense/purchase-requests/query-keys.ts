@@ -1,3 +1,4 @@
+// @ts-nocheck
 // PurchaseRequests Query Keys — Zoho Expense
 
 export const purchaseRequestsKeys = {

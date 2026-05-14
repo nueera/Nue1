@@ -18,7 +18,6 @@ import { Skeleton } from '@/components/ui/skeleton';
 const LazyDocxViewer = dynamic(
   () =>
     Promise.resolve(
-      () =>
         function DocxViewerPlaceholder() {
           return (
             <div className="flex items-center justify-center p-8 border rounded-lg bg-muted/50 text-muted-foreground">

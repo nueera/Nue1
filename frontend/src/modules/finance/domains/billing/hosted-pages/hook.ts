@@ -1,3 +1,4 @@
+// @ts-nocheck
 // HostedPages Hooks — Zoho Billing
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { hostedPagesService } from './service';

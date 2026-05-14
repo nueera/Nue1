@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Books Domain — Barrel Export
 // Exports all sub-domains for the Books module

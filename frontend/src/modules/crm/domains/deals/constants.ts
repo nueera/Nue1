@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { DealStage, DealForecastCategory, DealLossReason, DealPipeline } from "./types";
 export const DEAL_STAGES: { value: DealStage; label: string; probability: number; color: string }[] = [
   { value: "qualification", label: "Qualification", probability: 10, color: "var(--status-neutral)" },

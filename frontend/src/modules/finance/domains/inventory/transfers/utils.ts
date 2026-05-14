@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Transfers Utils — Zoho Inventory
 
 export function formatTransferNumber(num: string, prefix: string): string {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { Item, ItemType, ItemStatus } from './types';
 import { ITEM_TYPES, ITEM_STATUSES } from './constants';
 

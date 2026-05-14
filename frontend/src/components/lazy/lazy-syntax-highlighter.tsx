@@ -39,4 +39,4 @@ export { LazySyntaxHighlighter };
  *   import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
  * Styles are tiny (a few KB) so they can be imported statically.
  */
-export { vscDarkPlus, vs2015, atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+export { vscDarkPlus, vs, atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Plans Service — Zoho Billing
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';

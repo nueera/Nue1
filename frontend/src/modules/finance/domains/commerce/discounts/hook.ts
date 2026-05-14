@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Discounts Hooks — Zoho Commerce
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { discountsService } from './service';

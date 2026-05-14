@@ -181,7 +181,7 @@ export default function RecruitmentDetailPage({ params }: { params: Promise<{ id
         <motion.button
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           onClick={() => router.push('/erp/hrm/recruitment')}
           className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-[var(--motion-fast)] mb-6 press-scale"
         >
@@ -195,7 +195,7 @@ export default function RecruitmentDetailPage({ params }: { params: Promise<{ id
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="border border-glass-border/40 bg-glass-bg/20 rounded-xl p-6 sm:p-8 mb-6"
         >
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -229,7 +229,7 @@ export default function RecruitmentDetailPage({ params }: { params: Promise<{ id
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         >
           <Tabs defaultValue="pipeline" className="space-y-6">
             <TabsList>
@@ -254,7 +254,7 @@ export default function RecruitmentDetailPage({ params }: { params: Promise<{ id
               </div>
 
               <SmartTable
-                data={job.candidates as unknown as Record<string, unknown>[]}
+                data={job.candidates}
                 columns={candidateColumns}
                 searchable
                 searchPlaceholder="Search candidates..."

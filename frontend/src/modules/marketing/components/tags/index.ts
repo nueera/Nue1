@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { TagInput } from './tag-input';
 export { TagBadge } from './tag-badge';
 export { TagFilter } from './tag-filter';

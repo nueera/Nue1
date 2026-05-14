@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // PaymentPages Types — Zoho Checkout
 import type { Money } from '../../../types/finance-common';

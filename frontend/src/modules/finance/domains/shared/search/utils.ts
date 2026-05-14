@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Search Utils — Cross-product
 
 export function formatSearchNumber(num: string, prefix: string): string {

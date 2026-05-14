@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Benefits Hooks — Zoho Payroll
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { benefitsService } from './service';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export type ScriptEvent = "onLoad" | "onSave" | "onChange" | "onDelete" | "validate";

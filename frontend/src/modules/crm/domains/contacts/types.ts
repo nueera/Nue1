@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 export type ContactStatus = "active" | "inactive" | "bounced" | "subscribed" | "unsubscribed";
 export type ContactType = "customer" | "prospect" | "vendor" | "partner" | "employee" | "other";

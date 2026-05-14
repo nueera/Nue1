@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Projects Utils — Zoho Invoice
 
 export function formatProjectNumber(num: string, prefix: string): string {

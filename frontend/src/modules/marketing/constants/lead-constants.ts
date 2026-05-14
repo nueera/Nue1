@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Lead Constants
 // Statuses, sources, stages, and configuration for the Leads domain

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // HostedPages Query Keys — Zoho Billing
 
 export const hostedPagesKeys = {

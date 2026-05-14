@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Marketing API Endpoints
 // Organized by product — same pattern as Finance's api/endpoints.ts

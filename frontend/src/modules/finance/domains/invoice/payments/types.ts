@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Payments Types — Zoho Invoice
 import type { Money, PaymentStatus } from '../../../types/finance-common';

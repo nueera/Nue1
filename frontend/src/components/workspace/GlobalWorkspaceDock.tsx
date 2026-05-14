@@ -104,7 +104,7 @@ function DockItem({
                 )}
                 whileHover={{ y: -3, scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+                transition={{ duration: 0.15, ease: [0.25, 0.46, 0.45, 0.94] as const }}
                 aria-label={`${item.title}${isMinimized ? ' (minimized)' : ''}${item.pinned ? ' (pinned)' : ''}`}
               >
                 <div className="relative">
@@ -313,7 +313,7 @@ export function GlobalWorkspaceDock({ className }: { className?: string }) {
     <motion.div
       initial={{ y: 40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as const }}
       className={cn(
         'fixed bottom-3 left-1/2 -translate-x-1/2 z-[60]',
         'flex items-center gap-1 px-3 py-1.5',

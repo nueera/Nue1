@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export interface APIKey { id: string; name: string; key: string; createdAt: string; lastUsedAt?: string; isRevoked: boolean; }

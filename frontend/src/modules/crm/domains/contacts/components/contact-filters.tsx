@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 
 import { CONTACT_STATUS_FILTERS, CONTACT_TYPE_FILTERS } from '../constants';

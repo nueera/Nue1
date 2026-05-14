@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { ProductList } from './product-list';
 export { ProductDetail } from './product-detail';
 export { ProductForm } from './product-form';

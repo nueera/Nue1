@@ -116,7 +116,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
@@ -136,7 +136,7 @@ export default function ShiftsPage() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6"
         >
           <div>
@@ -219,7 +219,7 @@ export default function ShiftsPage() {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="mb-6"
         >
           <h2
@@ -255,7 +255,7 @@ export default function ShiftsPage() {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.3, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         >
           <h2
             className="font-semibold text-foreground mb-4"
@@ -264,7 +264,7 @@ export default function ShiftsPage() {
             Recent Assignments
           </h2>
           <SmartTable
-            data={shiftAssignments as unknown as Record<string, unknown>[]}
+            data={shiftAssignments}
             columns={columns}
             searchable
             searchPlaceholder="Search shift assignments..."

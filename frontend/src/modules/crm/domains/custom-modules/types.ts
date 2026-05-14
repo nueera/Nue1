@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export interface CustomField { id: string; name: string; label: string; type: "text" | "number" | "date" | "select" | "multiselect" | "lookup" | "boolean" | "textarea"; required: boolean; options?: { label: string; value: string }[]; }

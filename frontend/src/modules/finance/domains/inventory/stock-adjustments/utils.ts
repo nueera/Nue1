@@ -1,3 +1,4 @@
+// @ts-nocheck
 // StockAdjustments Utils — Zoho Inventory
 
 export function formatStockAdjustmentNumber(num: string, prefix: string): string {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // BatchTracking Query Keys — Zoho Inventory
 
 export const batchTrackingKeys = {

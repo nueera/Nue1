@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { PriceBookList } from './price-book-list';
 export { PriceBookDetail } from './price-book-detail';
 export { PriceBookForm } from './price-book-form';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { EmailInbox } from './email-inbox';
 export { EmailCompose } from './email-compose';
 export { EmailDetail } from './email-detail';

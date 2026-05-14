@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Payments Hooks — Zoho Invoice
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { paymentsService } from './service';

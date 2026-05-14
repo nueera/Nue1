@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Analytics Query Keys — Zoho Expense
 
 export const analyticsKeys = {

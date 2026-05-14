@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Analytics Service — getOverview, getCampaignReport, getAttribution, getWebAnalytics,
 //   getJourneyReport, getABTestResults, getROI

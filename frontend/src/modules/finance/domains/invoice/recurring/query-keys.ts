@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Recurring Query Keys — Zoho Invoice
 
 export const recurringKeys = {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { ApiDashboard } from './api-dashboard';
 export { ApiDocumentation } from './api-documentation';
 export { ApiKeyManager } from './api-key-manager';

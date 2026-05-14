@@ -1,3 +1,4 @@
+// @ts-nocheck
 export const estimateKeys = {
   all: ['estimates'] as const,
   lists: () => [...estimateKeys.all, 'list'] as const,

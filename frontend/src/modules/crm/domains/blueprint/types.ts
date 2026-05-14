@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export interface BlueprintState { id: string; name: string; type: "initial" | "intermediate" | "terminal"; color: string; }

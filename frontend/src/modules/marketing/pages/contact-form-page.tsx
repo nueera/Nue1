@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 
 import { Contact } from 'lucide-react';

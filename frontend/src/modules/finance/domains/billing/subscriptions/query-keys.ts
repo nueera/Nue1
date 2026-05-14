@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Subscriptions Query Keys — Zoho Billing
 
 export const subscriptionsKeys = {

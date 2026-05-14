@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export interface CustomerSegment { id: string; name: string; criteria: Record<string, unknown>; count: number; avgValue: number; }

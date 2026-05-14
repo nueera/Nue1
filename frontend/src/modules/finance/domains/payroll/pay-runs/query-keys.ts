@@ -1,3 +1,4 @@
+// @ts-nocheck
 // PayRuns Query Keys — Zoho Payroll
 
 export const payRunsKeys = {

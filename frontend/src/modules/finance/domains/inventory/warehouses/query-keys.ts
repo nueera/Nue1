@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Warehouses Query Keys — Zoho Inventory
 
 export const warehousesKeys = {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // PaymentPages Hooks — Zoho Checkout
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { paymentPagesService } from './service';

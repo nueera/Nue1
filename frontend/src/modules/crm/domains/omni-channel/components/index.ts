@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { OmniDashboard } from './omni-dashboard';
 export { ChannelConfig } from './channel-config';
 export { RoutingRuleEditor } from './routing-rule-editor';

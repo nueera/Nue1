@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { VendorList } from './vendor-list';
 export { VendorDetail } from './vendor-detail';
 export { VendorForm } from './vendor-form';

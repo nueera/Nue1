@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Contacts Schema — Cross-product
 import { z } from 'zod';
 

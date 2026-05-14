@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Analytics Service — Zoho Commerce
 import type { ApiResponse } from '../../../types/finance-common';

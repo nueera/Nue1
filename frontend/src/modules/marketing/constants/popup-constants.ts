@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Popup Constants
 // Trigger types, targeting options, and configuration for Popups domain

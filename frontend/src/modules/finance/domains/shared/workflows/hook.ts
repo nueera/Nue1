@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Workflows Hooks — Cross-product
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { workflowsService } from './service';

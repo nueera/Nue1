@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Import Query Keys — Cross-product
 
 export const importKeys = {

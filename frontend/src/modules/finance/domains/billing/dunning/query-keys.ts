@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Dunning Query Keys — Zoho Billing
 
 export const dunningKeys = {

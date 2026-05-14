@@ -36,11 +36,11 @@ export default function CompactTile({ module, index }: CompactTileProps) {
       transition={{
         duration: 0.24,
         delay: index * 0.03,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       }}
       whileHover={{
         scale: 1.02,
-        transition: { duration: 0.14, ease: [0.25, 0.46, 0.45, 0.94] },
+        transition: { duration: 0.14, ease: [0.25, 0.46, 0.45, 0.94] as const },
       }}
       whileTap={{ scale: 0.97 }}
       onClick={handleClick}

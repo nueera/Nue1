@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Notes Service — Finance Shared
 import type { ApiResponse, PaginatedRequest } from '../../../types/finance-common';

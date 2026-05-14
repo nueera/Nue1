@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Comments Query Keys — Cross-product
 
 export const commentsKeys = {

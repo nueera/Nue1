@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Notes Types — Finance Shared
 

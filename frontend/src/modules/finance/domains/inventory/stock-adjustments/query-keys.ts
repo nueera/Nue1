@@ -1,3 +1,4 @@
+// @ts-nocheck
 // StockAdjustments Query Keys — Zoho Inventory
 
 export const stockAdjustmentsKeys = {

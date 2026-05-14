@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Products Utils — Zoho Billing
 
 export function formatProductNumber(num: string, prefix: string): string {

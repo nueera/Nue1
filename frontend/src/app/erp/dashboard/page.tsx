@@ -168,7 +168,7 @@ const cardVariants = {
     scale: 1,
     transition: {
       duration: 0.28,
-      ease: [0.25, 0.46, 0.45, 0.94],
+      ease: [0.25, 0.46, 0.45, 0.94] as const,
     },
   },
 };
@@ -177,7 +177,7 @@ const cardVariants = {
 function useCountUp(target: number, duration: number = 600) {
   const [current, setCurrent] = useState(0);
   const startTime = useRef<number | null>(null);
-  const rafId = useRef<number>();
+  const rafId = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const startValue = 0;
@@ -296,7 +296,7 @@ export default function ErpDashboardPage() {
         <motion.div
           initial={{ opacity: 0, y: -6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="mb-10"
         >
           <h1
@@ -325,7 +325,7 @@ export default function ErpDashboardPage() {
         <motion.div
           initial={{ opacity: 0, y: -4 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.18, delay: 0.03, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.18, delay: 0.03, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="mb-10 glass-surface rounded-xl p-5 sm:p-6"
         >
           <div className="flex items-center gap-3">
@@ -375,7 +375,7 @@ export default function ErpDashboardPage() {
           <motion.div
             initial={{ opacity: 0, y: 10, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.28, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.28, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] as const }}
             className="lg:col-span-2 border border-glass-border/40 rounded-lg bg-glass-bg/30 p-5 sm:p-6"
           >
             <div className="flex items-center justify-between mb-6">
@@ -475,7 +475,7 @@ export default function ErpDashboardPage() {
           <motion.div
             initial={{ opacity: 0, y: 10, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.28, delay: 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.28, delay: 0.18, ease: [0.25, 0.46, 0.45, 0.94] as const }}
             className="border border-glass-border/40 rounded-lg bg-glass-bg/30 p-5 sm:p-6"
           >
             <h2
@@ -500,7 +500,7 @@ export default function ErpDashboardPage() {
                     transition={{
                       duration: 0.18,
                       delay: 0.2 + index * 0.03,
-                      ease: [0.25, 0.46, 0.45, 0.94],
+                      ease: [0.25, 0.46, 0.45, 0.94] as const,
                     }}
                     className="flex items-start gap-3 p-2 -mx-2 rounded-lg hover:bg-glass-hover transition-colors duration-[var(--motion-fast)]"
                   >
@@ -539,7 +539,7 @@ export default function ErpDashboardPage() {
         <motion.div
           initial={{ opacity: 0, y: 10, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.28, delay: 0.22, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.28, delay: 0.22, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         >
           <h2
             className="font-semibold text-foreground mb-4"

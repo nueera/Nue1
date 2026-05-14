@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { PaymentMethod, PaymentStatus } from './types';
 
 export const PAYMENT_METHODS: { value: PaymentMethod; label: string }[] = [

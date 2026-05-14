@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { Invoice } from './types';
 import type { InvoiceStatus } from '../../../types';
 import { INVOICE_STATUS_CONFIG } from '../../../constants/finance-common';

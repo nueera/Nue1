@@ -70,7 +70,7 @@ export function GlobalLoadingProvider({ children, moduleId }: GlobalLoadingProvi
   const [progressVisible, setProgressVisible] = useState(false);
   const pathname = usePathname();
   const prevPathnameRef = useRef(pathname);
-  const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   // Start loading
   const startLoading = useCallback((modId?: string) => {

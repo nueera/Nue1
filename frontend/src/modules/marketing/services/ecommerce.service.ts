@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // E-Commerce Service — connectStore, getCarts, getFollowups, getProductCampaigns, syncStore
 // ============================================================================

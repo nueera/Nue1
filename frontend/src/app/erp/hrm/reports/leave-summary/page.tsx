@@ -31,7 +31,7 @@ export default function LeaveSummaryPage() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="mb-6"
         >
           <div className="flex items-center gap-3 mb-2">
@@ -57,7 +57,7 @@ export default function LeaveSummaryPage() {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.3, delay: 0.05, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"
         >
           {leaveSummaryData.map((item) => (
@@ -91,7 +91,7 @@ export default function LeaveSummaryPage() {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.3, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="border border-glass-border/40 bg-glass-bg/20 rounded-xl p-6"
         >
           <h2
@@ -109,7 +109,7 @@ export default function LeaveSummaryPage() {
                 <motion.div
                   initial={{ height: 0 }}
                   animate={{ height: `${(item.leaves / maxLeaves) * 100}%` }}
-                  transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
                   className="w-full bg-module-erp/40 rounded-t-md min-h-[4px]"
                 />
                 <span className="text-muted-foreground" style={{ fontSize: 'var(--text-xs)' }}>

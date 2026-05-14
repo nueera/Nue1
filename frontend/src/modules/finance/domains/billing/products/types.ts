@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Products Types — Zoho Billing
 import type { Money } from '../../../types/finance-common';

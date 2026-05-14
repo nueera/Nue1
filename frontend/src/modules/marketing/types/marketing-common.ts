@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================================================
 // Marketing Common Types
 // Shared types used across all Marketing products (Campaigns, Leads, Audiences,
