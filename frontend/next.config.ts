@@ -1,8 +1,17 @@
 import type { NextConfig } from "next";
 
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
-});
+// ── Bundle Analyzer (optional) ────────────────────────────────────────────
+// Wrapped in try/catch so the app starts even if @next/bundle-analyzer isn't
+// installed (e.g. fresh clone before devDependencies are fully installed,
+// or in environments where only production deps are present).
+let withBundleAnalyzer = (config: NextConfig) => config;
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const analyzer = require("@next/bundle-analyzer");
+  withBundleAnalyzer = analyzer({ enabled: process.env.ANALYZE === "true" });
+} catch {
+  // @next/bundle-analyzer not installed — skip wrapping
+}
 
 const nextConfig: NextConfig = {
   output: "standalone",
