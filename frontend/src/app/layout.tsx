@@ -8,6 +8,7 @@ import { KeyboardShortcutProvider } from "@/components/global/KeyboardShortcutPr
 import { GlobalLoadingProvider } from "@/components/global/GlobalLoadingProvider";
 import { NotificationDrawer, NotificationToast, CrossModuleSearch } from "@/components/global";
 import { GlobalWorkspaceDock } from "@/components/workspace/GlobalWorkspaceDock";
+import { QueryProvider } from "@/components/providers/query-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,17 +46,19 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange={false}
         >
-          <AccentSync />
-          <KeyboardShortcutProvider>
-            <GlobalLoadingProvider>
-              {children}
-              <CrossModuleSearch />
-              <GlobalWorkspaceDock />
-              <Toaster />
-              <NotificationDrawer />
-              <NotificationToast />
-            </GlobalLoadingProvider>
-          </KeyboardShortcutProvider>
+          <QueryProvider>
+            <AccentSync />
+            <KeyboardShortcutProvider>
+              <GlobalLoadingProvider>
+                {children}
+                <CrossModuleSearch />
+                <GlobalWorkspaceDock />
+                <Toaster />
+                <NotificationDrawer />
+                <NotificationToast />
+              </GlobalLoadingProvider>
+            </KeyboardShortcutProvider>
+          </QueryProvider>
         </ThemeProvider>
       </body>
     </html>

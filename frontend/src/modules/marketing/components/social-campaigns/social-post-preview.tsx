@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Heart, MessageSquare, Repeat2, Share, MoreHorizontal, ImageIcon } from 'lucide-react';
+import NextImage from 'next/image';
 
 interface SocialPostPreviewProps {
   content?: string;
@@ -68,8 +69,8 @@ export function SocialPostPreview({
           <p className="text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap">{content}</p>
 
           {mediaUrl ? (
-            <div className="mt-3 rounded-lg overflow-hidden">
-              <img src={mediaUrl} alt="Post media" className="w-full object-cover" />
+            <div className="mt-3 rounded-lg overflow-hidden relative aspect-video">
+              <NextImage src={mediaUrl} alt="Post media" className="w-full object-cover" fill sizes="(max-width: 768px) 100vw, 400px" unoptimized />
             </div>
           ) : (
             <div className="mt-3 rounded-lg border-2 border-dashed border-gray-200 dark:border-gray-700 h-48 flex items-center justify-center">

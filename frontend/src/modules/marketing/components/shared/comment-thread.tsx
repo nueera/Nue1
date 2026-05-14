@@ -4,7 +4,7 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Send } from 'lucide-react';
 
 export interface Comment {
@@ -98,13 +98,10 @@ export function CommentThread({ comments, onAdd, className }: CommentThreadProps
           comments.map((comment) => (
             <div key={comment.id} className="flex gap-3">
               <Avatar className="size-8 shrink-0">
-                {comment.avatar ? (
-                  <img src={comment.avatar} alt={comment.author} className="size-8 rounded-full object-cover" />
-                ) : (
-                  <AvatarFallback className="text-xs font-medium bg-muted text-muted-foreground">
+                <AvatarImage src={comment.avatar} alt={comment.author} />
+                <AvatarFallback className="text-xs font-medium bg-muted text-muted-foreground">
                     {getInitials(comment.author)}
                   </AvatarFallback>
-                )}
               </Avatar>
               <div className="flex-1 min-w-0">
                 <div className="flex items-baseline gap-2">

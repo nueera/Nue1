@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
 import { Globe, Image, Save } from 'lucide-react';
 import { motion } from 'framer-motion';
+import NextImage from 'next/image';
 
 interface LandingPageSeoProps {
   pageId: string;
@@ -116,9 +117,9 @@ export function LandingPageSeo({ pageId, initialData, onSave }: LandingPageSeoPr
 
             {/* OG Preview */}
             <div className="border rounded-lg overflow-hidden">
-              <div className="h-32 bg-muted flex items-center justify-center">
+              <div className="h-32 bg-muted flex items-center justify-center relative">
                 {ogImage ? (
-                  <img src={ogImage} alt="Open Graph preview image" className="w-full h-full object-cover" />
+                  <NextImage src={ogImage} alt="Open Graph preview image" className="w-full h-full object-cover" fill sizes="400px" unoptimized />
                 ) : (
                   <p className="text-xs text-muted-foreground">OG Image Preview</p>
                 )}

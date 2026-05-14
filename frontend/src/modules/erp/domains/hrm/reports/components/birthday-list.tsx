@@ -2,6 +2,7 @@
 
 import { Cake, Gift } from 'lucide-react';
 import { EmptyState } from '../../../../shared/components/empty-state';
+import NextImage from 'next/image';
 
 interface BirthdayEmployee {
   id: string;
@@ -109,9 +110,9 @@ function BirthdayCard({ employee, isCurrentMonth }: { employee: BirthdayEmployee
   return (
     <div className={`bg-white/5 backdrop-blur-xl border rounded-xl p-4 text-center hover:bg-white/[0.07] transition-all duration-200 ${isToday ? 'border-module-erp/30 bg-module-erp/5' : 'border-white/10'}`}>
       {/* Avatar */}
-      <div className={`w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center ${isToday ? 'bg-module-erp/20' : 'bg-white/5'}`}>
+      <div className={`w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center relative ${isToday ? 'bg-module-erp/20' : 'bg-white/5'}`}>
         {employee.avatar ? (
-          <img src={employee.avatar} alt={`${employee.firstName} ${employee.lastName}`} className="w-full h-full rounded-full object-cover" />
+          <NextImage src={employee.avatar} alt={`${employee.firstName} ${employee.lastName}`} className="w-full h-full rounded-full object-cover" fill sizes="48px" unoptimized />
         ) : (
           <span className={`text-sm font-semibold ${isToday ? 'text-module-erp' : 'text-foreground'}`}>
             {employee.firstName.charAt(0)}{employee.lastName.charAt(0)}
