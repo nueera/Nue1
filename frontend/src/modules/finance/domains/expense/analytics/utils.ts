@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Analytics Utils — Zoho Expense
 
 export function formatAnalyticNumber(num: string, prefix: string): string {

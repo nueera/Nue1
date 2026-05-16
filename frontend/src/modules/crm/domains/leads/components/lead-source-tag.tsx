@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { LEAD_SOURCES } from '../constants';

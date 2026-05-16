@@ -1,5 +1,5 @@
-// @ts-nocheck
 import type { Money, ExpenseStatus } from '../../../types';
+export type { ExpenseStatus };
 
 export type ExpenseCategory = 'travel' | 'meals' | 'office-supplies' | 'software' | 'marketing' | 'utilities' | 'rent' | 'insurance' | 'professional-services' | 'equipment' | 'other';
 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Tags Query Keys — Cross-product
 
 export const tagsKeys = {

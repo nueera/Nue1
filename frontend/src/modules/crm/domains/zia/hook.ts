@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { ZiaConfig } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { ziaService } from "./service";
 import { ziaKeys } from "./query-keys";

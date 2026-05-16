@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export interface AIPrediction { id: string; model: string; entityType: string; entityId: string; prediction: string; confidence: number; factors: { name: string; weight: number }[]; createdAt: string; }

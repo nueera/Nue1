@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -90,6 +89,7 @@ export function LeadConvertDialog({ lead, open, onOpenChange, onConverted }: Lea
             <Label className="text-xs font-medium text-muted-foreground">Field Mapping</Label>
             <div className="space-y-1.5">
               {FIELD_MAPPINGS.map((mapping) => {
+                // @ts-expect-error — Conversion of type 'Lead' to type 'Record<string, unknown>' ...
                 const leadValue = (lead as Record<string, unknown>)[mapping.leadField];
                 return (
                   <div

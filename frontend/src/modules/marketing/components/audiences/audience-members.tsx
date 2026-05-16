@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -54,6 +53,7 @@ export function AudienceMembers({
   onImport,
 }: AudienceMembersProps) {
   const { data: membersData, isLoading: membersLoading } = useAudienceMembers(audienceId);
+  // @ts-expect-error — Audience type mismatch, needs proper member array
   const data = externalData ?? membersData?.data ?? [];
   const isLoading = externalLoading ?? membersLoading;
 
@@ -61,7 +61,7 @@ export function AudienceMembers({
   const [page, setPage] = useState(1);
   const pageSize = 10;
 
-  const filteredData = data.filter((m) => {
+  const filteredData = data.filter((m: any) => {
     if (search) {
       return m.source.toLowerCase().includes(search.toLowerCase()) || m.contactId.toLowerCase().includes(search.toLowerCase());
     }
@@ -107,7 +107,7 @@ export function AudienceMembers({
               </TableRow>
             </TableHeader>
             <TableBody>
-              {paginatedData.map((member) => (
+              {paginatedData.map((member: any) => (
                 <TableRow key={member.id}>
                   <TableCell className="text-sm">
                     <div className="flex items-center gap-2">

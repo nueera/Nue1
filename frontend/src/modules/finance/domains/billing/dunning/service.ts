@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Dunning Service — Zoho Billing
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -41,4 +40,9 @@ export const dunningService = {
     await new Promise(r => setTimeout(r, 100));
     return { success: true, data: undefined as void };
   },
+  getRuleById: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getAllRules: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  reorderRules: async (...args: unknown[]) => ({ success: true, data: {} }),
+  getEvents: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  retryEvent: async (...args: unknown[]) => ({ success: true, data: {} }),
 };

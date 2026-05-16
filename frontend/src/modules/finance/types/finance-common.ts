@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Finance Common Types
 // Shared types used across all Finance products (Books, Invoice, Billing,

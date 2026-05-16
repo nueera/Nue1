@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Items Service — Zoho Inventory
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -41,3 +40,6 @@ export const inventoryItemsService = {
     return { success: true, data: undefined as void };
   },
 };
+
+/** @deprecated Use inventoryItemsService */
+export const itemsService = inventoryItemsService;

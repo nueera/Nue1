@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { SearchResult } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { searchService } from "./service";
 import { searchKeys } from "./query-keys";

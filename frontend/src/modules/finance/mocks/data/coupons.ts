@@ -1,4 +1,3 @@
-// @ts-nocheck
 export interface MockCoupon {
   id: string;
   code: string;

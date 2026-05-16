@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -10,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { MoneyDisplay } from '../../../components/shared';
+import { MoneyDisplay } from '../../../../components/shared';
 import type { CreditNote } from '../types';
 import { CREDIT_NOTE_STATUSES } from '../constants';
 import { getCreditNoteStatusColor } from '../utils';

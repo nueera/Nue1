@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Benefits Service — Zoho Payroll
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -35,4 +34,5 @@ export const benefitsService = {
     if (!existing) throw new Error('Benefit not found');
     return { success: true, data: { ...existing, ...data } as Benefit };
   },
+  delete: async (...args: unknown[]) => ({ success: true, data: {} }),
 };

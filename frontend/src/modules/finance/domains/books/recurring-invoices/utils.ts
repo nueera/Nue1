@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { RecurringInvoice, RecurringFrequency, RecurringStatus } from './types';
 import { RECURRING_FREQUENCIES, RECURRING_STATUSES } from './constants';
 

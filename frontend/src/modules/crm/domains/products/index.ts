@@ -1,4 +1,3 @@
-// @ts-nocheck
 export * from './types';
 export * from './constants';
 export { productsKeys } from './query-keys';

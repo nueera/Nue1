@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -16,7 +15,7 @@ interface ItemFormProps {
 
 export function ItemForm({ item, onSubmit, onCancel }: ItemFormProps) {
   const { register, handleSubmit, formState: { errors } } = useForm<CreateItemInput>({
-    resolver: zodResolver(createItemSchema),
+    resolver: zodResolver(createItemSchema) as any,
     defaultValues: item
       ? { name: item.name, sku: item.sku, description: item.description, type: item.type, status: item.status, category: item.category, unit: item.unit, rate: item.rate.amount, cost: item.cost.amount, trackInventory: item.trackInventory, stockOnHand: item.stockOnHand, reorderPoint: item.reorderPoint, preferredVendor: item.preferredVendor, tags: item.tags }
       : undefined,

@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { CustomerSegment } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { customeranalyticsService } from "./service";
 import { customerAnalyticsKeys } from "./query-keys";

@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Attachments Service — Finance Shared
 import type { ApiResponse } from '../../../types/finance-common';
@@ -25,4 +24,5 @@ export const attachmentsService = {
     await new Promise(r => setTimeout(r, 100));
     return { success: true, data: undefined as void };
   },
+  getAll: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };

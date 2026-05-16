@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // CustomFields Service — Finance Shared
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -38,4 +37,5 @@ export const customFieldsService = {
     await new Promise(r => setTimeout(r, 100));
     return { success: true, data: undefined as void };
   },
+  getById: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };

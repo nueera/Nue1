@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { AccountType, AccountTier, AccountIndustry } from "./types";
 export const ACCOUNT_TYPES: { value: AccountType; label: string }[] = [
   { value: "customer", label: "Customer" }, { value: "prospect", label: "Prospect" },

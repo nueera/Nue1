@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Notes Query Keys — Cross-product
 
 export const notesKeys = {

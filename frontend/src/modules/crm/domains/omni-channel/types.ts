@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export type ChannelType = "email" | "chat" | "phone" | "social";

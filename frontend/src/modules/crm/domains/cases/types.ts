@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export type CaseStatus = "open" | "in-progress" | "on-hold" | "escalated" | "resolved" | "closed";

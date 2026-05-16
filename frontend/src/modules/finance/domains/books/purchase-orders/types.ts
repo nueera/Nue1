@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { Money, Address, LineItem, OrderStatus } from '../../../types';
 
 export interface PurchaseOrder {

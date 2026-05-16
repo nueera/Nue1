@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Import Utils — Cross-product
 
 export function formatImportNumber(num: string, prefix: string): string {

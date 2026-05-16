@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Warehouses Hooks — Zoho Inventory
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { warehousesService } from './service';

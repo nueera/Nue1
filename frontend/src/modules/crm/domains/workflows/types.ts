@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export type WorkflowTrigger = "record-create" | "record-update" | "record-delete" | "schedule" | "manual";

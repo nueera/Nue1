@@ -1,2 +1,1 @@
-// @ts-nocheck
 export { RecurringInvoiceList } from './recurring-invoice-list';

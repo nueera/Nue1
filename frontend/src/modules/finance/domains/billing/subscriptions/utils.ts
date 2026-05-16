@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Subscriptions Utils — Zoho Billing
 
 export function formatSubscriptionNumber(num: string, prefix: string): string {

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Reports Utils — Zoho Billing
 
 export function formatReportNumber(num: string, prefix: string): string {

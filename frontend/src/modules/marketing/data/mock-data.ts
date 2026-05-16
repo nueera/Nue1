@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Marketing Mock Data Collections
 // Comprehensive mock data for all Marketing module entities

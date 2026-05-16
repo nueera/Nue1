@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 export type AccountType = "customer" | "prospect" | "partner" | "vendor" | "reseller" | "competitor";
 export type AccountTier = "enterprise" | "mid-market" | "smb" | "startup" | "freemium";

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Trips Hooks — Zoho Expense
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { tripsService } from './service';

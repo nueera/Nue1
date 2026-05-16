@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { ChatSession } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { salesiqService } from "./service";
 import { salesiqKeys } from "./query-keys";

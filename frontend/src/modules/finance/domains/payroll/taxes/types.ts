@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Taxes Types — Zoho Payroll
 import type { Money } from '../../../types/finance-common';

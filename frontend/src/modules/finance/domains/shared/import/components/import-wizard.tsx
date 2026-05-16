@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -80,7 +79,7 @@ export function ImportWizard({ entityType, onComplete, onCancel }: ImportWizardP
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground">Map your file columns to the required fields.</p>
             <div className="space-y-2">
-              {templates?.data?.columns?.map((col: { name: string; required: boolean }) => (
+                            {(templates?.data as any)?.columns?.map((col: { name: string; required: boolean }) => (
                 <div key={col.name} className="flex items-center gap-3 p-2 border rounded">
                   <span className="text-sm font-medium w-40">{col.name}{col.required && ' *'}</span>
                   <span className="text-xs text-muted-foreground">←</span>

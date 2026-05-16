@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Cadence } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { cadencesService } from "./service";
 import { cadencesKeys } from "./query-keys";

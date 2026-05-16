@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Employees Service — Zoho Payroll
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -41,3 +40,6 @@ export const payrollEmployeesService = {
     return { success: true, data: undefined as void };
   },
 };
+
+/** @deprecated Use payrollEmployeesService */
+export const employeesService = payrollEmployeesService;

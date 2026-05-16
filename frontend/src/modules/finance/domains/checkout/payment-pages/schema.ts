@@ -1,4 +1,3 @@
-// @ts-nocheck
 // PaymentPages Schema — Zoho Checkout
 import { z } from 'zod';
 

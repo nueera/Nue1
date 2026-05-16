@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { Bell } from 'lucide-react';

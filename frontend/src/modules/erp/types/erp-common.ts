@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // ERP Common Types
 // Shared types used across all ERP products (HRM, Operations, Analytics)

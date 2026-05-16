@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Vendor } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { vendorsService } from "./service";
 import { vendorsKeys } from "./query-keys";

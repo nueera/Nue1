@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Portal } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { portalsService } from "./service";
 import { portalsKeys } from "./query-keys";

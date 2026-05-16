@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Expenses Utils — Zoho Expense
 
 export function formatExpenseNumber(num: string, prefix: string): string {

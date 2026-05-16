@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { ACCOUNT_TYPE_FILTERS, ACCOUNT_TIER_FILTERS } from '../constants';

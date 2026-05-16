@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { Money, LineItem, EstimateStatus } from '../../types/finance-common';
 
 export interface MockEstimate {

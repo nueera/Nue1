@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Expenses Schema — Zoho Expense
 import { z } from 'zod';
 

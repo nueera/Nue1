@@ -1,4 +1,3 @@
-// @ts-nocheck
 // CorporateCards Query Keys — Zoho Expense
 
 export const corporateCardsKeys = {

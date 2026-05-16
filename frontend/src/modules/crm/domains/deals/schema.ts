@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { z } from "zod";
 export const createDealSchema = z.object({
   dealName: z.string().min(1, "Deal name required"), amount: z.number().positive("Amount must be positive"),

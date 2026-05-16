@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export type InvoiceStatus = "draft" | "sent" | "paid" | "partial" | "overdue" | "void";

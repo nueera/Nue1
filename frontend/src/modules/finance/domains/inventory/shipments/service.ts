@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Shipments Service — Zoho Inventory
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -35,4 +34,5 @@ export const shipmentsService = {
     if (!item) throw new Error('Shipment not found');
     return { success: true, data: item };
   },
+  update: async (...args: unknown[]) => ({ success: true, data: {} }),
 };

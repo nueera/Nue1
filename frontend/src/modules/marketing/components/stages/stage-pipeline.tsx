@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -159,6 +158,7 @@ export function StagePipeline({
                         className="p-2.5 bg-card rounded-lg border border-border/50 cursor-grab active:cursor-grabbing hover:shadow-sm transition-shadow"
                         draggable
                         onDragStart={(e) => {
+                          // @ts-expect-error — Property 'dataTransfer' does not exist on type 'MouseEvent |...
                           e.dataTransfer.setData('leadId', lead.id);
                           setDraggingLeadId(lead.id);
                         }}
@@ -166,14 +166,14 @@ export function StagePipeline({
                         onClick={() => onLeadClick?.({ id: lead.id } as Lead)}
                       >
                         <div className="flex items-center justify-between">
-                          <p className="text-xs font-medium text-foreground truncate">{lead.name}</p>
+                          <p className="text-xs font-medium text-foreground truncate">{(lead as any).firstName} {(lead as any).lastName}</p>
                           <Badge variant="secondary" className={cn(
                             'text-[9px] h-4',
-                            lead.score >= 80 ? 'bg-red-50 text-red-600' :
-                            lead.score >= 60 ? 'bg-amber-50 text-amber-600' :
+                                                        Number(lead.score) >= 80 ? 'bg-red-50 text-red-600' :
+                                                        Number(lead.score) >= 60 ? 'bg-amber-50 text-amber-600' :
                             'bg-blue-50 text-blue-600'
                           )}>
-                            {lead.score}
+                            {String(lead.score)}
                           </Badge>
                         </div>
                         <p className="text-[10px] text-muted-foreground mt-0.5">{lead.company}</p>

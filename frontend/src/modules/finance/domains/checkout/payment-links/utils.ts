@@ -1,4 +1,3 @@
-// @ts-nocheck
 // PaymentLinks Utils — Zoho Checkout
 
 export function formatPaymentLinkNumber(num: string, prefix: string): string {

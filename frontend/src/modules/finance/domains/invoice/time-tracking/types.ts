@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // TimeTracking Types — Zoho Invoice
 import type { Money } from '../../../types/finance-common';
@@ -26,3 +25,4 @@ export interface Timer {
   taskId: string | null;
   elapsedSeconds: number;
 }
+export type TimeTracking = TimeLog;

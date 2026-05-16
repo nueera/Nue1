@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // PurchaseOrders Types — Zoho Inventory
 import type { Money, LineItem } from '../../../types/finance-common';
@@ -19,3 +18,4 @@ export interface InvPurchaseOrder {
   notes: string;
   createdAt: string;
 }
+export type PurchaseOrder = InvPurchaseOrder;

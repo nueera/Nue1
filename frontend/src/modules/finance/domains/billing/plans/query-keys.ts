@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Plans Query Keys — Zoho Billing
 
 export const plansKeys = {

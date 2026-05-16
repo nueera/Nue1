@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Search Types — Finance Shared
 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { CalendarDays } from 'lucide-react';
@@ -13,7 +12,7 @@ export function PlanDetailPage() {
       icon={<CalendarDays className="h-6 w-6 text-blue-600" />}
       addLabel="Edit Plan"
     >
-      <PlanDetail />
+      {((PlanDetail as any)({}))}
     </MarketingPageShell>
   );
 }

@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Dashboard } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { dashboardsService } from "./service";
 import { dashboardsKeys } from "./query-keys";

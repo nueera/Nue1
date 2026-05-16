@@ -1,7 +1,6 @@
-// @ts-nocheck
 'use client';
 // Transactions Service — Zoho Checkout
-import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
+import type { ApiResponse, PaginatedResponse, PaginatedRequest, Money } from '../../../types/finance-common';
 import type { Transaction } from './types';
 
 const mockTransactions: Transaction[] = [
@@ -32,4 +31,5 @@ export const transactionsService = {
     if (!existing) throw new Error('Transaction not found');
     return { success: true, data: { ...existing, type: 'refund', status: 'refunded', refund: { refundId: 'REF-' + Date.now(), amount, reason, status: 'processed', initiatedAt: new Date().toISOString() } } };
   },
+  getStats: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };

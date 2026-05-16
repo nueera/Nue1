@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Export Utils — CSV, PDF, Leads, Campaign Report export utilities
 // ============================================================================
@@ -81,6 +80,7 @@ export function exportToPDF(
  * Export leads to CSV
  */
 export function exportLeads(leads: Lead[]): void {
+  // @ts-expect-error — Argument of type 'Lead[]' is not assignable to parameter of ...
   exportToCSV(leads, 'leads-export', [
     { key: 'firstName', label: 'First Name' },
     { key: 'lastName', label: 'Last Name' },

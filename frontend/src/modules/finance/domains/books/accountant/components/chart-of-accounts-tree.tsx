@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -8,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { MoneyDisplay } from '../../../components/shared';
+import { MoneyDisplay } from '../../../../components/shared';
 import type { ChartOfAccount } from '../types';
 import { getAccountTypeLabel, getAccountTypeColor } from '../utils';
 

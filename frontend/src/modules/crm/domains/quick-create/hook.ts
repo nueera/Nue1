@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { QuickCreateConfig } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { quickcreateService } from "./service";
 import { quickCreateKeys } from "./query-keys";

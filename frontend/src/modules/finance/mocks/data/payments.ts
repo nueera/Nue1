@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { Money, PaymentStatus } from '../../types/finance-common';
 
 export interface MockPayment {

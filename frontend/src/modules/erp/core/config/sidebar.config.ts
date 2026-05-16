@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // ERP Navigation Configuration
 // Sidebar navigation for all 3 ERP products
@@ -253,19 +252,8 @@ export const pageTitles: Record<string, string> = {
   'analytics/forecasting': 'Forecasting',
   'analytics/settings': 'Settings',
 
-  // Legacy flat routes (kept for backward compatibility)
+  // Legacy flat routes (kept for backward compatibility — no product prefix)
   dashboard: 'Dashboard',
-  'hrm/employees': 'Employees',
-  'hrm/attendance': 'Attendance',
-  'hrm/leaves': 'Leaves',
-  'hrm/payroll': 'Payroll',
-  'hrm/performance': 'Performance',
-  'hrm/onboarding': 'Onboarding',
-  'hrm/shifts': 'Shifts',
-  'hrm/expenses': 'Expenses',
-  'hrm/recruitment': 'Recruitment',
-  'hrm/loans': 'Loans',
-  'hrm/training': 'Training',
   projects: 'Projects',
   finance: 'Finance',
   reports: 'Reports',

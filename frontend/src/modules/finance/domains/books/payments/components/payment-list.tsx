@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -10,10 +9,10 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { MoneyDisplay, PaymentStatusBadge } from '../../../components/shared';
+import { MoneyDisplay, PaymentStatusBadge } from '../../../../components/shared';
 import type { Payment } from '../types';
 import { getPaymentMethodLabel } from '../utils';
-import type { PaymentStatus } from '../../../types';
+import type { PaymentStatus } from '../types';
 
 interface PaymentListProps { data: Payment[]; isLoading?: boolean; onRowClick?: (p: Payment) => void; onEdit?: (p: Payment) => void; onDelete?: (p: Payment) => void; onCreateNew?: () => void; }
 

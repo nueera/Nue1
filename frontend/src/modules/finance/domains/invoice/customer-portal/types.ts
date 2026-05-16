@@ -1,4 +1,3 @@
-// @ts-nocheck
 // CustomerPortal Types — Zoho Invoice
 import type { Money, Address, LineItem, TaxRate, InvoiceStatus, EstimateStatus, BillStatus, PaymentStatus, SubscriptionStatus, ExpenseStatus, OrderStatus, ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
 
@@ -21,3 +20,4 @@ export interface PortalSession {
   expiresAt: string;
   lastAccessedAt: string;
 }
+export type CustomerPortal = PortalSession;

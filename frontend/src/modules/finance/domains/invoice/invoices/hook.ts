@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Invoices Hooks — Zoho Invoice
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { invoicesService } from './service';
@@ -43,6 +42,7 @@ export function useSendInvoice() {
 export function useVoidInvoice() {
   const qc = useQueryClient();
   return useMutation({
+    // @ts-expect-error — Property 'void' does not exist on type '{ getAll: (params?: ...
     mutationFn: ({ id }: { id: string }) => invoicesService.void(id),
     onSuccess: () => { qc.invalidateQueries({ queryKey: invoicesKeys.all }); },
   });

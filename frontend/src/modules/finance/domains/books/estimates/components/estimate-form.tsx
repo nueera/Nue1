@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useForm, useFieldArray } from 'react-hook-form';

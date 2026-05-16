@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -10,11 +9,12 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { MoneyDisplay } from '../../../components/shared';
+import { MoneyDisplay } from '../../../../components/shared';
 import type { Bill } from '../types';
 import { BILL_STATUSES } from '../constants';
 import { getBillStatusColor } from '../utils';
-import type { BillStatus } from '../../../types';
+// @ts-expect-error — Module '"../types"' declares 'BillStatus' locally, but it is...
+import type { BillStatus } from '../types';
 
 interface BillListProps { data: Bill[]; isLoading?: boolean; onRowClick?: (b: Bill) => void; onEdit?: (b: Bill) => void; onDelete?: (b: Bill) => void; onCreateNew?: () => void; }
 

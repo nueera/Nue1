@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // BatchTracking Types — Zoho Inventory
 import type { Money } from '../../../types/finance-common';

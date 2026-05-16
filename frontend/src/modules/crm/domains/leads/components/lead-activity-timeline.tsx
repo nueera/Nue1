@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { Mail, Phone, MessageSquare, Calendar } from 'lucide-react';

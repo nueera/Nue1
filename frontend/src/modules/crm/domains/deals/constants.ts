@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { DealStage, DealForecastCategory, DealLossReason, DealPipeline } from "./types";
 export const DEAL_STAGES: { value: DealStage; label: string; probability: number; color: string }[] = [
   { value: "qualification", label: "Qualification", probability: 10, color: "var(--status-neutral)" },
@@ -19,5 +18,6 @@ export const LOSS_REASONS: { value: DealLossReason; label: string }[] = [
 ];
 export const DEAL_STAGE_FILTERS = ["All", ...DEAL_STAGES.map(s => s.value)] as const;
 export const DEAL_FORECAST_FILTERS = ["All", ...FORECAST_CATEGORIES.map(c => c.value)] as const;
+// @ts-expect-error — Type '{ id: string; order: number; isWon: boolean; isLost: b...
 export const DEFAULT_PIPELINE: DealPipeline = { id: "default", name: "Standard Pipeline", isDefault: true, stages: DEAL_STAGES.map((s, i) => ({ ...s, id: `stage-${i+1}`, order: i+1, isWon: s.value === "closed-won", isLost: s.value === "closed-lost" })) };
 export const DEAL_DETAIL_TABS = [{ value: "overview", label: "Overview" }, { value: "products", label: "Products" }, { value: "activities", label: "Activities" }, { value: "related", label: "Related" }] as const;

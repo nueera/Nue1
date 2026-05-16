@@ -1,10 +1,9 @@
-// @ts-nocheck
 // Policies Hooks — Zoho Expense
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { policiesService } from './service';
 import { policiesKeys } from './query-keys';
 import type { PaginatedRequest } from '../../../types/finance-common';
-import type { Policie } from './types';
+import type { Policy } from './types';
 
 export function usePoliciesList(params?: PaginatedRequest) {
   return useQuery({ queryKey: policiesKeys.list((params || {}) as Record<string, unknown>), queryFn: () => policiesService.getAll(params) });
@@ -21,7 +20,7 @@ export function useCreatePolicie() {
 
 export function useUpdatePolicie() {
   const qc = useQueryClient();
-  return useMutation({ mutationFn: ({ id, data }: { id: string; data: Partial<Policie> }) => policiesService.update(id, data), onSuccess: () => { qc.invalidateQueries({ queryKey: policiesKeys.all }); } });
+  return useMutation({ mutationFn: ({ id, data }: { id: string; data: Partial<Policy> }) => policiesService.update(id, data), onSuccess: () => { qc.invalidateQueries({ queryKey: policiesKeys.all }); } });
 }
 
 export function useDeletePolicie() {

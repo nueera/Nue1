@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Finance Common Constants
 // Payment terms, tax rates, currencies, statuses used across all products

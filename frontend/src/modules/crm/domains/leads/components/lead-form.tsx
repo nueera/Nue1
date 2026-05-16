@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -16,7 +15,7 @@ interface LeadFormProps {
 
 export function LeadForm({ lead, onSubmit, onCancel }: LeadFormProps) {
   const { register, handleSubmit, formState: { errors } } = useForm<CreateLeadInput>({
-    resolver: zodResolver(createLeadSchema),
+    resolver: zodResolver(createLeadSchema) as any,
     defaultValues: lead
       ? {
           firstName: lead.firstName,

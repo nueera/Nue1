@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Faker.js seed + locale config for Marketing module
 // Will be used when generating realistic mock data
 

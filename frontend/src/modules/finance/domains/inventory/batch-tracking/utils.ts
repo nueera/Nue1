@@ -1,4 +1,3 @@
-// @ts-nocheck
 // BatchTracking Utils — Zoho Inventory
 
 export function formatBatchTrackingNumber(num: string, prefix: string): string {

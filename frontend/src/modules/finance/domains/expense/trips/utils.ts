@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Trips Utils — Zoho Expense
 
 export function formatTripNumber(num: string, prefix: string): string {

@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Products Service — Zoho Billing
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -41,3 +40,6 @@ export const billingProductsService = {
     return { success: true, data: undefined as void };
   },
 };
+
+/** @deprecated Use billingProductsService */
+export const productsService = billingProductsService;

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Finance API Endpoints
 // Map of all Finance API endpoints organized by product.

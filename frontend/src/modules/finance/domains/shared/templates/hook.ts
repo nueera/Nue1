@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Templates Hooks — Cross-product
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { templatesService } from './service';

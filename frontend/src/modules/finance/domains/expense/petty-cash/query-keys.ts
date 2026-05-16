@@ -1,4 +1,3 @@
-// @ts-nocheck
 // PettyCash Query Keys — Zoho Expense
 
 export const pettyCashKeys = {

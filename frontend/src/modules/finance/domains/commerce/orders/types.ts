@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Orders Types — Zoho Commerce
 import type { Money, Address, OrderStatus } from '../../../types/finance-common';
@@ -34,3 +33,4 @@ export interface CommerceOrder {
   notes: string;
   createdAt: string;
 }
+export type Order = CommerceOrder;

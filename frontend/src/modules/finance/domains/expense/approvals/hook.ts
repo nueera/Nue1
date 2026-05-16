@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Hooks — Auto-generated
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { approvalsService } from './service';
@@ -19,6 +18,7 @@ export function useGetHistory(params?: Record<string, unknown>) {
 export function useApprove() {
   const qc = useQueryClient();
   return useMutation({
+    // @ts-expect-error — A spread argument must either have a tuple type or be passed...
     mutationFn: (args: { id: string, comments?: string }) => approvalsService.approve(...Object.values(args)),
     onSuccess: () => { qc.invalidateQueries({ queryKey: approvalsKeys.all }); },
   });
@@ -26,6 +26,7 @@ export function useApprove() {
 export function useReject() {
   const qc = useQueryClient();
   return useMutation({
+    // @ts-expect-error — A spread argument must either have a tuple type or be passed...
     mutationFn: (args: { id: string, comments?: string }) => approvalsService.reject(...Object.values(args)),
     onSuccess: () => { qc.invalidateQueries({ queryKey: approvalsKeys.all }); },
   });
@@ -33,6 +34,7 @@ export function useReject() {
 export function useReturn() {
   const qc = useQueryClient();
   return useMutation({
+    // @ts-expect-error — Property 'return' does not exist on type '{ getAll: (params?...
     mutationFn: (args: { id: string, comments?: string }) => approvalsService.return(...Object.values(args)),
     onSuccess: () => { qc.invalidateQueries({ queryKey: approvalsKeys.all }); },
   });

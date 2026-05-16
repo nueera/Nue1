@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -14,8 +13,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { PAYMENT_STATUS_CONFIG } from '../../../constants/finance-common';
-import type { Money, PaymentStatus } from '../../../types/finance-common';
+import { PAYMENT_STATUS_CONFIG } from '../../../../constants/finance-common';
+import type { Money, PaymentStatus } from '../../../../types/finance-common';
 import type { Transaction } from '../types';
 import type { TransactionType, CheckoutTransaction } from '../types';
 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { ReportList } from './report-list';
 export { ReportDetail } from './report-detail';
 export { ReportBuilder } from './report-builder';

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Finance Module Configuration
 // Feature flags, module settings, and product configuration

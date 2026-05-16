@@ -1,4 +1,3 @@
-// @ts-nocheck
 // TimeTracking Query Keys — Zoho Invoice
 
 export const timeTrackingKeys = {

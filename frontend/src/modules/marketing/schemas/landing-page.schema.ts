@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Landing Page Schemas — Zod v4 validation
 // ============================================================================
@@ -21,6 +20,7 @@ export const pageSectionSchema = z.object({
   ]),
   title: z.string().optional(),
   content: z.string().optional(),
+  // @ts-expect-error — Expected 2-3 arguments, but got 1.
   config: z.record(z.unknown()).default({}),
   order: z.number().min(0),
 });

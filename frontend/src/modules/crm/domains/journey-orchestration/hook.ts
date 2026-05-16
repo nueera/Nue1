@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Journey } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { journeyorchestrationService } from "./service";
 import { journeyKeys } from "./query-keys";

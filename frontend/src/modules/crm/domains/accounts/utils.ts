@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { Account, AccountTier, AccountIndustry } from "./types"; import { ACCOUNT_TIERS, ACCOUNT_INDUSTRIES } from "./constants";
 export function getAccountTier(tier: AccountTier): string { return ACCOUNT_TIERS.find(t => t.value === tier)?.label ?? tier; }
 export function computeAccountHealth(account: Account): number { let score = 50; if (account.annualRevenue > 1000000) score += 15; if (account.type === "customer") score += 10; if (account.tier === "enterprise") score += 10; return Math.min(100, Math.max(0, score)); }

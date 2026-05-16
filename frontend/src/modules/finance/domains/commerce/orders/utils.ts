@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Orders Utils — Zoho Commerce
 
 export function formatOrderNumber(num: string, prefix: string): string {

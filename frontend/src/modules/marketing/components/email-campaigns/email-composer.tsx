@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -110,7 +109,7 @@ export function EmailComposer({ value = '', onChange, className }: EmailComposer
         <MergeFieldPicker onSelect={handleMergeField} className="h-8 text-xs" />
 
         <TemplateSelector
-          onSelect={(t) => handleTemplateSelect(t as { id: string; contentHtml?: string })}
+          onChange={(value, template) => handleTemplateSelect(template as { id: string; contentHtml?: string })}
           className="h-8 text-xs"
         />
 

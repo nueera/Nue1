@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Planner Constants
 // Activity types, budget categories, and configuration for Marketing Planner

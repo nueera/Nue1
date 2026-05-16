@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -17,7 +16,7 @@ interface DealFormProps {
 
 export function DealForm({ deal, onSubmit, onCancel }: DealFormProps) {
   const { register, handleSubmit, formState: { errors } } = useForm<CreateDealInput>({
-    resolver: zodResolver(createDealSchema),
+    resolver: zodResolver(createDealSchema) as any,
     defaultValues: deal
       ? {
           dealName: deal.dealName,

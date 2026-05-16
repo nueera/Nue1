@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Items Types — Zoho Inventory
 import type { Money } from '../../../types/finance-common';
@@ -29,3 +28,4 @@ export interface InventoryItem {
   createdAt: string;
   updatedAt: string;
 }
+export type Item = InventoryItem;

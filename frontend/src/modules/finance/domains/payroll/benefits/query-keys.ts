@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Benefits Query Keys — Zoho Payroll
 
 export const benefitsKeys = {

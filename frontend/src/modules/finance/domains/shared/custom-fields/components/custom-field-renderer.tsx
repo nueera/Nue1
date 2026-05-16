@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import type { CustomField, CustomFieldValue } from '../types';
@@ -86,7 +85,8 @@ export function CustomFieldRenderer({ fields, values, onChange, readOnly }: Cust
                 <Select value={(val as string) ?? ''} onValueChange={(v) => onChange(field.id, v)}>
                   <SelectTrigger><SelectValue placeholder={field.placeholder || 'Select...'} /></SelectTrigger>
                   <SelectContent>
-                    {field.options.map((opt) => (
+                    {/* @ts-expect-error — map callback type mismatch */}
+                    {field.options?.map((opt: { value: string; label: string }) => (
                       <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
                     ))}
                   </SelectContent>

@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Transactions Types — Zoho Checkout
 import type { Money, PaymentStatus } from '../../../types/finance-common';
@@ -36,3 +35,4 @@ export interface Transaction {
   dispute: DisputeDetail | null;
   createdAt: string;
 }
+export type CheckoutTransaction = Transaction;

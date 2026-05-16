@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Campaign Constants
 // Statuses, types, channels, and configuration for Campaigns domain

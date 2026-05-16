@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // ExpenseReports Types — Zoho Expense
 import type { Money, ExpenseStatus } from '../../../types/finance-common';
@@ -25,3 +24,4 @@ export interface ExpenseReport {
   reimbursedDate: string;
   createdAt: string;
 }
+export type ExpenseReportStatus = ReportStatus;

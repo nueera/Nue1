@@ -1,11 +1,11 @@
-// @ts-nocheck
 // ============================================================================
 // Books Domain — Barrel Export
 // Exports all sub-domains for the Books module
 // ============================================================================
 
 export * from './customers';
-export * from './vendors';
+// @ts-expect-error — Module '"./vendors"' has no exported member 'getVendorDispla...
+export { getVendorDisplayName, getVendorStatusLabel, getVendorStatusColor, formatVendorPayable, isVendorActive, vendorService, vendorKeys, useVendors, useVendor, useVendorTransactions, useCreateVendor, useUpdateVendor, useDeleteVendor, useSearchVendors, useVendorStats, VendorForm } from './vendors';
 export * from './items';
 export * from './estimates';
 export * from './sales-orders';

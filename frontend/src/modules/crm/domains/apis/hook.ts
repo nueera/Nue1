@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { APIEndpoint } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { apisService } from "./service";
 import { apisKeys } from "./query-keys";

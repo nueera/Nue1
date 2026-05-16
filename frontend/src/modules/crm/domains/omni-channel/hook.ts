@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { OmniChannelConfig } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { omnichannelService } from "./service";
 import { omniChannelKeys } from "./query-keys";

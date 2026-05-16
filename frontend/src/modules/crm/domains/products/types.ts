@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export type ProductCategory = "hardware" | "software" | "service" | "subscription" | "other";

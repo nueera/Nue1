@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Packages Utils — Zoho Inventory
 
 export function formatPackageNumber(num: string, prefix: string): string {

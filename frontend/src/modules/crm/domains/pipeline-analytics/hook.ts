@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { PipelineSnapshot } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { pipelineanalyticsService } from "./service";
 import { pipelineAnalyticsKeys } from "./query-keys";

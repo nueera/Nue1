@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Contacts Hooks — Cross-product
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { contactsService } from './service';

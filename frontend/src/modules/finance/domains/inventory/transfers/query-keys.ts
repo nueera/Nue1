@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Transfers Query Keys — Zoho Inventory
 
 export const transfersKeys = {

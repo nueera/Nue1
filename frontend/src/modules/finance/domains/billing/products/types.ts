@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Products Types — Zoho Billing
 import type { Money } from '../../../types/finance-common';
@@ -15,3 +14,5 @@ export interface BillingProduct {
   createdAt: string;
   updatedAt: string;
 }
+// Type aliases for convenience
+export type Product = BillingProduct;

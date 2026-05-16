@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Orders Query Keys — Zoho Commerce
 
 export const ordersKeys = {

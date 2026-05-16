@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { CpqDashboard } from './cpq-dashboard';
 export { ProductRuleList } from './product-rule-list';
 export { ProductRuleEditor } from './product-rule-editor';

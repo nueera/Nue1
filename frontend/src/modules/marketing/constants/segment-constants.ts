@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Segment Constants
 // Condition operators, field types, and configuration for Segments domain

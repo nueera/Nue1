@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Contacts Utils — Cross-product
 
 export function formatContactNumber(num: string, prefix: string): string {

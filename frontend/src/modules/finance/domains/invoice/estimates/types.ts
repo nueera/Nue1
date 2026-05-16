@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Estimates Types — Zoho Invoice
 import type { Money, LineItem, EstimateStatus } from '../../../types/finance-common';
@@ -22,3 +21,4 @@ export interface InvoiceEstimate {
   createdAt: string;
   updatedAt: string;
 }
+export type Estimate = InvoiceEstimate;

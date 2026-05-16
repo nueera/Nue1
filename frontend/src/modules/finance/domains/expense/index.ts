@@ -1,8 +1,8 @@
-// @ts-nocheck
 'use client';
 // Zoho Expense — Barrel Export
 export * from './expenses';
-export * from './expense-reports';
+export type { ExpenseReport, ReportStatus } from './expense-reports';
+export { expenseReportsService } from './expense-reports';
 export * from './trips';
 export * from './per-diem';
 export * from './mileage';

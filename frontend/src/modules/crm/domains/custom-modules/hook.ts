@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { CustomModule } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { custommodulesService } from "./service";
 import { customModulesKeys } from "./query-keys";

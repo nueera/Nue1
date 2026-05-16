@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Contacts Types — Finance Shared
 import type { Address } from '../../../types/finance-common';

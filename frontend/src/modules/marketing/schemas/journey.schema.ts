@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Journey Schemas — Zod v4 validation
 // ============================================================================
@@ -24,6 +23,7 @@ export const journeyNodeSchema = z.object({
     'notification',
   ]),
   label: z.string().min(1, 'Node label is required'),
+  // @ts-expect-error — Expected 2-3 arguments, but got 1.
   config: z.record(z.unknown()).default({}),
   position: z.object({
     x: z.number(),

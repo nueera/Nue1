@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Blueprint } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { blueprintService } from "./service";
 import { blueprintKeys } from "./query-keys";

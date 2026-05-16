@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Team } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { teamsService } from "./service";
 import { teamsKeys } from "./query-keys";

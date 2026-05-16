@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { PurchaseOrder } from './types';
 import type { OrderStatus } from '../../../types';
 import { ORDER_STATUS_CONFIG } from '../../../constants/finance-common';

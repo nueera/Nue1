@@ -1,4 +1,3 @@
-// @ts-nocheck
 // PayRuns Schema — Zoho Payroll
 import { z } from 'zod';
 

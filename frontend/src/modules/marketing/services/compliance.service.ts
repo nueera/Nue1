@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Compliance Service — getConsents, updateConsent, handleGdprRequest, getUnsubscribes
 // ============================================================================

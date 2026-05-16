@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { LeadList } from './lead-list';
 export { LeadCard } from './lead-card';
 export { LeadDetail } from './lead-detail';

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Transactions Hooks — Zoho Checkout
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { transactionsService } from './service';

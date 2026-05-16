@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { RecurringFrequency, RecurringStatus } from './types';
 
 export const RECURRING_FREQUENCIES: { value: RecurringFrequency; label: string }[] = [

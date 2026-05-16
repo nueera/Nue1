@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Benefits Types — Zoho Payroll
 import type { Money } from '../../../types/finance-common';

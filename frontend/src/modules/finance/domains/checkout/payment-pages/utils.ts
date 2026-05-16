@@ -1,4 +1,3 @@
-// @ts-nocheck
 // PaymentPages Utils — Zoho Checkout
 
 export function formatPaymentPageNumber(num: string, prefix: string): string {

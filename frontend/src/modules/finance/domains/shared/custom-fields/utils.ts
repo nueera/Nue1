@@ -1,4 +1,3 @@
-// @ts-nocheck
 // CustomFields Utils — Cross-product
 
 export function formatCustomFieldNumber(num: string, prefix: string): string {

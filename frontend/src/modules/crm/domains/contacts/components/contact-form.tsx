@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -16,7 +15,7 @@ interface ContactFormProps {
 
 export function ContactForm({ contact, onSubmit, onCancel }: ContactFormProps) {
   const { register, handleSubmit, formState: { errors } } = useForm<CreateContactInput>({
-    resolver: zodResolver(createContactSchema),
+    resolver: zodResolver(createContactSchema) as any,
     defaultValues: contact
       ? {
           firstName: contact.firstName,

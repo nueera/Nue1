@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { EmailMessage } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { emailService } from "./service";
 import { emailKeys } from "./query-keys";

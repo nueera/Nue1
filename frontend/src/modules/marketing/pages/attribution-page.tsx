@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { PieChart } from 'lucide-react';

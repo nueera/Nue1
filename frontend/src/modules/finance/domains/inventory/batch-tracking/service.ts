@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // BatchTracking Service — Zoho Inventory
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -34,4 +33,5 @@ export const batchTrackingService = {
     await new Promise(r => setTimeout(r, 100));
     return { success: true, data: [{ id: 'sn-1', serialNumber: 'SN-001', itemId, itemName: 'Widget Pro', warehouseId: 'wh-1', status: 'in_stock', purchaseDate: '2024-01-01', saleDate: '' }] };
   },
+  getExpiringBatches: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Reports Utils — Zoho Inventory
 
 export function formatReportNumber(num: string, prefix: string): string {

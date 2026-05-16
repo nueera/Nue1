@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { Quote } from "./types";
 
-export function getQuoteLabel(item: Quote): string { return item.name || item.id; }
+export function getQuoteLabel(item: Quote): string { return item.subject || item.id; }

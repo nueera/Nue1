@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Templates Types — Finance Shared
 

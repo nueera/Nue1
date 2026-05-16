@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { CanvasList } from './canvas-list';
 export { CanvasEditor } from './canvas-editor';
 export { CanvasComponentPalette } from './canvas-component-palette';

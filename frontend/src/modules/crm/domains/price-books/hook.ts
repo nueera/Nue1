@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { PriceBook } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { pricebooksService } from "./service";
 import { priceBooksKeys } from "./query-keys";

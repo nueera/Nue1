@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // StockAdjustments Service — Zoho Inventory
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -30,4 +29,5 @@ export const stockAdjustmentsService = {
     const item = { ...mockAdjustments[0], id: 'sa-' + Date.now(), ...data } as StockAdjustment;
     return { success: true, data: item };
   },
+  update: async (...args: unknown[]) => ({ success: true, data: {} }),
 };

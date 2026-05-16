@@ -1,4 +1,3 @@
-// @ts-nocheck
 // HostedPages Utils — Zoho Billing
 
 export function formatHostedPageNumber(num: string, prefix: string): string {

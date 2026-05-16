@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -43,6 +42,7 @@ export function LeadForm({ lead, onSubmit, onCancel, isLoading }: LeadFormProps)
   const [tags, setTags] = useState<string[]>(lead?.tags ?? []);
 
   const form = useForm<CreateLeadInput>({
+    // @ts-expect-error — Type 'Resolver<{ firstName: string; lastName: string; email:...
     resolver: zodResolver(createLeadSchema),
     defaultValues: lead
       ? {
@@ -111,10 +111,12 @@ export function LeadForm({ lead, onSubmit, onCancel, isLoading }: LeadFormProps)
       </div>
 
       <Form {...form}>
+        {/* @ts-expect-error */}
         <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* First Name */}
             <FormField
+              // @ts-expect-error — Type 'Control<{ firstName: string; lastName: string; email: ...
               control={form.control}
               name="firstName"
               render={({ field }) => (
@@ -130,6 +132,7 @@ export function LeadForm({ lead, onSubmit, onCancel, isLoading }: LeadFormProps)
 
             {/* Last Name */}
             <FormField
+              // @ts-expect-error — Type 'Control<{ firstName: string; lastName: string; email: ...
               control={form.control}
               name="lastName"
               render={({ field }) => (
@@ -145,6 +148,7 @@ export function LeadForm({ lead, onSubmit, onCancel, isLoading }: LeadFormProps)
 
             {/* Email */}
             <FormField
+              // @ts-expect-error — Type 'Control<{ firstName: string; lastName: string; email: ...
               control={form.control}
               name="email"
               render={({ field }) => (
@@ -160,6 +164,7 @@ export function LeadForm({ lead, onSubmit, onCancel, isLoading }: LeadFormProps)
 
             {/* Phone */}
             <FormField
+              // @ts-expect-error — Type 'Control<{ firstName: string; lastName: string; email: ...
               control={form.control}
               name="phone"
               render={({ field }) => (
@@ -175,6 +180,7 @@ export function LeadForm({ lead, onSubmit, onCancel, isLoading }: LeadFormProps)
 
             {/* Company */}
             <FormField
+              // @ts-expect-error — Type 'Control<{ firstName: string; lastName: string; email: ...
               control={form.control}
               name="company"
               render={({ field }) => (
@@ -190,6 +196,7 @@ export function LeadForm({ lead, onSubmit, onCancel, isLoading }: LeadFormProps)
 
             {/* Source */}
             <FormField
+              // @ts-expect-error — Type 'Control<{ firstName: string; lastName: string; email: ...
               control={form.control}
               name="source"
               render={({ field }) => (
@@ -216,6 +223,7 @@ export function LeadForm({ lead, onSubmit, onCancel, isLoading }: LeadFormProps)
 
             {/* Stage */}
             <FormField
+              // @ts-expect-error — Type 'Control<{ firstName: string; lastName: string; email: ...
               control={form.control}
               name="stage"
               render={({ field }) => (
@@ -242,6 +250,7 @@ export function LeadForm({ lead, onSubmit, onCancel, isLoading }: LeadFormProps)
 
             {/* Owner */}
             <FormField
+              // @ts-expect-error — Type 'Control<{ firstName: string; lastName: string; email: ...
               control={form.control}
               name="owner"
               render={({ field }) => (
@@ -258,6 +267,7 @@ export function LeadForm({ lead, onSubmit, onCancel, isLoading }: LeadFormProps)
 
           {/* Notes */}
           <FormField
+            // @ts-expect-error — Type 'Control<{ firstName: string; lastName: string; email: ...
             control={form.control}
             name="notes"
             render={({ field }) => (

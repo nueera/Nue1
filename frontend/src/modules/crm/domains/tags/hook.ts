@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Tag } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { tagsService } from "./service";
 import { tagsKeys } from "./query-keys";

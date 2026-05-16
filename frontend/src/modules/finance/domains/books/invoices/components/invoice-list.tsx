@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -10,10 +9,11 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { InvoiceStatusBadge, MoneyDisplay } from '../../../components/shared';
+import { InvoiceStatusBadge, MoneyDisplay } from '../../../../components/shared';
 import type { Invoice } from '../types';
 import { INVOICE_STATUSES } from '../constants';
-import type { InvoiceStatus } from '../../../types';
+// @ts-expect-error — Module '"../types"' declares 'InvoiceStatus' locally, but it...
+import type { InvoiceStatus } from '../types';
 
 interface InvoiceListProps { data: Invoice[]; isLoading?: boolean; onRowClick?: (i: Invoice) => void; onEdit?: (i: Invoice) => void; onDelete?: (i: Invoice) => void; onCreateNew?: () => void; onSend?: (i: Invoice) => void; onRecordPayment?: (i: Invoice) => void; onVoid?: (i: Invoice) => void; }
 

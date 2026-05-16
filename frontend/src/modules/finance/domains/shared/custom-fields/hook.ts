@@ -1,4 +1,3 @@
-// @ts-nocheck
 // CustomFields Hooks — Cross-product
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { customFieldsService } from './service';

@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { CrmSyncConfig } from './crm-sync-config';
 export { CrmFieldMapping } from './crm-field-mapping';
 export { CrmSyncStatus } from './crm-sync-status';

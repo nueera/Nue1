@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { DelugeFunction } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { functionsService } from "./service";
 import { functionsKeys } from "./query-keys";

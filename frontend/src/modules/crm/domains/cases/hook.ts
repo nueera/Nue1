@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Case } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { casesService } from "./service";
 import { casesKeys } from "./query-keys";

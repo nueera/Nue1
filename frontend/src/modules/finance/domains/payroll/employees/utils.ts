@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Employees Utils — Zoho Payroll
 
 export function formatEmployeeNumber(num: string, prefix: string): string {

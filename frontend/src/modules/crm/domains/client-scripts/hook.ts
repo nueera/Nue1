@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { ClientScript } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { clientscriptsService } from "./service";
 import { clientScriptsKeys } from "./query-keys";

@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { UserPlus } from 'lucide-react';
@@ -13,7 +12,7 @@ export function LeadFormPage() {
       icon={<UserPlus className="h-6 w-6 text-violet-600" />}
       addLabel="Save Lead"
     >
-      <LeadForm />
+      {((LeadForm as any)({}))}
     </MarketingPageShell>
   );
 }

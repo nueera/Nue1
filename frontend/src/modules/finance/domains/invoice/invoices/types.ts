@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Invoices Types — Zoho Invoice
 import type { Money, LineItem, InvoiceStatus } from '../../../types/finance-common';
@@ -26,3 +25,5 @@ export interface InvoiceInvoice {
   createdAt: string;
   updatedAt: string;
 }
+export type Invoice = InvoiceInvoice;
+export interface InvoicePayment { id: string; invoiceId: string; amount: { amount: number; currency: string }; date: string; method: string; reference: string; }

@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Role } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { rolesprofilesService } from "./service";
 import { rolesKeys } from "./query-keys";

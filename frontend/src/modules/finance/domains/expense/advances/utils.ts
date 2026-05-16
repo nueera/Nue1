@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Advances Utils — Zoho Expense
 
 export function formatAdvanceNumber(num: string, prefix: string): string {

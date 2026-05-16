@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Addons Utils — Zoho Billing
 
 export function formatAddonNumber(num: string, prefix: string): string {

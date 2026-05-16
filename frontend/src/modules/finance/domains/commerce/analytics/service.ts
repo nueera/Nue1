@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Analytics Service — Zoho Commerce
 import type { ApiResponse } from '../../../types/finance-common';
@@ -32,4 +31,13 @@ export const commerceAnalyticsService = {
     await new Promise(r => setTimeout(r, 200));
     return { success: true, data: mockAnalytics };
   },
+  getOverview: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getProductPerformance: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getSalesMetrics: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getTrafficAnalytics: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getCustomerInsights: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getConversionFunnel: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };
+
+/** @deprecated Use commerceAnalyticsService */
+export const analyticsService = commerceAnalyticsService;

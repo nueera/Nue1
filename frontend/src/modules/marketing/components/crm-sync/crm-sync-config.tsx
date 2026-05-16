@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -63,6 +62,7 @@ export function CrmSyncConfig({ config: externalConfig, onSave }: CrmSyncConfigP
 
           <div className="space-y-2">
             <Label>CRM Platform</Label>
+            {/* @ts-expect-error */}
             <Select value={crmType} onValueChange={setCrmType}>
               <SelectTrigger><SelectValue /></SelectTrigger>
               <SelectContent>{CRM_TYPES.map((t) => <SelectItem key={t.value} value={t.value}>{t.label}</SelectItem>)}</SelectContent>
@@ -81,6 +81,7 @@ export function CrmSyncConfig({ config: externalConfig, onSave }: CrmSyncConfigP
 
           <div className="space-y-2">
             <Label>Sync Frequency</Label>
+            {/* @ts-expect-error */}
             <Select value={syncFrequency} onValueChange={setSyncFrequency}>
               <SelectTrigger><SelectValue /></SelectTrigger>
               <SelectContent>

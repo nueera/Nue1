@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { TrendingUp } from 'lucide-react';
@@ -13,7 +12,7 @@ export function AiGrowthIntelligencePage() {
       icon={<TrendingUp className="h-6 w-6 text-violet-600" />}
       addLabel="Generate Insights"
     >
-      <AIGrowthInsight />
+      {((AIGrowthInsight as any)({}))}
     </MarketingPageShell>
   );
 }

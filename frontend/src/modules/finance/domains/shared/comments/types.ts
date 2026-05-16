@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Comments Types — Cross-product
 import type { Money, Address, LineItem, TaxRate, InvoiceStatus, EstimateStatus, BillStatus, PaymentStatus, SubscriptionStatus, ExpenseStatus, OrderStatus, ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
 

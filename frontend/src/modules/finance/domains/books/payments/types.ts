@@ -1,5 +1,5 @@
-// @ts-nocheck
 import type { Money, PaymentStatus } from '../../../types/finance-common';
+export type { PaymentStatus };
 
 export type PaymentMethod = 'cash' | 'check' | 'bank-transfer' | 'credit-card' | 'online' | 'other';
 

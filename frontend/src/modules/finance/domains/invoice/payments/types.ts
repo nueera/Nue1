@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Payments Types — Zoho Invoice
 import type { Money, PaymentStatus } from '../../../types/finance-common';
@@ -21,3 +20,4 @@ export interface InvoicePayment {
   sendThankYouEmail: boolean;
   createdAt: string;
 }
+export type Payment = InvoicePayment;

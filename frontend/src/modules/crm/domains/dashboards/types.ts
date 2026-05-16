@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export type WidgetType = "metric" | "chart" | "list" | "funnel" | "pipeline";

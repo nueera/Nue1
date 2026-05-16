@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Marketing UI Store
 // Global Zustand store with persist for the Marketing module.

@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { FlaskConical } from 'lucide-react';

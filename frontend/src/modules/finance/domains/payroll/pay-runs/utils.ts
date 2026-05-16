@@ -1,4 +1,3 @@
-// @ts-nocheck
 // PayRuns Utils — Zoho Payroll
 
 export function formatPayRunNumber(num: string, prefix: string): string {

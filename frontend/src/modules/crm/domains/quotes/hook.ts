@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Quote } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { quotesService } from "./service";
 import { quotesKeys } from "./query-keys";

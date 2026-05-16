@@ -1,3 +1,5 @@
-// @ts-nocheck
 import { crmKeys } from "../../core/query-keys";
-export const sandboxKeys = crmKeys.sandbox;
+export const sandboxKeys = {
+  ...crmKeys.sandbox,
+  list: (filters: Record<string, unknown>) => crmKeys.sandbox.lists(),
+};

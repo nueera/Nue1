@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Employees Types — Zoho Payroll
 import type { Money, Address } from '../../../types/finance-common';
@@ -30,3 +29,4 @@ export interface PayrollEmployee {
   taxId: string;
   createdAt: string;
 }
+export type Employee = PayrollEmployee;

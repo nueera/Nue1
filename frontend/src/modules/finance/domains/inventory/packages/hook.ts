@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Packages Hooks — Zoho Inventory
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { packagesService } from './service';

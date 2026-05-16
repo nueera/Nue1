@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { ExpenseCategory, ExpenseStatus } from './types';
 import { EXPENSE_STATUS_CONFIG } from '../../../constants/finance-common';
 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // PettyCash Service — Zoho Expense
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -39,4 +38,10 @@ export const pettyCashService = {
     await new Promise(r => setTimeout(r, 100));
     return { success: true, data: undefined as void };
   },
+  getAllFunds: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  replenish: async (...args: unknown[]) => ({ data: [] }),
+  getFundById: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  closeFund: async (...args: unknown[]) => ({ data: [] }),
+  disburse: async (...args: unknown[]) => ({ data: [] }),
+  getTransactions: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };

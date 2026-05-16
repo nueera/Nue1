@@ -5,6 +5,7 @@
 // ============================================================================
 
 import '@testing-library/jest-dom/vitest';
+import { vi } from 'vitest';
 
 // Stub IntersectionObserver (used by many scroll-area / lazy components)
 class MockIntersectionObserver {

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { Money, Address, LineItem, OrderStatus } from '../../../types/finance-common';
 
 export interface SalesOrder {

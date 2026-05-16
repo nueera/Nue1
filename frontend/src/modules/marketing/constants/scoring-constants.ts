@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Scoring Constants
 // Criteria types, default rules, and configuration for Lead Scoring domain

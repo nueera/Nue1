@@ -1,4 +1,3 @@
-// @ts-nocheck
 // CustomerPortal Utils — Zoho Invoice
 
 export function formatCustomerPortalNumber(num: string, prefix: string): string {

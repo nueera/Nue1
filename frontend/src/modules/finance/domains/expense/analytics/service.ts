@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Analytics Service — Zoho Expense
 import type { ApiResponse } from '../../../types/finance-common';
@@ -34,4 +33,13 @@ export const expenseAnalyticsService = {
     await new Promise(r => setTimeout(r, 200));
     return { success: true, data: mockAnalytics };
   },
+  getOverview: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getMonthlyTrend: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getCategoryBreakdown: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getPolicyViolations: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getApprovalMetrics: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getEmployeeSpending: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };
+
+/** @deprecated Use expenseAnalyticsService */
+export const analyticsService = expenseAnalyticsService;

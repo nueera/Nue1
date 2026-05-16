@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { CRMSettings } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { settingsService } from "./service";
 import { settingsKeys } from "./query-keys";

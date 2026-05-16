@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Currency Utilities
 // formatMoney, parseMoney, and related currency formatting helpers.
@@ -187,6 +186,21 @@ export function moneyMultiply(money: Money, factor: number): Money {
     amount: roundToPrecision(money.amount * factor, money.currency),
     currency: money.currency,
   };
+}
+
+/**
+ * Format a tax rate as a percentage string.
+ *
+ * @example
+ * formatTaxRate(0.15)    // "15%"
+ * formatTaxRate(0.075)   // "7.5%"
+ * formatTaxRate(0.2, 1)  // "20.0%"
+ */
+export function formatTaxRate(rate: number, minimumFractionDigits: number = 0): string {
+  return (rate * 100).toLocaleString('en-US', {
+    minimumFractionDigits,
+    maximumFractionDigits: 2,
+  }) + '%';
 }
 
 /**

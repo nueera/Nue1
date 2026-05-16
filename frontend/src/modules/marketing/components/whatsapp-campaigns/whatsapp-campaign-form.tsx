@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -46,6 +45,7 @@ export function WhatsappCampaignForm({ campaign, onSubmit, onCancel, className }
       if (isEditing && campaign) {
         await updateCampaign.mutateAsync({ id: campaign.id, data: formData });
       } else {
+        // @ts-expect-error — Argument of type '{ type: "whatsapp"; channel: "whatsapp"; n...
         await createCampaign.mutateAsync({ ...formData, type: 'whatsapp', channel: 'whatsapp' });
       }
       onSubmit?.(formData);

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Plans Utils — Zoho Billing
 
 export function formatPlanNumber(num: string, prefix: string): string {

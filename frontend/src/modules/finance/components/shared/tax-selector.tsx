@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import * as React from 'react';
@@ -80,6 +79,7 @@ export function TaxSelector({
                   <div className="flex flex-col gap-0.5">
                     <span className="font-medium">{taxRate.name}</span>
                     <span className="text-xs text-muted-foreground">
+                      {/* @ts-expect-error — TaxRate not assignable to number parameter */}
                       {formatTaxRate(taxRate)}
                     </span>
                   </div>

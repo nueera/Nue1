@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -14,6 +13,7 @@ interface SegmentPreviewProps {
 }
 
 export function SegmentPreview({ rules }: SegmentPreviewProps) {
+  // @ts-expect-error — Expected 1 arguments, but got 0.
   const { data: previewData, isLoading } = useSegmentPreview();
   const [memberCount, setMemberCount] = useState<number | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);

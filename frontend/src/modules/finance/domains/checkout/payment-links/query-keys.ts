@@ -1,4 +1,3 @@
-// @ts-nocheck
 // PaymentLinks Query Keys — Zoho Checkout
 
 export const paymentLinksKeys = {

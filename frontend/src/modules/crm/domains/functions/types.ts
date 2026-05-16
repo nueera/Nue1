@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export type FunctionCategory = "automation" | "integration" | "data-processing" | "utility";

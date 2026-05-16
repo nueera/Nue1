@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 export type DealStage = "qualification" | "needs-analysis" | "proposal" | "negotiation" | "closed-won" | "closed-lost";
 export type DealForecastCategory = "pipeline" | "best-case" | "committed" | "closed" | "omitted";

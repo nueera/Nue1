@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { ContactList } from './contact-list';
 export { ContactCard } from './contact-card';
 export { ContactDetail } from './contact-detail';

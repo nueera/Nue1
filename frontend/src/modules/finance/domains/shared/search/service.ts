@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Search Service — Finance Shared
 import type { ApiResponse } from '../../../types/finance-common';
@@ -19,4 +18,8 @@ export const searchService = {
     const results = mockResults.filter(r => r.title.toLowerCase().includes(q) || r.subtitle.toLowerCase().includes(q));
     return { success: true, data: results };
   },
+  getRecentSearches: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  saveRecentSearch: async (...args: unknown[]) => ({ data: [] }),
+  clearRecentSearches: async (...args: unknown[]) => ({ data: [] }),
+  getSuggestions: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };

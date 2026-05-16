@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Finance Domains Generator
  * Generates all domain directories with types, constants, services, hooks, and components.
@@ -2178,7 +2177,7 @@ function camelCase(s: string): string {
   return p.charAt(0).toLowerCase() + p.slice(1);
 }
 
-const COMMON_IMPORTS = `import type { Money, Address, LineItem, TaxRate, InvoiceStatus, EstimateStatus, BillStatus, PaymentStatus, SubscriptionStatus, ExpenseStatus, OrderStatus, ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';`;
+const COMMON_IMPORTS = `import type { Money, Address, LineItem, TaxRate, InvoiceStatus, EstimateStatus, BillStatus, PaymentStatus, SubscriptionStatus, ExpenseStatus, OrderStatus, ApiResponse, PaginatedResponse, PaginatedRequest } from '../types/finance-common';`;
 
 function generateTypes(sub: SubDomain, domain: DomainConfig): string {
   return `// ${pascalCase(sub.name)} Types — ${domain.label}
@@ -2202,7 +2201,7 @@ function generateConstants(sub: SubDomain, domain: DomainConfig): string {
 
   const reExportStatuses = statusConfigs.length > 0
     ? `\n// Re-export relevant status configs from finance-common constants
-export { ${statusConfigs.join(', ')} } from '../../../constants/finance-common';\n`
+export { ${statusConfigs.join(', ')} } from '../constants/finance-common';\n`
     : '';
 
   return `// ${name} Constants — ${domain.label}
@@ -2264,7 +2263,7 @@ function generateService(sub: SubDomain, domain: DomainConfig): string {
 
   return `// ${keys} Service — ${domain.label}
 import { financeApiClient } from '../../../api/client';
-import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
+import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../types/finance-common';
 import type { ${pascalCase(sub.name.replace(/s$/, ''))} } from './types';
 
 export const ${name}Service = {
@@ -2334,7 +2333,7 @@ function generateHook(sub: SubDomain, domain: DomainConfig): string {
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { ${name}Service } from './service';
 import { ${name}Keys } from './query-keys';
-import type { PaginatedRequest } from '../../../types/finance-common';
+import type { PaginatedRequest } from '../types/finance-common';
 import type { ${singular} } from './types';
 
 ${hookLines.join('\n\n')}
@@ -2358,7 +2357,7 @@ function generateListComponent(sub: SubDomain, domain: DomainConfig): string {
   if (typesStr.includes('OrderStatus')) statusImports.push('ORDER_STATUS_CONFIG');
 
   const statusImportLine = statusImports.length > 0
-    ? `import { ${statusImports.join(', ')} } from '../../../constants/finance-common';\n`
+    ? `import { ${statusImports.join(', ')} } from '../constants/finance-common';\n`
     : '';
 
   // Determine type imports needed
@@ -2397,7 +2396,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-${statusImportLine}import type { ${typeImports.join(', ')} } from '../../../types/finance-common';
+${statusImportLine}import type { ${typeImports.join(', ')} } from '../types/finance-common';
 import type { ${singular} } from '../types';
 ${customTypeImports.length > 0 ? `import type { ${customTypeImports.filter(t => t !== singular).join(', ')} } from '../types';` : ''}
 

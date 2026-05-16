@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { ClientScriptList } from './client-script-list';
 export { ClientScriptDetail } from './client-script-detail';
 export { ClientScriptEditor } from './client-script-editor';

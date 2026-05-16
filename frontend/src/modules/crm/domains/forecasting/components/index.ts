@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { ForecastDashboard } from './forecast-dashboard';
 export { ForecastTable } from './forecast-table';
 export { ForecastChart } from './forecast-chart';

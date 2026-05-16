@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Orders Constants — Zoho Commerce
 
 // Re-export relevant status configs from finance-common constants

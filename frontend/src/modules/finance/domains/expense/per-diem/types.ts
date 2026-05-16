@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // PerDiem Types — Zoho Expense
 import type { Money } from '../../../types/finance-common';

@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { FunctionList } from './function-list';
 export { FunctionDetail } from './function-detail';
 export { FunctionEditor } from './function-editor';

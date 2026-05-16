@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Zoho Checkout — Barrel Export
 export * from './payment-pages';

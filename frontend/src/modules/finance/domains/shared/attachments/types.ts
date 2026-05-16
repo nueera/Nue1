@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Attachments Types — Finance Shared
 

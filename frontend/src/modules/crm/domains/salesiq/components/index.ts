@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { ChatInbox } from './chat-inbox';
 export { ChatConversation } from './chat-conversation';
 export { ChatMessageInput } from './chat-message-input';

@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { PageLayout } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { pagelayoutsService } from "./service";
 import { pageLayoutsKeys } from "./query-keys";

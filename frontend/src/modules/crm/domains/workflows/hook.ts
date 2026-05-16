@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Workflow } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { workflowsService } from "./service";
 import { workflowsKeys } from "./query-keys";

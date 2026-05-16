@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { ItemType, ItemStatus } from './types';
 
 export const ITEM_TYPES: { value: ItemType; label: string }[] = [

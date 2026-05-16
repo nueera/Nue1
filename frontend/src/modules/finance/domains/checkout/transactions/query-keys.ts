@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Transactions Query Keys — Zoho Checkout
 
 export const transactionsKeys = {

@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Invoice } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { invoicesService } from "./service";
 import { invoicesKeys } from "./query-keys";

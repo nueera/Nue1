@@ -1,4 +1,3 @@
-// @ts-nocheck
 // CreditNotes Query Keys — Zoho Invoice
 
 export const creditNotesKeys = {

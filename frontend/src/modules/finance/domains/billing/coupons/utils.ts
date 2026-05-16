@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Coupons Utils — Zoho Billing
 
 export function formatCouponNumber(num: string, prefix: string): string {

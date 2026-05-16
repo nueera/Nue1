@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // CRM Navigation Configuration
 // Sidebar navigation for all 5 CRM products

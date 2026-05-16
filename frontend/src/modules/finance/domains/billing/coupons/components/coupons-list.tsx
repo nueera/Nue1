@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -14,9 +13,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import type { Money, CouponStatus } from '../../../types/finance-common';
-import type { Coupon } from '../types';
-import type { CouponDiscountType, CouponStatus } from '../types';
+import type { Money } from '../../../../types/finance-common';
+import type { Coupon, CouponDiscountType, CouponStatus } from '../types';
 
 interface CouponsListProps {
   data: Coupon[];

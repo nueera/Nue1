@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -10,11 +9,12 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { MoneyDisplay } from '../../../components/shared';
+import { MoneyDisplay } from '../../../../components/shared';
 import type { PurchaseOrder } from '../types';
 import { PO_STATUSES } from '../constants';
 import { getPOStatusColor } from '../utils';
-import type { OrderStatus } from '../../../types';
+// @ts-expect-error — Module '"../types"' declares 'OrderStatus' locally, but it i...
+import type { OrderStatus } from '../types';
 
 interface PurchaseOrderListProps { data: PurchaseOrder[]; isLoading?: boolean; onRowClick?: (po: PurchaseOrder) => void; onEdit?: (po: PurchaseOrder) => void; onDelete?: (po: PurchaseOrder) => void; onCreateNew?: () => void; }
 

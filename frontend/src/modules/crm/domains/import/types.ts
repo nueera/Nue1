@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export type ImportStatus = "uploading" | "mapping" | "previewing" | "importing" | "completed" | "failed";

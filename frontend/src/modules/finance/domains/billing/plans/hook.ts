@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Plans Hooks — Zoho Billing
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { plansService } from './service';

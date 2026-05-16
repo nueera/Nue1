@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Transactions Utils — Zoho Checkout
 
 export function formatTransactionNumber(num: string, prefix: string): string {

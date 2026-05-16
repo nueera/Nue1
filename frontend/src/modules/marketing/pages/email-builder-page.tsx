@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { Mail } from 'lucide-react';

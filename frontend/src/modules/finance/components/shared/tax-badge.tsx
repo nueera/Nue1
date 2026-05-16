@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { cn } from '@/lib/utils';
@@ -26,6 +25,7 @@ export function TaxBadge({ taxRate, className }: TaxBadgeProps) {
       variant="outline"
       className={cn('font-medium', colorClass, className)}
     >
+      {/* @ts-expect-error — TaxRate not assignable to number parameter */}
       {formatTaxRate(taxRate)}
     </Badge>
   );

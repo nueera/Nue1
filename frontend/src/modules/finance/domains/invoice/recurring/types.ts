@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Recurring Types — Zoho Invoice
 import type { Money } from '../../../types/finance-common';
@@ -20,3 +19,4 @@ export interface RecurringInvoice {
   invoicesGenerated: number;
   createdAt: string;
 }
+export type Recurring = RecurringInvoice;

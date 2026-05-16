@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Import Types — Finance Shared
 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // CreditNotes Types — Zoho Invoice
 import type { Money } from '../../../types/finance-common';

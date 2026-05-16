@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -35,7 +34,7 @@ export function ContactForm({ contact, onSubmit, onCancel, isLoading }: ContactF
   const [tags, setTags] = useState<string[]>(contact?.tags ?? []);
 
   const form = useForm<CreateContactInput>({
-    resolver: zodResolver(createContactSchema),
+    resolver: zodResolver(createContactSchema) as any,
     defaultValues: contact
       ? {
           firstName: contact.firstName,

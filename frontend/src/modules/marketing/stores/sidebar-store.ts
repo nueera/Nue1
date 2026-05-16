@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Marketing Sidebar Store
 // Manages sidebar state: collapsed, active product, open sections, etc.

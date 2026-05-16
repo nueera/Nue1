@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Storefront Utils — Zoho Commerce
 
 export function formatStorefrontNumber(num: string, prefix: string): string {

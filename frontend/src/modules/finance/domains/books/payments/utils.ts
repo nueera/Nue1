@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { Payment, PaymentMethod, PaymentStatus } from './types';
 import { PAYMENT_METHODS, PAYMENT_STATUSES } from './constants';
 

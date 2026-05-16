@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { Product } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { productsService } from "./service";
 import { productsKeys } from "./query-keys";

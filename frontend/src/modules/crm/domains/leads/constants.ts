@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { LeadSource, LeadStatus, LeadRating } from "./types";
 export const LEAD_SOURCES: { value: LeadSource; label: string }[] = [
   { value: "web", label: "Web" }, { value: "referral", label: "Referral" },

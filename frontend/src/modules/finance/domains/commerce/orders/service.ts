@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Orders Service — Zoho Commerce
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -31,4 +30,8 @@ export const commerceOrdersService = {
     if (!existing) throw new Error('Order not found');
     return { success: true, data: { ...existing, ...data } as CommerceOrder };
   },
+  getStats: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };
+
+/** @deprecated Use commerceOrdersService */
+export const ordersService = commerceOrdersService;

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Transfers Hooks — Zoho Inventory
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { transfersService } from './service';

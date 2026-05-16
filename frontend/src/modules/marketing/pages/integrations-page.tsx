@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { Plug } from 'lucide-react';

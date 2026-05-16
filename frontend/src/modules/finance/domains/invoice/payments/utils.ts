@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Payments Utils — Zoho Invoice
 
 export function formatPaymentNumber(num: string, prefix: string): string {

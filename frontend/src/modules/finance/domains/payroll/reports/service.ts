@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Reports Service — Zoho Payroll
 import type { ApiResponse } from '../../../types/finance-common';
@@ -29,4 +28,12 @@ export const payrollReportsService = {
     await new Promise(r => setTimeout(r, 200));
     return { success: true, data: mockReport };
   },
+  getTimeOffReport: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getBenefitCosts: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getEmployeeEarnings: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getTaxLiability: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getPayrollSummary: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };
+
+/** @deprecated Use payrollReportsService */
+export const reportsService = payrollReportsService;

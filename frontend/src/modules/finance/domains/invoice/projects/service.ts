@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Projects Service — Zoho Invoice
 import { financeApiClient } from '../../../api/client';
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';

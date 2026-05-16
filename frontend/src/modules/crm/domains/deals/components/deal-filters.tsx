@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { DEAL_STAGE_FILTERS, DEAL_FORECAST_FILTERS } from '../constants';

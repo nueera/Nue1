@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Attachments Query Keys — Cross-product
 
 export const attachmentsKeys = {

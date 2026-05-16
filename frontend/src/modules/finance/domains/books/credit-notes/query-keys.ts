@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const creditNoteKeys = {
   all: ['credit-notes'] as const,
   lists: () => [...creditNoteKeys.all, 'list'] as const,

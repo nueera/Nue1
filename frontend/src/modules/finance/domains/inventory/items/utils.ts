@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Items Utils — Zoho Inventory
 
 export function formatItemNumber(num: string, prefix: string): string {

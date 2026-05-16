@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // Marketing Module Configuration
 // Feature flags, module settings, and product configuration

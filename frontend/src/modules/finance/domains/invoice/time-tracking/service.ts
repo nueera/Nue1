@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // TimeTracking Service — Zoho Invoice
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';

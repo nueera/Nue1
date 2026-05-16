@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { TrackingScript } from './tracking-script';
 export { SmartUrlList } from './smart-url-list';
 export { SmartUrlForm } from './smart-url-form';

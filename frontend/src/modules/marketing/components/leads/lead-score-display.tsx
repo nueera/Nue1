@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { cn } from '@/lib/utils';
@@ -14,6 +13,7 @@ interface LeadScoreDisplayProps {
 
 export function LeadScoreDisplay({ score, className }: LeadScoreDisplayProps) {
   const category = getScoreCategory(score.total);
+  // @ts-expect-error — Argument of type 'string' is not assignable to parameter of ...
   const colorClass = getScoreColor(category);
 
   const circumference = 2 * Math.PI * 54;

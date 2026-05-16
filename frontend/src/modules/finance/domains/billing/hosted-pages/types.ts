@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // HostedPages Types — Zoho Billing
 import type { Money } from '../../../types/finance-common';

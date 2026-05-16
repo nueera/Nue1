@@ -1,4 +1,3 @@
-// @ts-nocheck
 // CorporateCards Utils — Zoho Expense
 
 export function formatCorporateCardNumber(num: string, prefix: string): string {

@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Transfers Types — Zoho Inventory
 import type { Money } from '../../../types/finance-common';
@@ -23,3 +22,4 @@ export interface StockTransfer {
   notes: string;
   createdAt: string;
 }
+export type Transfer = StockTransfer;

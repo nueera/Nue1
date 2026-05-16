@@ -1,8 +1,7 @@
-// @ts-nocheck
 'use client';
 // CustomFields Types — Finance Shared
 
-export type CustomFieldType = 'text' | 'number' | 'date' | 'select' | 'checkbox' | 'url' | 'email';
+export type CustomFieldType = 'text' | 'number' | 'date' | 'select' | 'checkbox' | 'url' | 'email' | 'phone' | 'textarea' | 'dropdown';
 export interface FieldRenderer {
   component: 'input' | 'select' | 'datepicker' | 'checkbox' | 'textarea';
   placeholder: string;
@@ -19,6 +18,9 @@ export interface CustomField {
   isRequired: boolean;
   isUnique: boolean;
   defaultValue: string;
+  placeholder?: string;
+  options?: string[];
   sortOrder: number;
   createdAt: string;
 }
+export type CustomFieldValue = string | number | boolean | string[] | null;

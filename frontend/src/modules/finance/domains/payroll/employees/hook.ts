@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Employees Hooks — Zoho Payroll
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { employeesService } from './service';

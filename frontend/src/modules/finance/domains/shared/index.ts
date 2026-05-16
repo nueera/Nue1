@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Finance Shared — Barrel Export
 export * from './contacts';

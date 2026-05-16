@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Storefront Hooks — Zoho Commerce
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { storefrontService } from './service';
@@ -8,6 +7,7 @@ import type { Storefront } from './types';
 
 export function useUpdateStorefront() {
   const qc = useQueryClient();
+  // @ts-expect-error — Expected 1 arguments, but got 2.
   return useMutation({ mutationFn: ({ id, data }: { id: string; data: Partial<Storefront> }) => storefrontService.update(id, data), onSuccess: () => { qc.invalidateQueries({ queryKey: storefrontKeys.all }); } });
 }
 

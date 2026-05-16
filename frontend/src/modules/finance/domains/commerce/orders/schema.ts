@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Orders Schema — Zoho Commerce
 import { z } from 'zod';
 

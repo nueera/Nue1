@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Reports Service — Zoho Inventory
 import type { ApiResponse } from '../../../types/finance-common';
@@ -29,4 +28,13 @@ export const inventoryReportsService = {
     await new Promise(r => setTimeout(r, 200));
     return { success: true, data: mockReport };
   },
+  getReorderReport: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getProfitabilityReport: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getStockSummary: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getSalesReport: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getPurchaseReport: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getInventoryValuation: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };
+
+/** @deprecated Use inventoryReportsService */
+export const reportsService = inventoryReportsService;

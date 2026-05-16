@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Recurring Utils — Zoho Invoice
 
 export function formatRecurringNumber(num: string, prefix: string): string {

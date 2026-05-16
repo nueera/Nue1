@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Comments Service — Cross-product
 import { financeApiClient } from '../../../api/client';
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';

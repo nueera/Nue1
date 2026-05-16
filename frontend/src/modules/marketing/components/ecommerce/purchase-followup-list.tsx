@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -9,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from '@/components/ui/select';
-import { FollowUp, Search, Plus, Mail, Star, TrendingUp } from 'lucide-react';
+import { ArrowRightLeft, Search, Plus, Mail, Star, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { usePurchaseFollowups } from '@/modules/marketing/hooks/use-ecommerce';
 import type { PurchaseFollowup } from '@/modules/marketing/types';

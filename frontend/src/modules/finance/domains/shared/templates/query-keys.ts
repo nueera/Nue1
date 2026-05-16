@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Templates Query Keys — Cross-product
 
 export const templatesKeys = {

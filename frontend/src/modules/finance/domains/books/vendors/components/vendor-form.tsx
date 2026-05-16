@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -17,7 +16,7 @@ interface VendorFormProps {
 
 export function VendorForm({ vendor, onSubmit, onCancel }: VendorFormProps) {
   const { register, handleSubmit, formState: { errors } } = useForm<CreateVendorInput>({
-    resolver: zodResolver(createVendorSchema),
+    resolver: zodResolver(createVendorSchema) as any,
     defaultValues: vendor
       ? { name: vendor.name, email: vendor.email, phone: vendor.phone, company: vendor.company, displayName: vendor.displayName, status: vendor.status, currency: vendor.currency, paymentTerms: vendor.paymentTerms, notes: vendor.notes, taxId: vendor.taxId, taxExempt: vendor.taxExempt, website: vendor.website, tags: vendor.tags }
       : undefined,

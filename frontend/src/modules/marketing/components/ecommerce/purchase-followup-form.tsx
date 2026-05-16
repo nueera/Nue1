@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -72,6 +71,7 @@ export function PurchaseFollowupForm({ followup, onSave, onCancel }: PurchaseFol
 
           <div className="space-y-2">
             <Label>Trigger Event</Label>
+            {/* @ts-expect-error */}
             <Select value={triggerEvent} onValueChange={setTriggerEvent}>
               <SelectTrigger><SelectValue /></SelectTrigger>
               <SelectContent>

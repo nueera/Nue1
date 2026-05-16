@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Warehouses Utils — Zoho Inventory
 
 export function formatWarehouseNumber(num: string, prefix: string): string {

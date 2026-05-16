@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { SocialProfile } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { socialService } from "./service";
 import { socialKeys } from "./query-keys";

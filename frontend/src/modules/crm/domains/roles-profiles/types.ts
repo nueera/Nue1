@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { CrmRecord } from "../../core/types";
 
 export interface Role { id: string; name: string; parentId?: string; level: number; userCount: number; }

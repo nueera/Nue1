@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ============================================================================
 // E-Commerce Constants
 // Store platforms, cart statuses, and configuration for E-Commerce domain

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // SalesOrders Hooks — Zoho Inventory
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { salesOrdersService } from './service';

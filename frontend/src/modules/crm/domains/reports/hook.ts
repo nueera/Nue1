@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { reportsService } from "./service";
 import { reportsKeys } from "./query-keys";
@@ -18,6 +17,7 @@ export function useCreateReport() {
 
 export function useUpdateReport() {
   const qc = useQueryClient();
+  // @ts-expect-error — Argument of type 'Partial<Report>' is not assignable to para...
   return useMutation({ mutationFn: ({ id, data }: { id: string; data: Partial<Report> }) => reportsService.update(id, data), onSuccess: () => { qc.invalidateQueries({ queryKey: reportsKeys.all }); } });
 }
 

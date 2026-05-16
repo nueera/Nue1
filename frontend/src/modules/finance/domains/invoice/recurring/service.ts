@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Recurring Service — Zoho Invoice
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';

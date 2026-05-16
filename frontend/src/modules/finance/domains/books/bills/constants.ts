@@ -1,4 +1,3 @@
-// @ts-nocheck
 import type { BillStatus } from '../../../types';
 import { BILL_STATUS_CONFIG } from '../../../constants/finance-common';
 

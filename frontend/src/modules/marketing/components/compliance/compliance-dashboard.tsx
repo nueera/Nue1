@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -16,7 +15,7 @@ export function ComplianceDashboard() {
     { name: 'CAN-SPAM', status: 'warning' as const, score: 78 },
     { name: 'CASL', status: 'compliant' as const, score: 88 },
     { name: 'LGPD', status: 'not_assessed' as const, score: 0 },
-  ];
+  ] as { name: string; status: 'compliant' | 'warning' | 'non_compliant' | 'not_assessed'; score: number }[];
 
   const STATUS_CONFIG: Record<string, { icon: typeof CheckCircle2; color: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' }> = {
     compliant: { icon: CheckCircle2, color: 'text-emerald-600', variant: 'default' },

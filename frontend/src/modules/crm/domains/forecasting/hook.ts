@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { ForecastPeriod } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { forecastingService } from "./service";
 import { forecastingKeys } from "./query-keys";

@@ -1,6 +1,5 @@
-// @ts-nocheck
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { leadService } from "./service"; import { leadKeys } from "./query-keys"; import type { LeadConversionData } from "./types";
+import { leadService } from "./service"; import { leadKeys } from "./query-keys"; import type { LeadConversionData, Lead } from "./types";
 export function useLeads(params?: Record<string, string | number | boolean | undefined>) { return useQuery({ queryKey: leadKeys.list(params || {}), queryFn: () => leadService.getAll(params) }); }
 export function useLead(id: string) { return useQuery({ queryKey: leadKeys.detail(id), queryFn: () => leadService.getById(id), enabled: !!id }); }
 export function useCreateLead() { const qc = useQueryClient(); return useMutation({ mutationFn: leadService.create, onSuccess: () => { qc.invalidateQueries({ queryKey: leadKeys.all }); } }); }

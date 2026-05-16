@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { TerritoryList } from './territory-list';
 export { TerritoryDetail } from './territory-detail';
 export { TerritoryForm } from './territory-form';

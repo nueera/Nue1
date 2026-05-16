@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { CalendarEvent } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { calendarService } from "./service";
 import { calendarKeys } from "./query-keys";

@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Notes Service — Finance Shared
 import type { ApiResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -31,4 +30,6 @@ export const notesService = {
     await new Promise(r => setTimeout(r, 100));
     return { success: true, data: undefined as void };
   },
+  getById: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getAll: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };

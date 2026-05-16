@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Payments Service — Zoho Invoice
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -40,4 +39,5 @@ export const paymentsService = {
     await new Promise(r => setTimeout(r, 100));
     return { success: true, data: undefined as void };
   },
+  getStats: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };

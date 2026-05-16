@@ -1,4 +1,3 @@
-// @ts-nocheck
 // TimeTracking Utils — Zoho Invoice
 
 export function formatTimeTrackingNumber(num: string, prefix: string): string {

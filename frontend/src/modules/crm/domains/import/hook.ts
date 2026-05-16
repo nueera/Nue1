@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { ImportJob } from "./types";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { importService } from "./service";
 import { importKeys } from "./query-keys";

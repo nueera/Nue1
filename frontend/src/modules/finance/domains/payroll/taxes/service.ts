@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Taxes Service — Zoho Payroll
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -37,4 +36,7 @@ export const taxesService = {
     if (!existing) throw new Error('Tax not found');
     return { success: true, data: { ...existing, ...data } as TaxConfiguration };
   },
+  getConfigurationById: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getWithholdings: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getAllConfigurations: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };

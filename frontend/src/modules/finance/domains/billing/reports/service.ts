@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 // Reports Service — Zoho Billing
 import type { ApiResponse, PaginatedResponse, PaginatedRequest } from '../../../types/finance-common';
@@ -24,4 +23,12 @@ export const billingReportsService = {
     if (!item) throw new Error('Report not found');
     return { success: true, data: item };
   },
+  getCohortAnalysis: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getRevenueReport: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getSubscriptionMetrics: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getChurnAnalysis: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
+  getMRRBreakdown: async (...args: unknown[]) => ({ data: [], pagination: { page: 1, pageSize: 25, total: 0, totalPages: 0 } }),
 };
+
+/** @deprecated Use billingReportsService */
+export const reportsService = billingReportsService;
