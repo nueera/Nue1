@@ -27,6 +27,14 @@ from app.models.expense import Expense
 from app.models.payment import Payment
 from app.models.journal_entry import JournalEntry, JournalEntryLine
 
+# Marketing Models
+from app.models.channel import Channel
+from app.models.campaign import Campaign
+from app.models.email_template import EmailTemplate
+from app.models.social_post import SocialPost
+from app.models.content_page import ContentPage
+from app.models.analytics_event import AnalyticsEvent
+
 __all__ = [
     "User", "Contact", "Account", "Lead", "Deal",
     "Category", "Supplier", "Warehouse", "Product", "Inventory",
@@ -36,4 +44,6 @@ __all__ = [
     "Invoice", "InvoiceItem",
     "Expense", "Payment",
     "JournalEntry", "JournalEntryLine",
+    "Channel", "Campaign", "EmailTemplate",
+    "SocialPost", "ContentPage", "AnalyticsEvent",
 ]

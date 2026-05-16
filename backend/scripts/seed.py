@@ -27,6 +27,12 @@ from app.models.invoice import Invoice, InvoiceItem
 from app.models.expense import Expense
 from app.models.payment import Payment
 from app.models.journal_entry import JournalEntry, JournalEntryLine
+from app.models.channel import Channel
+from app.models.campaign import Campaign
+from app.models.email_template import EmailTemplate
+from app.models.social_post import SocialPost
+from app.models.content_page import ContentPage
+from app.models.analytics_event import AnalyticsEvent
 
 
 async def seed_all():
@@ -332,6 +338,87 @@ async def seed_all():
         await session.flush()
         print("  ✅ Journal Entries created (1 with 7 lines)")
 
+        # ════════════════════════════════════════════════════
+        #  MARKETING DATA
+        # ════════════════════════════════════════════════════
+
+        # ── Channels ────────────────────────────────────────
+        channels = [
+            Channel(name="Email Marketing", code="email", channel_type="email", description="Email campaigns and newsletters", color="#EA4335", monthly_budget=10000.0, is_paid=False),
+            Channel(name="Google Ads", code="google_ads", channel_type="paid", description="Google Search & Display ads", color="#4285F4", monthly_budget=50000.0, is_paid=True),
+            Channel(name="Instagram", code="instagram", channel_type="social", description="Instagram posts, reels, stories", color="#E4405F", monthly_budget=20000.0, is_paid=True),
+            Channel(name="LinkedIn", code="linkedin", channel_type="social", description="LinkedIn posts and ads", color="#0A66C2", monthly_budget=15000.0, is_paid=True),
+            Channel(name="Facebook", code="facebook", channel_type="social", description="Facebook posts and ads", color="#1877F2", monthly_budget=25000.0, is_paid=True),
+            Channel(name="SEO / Organic", code="seo", channel_type="organic", description="Search engine optimization", color="#34A853", monthly_budget=5000.0, is_paid=False),
+            Channel(name="WhatsApp", code="whatsapp", channel_type="sms", description="WhatsApp Business messages", color="#25D366", monthly_budget=3000.0, is_paid=False),
+        ]
+        session.add_all(channels)
+        await session.flush()
+        print("  ✅ Channels created (7)")
+
+        # ── Campaigns ───────────────────────────────────────
+        campaigns = [
+            Campaign(name="Summer Sale 2026", code="SUMMER26", campaign_type="multi_channel", channel_id=channels[0].id, objective="conversion", start_date="2026-05-01", end_date="2026-05-31", status="active", budget=100000.0, spent=45000.0, impressions=150000, clicks=8500, conversions=320, leads_generated=180, revenue_attributed=850000.0, target_audience="IT decision makers, 25-45 age", target_location="India", description="Multi-channel summer promotional campaign", tags="summer,sale,discount", deal_id=deals[0].id, owner_id=admin.id),
+            Campaign(name="LinkedIn Thought Leadership", code="LI-THINK", campaign_type="social_media", channel_id=channels[3].id, objective="awareness", start_date="2026-05-10", end_date="2026-06-30", status="active", budget=30000.0, spent=12000.0, impressions=45000, clicks=2200, conversions=85, leads_generated=65, revenue_attributed=250000.0, target_audience="B2B professionals, CTOs, CIOs", target_location="India", description="Weekly thought leadership posts on LinkedIn", tags="thought-leadership,b2b,brand", owner_id=admin.id),
+            Campaign(name="Google Ads - Product Keywords", code="GA-PROD", campaign_type="ppc", channel_id=channels[1].id, objective="lead_generation", start_date="2026-04-15", end_date="2026-06-15", status="active", budget=75000.0, spent=42000.0, impressions=200000, clicks=12000, conversions=450, leads_generated=350, revenue_attributed=1200000.0, target_audience="Businesses searching for ERP/CRM solutions", target_location="India", description="Google search ads targeting product keywords", tags="ppc,google,search", owner_id=demo.id),
+            Campaign(name="Newsletter - Monthly Digest", code="NL-MAY26", campaign_type="email", channel_id=channels[0].id, objective="retention", start_date="2026-05-01", status="completed", budget=5000.0, spent=3500.0, impressions=5000, clicks=800, conversions=45, leads_generated=20, revenue_attributed=150000.0, target_audience="Existing customers and subscribers", target_location="Global", description="Monthly email newsletter with product updates", tags="newsletter,email,monthly", owner_id=admin.id),
+            Campaign(name="Instagram Product Launch", code="IG-LAUNCH", campaign_type="social_media", channel_id=channels[2].id, objective="awareness", start_date="2026-06-01", end_date="2026-06-30", status="scheduled", budget=25000.0, spent=0.0, target_audience="Startup founders, tech enthusiasts", target_location="India", description="Product launch teaser campaign on Instagram", tags="instagram,launch,reels", owner_id=demo.id),
+        ]
+        session.add_all(campaigns)
+        await session.flush()
+        print("  ✅ Campaigns created (5)")
+
+        # ── Email Templates ─────────────────────────────────
+        email_templates = [
+            EmailTemplate(name="Welcome Email", subject="Welcome to NueGrowth, {{first_name}}!", template_type="welcome", body_html="<h1>Welcome!</h1><p>Hi {{first_name}},</p>", body_text="Hi {{first_name}}, Welcome to NueGrowth!", preview_text="Your journey starts here", from_name="NueGrowth Team", from_email="hello@nuegrowth.com", reply_to="support@nuegrowth.com", variables='["first_name","company"]', times_used=120, owner_id=admin.id),
+            EmailTemplate(name="Monthly Newsletter", subject="NueGrowth Monthly - {{month}}", template_type="newsletter", body_html="<h2>{{month}} Updates</h2>", body_text="{{month}} Updates from NueGrowth", preview_text="Check out what's new this month", from_name="NueGrowth", from_email="newsletter@nuegrowth.com", variables='["month","unsubscribe_url"]', times_used=6, owner_id=admin.id),
+            EmailTemplate(name="Follow-Up After Demo", subject="Thanks for the demo, {{first_name}}!", template_type="follow_up", body_html="<p>Hi {{first_name}},</p><p>Thanks for trying NueGrowth!</p>", preview_text="Ready to take the next step?", from_name="Sales Team", from_email="sales@nuegrowth.com", reply_to="sales@nuegrowth.com", variables='["first_name","demo_date"]', times_used=45, owner_id=admin.id),
+            EmailTemplate(name="Promo - 20% Off", subject="Limited Offer: 20% off for {{first_name}}!", template_type="promo", body_html="<h1>20% OFF!</h1><p>Use code SAVE20</p>", preview_text="Don't miss this exclusive offer", from_name="NueGrowth", from_email="offers@nuegrowth.com", variables='["first_name","offer_code","expiry_date"]', times_used=500, owner_id=demo.id),
+        ]
+        session.add_all(email_templates)
+        await session.flush()
+        print("  ✅ Email Templates created (4)")
+
+        # ── Social Posts ────────────────────────────────────
+        social_posts = [
+            SocialPost(platform="instagram", caption="Transform your business with NueGrowth! All-in-one ERP, CRM, Finance & Marketing platform. Link in bio.", hashtags="#NueGrowth #ERP #CRM #BusinessGrowth #StartupIndia", media_type="carousel", link_url="https://nuegrowth.com", status="published", published_at="2026-05-10T10:00:00", campaign_id=campaigns[0].id, likes=245, comments=18, shares=32, impressions=8500, reach=6200, saves=45, clicks=180, owner_id=admin.id),
+            SocialPost(platform="linkedin", caption="Excited to announce our Summer Sale! Get 20% off on all enterprise plans this May. DM us for details.", hashtags="#Enterprise #SaaS #Deal #Business", media_type="image", link_url="https://nuegrowth.com/summer-sale", status="published", published_at="2026-05-12T09:00:00", campaign_id=campaigns[1].id, likes=89, comments=12, shares=15, impressions=3200, reach=2800, saves=8, clicks=95, owner_id=admin.id),
+            SocialPost(platform="instagram", caption="Behind the scenes at NueGrowth HQ! Building the future of business management.", hashtags="#StartupLife #TechTeam #BehindTheScenes", media_type="reel", status="published", published_at="2026-05-14T16:00:00", likes=520, comments=35, shares=48, impressions=15000, reach=11000, saves=82, clicks=220, owner_id=demo.id),
+            SocialPost(platform="facebook", caption="Summer Sale is LIVE! 20% off all plans. Don't miss out!", hashtags="#SummerSale #Discount #BusinessSoftware", media_type="image", link_url="https://nuegrowth.com/summer-sale", scheduled_at="2026-05-18T11:00:00", status="scheduled", campaign_id=campaigns[0].id, owner_id=admin.id),
+            SocialPost(platform="linkedin", caption="5 signs your business needs an integrated ERP system. Thread below.", hashtags="#ERP #BusinessGrowth #DigitalTransformation", media_type="image", scheduled_at="2026-06-01T08:00:00", status="scheduled", campaign_id=campaigns[4].id, owner_id=demo.id),
+        ]
+        session.add_all(social_posts)
+        await session.flush()
+        print("  ✅ Social Posts created (5)")
+
+        # ── Content Pages ───────────────────────────────────
+        content_pages = [
+            ContentPage(title="What is ERP? A Complete Guide for Indian Businesses", slug="what-is-erp-guide-india", content_type="blog", body="<h2>Introduction</h2><p>ERP stands for Enterprise Resource Planning...</p>", excerpt="Learn everything about ERP systems and how they can transform your Indian business.", meta_title="What is ERP? Complete Guide for Indian Businesses | NueGrowth", meta_description="Understand ERP systems, benefits, implementation steps for Indian businesses. Free guide by NueGrowth.", focus_keyword="ERP guide India", author_id=admin.id, status="published", published_at="2026-05-08", page_views=3500, unique_visitors=2800, avg_time_on_page=180.5, bounce_rate=35.2, category="Education", tags="erp,guide,business", campaign_id=campaigns[2].id),
+            ContentPage(title="NueGrowth Summer Sale - 20% Off All Plans", slug="summer-sale-2026", content_type="landing_page", body="<h1>Summer Sale 2026</h1><p>Get 20% off on all plans!</p>", excerpt="Limited time offer - 20% off on all NueGrowth plans this summer.", meta_title="Summer Sale - 20% Off | NueGrowth", meta_description="Get 20% off on all NueGrowth plans. Limited time summer offer.", focus_keyword="ERP summer sale", author_id=admin.id, status="published", published_at="2026-05-01", page_views=12000, unique_visitors=9500, avg_time_on_page=85.2, bounce_rate=22.1, category="Promotions", tags="sale,discount,offer", campaign_id=campaigns[0].id),
+            ContentPage(title="How CRM Helps Small Businesses Grow 3x Faster", slug="crm-small-business-growth", content_type="blog", body="<h2>Why CRM Matters</h2><p>Small businesses that adopt CRM grow 3x faster...</p>", excerpt="Discover how a CRM system can accelerate your small business growth.", meta_title="CRM for Small Business Growth | NueGrowth Blog", meta_description="Learn how CRM helps small businesses grow 3x faster with real examples.", focus_keyword="CRM small business", author_id=demo.id, status="published", published_at="2026-05-12", page_views=2100, unique_visitors=1700, avg_time_on_page=210.0, bounce_rate=28.5, category="CRM", tags="crm,small-business,growth", campaign_id=campaigns[1].id),
+            ContentPage(title="NueGrowth Case Study: Acme Corp", slug="case-study-acme-corp", content_type="case_study", status="draft", author_id=admin.id, category="Case Studies", tags="case-study,enterprise,success"),
+        ]
+        session.add_all(content_pages)
+        await session.flush()
+        print("  ✅ Content Pages created (4)")
+
+        # ── Analytics Events ────────────────────────────────
+        analytics_events = [
+            AnalyticsEvent(event_type="page_view", source="google", medium="organic", campaign_id=campaigns[2].id, campaign_name="GA-PROD", visitor_id="v-001", url="https://nuegrowth.com/what-is-erp-guide-india", utm_source="google", utm_medium="organic", event_date="2026-05-10"),
+            AnalyticsEvent(event_type="page_view", source="linkedin", medium="social", campaign_id=campaigns[1].id, campaign_name="LI-THINK", visitor_id="v-002", contact_id=contacts[0].id, url="https://nuegrowth.com/crm-small-business-growth", utm_source="linkedin", utm_medium="social", event_date="2026-05-12"),
+            AnalyticsEvent(event_type="email_open", source="email", medium="email", campaign_id=campaigns[3].id, campaign_name="NL-MAY26", visitor_id="v-003", contact_id=contacts[1].id, event_date="2026-05-05"),
+            AnalyticsEvent(event_type="email_click", source="email", medium="email", campaign_id=campaigns[3].id, campaign_name="NL-MAY26", visitor_id="v-003", contact_id=contacts[1].id, url="https://nuegrowth.com/summer-sale-2026", event_date="2026-05-05"),
+            AnalyticsEvent(event_type="click", source="google_ads", medium="cpc", campaign_id=campaigns[2].id, campaign_name="GA-PROD", visitor_id="v-004", url="https://nuegrowth.com/summer-sale-2026", utm_source="google", utm_medium="cpc", utm_campaign="GA-PROD", event_date="2026-05-13"),
+            AnalyticsEvent(event_type="conversion", source="google_ads", medium="cpc", campaign_id=campaigns[2].id, campaign_name="GA-PROD", visitor_id="v-004", contact_id=contacts[2].id, event_value=55000.0, event_date="2026-05-13"),
+            AnalyticsEvent(event_type="social_share", source="instagram", medium="social", campaign_id=campaigns[0].id, campaign_name="SUMMER26", visitor_id="v-005", url="https://nuegrowth.com/summer-sale-2026", event_date="2026-05-14"),
+            AnalyticsEvent(event_type="page_view", source="direct", medium="direct", visitor_id="v-006", url="https://nuegrowth.com/summer-sale-2026", event_date="2026-05-15"),
+            AnalyticsEvent(event_type="form_submit", source="linkedin", medium="social", campaign_id=campaigns[1].id, campaign_name="LI-THINK", visitor_id="v-007", event_date="2026-05-15"),
+            AnalyticsEvent(event_type="purchase", source="email", medium="email", campaign_id=campaigns[0].id, campaign_name="SUMMER26", visitor_id="v-008", contact_id=contacts[0].id, event_value=121354.1, event_date="2026-05-15"),
+        ]
+        session.add_all(analytics_events)
+        await session.flush()
+        print("  ✅ Analytics Events created (10)")
+
         await session.commit()
 
         print("\n🎉 Seed completed successfully!")
@@ -342,6 +429,8 @@ async def seed_all():
         print(f"  Finance:   21 chart of accounts, 4 tax rates")
         print(f"             3 invoices, 6 expenses, 3 payments")
         print(f"             1 journal entry (7 lines)")
+        print(f"  Marketing: 7 channels, 5 campaigns, 4 email templates")
+        print(f"             5 social posts, 4 content pages, 10 analytics events")
         print("  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 
 

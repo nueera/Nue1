@@ -26,3 +26,11 @@ from app.schemas.invoice import *
 from app.schemas.expense import *
 from app.schemas.payment import *
 from app.schemas.journal_entry import *
+
+# Marketing Schemas
+from app.schemas.channel import *
+from app.schemas.campaign import *
+from app.schemas.email_template import *
+from app.schemas.social_post import *
+from app.schemas.content_page import *
+from app.schemas.analytics_event import *
