@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -26,22 +26,31 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { navSections } from '../../core/config/sidebar.config';
+import {
+  getNavSectionsForProduct,
+  getAllNavItemsForProduct,
+  PRODUCT_LABELS,
+} from '../../core/config/sidebar.config';
 import { CollapsibleNavSection } from '@/components/workspace';
+import { ProductSwitcher } from './product-switcher';
 
 function SidebarContent({ collapsed, onNavigate }: { collapsed: boolean; onNavigate?: () => void }) {
   const pathname = usePathname();
   const router = useRouter();
-  const { setSidebarActiveItem, toggleSidebar, isRecentlyUsed } = useUIStore();
+  const { activeProduct, setSidebarActiveItem, toggleSidebar, isRecentlyUsed } = useUIStore();
   const { user } = useAuthStore();
   const hydrated = useStoreHydrated();
+
+  // Get navigation sections for the active product
+  const navSections = useMemo(() => getNavSectionsForProduct(activeProduct), [activeProduct]);
+  const allItems = useMemo(() => getAllNavItemsForProduct(activeProduct), [activeProduct]);
 
   // Track which item was just clicked for instant highlight
   const [flashSlug, setFlashSlug] = useState<string | null>(null);
 
-  const pathAfterErp = pathname?.split('/erp/')[1] || 'dashboard';
-  const allSlugs = navSections.flatMap((s) => s.items.map((i) => i.slug));
-  const matchedSlug = allSlugs.find((slug) => pathAfterErp === slug || pathAfterErp.startsWith(slug + '/')) || 'dashboard';
+  const pathAfterErp = pathname?.split('/erp/')[1] || `${activeProduct}/dashboard`;
+  const allSlugs = allItems.map((i) => i.slug);
+  const matchedSlug = allSlugs.find((slug) => pathAfterErp === slug || pathAfterErp.startsWith(slug + '/')) || `${activeProduct}/dashboard`;
 
   const handleNav = useCallback((slug: string) => {
     // Instant highlight before navigation
@@ -115,6 +124,13 @@ function SidebarContent({ collapsed, onNavigate }: { collapsed: boolean; onNavig
             <PanelLeftClose className="h-4 w-4" strokeWidth={1.8} />
           )}
         </button>
+      </div>
+
+      <Separator className="opacity-50" />
+
+      {/* Product Switcher */}
+      <div className="px-2 py-2">
+        <ProductSwitcher collapsed={collapsed} />
       </div>
 
       <Separator className="opacity-50" />

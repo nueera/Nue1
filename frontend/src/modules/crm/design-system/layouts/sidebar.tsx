@@ -1,7 +1,7 @@
 // @ts-nocheck
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -26,22 +26,31 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { crmNavSections } from '../../core/config/sidebar.config';
+import {
+  getNavSectionsForProduct,
+  getAllNavItemsForProduct,
+  PRODUCT_LABELS,
+} from '../../core/config/sidebar.config';
 import { CollapsibleNavSection } from '@/components/workspace';
+import { ProductSwitcher } from './product-switcher';
 
 function CrmSidebarContent({ collapsed, onNavigate }: { collapsed: boolean; onNavigate?: () => void }) {
   const pathname = usePathname();
   const router = useRouter();
-  const { setSidebarActiveItem, toggleSidebar, isRecentlyUsed } = useCrmUIStore();
+  const { activeProduct, setSidebarActiveItem, toggleSidebar, isRecentlyUsed } = useCrmUIStore();
   const { user } = useCrmAuthStore();
   const hydrated = useStoreHydrated();
+
+  // Get navigation sections for the active product
+  const navSections = useMemo(() => getNavSectionsForProduct(activeProduct), [activeProduct]);
+  const allItems = useMemo(() => getAllNavItemsForProduct(activeProduct), [activeProduct]);
 
   // Track which item was just clicked for instant highlight
   const [flashSlug, setFlashSlug] = useState<string | null>(null);
 
-  const pathAfterCrm = pathname?.split('/crm/')[1] || 'dashboard';
-  const allSlugs = crmNavSections.flatMap((s) => s.items.map((i) => i.slug));
-  const matchedSlug = allSlugs.find((slug) => pathAfterCrm === slug || pathAfterCrm.startsWith(slug + '/')) || 'dashboard';
+  const pathAfterCrm = pathname?.split('/crm/')[1] || `${activeProduct}/dashboard`;
+  const allSlugs = allItems.map((i) => i.slug);
+  const matchedSlug = allSlugs.find((slug) => pathAfterCrm === slug || pathAfterCrm.startsWith(slug + '/')) || `${activeProduct}/dashboard`;
 
   const handleNav = useCallback((slug: string) => {
     // Instant highlight before navigation
@@ -119,9 +128,16 @@ function CrmSidebarContent({ collapsed, onNavigate }: { collapsed: boolean; onNa
 
       <Separator className="opacity-50" />
 
+      {/* Product Switcher */}
+      <div className="px-2 py-2">
+        <ProductSwitcher collapsed={collapsed} />
+      </div>
+
+      <Separator className="opacity-50" />
+
       {/* Navigation sections — CollapsibleNavSection with ▼/▶ */}
       <nav className="flex-1 overflow-y-auto custom-scrollbar py-3 px-2">
-        {crmNavSections.map((section) => (
+        {navSections.map((section) => (
           <CollapsibleNavSection
             key={section.title}
             moduleId="crm"

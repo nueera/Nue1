@@ -5,7 +5,7 @@
 
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { CrmModuleName } from './types';
+import type { CrmModuleName, CrmProduct } from './types';
 
 // --- CRM Auth Store ---
 
@@ -47,37 +47,61 @@ interface RecentModule {
 interface CrmUIState {
   sidebarCollapsed: boolean;
   sidebarActiveItem: string;
+
+  // Product
+  activeProduct: CrmProduct;
+
   currentPage: string;
   mobileSidebarOpen: boolean;
   lastVisitedPage: string;
   recentModules: RecentModule[];
   scrollPositions: Record<string, number>;
 
+  isHydrated: boolean;
+
   toggleSidebar: () => void;
   setSidebarActiveItem: (item: string) => void;
+  setActiveProduct: (product: CrmProduct) => void;
   setCurrentPage: (page: string) => void;
   setMobileSidebarOpen: (open: boolean) => void;
   trackPageVisit: (slug: string) => void;
   setScrollPosition: (page: string, position: number) => void;
   getScrollPosition: (page: string) => number;
+  getRecentModules: () => RecentModule[];
   isRecentlyUsed: (slug: string) => boolean;
+  resetState: () => void;
 }
 
-const MAX_RECENT_MODULES = 5;
+const MAX_RECENT_MODULES = 8;
+
+const CRM_INITIAL_STATE = {
+  sidebarCollapsed: false,
+  sidebarActiveItem: 'sales-dashboard',
+  activeProduct: 'sales' as CrmProduct,
+  currentPage: 'sales/dashboard',
+  mobileSidebarOpen: false,
+  lastVisitedPage: 'sales/dashboard',
+  recentModules: [],
+  scrollPositions: {},
+  isHydrated: false,
+};
 
 export const useCrmUIStore = create<CrmUIState>()(
   persist(
     (set, get) => ({
-      sidebarCollapsed: false,
-      sidebarActiveItem: 'dashboard',
-      currentPage: 'dashboard',
-      mobileSidebarOpen: false,
-      lastVisitedPage: 'dashboard',
-      recentModules: [],
-      scrollPositions: {},
+      ...CRM_INITIAL_STATE,
 
       toggleSidebar: () => set((state) => ({ sidebarCollapsed: !state.sidebarCollapsed })),
       setSidebarActiveItem: (item) => set({ sidebarActiveItem: item }),
+
+      setActiveProduct: (product) =>
+        set({
+          activeProduct: product,
+          currentPage: `${product}/dashboard`,
+          lastVisitedPage: `${product}/dashboard`,
+          sidebarActiveItem: `${product}-dashboard`,
+        }),
+
       setCurrentPage: (page) => set({ currentPage: page }),
       setMobileSidebarOpen: (open) => set({ mobileSidebarOpen: open }),
 
@@ -114,16 +138,24 @@ export const useCrmUIStore = create<CrmUIState>()(
       },
 
       getScrollPosition: (page) => get().scrollPositions[page] || 0,
+      getRecentModules: () => get().recentModules,
       isRecentlyUsed: (slug) => get().recentModules.some((m) => m.slug === slug),
+      resetState: () => set(CRM_INITIAL_STATE),
     }),
     {
       name: 'nueone-crm-store',
       partialize: (state) => ({
         sidebarCollapsed: state.sidebarCollapsed,
         sidebarActiveItem: state.sidebarActiveItem,
+        activeProduct: state.activeProduct,
         lastVisitedPage: state.lastVisitedPage,
         recentModules: state.recentModules,
       }),
+      onRehydrateStorage: () => (state) => {
+        if (state) {
+          state.isHydrated = true;
+        }
+      },
     }
   )
 );

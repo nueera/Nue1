@@ -220,6 +220,10 @@ export interface PaginatedRequest {
   filters?: CrmFilter[];
 }
 
+// --- CRM Product Type (for ProductSwitcher) ---
+
+export type CrmProduct = 'sales' | 'engagement' | 'automation' | 'analytics' | 'platform';
+
 // --- Common Enums ---
 
 export type CrmStatus = 'active' | 'inactive' | 'draft' | 'archived';
