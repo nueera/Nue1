@@ -19,9 +19,21 @@ from app.models.inventory import Inventory
 from app.models.purchase_order import PurchaseOrder, PurchaseOrderItem
 from app.models.sales_order import SalesOrder, SalesOrderItem
 
+# Finance Models
+from app.models.finance_account import FinanceAccount
+from app.models.tax_rate import TaxRate
+from app.models.invoice import Invoice, InvoiceItem
+from app.models.expense import Expense
+from app.models.payment import Payment
+from app.models.journal_entry import JournalEntry, JournalEntryLine
+
 __all__ = [
     "User", "Contact", "Account", "Lead", "Deal",
     "Category", "Supplier", "Warehouse", "Product", "Inventory",
     "PurchaseOrder", "PurchaseOrderItem",
     "SalesOrder", "SalesOrderItem",
+    "FinanceAccount", "TaxRate",
+    "Invoice", "InvoiceItem",
+    "Expense", "Payment",
+    "JournalEntry", "JournalEntryLine",
 ]

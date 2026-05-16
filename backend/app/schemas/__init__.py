@@ -18,3 +18,11 @@ from app.schemas.product import *
 from app.schemas.inventory import *
 from app.schemas.purchase_order import *
 from app.schemas.sales_order import *
+
+# Finance Schemas
+from app.schemas.finance_account import *
+from app.schemas.tax_rate import *
+from app.schemas.invoice import *
+from app.schemas.expense import *
+from app.schemas.payment import *
+from app.schemas.journal_entry import *
