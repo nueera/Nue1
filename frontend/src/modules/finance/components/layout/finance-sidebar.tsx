@@ -2,7 +2,6 @@
 
 import { useState, useCallback, useMemo } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   Banknote,
   PanelLeftClose,
@@ -77,40 +76,30 @@ function SidebarContent({ collapsed, onNavigate }: { collapsed: boolean; onNavig
         'flex items-center px-4 h-16 shrink-0',
         collapsed ? 'justify-center' : 'justify-between'
       )}>
-        <AnimatePresence mode="wait">
-          {!collapsed && (
-            <motion.div
-              key="logo-full"
-              initial={{ opacity: 0, x: -6 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -6 }}
-              transition={{ duration: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-              className="flex items-center gap-2"
-            >
-              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-module-finance/15 text-module-finance">
-                <Banknote className="h-4 w-4" strokeWidth={1.8} />
-              </div>
-              <span
-                className="font-bold text-foreground"
-                style={{ letterSpacing: 'var(--tracking-tight)', fontSize: 'var(--text-base)' }}
-              >
-                <span className="text-module-finance">Nue</span>Finance
-              </span>
-            </motion.div>
-          )}
-          {collapsed && (
-            <motion.div
-              key="logo-collapsed"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.1 }}
-              className="flex items-center justify-center w-8 h-8 rounded-lg bg-module-finance/15 text-module-finance"
-            >
+        {!collapsed && (
+          <div
+            key="logo-full"
+            className="flex items-center gap-2 animate-in fade-in duration-100"
+          >
+            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-module-finance/15 text-module-finance">
               <Banknote className="h-4 w-4" strokeWidth={1.8} />
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+            <span
+              className="font-bold text-foreground"
+              style={{ letterSpacing: 'var(--tracking-tight)', fontSize: 'var(--text-base)' }}
+            >
+              <span className="text-module-finance">Nue</span>Finance
+            </span>
+          </div>
+        )}
+        {collapsed && (
+          <div
+            key="logo-collapsed"
+            className="flex items-center justify-center w-8 h-8 rounded-lg bg-module-finance/15 text-module-finance animate-in fade-in zoom-in-95 duration-100"
+          >
+            <Banknote className="h-4 w-4" strokeWidth={1.8} />
+          </div>
+        )}
 
         {/* Toggle button */}
         <button
@@ -189,11 +178,8 @@ function SidebarContent({ collapsed, onNavigate }: { collapsed: boolean; onNavig
                   {user.avatar}
                 </AvatarFallback>
               </Avatar>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.1 }}
-                className="flex-1 min-w-0"
+              <div
+                className="flex-1 min-w-0 animate-in fade-in duration-100"
               >
                 <p
                   className="text-sm font-medium text-foreground truncate"
@@ -207,7 +193,7 @@ function SidebarContent({ collapsed, onNavigate }: { collapsed: boolean; onNavig
                 >
                   {user.email}
                 </p>
-              </motion.div>
+              </div>
             </div>
           )
         ) : (
@@ -244,17 +230,14 @@ export function FinanceSidebar() {
   }
 
   return (
-    <motion.aside
-      initial={{ opacity: 0, x: -10 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+    <aside
       className={cn(
-        'hidden md:flex flex-col h-full shrink-0 border-r border-glass-border surface-sidebar glass-surface-strong',
+        'hidden md:flex flex-col h-full shrink-0 border-r border-glass-border surface-sidebar glass-surface-strong animate-in fade-in slide-in-from-left-2 duration-200',
         'transition-all duration-[var(--motion-slow)] ease-[var(--motion-ease-in-out)]'
       )}
       style={{ width: collapsed ? '64px' : '220px' }}
     >
       <SidebarContent collapsed={collapsed} />
-    </motion.aside>
+    </aside>
   );
 }

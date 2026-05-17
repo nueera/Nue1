@@ -51,10 +51,10 @@ const revenueByCustomerData = [
 ];
 
 const conversionData = [
-  { stage: 'Estimates Sent', value: 48, color: '#6366f1' },
-  { stage: 'Approved', value: 32, color: '#10b981' },
-  { stage: 'Invoiced', value: 28, color: '#f59e0b' },
-  { stage: 'Paid', value: 22, color: '#3b82f6' },
+  { stage: 'Estimates Sent', value: 48, color: 'var(--chart-1)' },
+  { stage: 'Approved', value: 32, color: 'var(--chart-2)' },
+  { stage: 'Invoiced', value: 28, color: 'var(--chart-4)' },
+  { stage: 'Paid', value: 22, color: 'var(--chart-2)' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -160,8 +160,8 @@ export function InvoiceDashboard() {
                   <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }} />
                   <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '12px' }} />
-                  <Bar dataKey="paid" fill="#10b981" radius={[4, 4, 0, 0]} animationDuration={800} name="Paid" />
-                  <Bar dataKey="sent" fill="#0ea5e9" radius={[4, 4, 0, 0]} animationDuration={800} name="Sent" />
+                  <Bar dataKey="paid" fill="var(--chart-2)" radius={[4, 4, 0, 0]} animationDuration={800} name="Paid" />
+                  <Bar dataKey="sent" fill="var(--chart-2)" radius={[4, 4, 0, 0]} animationDuration={800} name="Sent" />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
@@ -184,7 +184,7 @@ export function InvoiceDashboard() {
                   <XAxis type="number" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`} />
                   <YAxis type="category" dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} width={110} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '12px' }} formatter={(value: number) => [`$${value.toLocaleString()}`, '']} />
-                  <Bar dataKey="revenue" fill="#6366f1" radius={[0, 4, 4, 0]} animationDuration={800} name="Revenue" />
+                  <Bar dataKey="revenue" fill="var(--chart-1)" radius={[0, 4, 4, 0]} animationDuration={800} name="Revenue" />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>

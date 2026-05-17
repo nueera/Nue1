@@ -23,6 +23,7 @@ import { NotificationBell } from '@/components/global/NotificationCenter';
 import { UndoRedoPanel } from '@/components/global/UndoRedoPanel';
 import { GlobalBreadcrumb } from '@/components/global/GlobalBreadcrumb';
 import AccentPicker from '@/components/nueone/AccentPicker';
+import { ThemePresetPicker } from '@/components/shared/ThemePresetPicker';
 import { useGlobalSearchStore } from '@/stores/useGlobalSearchStore';
 import {
   DropdownMenu,
@@ -163,6 +164,7 @@ export function MarketingHeader() {
 
           {/* Accent Picker */}
           <AccentPicker />
+          <ThemePresetPicker />
 
           {/* Theme toggle - simple CSS transition, no framer-motion */}
           <Button

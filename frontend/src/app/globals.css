@@ -91,7 +91,7 @@
   --color-glow-primary-hover: var(--glow-primary-hover);
   --color-glow-secondary-hover: var(--glow-secondary-hover);
 
-  /* NueOne 8pt Spacing Scale */
+  /* NueOne 8pt Spacing Scale — registered as spacing, NOT as colors */
   --spacing-1: 4px;
   --spacing-2: 8px;
   --spacing-3: 12px;
@@ -100,29 +100,25 @@
   --spacing-6: 24px;
   --spacing-8: 32px;
   --spacing-10: 40px;
-  --color-nueone-spacing-1: var(--spacing-1);
-  --color-nueone-spacing-2: var(--spacing-2);
-  --color-nueone-spacing-3: var(--spacing-3);
-  --color-nueone-spacing-4: var(--spacing-4);
-  --color-nueone-spacing-5: var(--spacing-5);
-  --color-nueone-spacing-6: var(--spacing-6);
-  --color-nueone-spacing-8: var(--spacing-8);
-  --color-nueone-spacing-10: var(--spacing-10);
 
-  /* NueOne Breakpoint Colors (for Tailwind utility generation) */
-  --color-breakpoint-xs: var(--breakpoint-xs);
-  --color-breakpoint-sm: var(--breakpoint-sm);
-  --color-breakpoint-md: var(--breakpoint-md);
-  --color-breakpoint-lg: var(--breakpoint-lg);
-  --color-breakpoint-xl: var(--breakpoint-xl);
-  --color-breakpoint-2xl: var(--breakpoint-2xl);
+  /* NOTE: Spacing, breakpoint, and dimension tokens are intentionally NOT
+     registered as --color-* aliases. Registering non-color values as
+     --color-* pollutes the color namespace and prevents Tailwind from
+     generating correct utility classes. Use var(--spacing-*) or
+     var(--breakpoint-*) directly instead. */
 
-  /* NueOne Progress Bar Colors */
-  --color-progress-bar: var(--progress-bar-color);
+  /* Semantic chart colors for data visualization */
+  --color-chart-revenue: var(--chart-1);
+  --color-chart-secondary: var(--chart-2);
+  --color-chart-tertiary: var(--chart-3);
+  --color-chart-warning: var(--chart-4);
+  --color-chart-danger: var(--chart-5);
+  --color-chart-success: var(--chart-2);
+  --color-chart-info: var(--chart-2);
+  --color-chart-neutral: var(--muted-foreground);
 
-  /* NueOne Notification Colors */
-  --color-notification-toast-width: var(--notification-toast-width);
-  --color-notification-drawer-width: var(--notification-drawer-width);
+  /* NueOne Tablet Breakpoint (bridges md 768px — lg 1024px) */
+  --breakpoint-md-wide: 896px;
 }
 
 :root {
@@ -239,6 +235,7 @@
   --breakpoint-xs: 0px;
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
+  --breakpoint-md-wide: 896px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;

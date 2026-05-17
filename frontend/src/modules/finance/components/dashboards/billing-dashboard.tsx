@@ -136,14 +136,14 @@ export function BillingDashboard() {
                 <AreaChart data={mrrTrendData} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
                   <defs>
                     <linearGradient id="mrrGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#10b981" stopOpacity={0.2} />
-                      <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                      <stop offset="0%" stopColor="var(--chart-2)" stopOpacity={0.2} />
+                      <stop offset="95%" stopColor="var(--chart-2)" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }} />
                   <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '12px' }} formatter={(value: number) => [`$${value.toLocaleString()}`, 'MRR']} />
-                  <Area type="monotone" dataKey="mrr" stroke="#10b981" strokeWidth={2} fill="url(#mrrGrad)" dot={false} animationDuration={800} />
+                  <Area type="monotone" dataKey="mrr" stroke="var(--chart-2)" strokeWidth={2} fill="url(#mrrGrad)" dot={false} animationDuration={800} />
                 </AreaChart>
               </ResponsiveContainer>
             </CardContent>
@@ -166,7 +166,7 @@ export function BillingDashboard() {
                   <XAxis type="number" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`} />
                   <YAxis type="category" dataKey="plan" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} width={120} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '12px' }} formatter={(value: number) => [`$${value.toLocaleString()}`, 'Revenue']} />
-                  <Bar dataKey="revenue" fill="#6366f1" radius={[0, 4, 4, 0]} animationDuration={800} name="Revenue" />
+                  <Bar dataKey="revenue" fill="var(--chart-1)" radius={[0, 4, 4, 0]} animationDuration={800} name="Revenue" />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>

@@ -42,11 +42,11 @@ const paymentVolumeData = [
 ];
 
 const paymentMethodsData = [
-  { name: 'Credit Card', value: 45, color: '#6366f1' },
-  { name: 'Bank Transfer', value: 25, color: '#10b981' },
-  { name: 'PayPal', value: 15, color: '#f59e0b' },
-  { name: 'Apple Pay', value: 10, color: '#0ea5e9' },
-  { name: 'Other', value: 5, color: '#94a3b8' },
+  { name: 'Credit Card', value: 45, color: 'var(--chart-1)' },
+  { name: 'Bank Transfer', value: 25, color: 'var(--chart-2)' },
+  { name: 'PayPal', value: 15, color: 'var(--chart-4)' },
+  { name: 'Apple Pay', value: 10, color: 'var(--chart-2)' },
+  { name: 'Other', value: 5, color: 'var(--muted-foreground)' },
 ];
 
 const recentTransactionsData = [
@@ -147,14 +147,14 @@ export function CheckoutDashboard() {
                 <AreaChart data={paymentVolumeData} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
                   <defs>
                     <linearGradient id="payVolGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#10b981" stopOpacity={0.2} />
-                      <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                      <stop offset="0%" stopColor="var(--chart-2)" stopOpacity={0.2} />
+                      <stop offset="95%" stopColor="var(--chart-2)" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }} />
                   <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '12px' }} formatter={(value: number) => [`$${value.toLocaleString()}`, '']} />
-                  <Area type="monotone" dataKey="volume" stroke="#10b981" strokeWidth={2} fill="url(#payVolGrad)" dot={false} animationDuration={800} />
+                  <Area type="monotone" dataKey="volume" stroke="var(--chart-2)" strokeWidth={2} fill="url(#payVolGrad)" dot={false} animationDuration={800} />
                 </AreaChart>
               </ResponsiveContainer>
             </CardContent>

@@ -137,14 +137,14 @@ export function CommerceDashboard() {
                 <AreaChart data={ordersTrendData} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
                   <defs>
                     <linearGradient id="comRevGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#0ea5e9" stopOpacity={0.2} />
-                      <stop offset="95%" stopColor="#0ea5e9" stopOpacity={0} />
+                      <stop offset="0%" stopColor="var(--chart-2)" stopOpacity={0.2} />
+                      <stop offset="95%" stopColor="var(--chart-2)" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }} />
                   <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '12px' }} formatter={(value: number) => [`$${value.toLocaleString()}`, '']} />
-                  <Area type="monotone" dataKey="revenue" stroke="#0ea5e9" strokeWidth={2} fill="url(#comRevGrad)" dot={false} animationDuration={800} />
+                  <Area type="monotone" dataKey="revenue" stroke="var(--chart-2)" strokeWidth={2} fill="url(#comRevGrad)" dot={false} animationDuration={800} />
                 </AreaChart>
               </ResponsiveContainer>
             </CardContent>
@@ -167,7 +167,7 @@ export function CommerceDashboard() {
                   <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }} />
                   <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '12px' }} />
-                  <Bar dataKey="orders" fill="#6366f1" radius={[4, 4, 0, 0]} animationDuration={800} name="Orders" />
+                  <Bar dataKey="orders" fill="var(--chart-1)" radius={[4, 4, 0, 0]} animationDuration={800} name="Orders" />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>

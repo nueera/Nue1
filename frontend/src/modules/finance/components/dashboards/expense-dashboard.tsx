@@ -33,11 +33,11 @@ import { cn } from '@/lib/utils';
 // ---------------------------------------------------------------------------
 
 const spendingByCategoryData = [
-  { name: 'Travel', value: 1645.5, color: '#6366f1' },
-  { name: 'Meals & Entertainment', value: 800.05, color: '#10b981' },
-  { name: 'Software', value: 699.96, color: '#f59e0b' },
-  { name: 'Marketing', value: 3750.0, color: '#ef4444' },
-  { name: 'Office Supplies', value: 245.0, color: '#0ea5e9' },
+  { name: 'Travel', value: 1645.5, color: 'var(--chart-1)' },
+  { name: 'Meals & Entertainment', value: 800.05, color: 'var(--chart-2)' },
+  { name: 'Software', value: 699.96, color: 'var(--chart-4)' },
+  { name: 'Marketing', value: 3750.0, color: 'var(--chart-5)' },
+  { name: 'Office Supplies', value: 245.0, color: 'var(--chart-2)' },
 ];
 
 const monthlyExpensesData = [
@@ -190,7 +190,7 @@ export function ExpenseDashboard() {
                   <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }} />
                   <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '12px' }} formatter={(value: number) => [`$${value.toLocaleString()}`, '']} />
-                  <Bar dataKey="amount" fill="#f59e0b" radius={[4, 4, 0, 0]} animationDuration={800} name="Expenses" />
+                  <Bar dataKey="amount" fill="var(--chart-4)" radius={[4, 4, 0, 0]} animationDuration={800} name="Expenses" />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>

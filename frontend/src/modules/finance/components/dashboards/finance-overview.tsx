@@ -187,12 +187,12 @@ export function FinanceOverview() {
                 <AreaChart data={revenueTrendData} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
                   <defs>
                     <linearGradient id="revGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#10b981" stopOpacity={0.2} />
-                      <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                      <stop offset="0%" stopColor="var(--chart-2)" stopOpacity={0.2} />
+                      <stop offset="95%" stopColor="var(--chart-2)" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="expGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#f87171" stopOpacity={0.15} />
-                      <stop offset="95%" stopColor="#f87171" stopOpacity={0} />
+                      <stop offset="0%" stopColor="var(--chart-5)" stopOpacity={0.15} />
+                      <stop offset="95%" stopColor="var(--chart-5)" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <XAxis
@@ -219,7 +219,7 @@ export function FinanceOverview() {
                   <Area
                     type="monotone"
                     dataKey="revenue"
-                    stroke="#10b981"
+                    stroke="var(--chart-2)"
                     strokeWidth={2}
                     fill="url(#revGradient)"
                     dot={false}
@@ -229,7 +229,7 @@ export function FinanceOverview() {
                   <Area
                     type="monotone"
                     dataKey="expenses"
-                    stroke="#f87171"
+                    stroke="var(--chart-5)"
                     strokeWidth={2}
                     fill="url(#expGradient)"
                     dot={false}

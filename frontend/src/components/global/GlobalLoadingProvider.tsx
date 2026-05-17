@@ -94,22 +94,20 @@ export function GlobalLoadingProvider({ children, moduleId }: GlobalLoadingProvi
     if (loadingTimeoutRef.current) clearTimeout(loadingTimeoutRef.current);
   }, []);
 
-  // Detect route changes → auto start/stop progress bar
+  // Detect route changes → show progress bar briefly
   useEffect(() => {
     if (pathname !== prevPathnameRef.current) {
       prevPathnameRef.current = pathname;
 
-      // Briefly show progress bar on route change
+      // Show progress bar on route change — complete immediately
+      // No artificial delay; the progress bar animates its own exit
       setProgressVisible(true);
-      setIsLoading(true);
 
-      // Simulate loading complete after a short delay
-      const timer = setTimeout(() => {
+      // Let the progress bar render one frame, then dismiss
+      requestAnimationFrame(() => {
         setIsLoading(false);
         setProgressVisible(false);
-      }, 600);
-
-      return () => clearTimeout(timer);
+      });
     }
   }, [pathname]);
 

@@ -45,10 +45,10 @@ const cashFlowData = [
 ];
 
 const invoiceAgingData = [
-  { range: '0-30 days', amount: 24500, color: '#10b981' },
-  { range: '31-60 days', amount: 18300, color: '#f59e0b' },
-  { range: '61-90 days', amount: 8900, color: '#f97316' },
-  { range: '90+ days', amount: 4200, color: '#ef4444' },
+  { range: '0-30 days', amount: 24500, color: 'var(--chart-2)' },
+  { range: '31-60 days', amount: 18300, color: 'var(--chart-4)' },
+  { range: '61-90 days', amount: 8900, color: 'var(--chart-4)' },
+  { range: '90+ days', amount: 4200, color: 'var(--chart-5)' },
 ];
 
 const topCustomersData = [
@@ -161,19 +161,19 @@ export function BooksDashboard() {
                 <AreaChart data={cashFlowData} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
                   <defs>
                     <linearGradient id="cfInflow" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#10b981" stopOpacity={0.2} />
-                      <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                      <stop offset="0%" stopColor="var(--chart-2)" stopOpacity={0.2} />
+                      <stop offset="95%" stopColor="var(--chart-2)" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="cfOutflow" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#f87171" stopOpacity={0.15} />
-                      <stop offset="95%" stopColor="#f87171" stopOpacity={0} />
+                      <stop offset="0%" stopColor="var(--chart-5)" stopOpacity={0.15} />
+                      <stop offset="95%" stopColor="var(--chart-5)" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }} />
                   <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '12px' }} formatter={(value: number) => [`$${value.toLocaleString()}`, '']} />
-                  <Area type="monotone" dataKey="inflow" stroke="#10b981" strokeWidth={2} fill="url(#cfInflow)" dot={false} animationDuration={800} name="Inflow" />
-                  <Area type="monotone" dataKey="outflow" stroke="#f87171" strokeWidth={2} fill="url(#cfOutflow)" dot={false} animationDuration={800} name="Outflow" />
+                  <Area type="monotone" dataKey="inflow" stroke="var(--chart-2)" strokeWidth={2} fill="url(#cfInflow)" dot={false} animationDuration={800} name="Inflow" />
+                  <Area type="monotone" dataKey="outflow" stroke="var(--chart-5)" strokeWidth={2} fill="url(#cfOutflow)" dot={false} animationDuration={800} name="Outflow" />
                 </AreaChart>
               </ResponsiveContainer>
             </CardContent>

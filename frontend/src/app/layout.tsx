@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 import { AccentSync } from "@/components/nueone/AccentSync";
+import { ThemePresetSync } from "@/components/nueone/ThemePresetSync";
 import { KeyboardShortcutProvider } from "@/components/global/KeyboardShortcutProvider";
 import { GlobalLoadingProvider } from "@/components/global/GlobalLoadingProvider";
 import { NotificationDrawer, NotificationToast, CrossModuleSearch, SkipToContent } from "@/components/global";
@@ -49,6 +50,7 @@ export default function RootLayout({
           <QueryProvider>
             <SkipToContent />
             <AccentSync />
+            <ThemePresetSync />
             <KeyboardShortcutProvider>
               <GlobalLoadingProvider>
                 <main id="main-content">
@@ -56,7 +58,7 @@ export default function RootLayout({
                 </main>
                 <CrossModuleSearch />
                 <GlobalWorkspaceDock />
-                <Toaster />
+                <SonnerToaster />
                 <NotificationDrawer />
                 <NotificationToast />
               </GlobalLoadingProvider>

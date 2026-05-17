@@ -39,11 +39,11 @@ const stockByWarehouseData = [
 ];
 
 const stockDistributionData = [
-  { name: 'Electronics', value: 145000, color: '#6366f1' },
-  { name: 'Furniture', value: 89000, color: '#10b981' },
-  { name: 'Software', value: 52000, color: '#f59e0b' },
-  { name: 'Accessories', value: 34000, color: '#0ea5e9' },
-  { name: 'Other', value: 40000, color: '#94a3b8' },
+  { name: 'Electronics', value: 145000, color: 'var(--chart-1)' },
+  { name: 'Furniture', value: 89000, color: 'var(--chart-2)' },
+  { name: 'Software', value: 52000, color: 'var(--chart-4)' },
+  { name: 'Accessories', value: 34000, color: 'var(--chart-2)' },
+  { name: 'Other', value: 40000, color: 'var(--muted-foreground)' },
 ];
 
 const lowStockAlerts = [
@@ -143,7 +143,7 @@ export function InventoryDashboard() {
                   <XAxis type="number" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`} />
                   <YAxis type="category" dataKey="warehouse" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} width={130} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '12px' }} formatter={(value: number) => [`$${value.toLocaleString()}`, 'Value']} />
-                  <Bar dataKey="value" fill="#0ea5e9" radius={[0, 4, 4, 0]} animationDuration={800} name="Value" />
+                  <Bar dataKey="value" fill="var(--chart-2)" radius={[0, 4, 4, 0]} animationDuration={800} name="Value" />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>

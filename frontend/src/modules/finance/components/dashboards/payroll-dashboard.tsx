@@ -41,11 +41,11 @@ const payrollTrendData = [
 ];
 
 const compensationBreakdownData = [
-  { name: 'Base Salary', value: 52, color: '#6366f1' },
-  { name: 'Benefits', value: 18, color: '#10b981' },
-  { name: 'Taxes', value: 22, color: '#f59e0b' },
-  { name: 'Bonuses', value: 5, color: '#0ea5e9' },
-  { name: 'Other', value: 3, color: '#94a3b8' },
+  { name: 'Base Salary', value: 52, color: 'var(--chart-1)' },
+  { name: 'Benefits', value: 18, color: 'var(--chart-2)' },
+  { name: 'Taxes', value: 22, color: 'var(--chart-4)' },
+  { name: 'Bonuses', value: 5, color: 'var(--chart-2)' },
+  { name: 'Other', value: 3, color: 'var(--muted-foreground)' },
 ];
 
 const departmentCostsData = [
@@ -159,8 +159,8 @@ export function PayrollDashboard() {
                   <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }} />
                   <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '12px' }} formatter={(value: number) => [`$${value.toLocaleString()}`, '']} />
-                  <Bar dataKey="gross" fill="#10b981" radius={[4, 4, 0, 0]} animationDuration={800} name="Gross" />
-                  <Bar dataKey="net" fill="#0ea5e9" radius={[4, 4, 0, 0]} animationDuration={800} name="Net" />
+                  <Bar dataKey="gross" fill="var(--chart-2)" radius={[4, 4, 0, 0]} animationDuration={800} name="Gross" />
+                  <Bar dataKey="net" fill="var(--chart-2)" radius={[4, 4, 0, 0]} animationDuration={800} name="Net" />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
@@ -228,7 +228,7 @@ export function PayrollDashboard() {
                 <XAxis type="number" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`} />
                 <YAxis type="category" dataKey="department" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} width={100} />
                 <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '12px' }} formatter={(value: number) => [`$${value.toLocaleString()}`, '']} />
-                <Bar dataKey="cost" fill="#6366f1" radius={[0, 4, 4, 0]} animationDuration={800} name="Cost" />
+                <Bar dataKey="cost" fill="var(--chart-1)" radius={[0, 4, 4, 0]} animationDuration={800} name="Cost" />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>

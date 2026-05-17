@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import {
   ArrowLeft,
@@ -25,6 +24,7 @@ import { NotificationBell } from '@/components/global/NotificationCenter';
 import { UndoRedoPanel } from '@/components/global/UndoRedoPanel';
 import { GlobalBreadcrumb } from '@/components/global/GlobalBreadcrumb';
 import AccentPicker from '@/components/nueone/AccentPicker';
+import { ThemePresetPicker } from '@/components/shared/ThemePresetPicker';
 import { useGlobalSearchStore } from '@/stores/useGlobalSearchStore';
 import {
   DropdownMenu,
@@ -83,11 +83,8 @@ export function FinanceHeader() {
 
   return (
     <>
-      <motion.header
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.24, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-        className="sticky top-0 z-40 flex items-center justify-between h-12 px-4 sm:px-6 border-b border-glass-border surface-topbar backdrop-blur-xl"
+      <header
+        className="sticky top-0 z-40 flex items-center justify-between h-12 px-4 sm:px-6 border-b border-glass-border surface-topbar backdrop-blur-xl animate-in fade-in slide-in-from-top-1 duration-200"
       >
         {/* Left side: Hamburger (mobile) + Back button + Page title */}
         <div className="flex items-center gap-2">
@@ -117,23 +114,17 @@ export function FinanceHeader() {
           {/* Page title (mobile) / Breadcrumb (desktop) */}
           <div className="flex items-center gap-2 min-w-0">
             {/* Mobile: animated page title */}
-            <AnimatePresence mode="wait">
-              <motion.h1
-                key={pageTitle}
-                initial={{ opacity: 0, x: -8 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 8 }}
-                transition={{ duration: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-                className="sm:hidden font-semibold text-foreground truncate"
-                style={{
-                  fontSize: 'var(--text-base)',
-                  letterSpacing: 'var(--tracking-tight)',
-                  lineHeight: 'var(--leading-tight)',
-                }}
-              >
-                {pageTitle}
-              </motion.h1>
-            </AnimatePresence>
+            <h1
+              key={pageTitle}
+              className="sm:hidden font-semibold text-foreground truncate animate-in fade-in slide-in-from-left-1 duration-150"
+              style={{
+                fontSize: 'var(--text-base)',
+                letterSpacing: 'var(--tracking-tight)',
+                lineHeight: 'var(--leading-tight)',
+              }}
+            >
+              {pageTitle}
+            </h1>
             {/* Desktop: Global Breadcrumb */}
             <div className="hidden sm:block">
               <GlobalBreadcrumb />
@@ -174,6 +165,7 @@ export function FinanceHeader() {
 
           {/* Accent Picker */}
           <AccentPicker />
+          <ThemePresetPicker />
 
           {/* Theme toggle */}
           <Button
@@ -186,30 +178,10 @@ export function FinanceHeader() {
           >
             {!mounted ? (
               <div className="h-4 w-4" />
+            ) : isDark ? (
+              <Sun className="h-4 w-4 transition-all duration-200" strokeWidth={1.8} />
             ) : (
-              <AnimatePresence mode="wait" initial={false}>
-                {isDark ? (
-                  <motion.div
-                    key="sun"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.19 }}
-                  >
-                    <Sun className="h-4 w-4" strokeWidth={1.8} />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="moon"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.19 }}
-                  >
-                    <Moon className="h-4 w-4" strokeWidth={1.8} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <Moon className="h-4 w-4 transition-all duration-200" strokeWidth={1.8} />
             )}
           </Button>
 
@@ -243,20 +215,12 @@ export function FinanceHeader() {
             </DropdownMenu>
           )}
         </div>
-      </motion.header>
+      </header>
 
       {/* Exit transition overlay when going back to home */}
-      <AnimatePresence>
-        {isExiting && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-            className="fixed inset-0 z-[100] bg-background"
-          />
-        )}
-      </AnimatePresence>
+      {isExiting && (
+        <div className="fixed inset-0 z-[100] bg-background animate-in fade-in duration-200" />
+      )}
     </>
   );
 }

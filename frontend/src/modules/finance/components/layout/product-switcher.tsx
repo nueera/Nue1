@@ -1,164 +1,31 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-  BookOpen,
-  Receipt,
-  RefreshCw,
-  Banknote,
-  Package,
-  CreditCard,
-  Store,
-  Users,
-  ChevronsUpDown,
-} from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { BookOpen, Receipt, RefreshCw, Banknote, Package, CreditCard, Store, Users } from 'lucide-react';
+import { SharedProductSwitcher } from '@/components/shared/SharedProductSwitcher';
 import { useFinanceStore } from '../../stores/finance-store';
-import { PRODUCT_LABELS } from '../../constants/navigation';
 import type { FinanceProduct } from '../../types';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 
-// ---------------------------------------------------------------------------
-// Product metadata (icon + label)
-// ---------------------------------------------------------------------------
-
-interface ProductMeta {
-  product: FinanceProduct;
-  label: string;
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
-}
-
-const PRODUCT_ITEMS: ProductMeta[] = [
-  { product: 'books', label: 'Books', icon: BookOpen },
-  { product: 'invoice', label: 'Invoice', icon: Receipt },
-  { product: 'billing', label: 'Billing', icon: RefreshCw },
-  { product: 'expense', label: 'Expense', icon: Banknote },
-  { product: 'inventory', label: 'Inventory', icon: Package },
-  { product: 'checkout', label: 'Checkout', icon: CreditCard },
-  { product: 'commerce', label: 'Commerce', icon: Store },
-  { product: 'payroll', label: 'Payroll', icon: Users },
+const FINANCE_PRODUCTS = [
+  { key: 'books' as const, label: 'Books', icon: BookOpen },
+  { key: 'invoice' as const, label: 'Invoice', icon: Receipt },
+  { key: 'billing' as const, label: 'Billing', icon: RefreshCw },
+  { key: 'expense' as const, label: 'Expense', icon: Banknote },
+  { key: 'inventory' as const, label: 'Inventory', icon: Package },
+  { key: 'checkout' as const, label: 'Checkout', icon: CreditCard },
+  { key: 'commerce' as const, label: 'Commerce', icon: Store },
+  { key: 'payroll' as const, label: 'Payroll', icon: Users },
 ];
 
-// ---------------------------------------------------------------------------
-// Product Switcher Component
-// ---------------------------------------------------------------------------
-
-interface ProductSwitcherProps {
-  collapsed?: boolean;
-  className?: string;
-}
-
-export function ProductSwitcher({ collapsed = false, className }: ProductSwitcherProps) {
+export function ProductSwitcher({ collapsed = false, className }: { collapsed?: boolean; className?: string }) {
   const { activeProduct, setActiveProduct } = useFinanceStore();
-  const currentMeta = PRODUCT_ITEMS.find((p) => p.product === activeProduct) ?? PRODUCT_ITEMS[0];
-  const CurrentIcon = currentMeta.icon;
-
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <button
-          className={cn(
-            'flex items-center w-full rounded-lg transition-all duration-[var(--motion-fast)]',
-            'hover:bg-glass-hover focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-interactive-focus',
-            'glass-surface',
-            collapsed
-              ? 'justify-center px-2 py-2'
-              : 'gap-2 px-3 py-2',
-            className
-          )}
-          aria-label={`Switch product — currently ${currentMeta.label}`}
-          suppressHydrationWarning
-        >
-          <div className="flex items-center justify-center w-6 h-6 rounded-md bg-module-finance/15 text-module-finance shrink-0">
-            <CurrentIcon className="h-3.5 w-3.5" strokeWidth={1.8} />
-          </div>
-
-          <AnimatePresence mode="wait">
-            {!collapsed && (
-              <motion.div
-                key={activeProduct}
-                initial={{ opacity: 0, x: -4 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 4 }}
-                transition={{ duration: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-                className="flex items-center flex-1 min-w-0"
-              >
-                <span
-                  className="font-semibold text-foreground truncate"
-                  style={{
-                    fontSize: 'var(--text-sm)',
-                    letterSpacing: 'var(--tracking-tight)',
-                  }}
-                >
-                  {currentMeta.label}
-                </span>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {!collapsed && (
-            <ChevronsUpDown className="h-3 w-3 text-muted-foreground shrink-0" strokeWidth={1.8} />
-          )}
-        </button>
-      </DropdownMenuTrigger>
-
-      <DropdownMenuContent
-        side="right"
-        align="start"
-        className="w-52 glass-surface border-glass-border"
-        sideOffset={4}
-      >
-        {PRODUCT_ITEMS.map((meta) => {
-          const Icon = meta.icon;
-          const isActive = meta.product === activeProduct;
-
-          return (
-            <DropdownMenuItem
-              key={meta.product}
-              onClick={() => setActiveProduct(meta.product)}
-              className={cn(
-                'flex items-center gap-2 px-3 py-2 cursor-pointer rounded-md',
-                'transition-colors duration-[var(--motion-fast)]',
-                isActive
-                  ? 'bg-module-finance/10 text-module-finance'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-glass-hover'
-              )}
-            >
-              <div
-                className={cn(
-                  'flex items-center justify-center w-6 h-6 rounded-md shrink-0',
-                  isActive
-                    ? 'bg-module-finance/15 text-module-finance'
-                    : 'bg-muted text-muted-foreground'
-                )}
-              >
-                <Icon className="h-3.5 w-3.5" strokeWidth={1.8} />
-              </div>
-              <span
-                className="truncate"
-                style={{
-                  fontSize: 'var(--text-sm)',
-                  letterSpacing: 'var(--tracking-normal)',
-                }}
-              >
-                {meta.label}
-              </span>
-              {isActive && (
-                <motion.div
-                  layoutId="product-switcher-active"
-                  className="ml-auto w-1.5 h-1.5 rounded-full bg-module-finance"
-                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                />
-              )}
-            </DropdownMenuItem>
-          );
-        })}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <SharedProductSwitcher<FinanceProduct>
+      moduleId="finance"
+      activeProduct={activeProduct}
+      setActiveProduct={setActiveProduct}
+      products={FINANCE_PRODUCTS}
+      collapsed={collapsed}
+      className={className}
+    />
   );
 }
