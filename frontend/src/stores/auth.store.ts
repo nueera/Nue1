@@ -19,6 +19,9 @@ interface User {
   role: string;
   created_at: string;
   updated_at: string;
+  // Computed helpers for UI components (avatar initials, display name)
+  name: string;
+  avatar: string;
 }
 
 interface AuthState {
@@ -115,7 +118,25 @@ export const useAuthStore = create<AuthState>()(
 
       fetchProfile: async () => {
         try {
-          const user = await apiClient.get<User>(API_ENDPOINTS.AUTH.ME);
+          const profile = await apiClient.get<Record<string, unknown>>(API_ENDPOINTS.AUTH.ME);
+          // Map backend fields to include computed helpers for UI
+          const user: User = {
+            id: profile.id as number,
+            email: profile.email as string,
+            full_name: profile.full_name as string,
+            is_active: profile.is_active as boolean,
+            role: profile.role as string,
+            created_at: profile.created_at as string,
+            updated_at: profile.updated_at as string,
+            // Computed: use full_name as display name, initials as avatar
+            name: (profile.full_name as string) || (profile.email as string).split('@')[0],
+            avatar: ((profile.full_name as string) || (profile.email as string))
+              .split(' ')
+              .map((w: string) => w[0])
+              .join('')
+              .toUpperCase()
+              .slice(0, 2),
+          };
           set({ user, isAuthenticated: true });
         } catch (error: any) {
           // If profile fetch fails, token might be invalid

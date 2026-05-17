@@ -1,8 +1,18 @@
 // ============================================================================
 // Next.js Middleware — Server-side Auth Protection
 // ============================================================================
-// Checks for JWT token in cookies/localStorage (client-side) before
-// allowing access to protected routes. Redirects to /login if not authenticated.
+// Checks for JWT token in cookies before allowing access to protected routes.
+// Redirects to /login if not authenticated.
+//
+// Token flow:
+//   1. User logs in via /login → FastAPI backend returns JWT
+//   2. Auth store calls tokenStorage.setAccessToken() which writes to
+//      BOTH localStorage (for API client) AND cookie (for middleware)
+//   3. This middleware reads the cookie and enforces auth on protected routes
+//   4. On logout, tokenStorage.clearAll() removes both localStorage AND cookie
+//
+// Dev mode: Set NEXT_PUBLIC_AUTH_DISABLED=true in .env.local to bypass
+// auth checks entirely (useful when backend is not running).
 // ============================================================================
 
 import { NextResponse } from 'next/server';
@@ -14,12 +24,16 @@ const authPaths = ['/login', '/register', '/forgot-password'];
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Dev bypass: skip all auth checks when backend is not available
+  if (process.env.NEXT_PUBLIC_AUTH_DISABLED === 'true') {
+    return NextResponse.next();
+  }
+
   // Check if path is protected
   const isProtected = protectedPaths.some((path) => pathname.startsWith(path));
   const isAuthPath = authPaths.some((path) => pathname.startsWith(path));
 
-  // Get token from cookie (set by client-side after login)
-  // Note: localStorage is not accessible in middleware, so we use cookies
+  // Get token from cookie (set by client-side after login via tokenStorage)
   const token = request.cookies.get('nueone_access_token')?.value;
   const isAuthenticated = !!token;
 

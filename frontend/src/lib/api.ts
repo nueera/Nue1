@@ -23,9 +23,10 @@ const REFRESH_TOKEN_KEY = 'nueone_refresh_token';
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
-interface RequestConfig extends RequestInit {
+interface RequestConfig extends Omit<RequestInit, 'body'> {
   params?: Record<string, string | number | boolean | undefined>;
   skipAuth?: boolean; // Set true for public endpoints like login/register
+  body?: unknown; // Will be JSON.stringify'd automatically
 }
 
 interface FastApiValidationError {
@@ -40,6 +41,19 @@ interface FastApiErrorBody {
 
 // ── Token Storage ──────────────────────────────────────────────────────────
 
+/**
+ * Set a cookie accessible by the server-side middleware.
+ * localStorage is NOT accessible from Edge middleware, so we sync
+ * the access token to a cookie so middleware can verify auth state.
+ */
+function setCookie(name: string, value: string, maxAge = 86400): void {
+  document.cookie = `${name}=${value}; path=/; max-age=${maxAge}; SameSite=Lax`;
+}
+
+function deleteCookie(name: string): void {
+  document.cookie = `${name}=; path=/; max-age=0; SameSite=Lax`;
+}
+
 export const tokenStorage = {
   getAccessToken(): string | null {
     if (typeof window === 'undefined') return null;
@@ -49,6 +63,8 @@ export const tokenStorage = {
   setAccessToken(token: string): void {
     if (typeof window === 'undefined') return;
     localStorage.setItem(AUTH_TOKEN_KEY, token);
+    // Also set as cookie so server-side middleware can read it
+    setCookie(AUTH_TOKEN_KEY, token);
   },
 
   getRefreshToken(): string | null {
@@ -65,6 +81,8 @@ export const tokenStorage = {
     if (typeof window === 'undefined') return;
     localStorage.removeItem(AUTH_TOKEN_KEY);
     localStorage.removeItem(REFRESH_TOKEN_KEY);
+    // Also clear the cookie so middleware sees user as logged out
+    deleteCookie(AUTH_TOKEN_KEY);
   },
 };
 
