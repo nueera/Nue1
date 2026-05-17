@@ -1,10 +1,16 @@
-FROM python:3.11-slim
+# ============================================================================
+# NueOne Backend — FastAPI Docker Build
+# ============================================================================
+# Multi-stage build for production with optional dev mode
+# ============================================================================
+
+FROM python:3.11-slim AS base
 
 WORKDIR /app
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc libpq-dev && \
+    gcc libpq-dev curl && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
@@ -17,5 +23,10 @@ COPY . .
 # Expose port
 EXPOSE 8000
 
-# Run the app
+# ── Production Stage ───────────────────────────────────────────────────────
+FROM base AS production
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4"]
+
+# ── Development Stage (default) ────────────────────────────────────────────
+FROM base AS development
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

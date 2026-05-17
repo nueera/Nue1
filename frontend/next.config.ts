@@ -1,9 +1,6 @@
 import type { NextConfig } from "next";
 
 // ── Bundle Analyzer (optional) ────────────────────────────────────────────
-// Wrapped in try/catch so the app starts even if @next/bundle-analyzer isn't
-// installed (e.g. fresh clone before devDependencies are fully installed,
-// or in environments where only production deps are present).
 let withBundleAnalyzer = (config: NextConfig) => config;
 try {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -21,16 +18,38 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
 
   // ── Image Optimization ──────────────────────────────────────────────────
-  // Allow images from any remote source (avatars, OG images, social media).
-  // For production, narrow this to known domains for better security.
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "**" },
     ],
   },
 
+  // ── API Proxy Rewrites (Development) ────────────────────────────────────
+  // In production, nginx handles the proxy. These rewrites are for
+  // local development when running Next.js directly (without Docker/nginx).
+  async rewrites() {
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+    return [
+      {
+        source: "/api/v1/:path*",
+        destination: `${backendUrl}/:path*`,
+      },
+      {
+        source: "/api/docs",
+        destination: `${backendUrl.replace('/api/v1', '')}/api/docs`,
+      },
+      {
+        source: "/api/redoc",
+        destination: `${backendUrl.replace('/api/v1', '')}/api/redoc`,
+      },
+      {
+        source: "/api/openapi.json",
+        destination: `${backendUrl.replace('/api/v1', '')}/api/openapi.json`,
+      },
+    ];
+  },
+
   // ── Bundle Optimization ─────────────────────────────────────────────────
-  // Tree-shake large libraries that re-export everything from a barrel file.
   experimental: {
     optimizePackageImports: [
       "lucide-react",
