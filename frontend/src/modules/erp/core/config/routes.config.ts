@@ -60,7 +60,22 @@ export const ROUTES = {
   HRM_REPORTS_DAILY_WORK_SUMMARY: '/erp/hrm/reports/daily-work-summary',
   HRM_REPORTS_CUSTOM: '/erp/hrm/reports/custom',
 
-  // Other modules
+  // ── Operations (ERP) ─────────────────────────────────────────────────
+  OPERATIONS_DASHBOARD: '/erp/operations/dashboard',
+  PRODUCTS: '/erp/operations/products',
+  PRODUCT_DETAIL: (id: string) => `/erp/operations/products/${id}`,
+  CATEGORIES: '/erp/operations/categories',
+  SUPPLIERS: '/erp/operations/suppliers',
+  SUPPLIER_DETAIL: (id: string) => `/erp/operations/suppliers/${id}`,
+  WAREHOUSES: '/erp/operations/warehouses',
+  WAREHOUSE_DETAIL: (id: string) => `/erp/operations/warehouses/${id}`,
+  INVENTORY: '/erp/operations/inventory',
+  PURCHASE_ORDERS: '/erp/operations/purchase-orders',
+  PURCHASE_ORDER_DETAIL: (id: string) => `/erp/operations/purchase-orders/${id}`,
+  SALES_ORDERS: '/erp/operations/sales-orders',
+  SALES_ORDER_DETAIL: (id: string) => `/erp/operations/sales-orders/${id}`,
+
+  // Other modules (legacy)
   PROJECTS: '/erp/projects',
   FINANCE: '/erp/finance',
   REPORTS: '/erp/reports',

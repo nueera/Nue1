@@ -34,3 +34,13 @@ export type { TrainingProgram, TrainingEnrollment, TrainingFeedback } from './tr
 
 export { reportConfigs, reportDataSets, getReportConfigById, getReportDataByReportId } from './hrm-reports.mock';
 export type { ReportConfig, ReportData } from './hrm-reports.mock';
+
+export {
+  mockCategories, mockSuppliers, mockWarehouses, mockProducts,
+  mockInventory, mockLowStockAlerts, mockPurchaseOrders, mockSalesOrders,
+  mockErpDashboard, getProductById, getSupplierById, getWarehouseById, getCategoryById,
+} from './operations.mock';
+export type {
+  Category, Supplier, Warehouse, Product, InventoryItem,
+  PurchaseOrder, SalesOrder, LowStockAlert, ErpDashboardData,
+} from '../../types/erp-operations';

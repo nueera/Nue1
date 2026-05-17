@@ -25,11 +25,17 @@ import {
   ClipboardCheck,
   PieChart,
   Globe,
+  Package,
+  Warehouse,
+  Truck,
+  ShoppingCart,
+  Boxes,
+  Tag,
 } from 'lucide-react';
 import type { ErpProduct } from '../../types';
 
 // ---------------------------------------------------------------------------
-// Nav Item & Section Types (same pattern as Finance navigation.ts)
+// Nav Item & Section Types
 // ---------------------------------------------------------------------------
 
 export interface NavItem {
@@ -106,7 +112,7 @@ const HRM_NAV: ProductNavConfig = {
 };
 
 // ---------------------------------------------------------------------------
-// Operations — Projects & Finance
+// Operations — Products, Inventory, Warehouses, Suppliers, PO, SO
 // ---------------------------------------------------------------------------
 
 const OPERATIONS_NAV: ProductNavConfig = {
@@ -120,24 +126,30 @@ const OPERATIONS_NAV: ProductNavConfig = {
       ],
     },
     {
-      title: 'Projects',
+      title: 'Catalog',
       items: [
-        { id: 'operations-projects', label: 'Projects', icon: FolderKanban, slug: 'operations/projects' },
-        { id: 'operations-tasks', label: 'Tasks', icon: ClipboardCheck, slug: 'operations/tasks' },
+        { id: 'operations-products', label: 'Products', icon: Package, slug: 'operations/products' },
+        { id: 'operations-categories', label: 'Categories', icon: Tag, slug: 'operations/categories' },
       ],
     },
     {
-      title: 'Finance',
+      title: 'Supply Chain',
       items: [
-        { id: 'operations-finance', label: 'Finance', icon: DollarSign, slug: 'operations/finance' },
-        { id: 'operations-budgets', label: 'Budgets', icon: PieChart, slug: 'operations/budgets' },
+        { id: 'operations-suppliers', label: 'Suppliers', icon: Truck, slug: 'operations/suppliers' },
+        { id: 'operations-warehouses', label: 'Warehouses', icon: Warehouse, slug: 'operations/warehouses' },
       ],
     },
     {
-      title: 'Procurement',
+      title: 'Inventory',
       items: [
-        { id: 'operations-procurement', label: 'Procurement', icon: Building2, slug: 'operations/procurement' },
-        { id: 'operations-vendors', label: 'Vendors', icon: Globe, slug: 'operations/vendors' },
+        { id: 'operations-inventory', label: 'Inventory', icon: Boxes, slug: 'operations/inventory' },
+      ],
+    },
+    {
+      title: 'Orders',
+      items: [
+        { id: 'operations-purchase-orders', label: 'Purchase Orders', icon: ShoppingCart, slug: 'operations/purchase-orders' },
+        { id: 'operations-sales-orders', label: 'Sales Orders', icon: ClipboardCheck, slug: 'operations/sales-orders' },
       ],
     },
     {
@@ -209,7 +221,7 @@ export const PRODUCT_LABELS: Record<ErpProduct, string> = {
 
 export const PRODUCT_DESCRIPTIONS: Record<ErpProduct, string> = {
   hrm: 'Human Resource Management — employees, payroll, attendance, and performance',
-  operations: 'Operations — project management, finance, and procurement',
+  operations: 'Operations — products, inventory, warehousing, procurement, and sales',
   analytics: 'Analytics — reports, insights, and forecasting across all modules',
 };
 
@@ -235,12 +247,13 @@ export const pageTitles: Record<string, string> = {
 
   // Operations
   'operations/dashboard': 'Dashboard',
-  'operations/projects': 'Projects',
-  'operations/tasks': 'Tasks',
-  'operations/finance': 'Finance',
-  'operations/budgets': 'Budgets',
-  'operations/procurement': 'Procurement',
-  'operations/vendors': 'Vendors',
+  'operations/products': 'Products',
+  'operations/categories': 'Categories',
+  'operations/suppliers': 'Suppliers',
+  'operations/warehouses': 'Warehouses',
+  'operations/inventory': 'Inventory',
+  'operations/purchase-orders': 'Purchase Orders',
+  'operations/sales-orders': 'Sales Orders',
   'operations/reports': 'Reports',
 
   // Analytics
