@@ -32,6 +32,8 @@ function normalizeKeyCombo(event: KeyboardEvent): string {
   }
 
   // Get the actual key, normalized to lowercase
+  // event.key can be undefined in rare cases (IME composition, dead keys)
+  if (!event.key) return '';
   let key = event.key.toLowerCase();
 
   // Normalize special keys
@@ -122,6 +124,7 @@ export function useKeyboardShortcuts(): UseKeyboardShortcutsReturn {
       // Skip when typing in input elements (unless the shortcut is specifically
       // for command-palette or global-search, which should work even in inputs)
       const combo = normalizeKeyCombo(event);
+      if (!combo) return; // Ignore events with no identifiable key
 
       // Always skip input elements except for command-palette and global-search
       if (isInputElement(event)) {

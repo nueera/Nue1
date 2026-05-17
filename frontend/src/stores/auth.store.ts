@@ -3,6 +3,9 @@
 // ============================================================================
 // Connects to FastAPI backend /api/v1/auth endpoints
 // Stores JWT token in localStorage for persistence across page reloads
+//
+// Dev mode: When NEXT_PUBLIC_AUTH_DISABLED=true, login bypasses the backend
+// and uses a mock user. This allows frontend-only development.
 // ============================================================================
 
 import { create } from 'zustand';
@@ -40,6 +43,22 @@ interface AuthState {
   initialize: () => Promise<void>;
 }
 
+// ── Dev Mode Mock User ─────────────────────────────────────────────────────
+
+const IS_AUTH_DISABLED = process.env.NEXT_PUBLIC_AUTH_DISABLED === 'true';
+
+const DEV_USER: User = {
+  id: 1,
+  email: 'admin@nueone.io',
+  full_name: 'Admin User',
+  is_active: true,
+  role: 'admin',
+  created_at: new Date().toISOString(),
+  updated_at: new Date().toISOString(),
+  name: 'Admin User',
+  avatar: 'AU',
+};
+
 // ── Store ──────────────────────────────────────────────────────────────────
 
 export const useAuthStore = create<AuthState>()(
@@ -54,6 +73,19 @@ export const useAuthStore = create<AuthState>()(
       login: async (email: string, password: string) => {
         set({ isLoading: true, error: null });
         try {
+          // Dev mode bypass: skip backend, use mock user
+          if (IS_AUTH_DISABLED) {
+            const mockUser = { ...DEV_USER, email };
+            const mockToken = 'dev-mode-token';
+            tokenStorage.setAccessToken(mockToken);
+            set({
+              user: mockUser,
+              accessToken: mockToken,
+              isAuthenticated: true,
+            });
+            return;
+          }
+
           // Call FastAPI backend login endpoint
           const response = await apiClient.post<{ access_token: string }>(
             API_ENDPOINTS.AUTH.LOGIN,
@@ -83,6 +115,19 @@ export const useAuthStore = create<AuthState>()(
       register: async (email: string, password: string, full_name: string) => {
         set({ isLoading: true, error: null });
         try {
+          // Dev mode bypass
+          if (IS_AUTH_DISABLED) {
+            const mockUser = { ...DEV_USER, email, full_name, name: full_name, avatar: 'AU' };
+            const mockToken = 'dev-mode-token';
+            tokenStorage.setAccessToken(mockToken);
+            set({
+              user: mockUser,
+              accessToken: mockToken,
+              isAuthenticated: true,
+            });
+            return;
+          }
+
           // Call FastAPI backend register endpoint
           const user = await apiClient.post<User>(
             API_ENDPOINTS.AUTH.REGISTER,
@@ -117,6 +162,12 @@ export const useAuthStore = create<AuthState>()(
       },
 
       fetchProfile: async () => {
+        // Dev mode: skip backend fetch, use mock user
+        if (IS_AUTH_DISABLED) {
+          set({ user: DEV_USER, isAuthenticated: true });
+          return;
+        }
+
         try {
           const profile = await apiClient.get<Record<string, unknown>>(API_ENDPOINTS.AUTH.ME);
           // Map backend fields to include computed helpers for UI
@@ -148,6 +199,17 @@ export const useAuthStore = create<AuthState>()(
       clearError: () => set({ error: null }),
 
       initialize: async () => {
+        // Dev mode: auto-authenticate with mock user
+        if (IS_AUTH_DISABLED) {
+          const token = tokenStorage.getAccessToken();
+          if (token) {
+            set({ user: DEV_USER, accessToken: token, isAuthenticated: true });
+          } else {
+            set({ user: null, accessToken: null, isAuthenticated: false });
+          }
+          return;
+        }
+
         // Check if we have a stored token
         const token = tokenStorage.getAccessToken();
         if (token) {
